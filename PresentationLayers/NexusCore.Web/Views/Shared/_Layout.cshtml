@@ -1,0 +1,15 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    @RenderSection("metaData", required: false)
+
+    @RenderSection("topHeader", required: false)
+
+    @RenderSection("bottomHeader", required: false)
+</head>
+<body>
+    @RenderSection("topBodyScript", required: false)
+    @RenderBody()
+    @RenderSection("bottomBodyScript", required: false)
+</body>
+</html>

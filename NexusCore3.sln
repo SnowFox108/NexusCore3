@@ -1,0 +1,192 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessLogicLayers", "BusinessLogicLayers", "{6D1DB10C-0DD6-48FE-98BD-BA92C4700AFF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrossCuttingLayers", "CrossCuttingLayers", "{11154F20-359E-4B0A-A525-CFA108EBC7B6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccessLayers", "DataAccessLayers", "{94F40D55-17FB-4865-8F38-C6F53E4215C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PresentationLayers", "PresentationLayers", "{4E2C2603-9B93-492B-9316-B59113BB89BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebServiceLayers", "WebServiceLayers", "{26893963-B98A-4315-87AD-14F2C060423C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTestFoundation", "UnitTestFoundation", "{3E8C9AB5-7DF9-4FA6-83A8-72B3A881F747}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexusCore.Infrasructure", "CrossCuttingLayers\NexusCore.Infrasructure\NexusCore.Infrasructure.csproj", "{B01D8078-4A95-44D9-B5B3-9E8152BC6B75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexusCore.Common", "CrossCuttingLayers\NexusCore.Common\NexusCore.Common.csproj", "{5495689E-A597-44FC-B661-B989EC36A970}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Documentation", "_Documentation", "{0FE3891E-BCE8-4FE4-847C-49D151E677F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexusCore.Document", "Documentations\NexusCore.Document\NexusCore.Document.csproj", "{648A0296-842F-4276-83F5-F493618B9C08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexusCore.Data", "DataAccessLayers\NexusCore.Data\NexusCore.Data.csproj", "{54057964-614B-4710-B816-18CBA2839E51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexusCore.Core", "BusinessLogicLayers\NexusCore.Core\NexusCore.Core.csproj", "{BD080C00-D0C0-43D4-A051-415BB1D12C9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexusCore.MockData", "UnitTestFoundation\NexusCore.MockData\NexusCore.MockData.csproj", "{50617089-5AB8-49A2-ADEA-C4EA2B2A3172}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexusCore.Core.Tests", "BusinessLogicLayers\NexusCore.Core.Tests\NexusCore.Core.Tests.csproj", "{9E2A0D83-4419-4DF5-B5C1-2E6D2EC6889F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexusCore.WebAPI.Tests", "WebServiceLayers\NexusCore.WebAPI.Tests\NexusCore.WebAPI.Tests.csproj", "{2D463288-A672-43B9-A755-29DE0A2D51FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexusCore.UILogic", "PresentationLayers\NexusCore.UILogic\NexusCore.UILogic.csproj", "{8761A067-153A-43ED-9EE4-DD55C3DD2A27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexusCore.Web.Tests", "PresentationLayers\NexusCore.Web.Tests\NexusCore.Web.Tests.csproj", "{029D60DE-EE7F-42CB-B675-B1A035E8B449}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexusCore.UILogic.Tests", "PresentationLayers\NexusCore.UILogic.Tests\NexusCore.UILogic.Tests.csproj", "{17E817CD-B575-4037-BB29-9ABC949F242F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientTest", "PresentationLayers\ClientTest\ClientTest.csproj", "{BCC2E966-0413-46C1-B954-AD69E75B2A15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexusCore.WebAPI", "WebServiceLayers\NexusCore.WebAPI\NexusCore.WebAPI.csproj", "{ADE4AC4E-4DF2-4347-8BC3-0871B3F256E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexusCore.Web", "PresentationLayers\NexusCore.Web\NexusCore.Web.csproj", "{70872EA3-898C-4B6E-A504-5241D460471B}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 15
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://nexuscore.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = BusinessLogicLayers\\NexusCore.Core.Tests\\NexusCore.Core.Tests.csproj
+		SccProjectTopLevelParentUniqueName1 = NexusCore3.sln
+		SccProjectName1 = BusinessLogicLayers/NexusCore.Core.Tests
+		SccLocalPath1 = BusinessLogicLayers\\NexusCore.Core.Tests
+		SccProjectUniqueName2 = BusinessLogicLayers\\NexusCore.Core\\NexusCore.Core.csproj
+		SccProjectTopLevelParentUniqueName2 = NexusCore3.sln
+		SccProjectName2 = BusinessLogicLayers/NexusCore.Core
+		SccLocalPath2 = BusinessLogicLayers\\NexusCore.Core
+		SccProjectUniqueName3 = CrossCuttingLayers\\NexusCore.Common\\NexusCore.Common.csproj
+		SccProjectTopLevelParentUniqueName3 = NexusCore3.sln
+		SccProjectName3 = CrossCuttingLayers/NexusCore.Common
+		SccLocalPath3 = CrossCuttingLayers\\NexusCore.Common
+		SccProjectUniqueName4 = CrossCuttingLayers\\NexusCore.Infrasructure\\NexusCore.Infrasructure.csproj
+		SccProjectTopLevelParentUniqueName4 = NexusCore3.sln
+		SccProjectName4 = CrossCuttingLayers/NexusCore.Infrasructure
+		SccLocalPath4 = CrossCuttingLayers\\NexusCore.Infrasructure
+		SccProjectUniqueName5 = DataAccessLayers\\NexusCore.Data\\NexusCore.Data.csproj
+		SccProjectTopLevelParentUniqueName5 = NexusCore3.sln
+		SccProjectName5 = DataAccessLayers/NexusCore.Data
+		SccLocalPath5 = DataAccessLayers\\NexusCore.Data
+		SccProjectUniqueName6 = Documentations\\NexusCore.Document\\NexusCore.Document.csproj
+		SccProjectTopLevelParentUniqueName6 = NexusCore3.sln
+		SccProjectName6 = Documentations/NexusCore.Document
+		SccLocalPath6 = Documentations\\NexusCore.Document
+		SccProjectUniqueName7 = PresentationLayers\\NexusCore.UILogic.Tests\\NexusCore.UILogic.Tests.csproj
+		SccProjectTopLevelParentUniqueName7 = NexusCore3.sln
+		SccProjectName7 = PresentationLayers/NexusCore.UILogic.Tests
+		SccLocalPath7 = PresentationLayers\\NexusCore.UILogic.Tests
+		SccProjectUniqueName8 = PresentationLayers\\NexusCore.UILogic\\NexusCore.UILogic.csproj
+		SccProjectTopLevelParentUniqueName8 = NexusCore3.sln
+		SccProjectName8 = PresentationLayers/NexusCore.UILogic
+		SccLocalPath8 = PresentationLayers\\NexusCore.UILogic
+		SccProjectUniqueName9 = PresentationLayers\\NexusCore.Web.Tests\\NexusCore.Web.Tests.csproj
+		SccProjectTopLevelParentUniqueName9 = NexusCore3.sln
+		SccProjectName9 = PresentationLayers/NexusCore.Web.Tests
+		SccLocalPath9 = PresentationLayers\\NexusCore.Web.Tests
+		SccProjectUniqueName10 = UnitTestFoundation\\NexusCore.MockData\\NexusCore.MockData.csproj
+		SccProjectTopLevelParentUniqueName10 = NexusCore3.sln
+		SccProjectName10 = UnitTestFoundation/NexusCore.MockData
+		SccLocalPath10 = UnitTestFoundation\\NexusCore.MockData
+		SccProjectUniqueName11 = WebServiceLayers\\NexusCore.WebAPI.Tests\\NexusCore.WebAPI.Tests.csproj
+		SccProjectTopLevelParentUniqueName11 = NexusCore3.sln
+		SccProjectName11 = WebServiceLayers/NexusCore.WebAPI.Tests
+		SccLocalPath11 = WebServiceLayers\\NexusCore.WebAPI.Tests
+		SccProjectUniqueName12 = PresentationLayers\\ClientTest\\ClientTest.csproj
+		SccProjectTopLevelParentUniqueName12 = NexusCore3.sln
+		SccProjectName12 = PresentationLayers/ClientTest
+		SccLocalPath12 = PresentationLayers\\ClientTest
+		SccProjectUniqueName13 = WebServiceLayers\\NexusCore.WebAPI\\NexusCore.WebAPI.csproj
+		SccProjectTopLevelParentUniqueName13 = NexusCore3.sln
+		SccProjectName13 = WebServiceLayers/NexusCore.WebAPI
+		SccLocalPath13 = WebServiceLayers\\NexusCore.WebAPI
+		SccProjectUniqueName14 = PresentationLayers\\NexusCore.Web\\NexusCore.Web.csproj
+		SccProjectTopLevelParentUniqueName14 = NexusCore3.sln
+		SccProjectName14 = PresentationLayers/NexusCore.Web
+		SccLocalPath14 = PresentationLayers\\NexusCore.Web
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B01D8078-4A95-44D9-B5B3-9E8152BC6B75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B01D8078-4A95-44D9-B5B3-9E8152BC6B75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B01D8078-4A95-44D9-B5B3-9E8152BC6B75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B01D8078-4A95-44D9-B5B3-9E8152BC6B75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5495689E-A597-44FC-B661-B989EC36A970}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5495689E-A597-44FC-B661-B989EC36A970}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5495689E-A597-44FC-B661-B989EC36A970}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5495689E-A597-44FC-B661-B989EC36A970}.Release|Any CPU.Build.0 = Release|Any CPU
+		{648A0296-842F-4276-83F5-F493618B9C08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{648A0296-842F-4276-83F5-F493618B9C08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{648A0296-842F-4276-83F5-F493618B9C08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{648A0296-842F-4276-83F5-F493618B9C08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54057964-614B-4710-B816-18CBA2839E51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54057964-614B-4710-B816-18CBA2839E51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54057964-614B-4710-B816-18CBA2839E51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54057964-614B-4710-B816-18CBA2839E51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD080C00-D0C0-43D4-A051-415BB1D12C9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD080C00-D0C0-43D4-A051-415BB1D12C9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD080C00-D0C0-43D4-A051-415BB1D12C9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD080C00-D0C0-43D4-A051-415BB1D12C9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50617089-5AB8-49A2-ADEA-C4EA2B2A3172}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50617089-5AB8-49A2-ADEA-C4EA2B2A3172}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50617089-5AB8-49A2-ADEA-C4EA2B2A3172}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50617089-5AB8-49A2-ADEA-C4EA2B2A3172}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E2A0D83-4419-4DF5-B5C1-2E6D2EC6889F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E2A0D83-4419-4DF5-B5C1-2E6D2EC6889F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E2A0D83-4419-4DF5-B5C1-2E6D2EC6889F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E2A0D83-4419-4DF5-B5C1-2E6D2EC6889F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D463288-A672-43B9-A755-29DE0A2D51FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D463288-A672-43B9-A755-29DE0A2D51FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D463288-A672-43B9-A755-29DE0A2D51FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D463288-A672-43B9-A755-29DE0A2D51FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8761A067-153A-43ED-9EE4-DD55C3DD2A27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8761A067-153A-43ED-9EE4-DD55C3DD2A27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8761A067-153A-43ED-9EE4-DD55C3DD2A27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8761A067-153A-43ED-9EE4-DD55C3DD2A27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{029D60DE-EE7F-42CB-B675-B1A035E8B449}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{029D60DE-EE7F-42CB-B675-B1A035E8B449}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{029D60DE-EE7F-42CB-B675-B1A035E8B449}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{029D60DE-EE7F-42CB-B675-B1A035E8B449}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17E817CD-B575-4037-BB29-9ABC949F242F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17E817CD-B575-4037-BB29-9ABC949F242F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17E817CD-B575-4037-BB29-9ABC949F242F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17E817CD-B575-4037-BB29-9ABC949F242F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCC2E966-0413-46C1-B954-AD69E75B2A15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCC2E966-0413-46C1-B954-AD69E75B2A15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCC2E966-0413-46C1-B954-AD69E75B2A15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCC2E966-0413-46C1-B954-AD69E75B2A15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADE4AC4E-4DF2-4347-8BC3-0871B3F256E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADE4AC4E-4DF2-4347-8BC3-0871B3F256E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADE4AC4E-4DF2-4347-8BC3-0871B3F256E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADE4AC4E-4DF2-4347-8BC3-0871B3F256E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70872EA3-898C-4B6E-A504-5241D460471B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70872EA3-898C-4B6E-A504-5241D460471B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70872EA3-898C-4B6E-A504-5241D460471B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70872EA3-898C-4B6E-A504-5241D460471B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B01D8078-4A95-44D9-B5B3-9E8152BC6B75} = {11154F20-359E-4B0A-A525-CFA108EBC7B6}
+		{5495689E-A597-44FC-B661-B989EC36A970} = {11154F20-359E-4B0A-A525-CFA108EBC7B6}
+		{648A0296-842F-4276-83F5-F493618B9C08} = {0FE3891E-BCE8-4FE4-847C-49D151E677F7}
+		{54057964-614B-4710-B816-18CBA2839E51} = {94F40D55-17FB-4865-8F38-C6F53E4215C2}
+		{BD080C00-D0C0-43D4-A051-415BB1D12C9F} = {6D1DB10C-0DD6-48FE-98BD-BA92C4700AFF}
+		{50617089-5AB8-49A2-ADEA-C4EA2B2A3172} = {3E8C9AB5-7DF9-4FA6-83A8-72B3A881F747}
+		{9E2A0D83-4419-4DF5-B5C1-2E6D2EC6889F} = {6D1DB10C-0DD6-48FE-98BD-BA92C4700AFF}
+		{2D463288-A672-43B9-A755-29DE0A2D51FD} = {26893963-B98A-4315-87AD-14F2C060423C}
+		{8761A067-153A-43ED-9EE4-DD55C3DD2A27} = {4E2C2603-9B93-492B-9316-B59113BB89BA}
+		{029D60DE-EE7F-42CB-B675-B1A035E8B449} = {4E2C2603-9B93-492B-9316-B59113BB89BA}
+		{17E817CD-B575-4037-BB29-9ABC949F242F} = {4E2C2603-9B93-492B-9316-B59113BB89BA}
+		{BCC2E966-0413-46C1-B954-AD69E75B2A15} = {4E2C2603-9B93-492B-9316-B59113BB89BA}
+		{ADE4AC4E-4DF2-4347-8BC3-0871B3F256E8} = {26893963-B98A-4315-87AD-14F2C060423C}
+		{70872EA3-898C-4B6E-A504-5241D460471B} = {4E2C2603-9B93-492B-9316-B59113BB89BA}
+	EndGlobalSection
+EndGlobal
