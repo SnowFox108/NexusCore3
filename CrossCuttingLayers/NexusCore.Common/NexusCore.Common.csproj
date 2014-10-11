@@ -9,12 +9,13 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NexusCore.Common</RootNamespace>
     <AssemblyName>NexusCore.Common</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -63,27 +64,38 @@
     <Compile Include="Adapter\IoC\AutofacContainer.cs" />
     <Compile Include="Adapter\IoC\AutofacFactory.cs" />
     <Compile Include="Adapter\IoC\AutofacRegister.cs" />
+    <Compile Include="Adapter\IoC\AutofacRegisterAdmin.cs" />
     <Compile Include="Adapter\IoC\AutofacRegisterWeb.cs" />
     <Compile Include="Adapter\IoC\AutofacRegisterWebApi.cs" />
     <Compile Include="Adapter\Mapping\AutoMapperAdapter.cs" />
     <Compile Include="Adapter\Mapping\AutoMapperAdapterFacotry.cs" />
+    <Compile Include="Adapter\Messager\EmailSender.cs" />
+    <Compile Include="Adapter\Messager\SmsSender.cs" />
     <Compile Include="Data\Entities\Membership\Role.cs" />
     <Compile Include="Data\Entities\Membership\User.cs" />
     <Compile Include="Data\Entities\Membership\UserExternalLogin.cs" />
+    <Compile Include="Data\Entities\SourceTree\SourceTree.cs" />
+    <Compile Include="Data\Infrastructure\Extensions\SourceTreeExtensions.cs" />
     <Compile Include="Data\Infrastructure\Extensions\StoredProcedureExtensions.cs" />
     <Compile Include="Data\Infrastructure\Extensions\EntityExtensions.cs" />
     <Compile Include="Data\Infrastructure\IContentContext.cs" />
     <Compile Include="Data\Infrastructure\IRepository.cs" />
     <Compile Include="Data\Infrastructure\IUnitOfWork.cs" />
-    <Compile Include="Data\Specification\AndSpecification.cs" />
-    <Compile Include="Data\Specification\CompositeSpecification.cs" />
-    <Compile Include="Data\Specification\DirectSpecification.cs" />
-    <Compile Include="Data\Specification\ExpressionBuilder.cs" />
-    <Compile Include="Data\Specification\NotSpecification.cs" />
-    <Compile Include="Data\Specification\OrSpecification.cs" />
-    <Compile Include="Data\Specification\ParametersRebinder.cs" />
-    <Compile Include="Data\Specification\Specification.cs" />
-    <Compile Include="Data\Specification\TrueSpecification.cs" />
+    <Compile Include="Data\Models\Page\Enums.cs" />
+    <Compile Include="Data\Models\SourceTree\Enums.cs" />
+    <Compile Include="Data\Models\SourceTree\SourceTreeItemTypeModel.cs" />
+    <Compile Include="Data\Models\SourceTree\SourceTreeModel.cs" />
+    <Compile Include="Data\Infrastructure\Specification\AndSpecification.cs" />
+    <Compile Include="Data\Infrastructure\Specification\CompositeSpecification.cs" />
+    <Compile Include="Data\Infrastructure\Specification\DirectSpecification.cs" />
+    <Compile Include="Data\Infrastructure\Specification\ExpressionBuilder.cs" />
+    <Compile Include="Data\Infrastructure\Specification\NotSpecification.cs" />
+    <Compile Include="Data\Infrastructure\Specification\OrSpecification.cs" />
+    <Compile Include="Data\Infrastructure\Specification\ParametersRebinder.cs" />
+    <Compile Include="Data\Infrastructure\Specification\Specification.cs" />
+    <Compile Include="Data\Infrastructure\Specification\TrueSpecification.cs" />
+    <Compile Include="Data\Specifications\SourceTreeSpecifications.cs" />
+    <Compile Include="Data\Values\SourceTree\SourceTreeItemTypeValues.cs" />
     <Compile Include="Helper\DateFormater.cs" />
     <Compile Include="Helper\Extensions\DateExtensions.cs" />
     <Compile Include="Helper\Extensions\EntityExtensions.cs" />
@@ -91,18 +103,22 @@
     <Compile Include="Infrastructure\EngineContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\ActivationToken.cs" />
+    <Compile Include="Security\PasswordValidtor.cs" />
     <Compile Include="Security\SimpleAuthenticationManager.cs" />
+    <Compile Include="RenderEngine\Infrastructure\DropZoneType.cs" />
+    <Compile Include="Services\Component\Messager\IMessageService.cs" />
+    <Compile Include="Services\IAggregateServices.cs" />
+    <Compile Include="Services\IComponentServices.cs" />
+    <Compile Include="Services\IPrimitiveServices.cs" />
+    <Compile Include="Services\Primitive\ISourceTreePrimitive.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\DTO\" />
     <Folder Include="Data\Entities\Security\" />
     <Folder Include="Data\MappingProfiles\" />
-    <Folder Include="Data\Models\" />
     <Folder Include="Data\StoredProcedures\DataReaders\" />
     <Folder Include="Data\StoredProcedures\Definitaions\" />
-    <Folder Include="Services\Component\" />
     <Folder Include="Services\Composite\" />
-    <Folder Include="Services\Primitive\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NexusCore.Infrasructure\NexusCore.Infrasructure.csproj">

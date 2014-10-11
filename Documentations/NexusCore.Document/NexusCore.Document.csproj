@@ -51,6 +51,7 @@
     <None Include="Concept\Nc3TechConceptDiagram.pptx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Concept\Architecture Graph For NexusCore3 separate Admin.png" />
     <Content Include="Concept\Architecture Graph For NexusCore3 updated.png" />
     <Content Include="Concept\Architecture Graph For NexusCore3 original.png" />
   </ItemGroup>

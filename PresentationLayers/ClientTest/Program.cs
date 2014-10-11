@@ -11,7 +11,8 @@ namespace ClientTest
     {
         static void Main(string[] args)
         {
-
+            var itemTypeModel = new GetItemTypeModel();
+            Console.ReadKey();
         }
     }
 }

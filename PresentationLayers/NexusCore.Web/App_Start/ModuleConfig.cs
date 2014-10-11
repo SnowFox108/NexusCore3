@@ -1,12 +1,9 @@
 ﻿using System.Web.Mvc;
-using Autofac;
 using Autofac.Integration.Mvc;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using NexusCore.Common.Adapter.IoC;
-using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Infrastructure;
-using NexusCore.Data.Infrastructure;
-using NexusCore.UILogic.Routing;
+using NexusCore.Web.UILogic.Routing;
 using WebActivatorEx;
 
 [assembly: PreApplicationStartMethod(typeof(NexusCore.Web.ModuleConfig), "Start")]
@@ -31,13 +28,8 @@ namespace NexusCore.Web
         {
             // Dependancy Injection initialize
             EngineContext.Instance.DiContainerInitialize(new AutofacFactory(
-                builder =>
-                {
-                    builder.RegisterControllers(typeof(MvcApplication).Assembly);
-                    builder.RegisterType<ContentContext>().As<IContentContext>().InstancePerLifetimeScope();
-                    builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
-                },
-                new AutofacRegisterWebApi(),
+                builder => builder.RegisterControllers(typeof(MvcApplication).Assembly),
+                new AutofacRegisterWeb(),
                 container => DependencyResolver.SetResolver(new AutofacDependencyResolver(container))));
             
         }

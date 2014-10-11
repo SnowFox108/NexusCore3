@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NexusCore.Web.Tests</RootNamespace>
     <AssemblyName>NexusCore.Web.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -20,6 +20,7 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -65,10 +66,6 @@
     <ProjectReference Include="..\..\CrossCuttingLayers\NexusCore.Infrasructure\NexusCore.Infrasructure.csproj">
       <Project>{b01d8078-4a95-44d9-b5b3-9e8152bc6b75}</Project>
       <Name>NexusCore.Infrasructure</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NexusCore.UILogic\NexusCore.UILogic.csproj">
-      <Project>{8761a067-153a-43ed-9ee4-dd55c3dd2a27}</Project>
-      <Name>NexusCore.UILogic</Name>
     </ProjectReference>
     <ProjectReference Include="..\NexusCore.Web\NexusCore.Web.csproj">
       <Project>{70872ea3-898c-4b6e-a504-5241d460471b}</Project>

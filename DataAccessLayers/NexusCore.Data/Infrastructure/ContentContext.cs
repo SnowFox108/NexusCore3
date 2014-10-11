@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection;
 using NexusCore.Common.Data.Entities.Membership;
+using NexusCore.Common.Data.Entities.SourceTree;
 using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Infrasructure.Data;
 
@@ -21,6 +22,9 @@ namespace NexusCore.Data.Infrastructure
         public IDbSet<User> Users { get; set; }
         public IDbSet<UserExternalLogin> UserExternalLogins { get; set; }
         //public IDbSet<UserInRole> UsersInRoles { get; set; }
+
+        // Source tree
+        public IDbSet<SourceTree> SourceTrees { get; set; }
 
         #endregion
 
@@ -48,17 +52,17 @@ namespace NexusCore.Data.Infrastructure
 
         }
 
-        public IDbSet<TEntity> CreateSet<TEntity>() where TEntity : Entity
+        public virtual IDbSet<TEntity> CreateSet<TEntity>() where TEntity : Entity
         {
             return base.Set<TEntity>();
         }
 
-        public void Attach<TEntity>(TEntity entity) where TEntity : Entity
+        public virtual void Attach<TEntity>(TEntity entity) where TEntity : Entity
         {
             base.Entry(entity).State = EntityState.Unchanged;
         }
 
-        public void SetModified<TEntity>(TEntity entity) where TEntity : Entity
+        public virtual void SetModified<TEntity>(TEntity entity) where TEntity : Entity
         {
             var entry = base.Entry(entity);
 
@@ -75,19 +79,19 @@ namespace NexusCore.Data.Infrastructure
             base.Entry(entity).State = EntityState.Modified;
         }
 
-        public void ApplyCurrentValues<TEntity>(TEntity original, TEntity current) where TEntity : Entity
+        public virtual void ApplyCurrentValues<TEntity>(TEntity original, TEntity current) where TEntity : Entity
         {
             base.Entry(original).CurrentValues.SetValues(current);
         }
 
-        public TTarget ExecStoredProcedure<TTarget>(IStoredProcedure model) where TTarget : StoredProcedureParsable
+        public virtual TTarget ExecStoredProcedure<TTarget>(IStoredProcedure model) where TTarget : StoredProcedureParsable
         {
             var resultPaser = Activator.CreateInstance<TTarget>();
             return (TTarget)ExecStoredProcedureWithOption(model, resultPaser);
 
         }
 
-        public void ExecStoredProcedure(IStoredProcedure model)
+        public virtual void ExecStoredProcedure(IStoredProcedure model)
         {
             ExecStoredProcedureWithOption(model);
         }

@@ -1,15 +1,24 @@
-﻿<!DOCTYPE html>
+﻿@using NexusCore.Common.Data.Models.Page
+<!DOCTYPE html>
 <html>
-<head>
-    @RenderSection("metaData", required: false)
+    <head>
+        @*@Html.Action("MetaData")*@
+        
+        @RenderSection("metaData", required: false)
 
-    @RenderSection("topHeader", required: false)
+        @RenderSection("topHeader", required: false)
+    
+        @*@Html.Action("PageLibrary", PageLibraryPosition.Header)*@
 
-    @RenderSection("bottomHeader", required: false)
-</head>
-<body>
-    @RenderSection("topBodyScript", required: false)
-    @RenderBody()
-    @RenderSection("bottomBodyScript", required: false)
-</body>
+        @RenderSection("bottomHeader", required: false)
+    </head>
+    <body>
+        @*@Html.Action("PageLibrary", PageLibraryPosition.TopBody)*@
+        @RenderSection("topBodyScript", required: false)
+        @RenderBody()
+        @*@Html.Action("PageLibrary", PageLibraryPosition.BottomBody)*@
+        @RenderSection("bottomBodyScript", required: false)
+        
+        @*@Html.Action("EditorMenu")*@
+    </body>
 </html>

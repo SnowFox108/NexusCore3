@@ -9,12 +9,13 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NexusCore.MockData</RootNamespace>
     <AssemblyName>NexusCore.MockData</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -67,6 +68,10 @@
     <ProjectReference Include="..\..\CrossCuttingLayers\NexusCore.Infrasructure\NexusCore.Infrasructure.csproj">
       <Project>{b01d8078-4a95-44d9-b5b3-9e8152bc6b75}</Project>
       <Name>NexusCore.Infrasructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DataAccessLayers\NexusCore.Data\NexusCore.Data.csproj">
+      <Project>{54057964-614b-4710-b816-18cba2839e51}</Project>
+      <Name>NexusCore.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

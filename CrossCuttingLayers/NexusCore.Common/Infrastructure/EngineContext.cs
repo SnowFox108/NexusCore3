@@ -20,7 +20,7 @@ namespace NexusCore.Common.Infrastructure
             get
             {
                 if (_diContainer == null)
-                    throw new Exception("AutofacFactory has not been intiialized, have you called DiContainerInitialize()");
+                    throw new Exception("AutofacFactory has not been intiialized, have you called DiContainerInitialize()?");
                 return _diContainer;
             }
         }

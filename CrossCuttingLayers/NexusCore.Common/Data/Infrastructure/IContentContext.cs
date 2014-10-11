@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 using NexusCore.Common.Data.Entities.Membership;
+using NexusCore.Common.Data.Entities.SourceTree;
 using NexusCore.Infrasructure.Data;
 
 namespace NexusCore.Common.Data.Infrastructure
@@ -14,6 +15,9 @@ namespace NexusCore.Common.Data.Infrastructure
         IDbSet<User> Users { get; set; }
         IDbSet<UserExternalLogin> UserExternalLogins { get; set; }
         //IDbSet<UserInRole> UsersInRoles { get; set; }
+
+        // Source tree
+        IDbSet<SourceTree> SourceTrees { get; set; }
 
         #endregion
 
