@@ -54,6 +54,7 @@
     <Content Include="Concept\Architecture Graph For NexusCore3 separate Admin.png" />
     <Content Include="Concept\Architecture Graph For NexusCore3 updated.png" />
     <Content Include="Concept\Architecture Graph For NexusCore3 original.png" />
+    <Content Include="Concept\NexusCore_1_9_Old.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

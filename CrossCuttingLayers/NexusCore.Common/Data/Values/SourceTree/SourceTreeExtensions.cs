@@ -1,8 +1,7 @@
 ﻿using System.Linq;
 using NexusCore.Common.Data.Models.SourceTree;
-using NexusCore.Common.Data.Values.SourceTree;
 
-namespace NexusCore.Common.Data.Infrastructure.Extensions
+namespace NexusCore.Common.Data.Values.SourceTree
 {
     public static class SourceTreeExtensions
     {

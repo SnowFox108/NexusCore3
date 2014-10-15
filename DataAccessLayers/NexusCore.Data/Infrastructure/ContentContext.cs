@@ -5,8 +5,11 @@ using System.Data.Entity.ModelConfiguration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection;
+using NexusCore.Common.Data.Entities.Clients;
 using NexusCore.Common.Data.Entities.Membership;
 using NexusCore.Common.Data.Entities.SourceTree;
+using NexusCore.Common.Data.Entities.WebPage;
+using NexusCore.Common.Data.Entities.Website;
 using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Infrasructure.Data;
 
@@ -17,6 +20,10 @@ namespace NexusCore.Data.Infrastructure
 
         #region tables
 
+        // Clients
+        public IDbSet<Client> Clients { get; set; }
+        public IDbSet<ClientDepartment> ClientDepartments { get; set; }
+
         // Membership
         public IDbSet<Role> Roles { get; set; }
         public IDbSet<User> Users { get; set; }
@@ -25,6 +32,17 @@ namespace NexusCore.Data.Infrastructure
 
         // Source tree
         public IDbSet<SourceTree> SourceTrees { get; set; }
+
+        // WebPage
+        public IDbSet<MenuItem> MenuItems { get; set; }
+        public IDbSet<PageControl> PageControls { get; set; }
+        public IDbSet<PageLink> PageLinks { get; set; }
+        public IDbSet<PageSeo> PageSeos { get; set; }
+        public IDbSet<WebPage> WebPages { get; set; }
+
+        // Website
+        public IDbSet<Domain> Domains { get; set; }
+        public IDbSet<WebSite> WebSites { get; set; }
 
         #endregion
 

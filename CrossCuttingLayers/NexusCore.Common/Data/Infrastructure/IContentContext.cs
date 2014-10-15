@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Data.Entity;
+using NexusCore.Common.Data.Entities.Clients;
 using NexusCore.Common.Data.Entities.Membership;
 using NexusCore.Common.Data.Entities.SourceTree;
+using NexusCore.Common.Data.Entities.WebPage;
+using NexusCore.Common.Data.Entities.Website;
 using NexusCore.Infrasructure.Data;
 
 namespace NexusCore.Common.Data.Infrastructure
@@ -9,6 +12,10 @@ namespace NexusCore.Common.Data.Infrastructure
     public interface IContentContext : IDisposable
     {
         #region tables
+
+        // Clients
+        IDbSet<Client> Clients { get; set; }
+        IDbSet<ClientDepartment> ClientDepartments { get; set; }
 
         // Membership
         IDbSet<Role> Roles { get; set; }
@@ -18,6 +25,17 @@ namespace NexusCore.Common.Data.Infrastructure
 
         // Source tree
         IDbSet<SourceTree> SourceTrees { get; set; }
+
+        // WebPage
+        IDbSet<MenuItem> MenuItems { get; set; }
+        IDbSet<PageControl> PageControls { get; set; }
+        IDbSet<PageLink> PageLinks { get; set; }
+        IDbSet<PageSeo> PageSeos { get; set; }
+        IDbSet<WebPage> WebPages { get; set; }
+
+        // Website
+        IDbSet<Domain> Domains { get; set; }
+        IDbSet<WebSite> WebSites { get; set; }
 
         #endregion
 
