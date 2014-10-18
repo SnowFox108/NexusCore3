@@ -1,11 +1,13 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using NexusCore.Infrasructure.Data;
 
 namespace NexusCore.Common.Data.Entities.Clients
 {
-    public class ClientDepartment : Entity, ITrackable
+    public class ClientDepartment : TrackableEntity
     {
         public Guid ClientId { get; set; }
+        [StringLength(500)]
         public string Name { get; set; }
         public string Description { get; set; }
         public string ContactTitle { get; set; }
@@ -20,11 +22,6 @@ namespace NexusCore.Common.Data.Entities.Clients
         public string County { get; set; }
         public string Country { get; set; }
         public string PostCode { get; set; }
-
-        public DateTime CreatedDate { get; set; }
-        public Guid CreatedBy { get; set; }
-        public DateTime UpdatedDate { get; set; }
-        public Guid UpdatedBy { get; set; }
 
         public virtual Client Client { get; set; }
     }

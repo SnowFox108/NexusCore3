@@ -1,4 +1,4 @@
-﻿using NexusCore.Common.Services.Composite.Messager;
+﻿using NexusCore.Common.Services.Messager;
 using NexusCore.Infrasructure.Adapter.Messager;
 
 namespace NexusCore.Core.Utilities.Messager

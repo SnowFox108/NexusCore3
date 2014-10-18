@@ -76,6 +76,7 @@
     <Compile Include="Data\Entities\Membership\Role.cs" />
     <Compile Include="Data\Entities\Membership\User.cs" />
     <Compile Include="Data\Entities\Membership\UserExternalLogin.cs" />
+    <Compile Include="Data\Entities\Security\SourceTreePermission.cs" />
     <Compile Include="Data\Entities\WebPage\MenuItem.cs" />
     <Compile Include="Data\Entities\WebPage\PageLink.cs" />
     <Compile Include="Data\Entities\WebPage\PageSeo.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Data\Entities\SourceTree\SourceTree.cs" />
     <Compile Include="Data\Entities\Website\Domain.cs" />
     <Compile Include="Data\Entities\Website\WebSite.cs" />
+    <Compile Include="Data\Models\Installation\InstallationAdministratorModel.cs" />
     <Compile Include="Data\Values\Page\PageExtensions.cs" />
     <Compile Include="Data\Values\SourceTree\SourceTreeExtensions.cs" />
     <Compile Include="Data\Infrastructure\Extensions\StoredProcedureExtensions.cs" />
@@ -118,19 +120,18 @@
     <Compile Include="Security\PasswordValidtor.cs" />
     <Compile Include="Security\SimpleAuthenticationManager.cs" />
     <Compile Include="RenderEngine\Infrastructure\DropZoneType.cs" />
-    <Compile Include="Services\Component\Messager\IMessageService.cs" />
+    <Compile Include="Services\Installation\IInstallationService.cs" />
+    <Compile Include="Services\Messager\IMessageService.cs" />
     <Compile Include="Services\IAggregateServices.cs" />
     <Compile Include="Services\IComponentServices.cs" />
     <Compile Include="Services\IPrimitiveServices.cs" />
-    <Compile Include="Services\Primitive\ISourceTreePrimitive.cs" />
+    <Compile Include="Services\SourceTree\ISourceTreePrimitive.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\DTO\" />
-    <Folder Include="Data\Entities\Security\" />
     <Folder Include="Data\MappingProfiles\" />
     <Folder Include="Data\StoredProcedures\DataReaders\" />
     <Folder Include="Data\StoredProcedures\Definitaions\" />
-    <Folder Include="Services\Composite\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NexusCore.Infrasructure\NexusCore.Infrasructure.csproj">

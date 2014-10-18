@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NexusCore.Common.Services.Installation;
 
 namespace NexusCore.Common.Services
 {
     public interface IComponentServices
     {
+        IAggregateServices AggregateServices { get; }
+
+        IInstallationService InstallationService { get; }
     }
 }

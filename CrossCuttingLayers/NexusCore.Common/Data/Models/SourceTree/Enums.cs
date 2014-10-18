@@ -18,4 +18,10 @@ namespace NexusCore.Common.Data.Models.SourceTree
         Category = 65,
         None = 100
     }
+
+    public enum SourceTreePermissionType
+    {
+        ByRole = 1,
+        ByUser = 2
+    }
 }

@@ -60,6 +60,7 @@
     <Compile Include="Data\ITrackable.cs" />
     <Compile Include="Data\StoredProcedureParameter.cs" />
     <Compile Include="Data\StoredProcedureParsable.cs" />
+    <Compile Include="Data\TrackableEntity.cs" />
     <Compile Include="FileIO\IDiskAccessProvider.cs" />
     <Compile Include="Attributes\InjectAttribute.cs" />
     <Compile Include="Infrastructure\IEngine.cs" />

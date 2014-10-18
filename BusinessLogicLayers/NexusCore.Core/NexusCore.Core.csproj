@@ -45,6 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AggregateServices.cs" />
+    <Compile Include="Services\ComponentServices.cs" />
+    <Compile Include="Services\InstallationComponent\InstallationService.cs" />
     <Compile Include="Services\PrimitiveServices.cs" />
     <Compile Include="Services\SourceTreeComponent\Primitive\SourceTreePrimitive.cs" />
     <Compile Include="Utilities\Messager\MessageService.cs" />
@@ -64,6 +67,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Services\MembershipComponent\Primitive\" />
     <Folder Include="Services\SourceTreeComponent\Aggregate\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

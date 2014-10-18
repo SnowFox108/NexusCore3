@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using NexusCore.Common.Data.Entities.Clients;
 using NexusCore.Common.Data.Entities.Membership;
+using NexusCore.Common.Data.Entities.Security;
 using NexusCore.Common.Data.Entities.SourceTree;
 using NexusCore.Common.Data.Entities.WebPage;
 using NexusCore.Common.Data.Entities.Website;
@@ -22,6 +23,9 @@ namespace NexusCore.Common.Data.Infrastructure
         IDbSet<User> Users { get; set; }
         IDbSet<UserExternalLogin> UserExternalLogins { get; set; }
         //IDbSet<UserInRole> UsersInRoles { get; set; }
+
+        // Security
+        IDbSet<SourceTreePermission> SourceTreePermissions { get; set; }
 
         // Source tree
         IDbSet<SourceTree> SourceTrees { get; set; }

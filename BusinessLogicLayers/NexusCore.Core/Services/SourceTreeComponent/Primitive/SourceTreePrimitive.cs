@@ -4,7 +4,7 @@ using NexusCore.Common.Data.Entities.SourceTree;
 using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Data.Models.SourceTree;
 using NexusCore.Common.Data.Specifications;
-using NexusCore.Common.Services.Primitive;
+using NexusCore.Common.Services.SourceTree;
 
 namespace NexusCore.Core.Services.SourceTreeComponent.Primitive
 {

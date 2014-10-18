@@ -10,7 +10,9 @@ namespace NexusCore.Common.Data.Entities.WebPage
         public Guid MenuId { get; set; }
         [StringLength(300)]
         public string Title { get; set; }
-        public WebPageType WebPageType { get; set; }
+        [StringLength(500)]
+        public string FriendlyUrl { get; set; }
+        public WebPageType PageType { get; set; }
         public Guid ItemId { get; set; }
 
         public bool IsOnMenu { get; set; }

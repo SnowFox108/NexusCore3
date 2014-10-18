@@ -7,7 +7,6 @@ using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Helper;
 using NexusCore.Infrasructure.Data;
 using NexusCore.Infrasructure.Security;
-using NexusCore.Infrasructure.Security.Models;
 
 namespace NexusCore.Data.Infrastructure
 {
@@ -29,7 +28,7 @@ namespace NexusCore.Data.Infrastructure
 
         public Repository(IContentContext contentContext, ICurrentUserProvider userProvider)
         {
-            if (contentContext == (IContentContext)null)
+            if (contentContext == null)
                 throw new ArgumentNullException("missing dbContent");
 
             _contentContext = contentContext;
@@ -40,7 +39,7 @@ namespace NexusCore.Data.Infrastructure
         {
             foreach (var item in items)
             {
-                if (item != (TEntity) null)
+                if (item != null)
                 {
                     // generate new Id
                     item.GenerateNewIdentity();
@@ -58,7 +57,7 @@ namespace NexusCore.Data.Infrastructure
                 }
                 else
                 {
-                    // create null error log later
+                    //TODO create null error log later
                 }
             }
         }
@@ -70,20 +69,20 @@ namespace NexusCore.Data.Infrastructure
 
         public void Delete(TEntity item)
         {
-            if (item != (TEntity)null)
+            if (item != null)
             {
                 _contentContext.Attach(item);
                 GetDbSet().Remove(item);
             }
             else
             {
-                // create null error log
+                //TODO create null error log
             }
         }
 
         public void Update(TEntity item)
         {
-            if (item != (TEntity) null)
+            if (item != null)
             {
                 _contentContext.SetModified(item);
 
@@ -99,17 +98,17 @@ namespace NexusCore.Data.Infrastructure
             }
             else
             {
-                // create null error log
+                //TODO create null error log
             }
         }
 
         public void TrackItem(TEntity item)
         {
-            if (item != (TEntity)null)
-                _contentContext.Attach<TEntity>(item);
+            if (item != null)
+                _contentContext.Attach(item);
             else
             {
-                // create null error log
+                //TODO create null error log
             }
         }
 
@@ -122,8 +121,7 @@ namespace NexusCore.Data.Infrastructure
         {
             if (id != null)
                 return GetDbSet().Find(id);
-            else
-                return null;            
+            return null;
         }
 
         /// <summary>
@@ -151,11 +149,11 @@ namespace NexusCore.Data.Infrastructure
                     query = query.Skip((pageNumber - 1)*pageSize).Take(pageSize);
             }
 
-            query = includeProperties.Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries)
+            query = includeProperties.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries)
                 .Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
            
 #if DEBUG
-            Debug.WriteLine("Query Linq: " + query.ToString());
+            Debug.WriteLine("Query Linq: " + query);
 #endif
             return query;
         }
@@ -185,11 +183,11 @@ namespace NexusCore.Data.Infrastructure
                     query = query.Skip((pageNumber - 1) * pageSize).Take(pageSize);
             }
 
-            query = includeProperties.Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries)
+            query = includeProperties.Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries)
                 .Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
 
 #if DEBUG
-            Debug.WriteLine("Specification: " + query.ToString());
+            Debug.WriteLine("Specification: " + query);
 #endif
             return query;
         }
