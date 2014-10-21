@@ -51,9 +51,10 @@
     <None Include="Concept\Nc3TechConceptDiagram.pptx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Concept\Architecture Graph For NexusCore3 separate Admin.png" />
-    <Content Include="Concept\Architecture Graph For NexusCore3 updated.png" />
-    <Content Include="Concept\Architecture Graph For NexusCore3 original.png" />
+    <Content Include="Concept\Architecture Graph For NexusCore3 Ver0.3.png" />
+    <Content Include="Concept\Architecture Graph For NexusCore3 Ver0.2.png" />
+    <Content Include="Concept\Architecture Graph For NexusCore3 Ver0.1.png" />
+    <Content Include="Concept\Architecture Graph For NexusCore3 Ver0.4.png" />
     <Content Include="Concept\NexusCore_1_9_Old.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

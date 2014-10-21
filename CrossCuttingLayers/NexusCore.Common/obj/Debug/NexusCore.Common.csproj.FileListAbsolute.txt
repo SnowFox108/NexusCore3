@@ -1,9 +1,7 @@
-F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\bin\Debug\NexusCore.Common.dll
-F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\bin\Debug\NexusCore.Common.pdb
-F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCore.Common.dll
-F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCore.Common.pdb
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\bin\Debug\AutoMapper.Net4.dll
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\bin\Debug\NexusCore.Common.dll.config
+F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\bin\Debug\NexusCore.Common.dll
+F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\bin\Debug\NexusCore.Common.pdb
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\bin\Debug\Autofac.dll
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\bin\Debug\AutoMapper.dll
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\bin\Debug\EntityFramework.dll
@@ -15,3 +13,5 @@ F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\bin\Debug\AutoMapp
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\bin\Debug\EntityFramework.xml
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\bin\Debug\EntityFramework.SqlServer.xml
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCore.Common.csprojResolveAssemblyReference.cache
+F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCore.Common.dll
+F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCore.Common.pdb

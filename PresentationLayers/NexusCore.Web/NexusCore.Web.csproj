@@ -229,6 +229,10 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\BusinessLogicLayers\NexusCore.Core.Web\NexusCore.Core.Web.csproj">
+      <Project>{0111948f-f388-4d06-9d70-0810d1bc3580}</Project>
+      <Name>NexusCore.Core.Web</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\CrossCuttingLayers\NexusCore.Common\NexusCore.Common.csproj">
       <Project>{5495689e-a597-44fc-b661-b989ec36a970}</Project>
       <Name>NexusCore.Common</Name>

@@ -1,11 +1,9 @@
 ﻿using System.Web.Mvc;
-using Autofac;
 using Autofac.Integration.Mvc;
 using NexusCore.Admin;
 using NexusCore.Common.Adapter.IoC;
-using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Infrastructure;
-using NexusCore.Data.Infrastructure;
+using NexusCore.Core.Adapter.IoC;
 using WebActivatorEx;
 
 [assembly: PreApplicationStartMethod(typeof(ModuleConfig), "Start")]
@@ -29,15 +27,9 @@ namespace NexusCore.Admin
         {
             // Dependancy Injection initialize
             EngineContext.Instance.DiContainerInitialize(new AutofacFactory(
-                builder =>
-                {
-                    builder.RegisterControllers(typeof(MvcApplication).Assembly);
-                    builder.RegisterType<ContentContext>().As<IContentContext>().InstancePerLifetimeScope();
-                    builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
-                },
+                builder => builder.RegisterControllers(typeof (MvcApplication).Assembly),
                 new AutofacRegisterAdmin(),
-                container => DependencyResolver.SetResolver(new AutofacDependencyResolver(container))));            
+                container => DependencyResolver.SetResolver(new AutofacDependencyResolver(container))));
         }
-
     }
 }

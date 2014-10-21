@@ -1,9 +1,6 @@
+F:\MyWorkSpace\NexusCore3\DataAccessLayers\NexusCore.Data\bin\Debug\NexusCore.Data.dll.config
 F:\MyWorkSpace\NexusCore3\DataAccessLayers\NexusCore.Data\bin\Debug\NexusCore.Data.dll
 F:\MyWorkSpace\NexusCore3\DataAccessLayers\NexusCore.Data\bin\Debug\NexusCore.Data.pdb
-F:\MyWorkSpace\NexusCore3\DataAccessLayers\NexusCore.Data\obj\Debug\NexusCore.Data.dll
-F:\MyWorkSpace\NexusCore3\DataAccessLayers\NexusCore.Data\obj\Debug\NexusCore.Data.pdb
-F:\MyWorkSpace\NexusCore3\DataAccessLayers\NexusCore.Data\bin\Debug\AutoMapper.Net4.dll
-F:\MyWorkSpace\NexusCore3\DataAccessLayers\NexusCore.Data\bin\Debug\NexusCore.Data.dll.config
 F:\MyWorkSpace\NexusCore3\DataAccessLayers\NexusCore.Data\bin\Debug\EntityFramework.dll
 F:\MyWorkSpace\NexusCore3\DataAccessLayers\NexusCore.Data\bin\Debug\EntityFramework.SqlServer.dll
 F:\MyWorkSpace\NexusCore3\DataAccessLayers\NexusCore.Data\bin\Debug\NexusCore.Common.dll
@@ -17,3 +14,6 @@ F:\MyWorkSpace\NexusCore3\DataAccessLayers\NexusCore.Data\bin\Debug\EntityFramew
 F:\MyWorkSpace\NexusCore3\DataAccessLayers\NexusCore.Data\bin\Debug\Autofac.xml
 F:\MyWorkSpace\NexusCore3\DataAccessLayers\NexusCore.Data\bin\Debug\AutoMapper.xml
 F:\MyWorkSpace\NexusCore3\DataAccessLayers\NexusCore.Data\obj\Debug\NexusCore.Data.csprojResolveAssemblyReference.cache
+F:\MyWorkSpace\NexusCore3\DataAccessLayers\NexusCore.Data\obj\Debug\NexusCore.Data.dll
+F:\MyWorkSpace\NexusCore3\DataAccessLayers\NexusCore.Data\obj\Debug\NexusCore.Data.pdb
+F:\MyWorkSpace\NexusCore3\DataAccessLayers\NexusCore.Data\bin\Debug\AutoMapper.Net4.dll

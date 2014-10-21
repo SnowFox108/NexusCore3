@@ -4,12 +4,14 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Infrasructure.Data;
+using NexusCore.Infrasructure.Security;
 
 namespace NexusCore.Data.Infrastructure
 {
     public class UnitOfWork : IUnitOfWork
     {
         private readonly IContentContext _contentContext;
+        private readonly ICurrentUserProvider _currentUserProvider;
         private bool _disposed;
         private Dictionary<string, object> _repositories;
 
@@ -18,9 +20,10 @@ namespace NexusCore.Data.Infrastructure
             get { return _contentContext; }
         }
 
-        public UnitOfWork(IContentContext contentContext)
+        public UnitOfWork(IContentContext contentContext, ICurrentUserProvider currentUserProvider)
         {
             _contentContext = contentContext ?? new ContentContext();
+            _currentUserProvider = currentUserProvider;
         }
 
         public int SaveChanges()
@@ -54,7 +57,7 @@ namespace NexusCore.Data.Infrastructure
                 return (IRepository<TEntity>) _repositories[type];
 
             var repositoryType = typeof (Repository<>);
-            _repositories.Add(type, Activator.CreateInstance(repositoryType.MakeGenericType(typeof(TEntity)), _contentContext));
+            _repositories.Add(type, Activator.CreateInstance(repositoryType.MakeGenericType(typeof(TEntity)), _contentContext, _currentUserProvider));
 
             return (IRepository<TEntity>) _repositories[type];
         }

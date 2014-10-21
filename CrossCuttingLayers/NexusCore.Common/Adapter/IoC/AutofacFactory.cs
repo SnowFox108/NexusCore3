@@ -20,11 +20,13 @@ namespace NexusCore.Common.Adapter.IoC
 
         private void Register(ContainerBuilder builder, IDiRegister register)
         {
-            var autofacRegister = register as AutofacRegister;
-            if (autofacRegister == null) return;
-            var initRegister = autofacRegister;
-            initRegister.SetBuilder(builder);
-            initRegister.Register();
+            //var autofacRegister = register as IAutofacRegister;
+            //if (autofacRegister == null) return;
+            //var initRegister = autofacRegister;
+            //initRegister.SetBuilder(builder);
+            //initRegister.Register();
+            register.SetBuilder(builder);
+            register.Register();
         }
 
         public IDiContainer Create()

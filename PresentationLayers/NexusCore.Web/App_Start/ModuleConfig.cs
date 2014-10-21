@@ -3,6 +3,7 @@ using Autofac.Integration.Mvc;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using NexusCore.Common.Adapter.IoC;
 using NexusCore.Common.Infrastructure;
+using NexusCore.Core.Web.Adapter.IoC;
 using NexusCore.Web.UILogic.Routing;
 using WebActivatorEx;
 
@@ -30,8 +31,7 @@ namespace NexusCore.Web
             EngineContext.Instance.DiContainerInitialize(new AutofacFactory(
                 builder => builder.RegisterControllers(typeof(MvcApplication).Assembly),
                 new AutofacRegisterWeb(),
-                container => DependencyResolver.SetResolver(new AutofacDependencyResolver(container))));
-            
+                container => DependencyResolver.SetResolver(new AutofacDependencyResolver(container))));            
         }
 
     }

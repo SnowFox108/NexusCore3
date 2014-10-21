@@ -1,14 +1,13 @@
+F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\AutoMapper.Net4.dll
+F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\NexusCore.WebAPI.Tests.dll.config
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\NexusCore.WebAPI.Tests.dll
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\NexusCore.WebAPI.Tests.pdb
-F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\obj\Debug\NexusCore.WebAPI.Tests.csprojResolveAssemblyReference.cache
-F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\obj\Debug\NexusCore.WebAPI.Tests.dll
-F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\obj\Debug\NexusCore.WebAPI.Tests.pdb
-F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\AutoMapper.Net4.dll
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\NexusCore.Common.dll
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\NexusCore.Core.dll
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\NexusCore.Infrasructure.dll
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\NexusCore.WebAPI.dll
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\Autofac.dll
+F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\NexusCore.Data.dll
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\AutoMapper.dll
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\EntityFramework.dll
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
@@ -37,6 +36,7 @@ F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\Nexu
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\NexusCore.Infrasructure.pdb
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\NexusCore.WebAPI.pdb
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\Autofac.xml
+F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\NexusCore.Data.pdb
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\AutoMapper.xml
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\EntityFramework.xml
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
@@ -58,5 +58,6 @@ F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\Syst
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\System.Web.WebPages.Razor.xml
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\System.Web.WebPages.xml
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
-F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\NexusCore.Data.dll
-F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\NexusCore.Data.pdb
+F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\obj\Debug\NexusCore.WebAPI.Tests.csprojResolveAssemblyReference.cache
+F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\obj\Debug\NexusCore.WebAPI.Tests.dll
+F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\obj\Debug\NexusCore.WebAPI.Tests.pdb

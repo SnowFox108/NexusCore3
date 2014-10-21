@@ -190,6 +190,29 @@ namespace NexusCore.Common.Security
             return canSet;
         }
 
+        public void CreateRole(string roleName, string description)
+        {
+            if (_unitOfWork.Repository<Role>().Get(r => r.RoleName == roleName).Any())
+                throw new ValidationException("Role name is already exist");
+
+            _unitOfWork.Repository<Role>().Insert(new Role()
+            {
+                RoleName = roleName,
+                Description = description
+            });
+            _unitOfWork.SaveChanges();
+        }
+
+        public IRole GetRoleById(Guid id)
+        {
+            return _unitOfWork.Repository<Role>().Get(r => r.Id == id).FirstOrDefault();
+        }
+
+        public IRole GetRoleByName(string roleName)
+        {
+            return _unitOfWork.Repository<Role>().Get(r => r.RoleName.ToLower() == roleName.ToLower()).FirstOrDefault();
+        }
+
         public IEnumerable<IRole> GetUserRoles(Guid userId)
         {
             var user = GetUser(userId);

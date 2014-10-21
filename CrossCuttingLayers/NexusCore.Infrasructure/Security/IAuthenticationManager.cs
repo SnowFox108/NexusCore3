@@ -49,6 +49,9 @@ namespace NexusCore.Infrasructure.Security
         bool ActivateUser(IActivationToken token, string newPassword);
         bool SetNewPassword(IActivationToken token, string newPassword);
 
+        void CreateRole(string roleName, string description);
+        IRole GetRoleById(Guid id);
+        IRole GetRoleByName(string roleName);
         IEnumerable<IRole> GetUserRoles(Guid userId);
         IEnumerable<IRole> GetUserRoles(string email);
         void AddUesrToRole(Guid userId, Guid roleId);

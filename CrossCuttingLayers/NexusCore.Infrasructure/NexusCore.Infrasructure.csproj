@@ -46,7 +46,6 @@
   <ItemGroup>
     <Compile Include="Adapter\IoC\IDiContainer.cs" />
     <Compile Include="Adapter\IoC\IDiContainerFactory.cs" />
-    <Compile Include="Adapter\IoC\IDiRegister.cs" />
     <Compile Include="Adapter\Logging\ILogger.cs" />
     <Compile Include="Adapter\Logging\ILoggerFactory.cs" />
     <Compile Include="Adapter\Mapping\IMapperAdapter.cs" />
