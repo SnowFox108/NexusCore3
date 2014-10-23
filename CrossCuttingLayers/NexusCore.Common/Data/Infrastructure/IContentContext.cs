@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using NexusCore.Common.Data.Entities.Clients;
 using NexusCore.Common.Data.Entities.Membership;
+using NexusCore.Common.Data.Entities.Misc;
 using NexusCore.Common.Data.Entities.Security;
 using NexusCore.Common.Data.Entities.SourceTree;
 using NexusCore.Common.Data.Entities.WebPage;
@@ -17,6 +18,9 @@ namespace NexusCore.Common.Data.Infrastructure
         // Clients
         IDbSet<Client> Clients { get; set; }
         IDbSet<ClientDepartment> ClientDepartments { get; set; }
+
+        // Misc
+        IDbSet<FriendlyIdCounter> FriendlyIdCounters { get; set; }
 
         // Membership
         IDbSet<Role> Roles { get; set; }

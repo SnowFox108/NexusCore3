@@ -3,7 +3,8 @@ namespace NexusCore.Common.Data.Models.SourceTree
 {
     public enum SourceTreeItemType
     {
-        Client = 1,
+        MasterRoot = 1,
+        Client = 5,
         WebsiteRoot = 10,
         Website = 11,
         MenuRoot = 15,

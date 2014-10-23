@@ -47,10 +47,7 @@ namespace NexusCore.Data.Infrastructure
                     if (item.GetType().GetInterfaces().Contains(typeof (ITrackable)))
                     {
                         var tracker = (ITrackable) item;
-                        if (tracker.CreatedDate == default(DateTime))
-                            tracker.CreatedDate = DateFormater.DateTimeNow;
-                        if (tracker.CreatedBy == default(Guid))
-                            tracker.CreatedBy = GetCurrentUserId();
+                        UpdateTrackableItem(tracker, true);
                     }
 
                     GetDbSet().Add(item);
@@ -90,10 +87,7 @@ namespace NexusCore.Data.Infrastructure
                 if (item.GetType().GetInterfaces().Contains(typeof (ITrackable)))
                 {
                     var tracker = (ITrackable) item;
-                    if (tracker.UpdatedDate == default(DateTime))
-                        tracker.UpdatedDate = DateFormater.DateTimeNow;
-                    if (tracker.UpdatedBy == default(Guid))
-                        tracker.UpdatedBy = GetCurrentUserId();
+                    UpdateTrackableItem(tracker, false);
                 }
             }
             else
@@ -205,6 +199,24 @@ namespace NexusCore.Data.Infrastructure
 
             var user = _contentContext.Users.SingleOrDefault(u => u.Email == _userProvider.Email);
             return user != null ? user.Id : default(Guid);
+        }
+
+        private void UpdateTrackableItem(ITrackable tracker, bool isCreate)
+        {
+            var timeNow = DateFormater.DateTimeNow;
+            if (isCreate)
+            {
+                if (tracker.CreatedDate == default(DateTime))
+                    tracker.CreatedDate = timeNow;
+                if (tracker.CreatedBy == default(Guid))
+                    tracker.CreatedBy = GetCurrentUserId();                
+            }
+
+            if (tracker.UpdatedDate == default(DateTime))
+                tracker.UpdatedDate = timeNow;
+            if (tracker.UpdatedBy == default(Guid))
+                tracker.UpdatedBy = GetCurrentUserId();
+
         }
     }
 }

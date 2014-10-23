@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter\IdGenerator\TimeBasedFriendlyIdProvider.cs" />
     <Compile Include="Adapter\IoC\AutofacContainer.cs" />
     <Compile Include="Adapter\IoC\AutofacFactory.cs" />
     <Compile Include="Adapter\IoC\IAutofacRegister.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Data\Entities\Membership\Role.cs" />
     <Compile Include="Data\Entities\Membership\User.cs" />
     <Compile Include="Data\Entities\Membership\UserExternalLogin.cs" />
+    <Compile Include="Data\Entities\Misc\FriendlyIdCounter.cs" />
     <Compile Include="Data\Entities\Security\SourceTreePermission.cs" />
     <Compile Include="Data\Entities\WebPage\MenuItem.cs" />
     <Compile Include="Data\Entities\WebPage\PageLink.cs" />
@@ -85,6 +87,8 @@
     <Compile Include="Data\Entities\Website\WebSite.cs" />
     <Compile Include="Data\Models\Installation\InstallationAdministratorModel.cs" />
     <Compile Include="Data\Models\Installation\InstallationModel.cs" />
+    <Compile Include="Data\Models\SourceTree\SourceTreeMasterRoot.cs" />
+    <Compile Include="Data\Specifications\FriendlyIdSpecifications.cs" />
     <Compile Include="Data\Values\Page\PageExtensions.cs" />
     <Compile Include="Data\Values\SourceTree\SourceTreeExtensions.cs" />
     <Compile Include="Data\Infrastructure\Extensions\StoredProcedureExtensions.cs" />
@@ -120,6 +124,7 @@
     <Compile Include="Security\PasswordValidtor.cs" />
     <Compile Include="Security\SimpleAuthenticationManager.cs" />
     <Compile Include="RenderEngine\Infrastructure\DropZoneType.cs" />
+    <Compile Include="Services\FriendlyId\IFriendlyIdPrimitive.cs" />
     <Compile Include="Services\Installation\IInstallationService.cs" />
     <Compile Include="Services\Messager\IMessageService.cs" />
     <Compile Include="Services\IAggregateServices.cs" />
@@ -130,6 +135,7 @@
   <ItemGroup>
     <Folder Include="Data\DTO\" />
     <Folder Include="Data\MappingProfiles\" />
+    <Folder Include="Data\Models\Client\" />
     <Folder Include="Data\StoredProcedures\DataReaders\" />
     <Folder Include="Data\StoredProcedures\Definitaions\" />
   </ItemGroup>

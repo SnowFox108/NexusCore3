@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using NexusCore.Common.Data.Entities.Clients;
 using NexusCore.Common.Data.Entities.Membership;
+using NexusCore.Common.Data.Entities.Misc;
 using NexusCore.Common.Data.Entities.Security;
 using NexusCore.Common.Data.Entities.SourceTree;
 using NexusCore.Common.Data.Entities.WebPage;
@@ -24,6 +25,9 @@ namespace NexusCore.Data.Infrastructure
         // Clients
         public IDbSet<Client> Clients { get; set; }
         public IDbSet<ClientDepartment> ClientDepartments { get; set; }
+
+        // Misc
+        public IDbSet<FriendlyIdCounter> FriendlyIdCounters { get; set; }
 
         // Membership
         public IDbSet<Role> Roles { get; set; }
@@ -50,12 +54,13 @@ namespace NexusCore.Data.Infrastructure
 
         #endregion
 
-
         public ContentContext() : base("name=NexusCore")
         {
             //Database.SetInitializer<ContentContext>(null);
 
         }
+
+        #region methods
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -106,10 +111,11 @@ namespace NexusCore.Data.Infrastructure
             base.Entry(original).CurrentValues.SetValues(current);
         }
 
-        public virtual TTarget ExecStoredProcedure<TTarget>(IStoredProcedure model) where TTarget : StoredProcedureParsable
+        public virtual TTarget ExecStoredProcedure<TTarget>(IStoredProcedure model)
+            where TTarget : StoredProcedureParsable
         {
             var resultPaser = Activator.CreateInstance<TTarget>();
-            return (TTarget)ExecStoredProcedureWithOption(model, resultPaser);
+            return (TTarget) ExecStoredProcedureWithOption(model, resultPaser);
 
         }
 
@@ -118,7 +124,8 @@ namespace NexusCore.Data.Infrastructure
             ExecStoredProcedureWithOption(model);
         }
 
-        private StoredProcedureParsable ExecStoredProcedureWithOption(IStoredProcedure model, StoredProcedureParsable resultPaser = null)
+        private StoredProcedureParsable ExecStoredProcedureWithOption(IStoredProcedure model,
+            StoredProcedureParsable resultPaser = null)
         {
             var cmd = this.Database.Connection.CreateCommand();
             cmd.CommandText = model.StoredProcedureName;
@@ -130,11 +137,11 @@ namespace NexusCore.Data.Infrastructure
                     Value = parameter.Value
                 });
 
-                this.Database.Connection.Open();
-                if (resultPaser == null)
-                    cmd.ExecuteNonQuery();
-                else
-                    resultPaser.DbReaderParser(cmd.ExecuteReader());
+            this.Database.Connection.Open();
+            if (resultPaser == null)
+                cmd.ExecuteNonQuery();
+            else
+                resultPaser.DbReaderParser(cmd.ExecuteReader());
             try
             {
             }
@@ -149,6 +156,6 @@ namespace NexusCore.Data.Infrastructure
             return resultPaser;
         }
 
-
+        #endregion
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using NexusCore.Common.Data.Models.SourceTree;
 
 namespace NexusCore.Common.Data.Values.SourceTree
@@ -18,15 +19,151 @@ namespace NexusCore.Common.Data.Values.SourceTree
 
         public SourceTreeItemTypeValues()
         {
-            _sourceTreeItemTypes = new List<SourceTreeItemTypeModel>()
+            _sourceTreeItemTypes = new List<SourceTreeItemTypeModel>
             {
-                new SourceTreeItemTypeModel()
+                new SourceTreeItemTypeModel
+                {
+                    ItemType = SourceTreeItemType.MasterRoot,
+                    Name = "Master Root",
+                    Icon = "",
+                    IsRoot = true,
+                    Constraints = Enumerable.Empty<SourceTreeItemType>()
+                },
+                new SourceTreeItemTypeModel
                 {
                     ItemType = SourceTreeItemType.Client,
                     Name = "Client",
                     Icon = "",
+                    IsRoot = true,
+                    Constraints = Enumerable.Empty<SourceTreeItemType>()
+                },
+                new SourceTreeItemTypeModel
+                {
+                    ItemType = SourceTreeItemType.WebsiteRoot,
+                    Name = "Websites",
+                    Icon = "",
+                    IsRoot = true,
+                    Constraints = Enumerable.Empty<SourceTreeItemType>()
+                },
+                new SourceTreeItemTypeModel
+                {
+                    ItemType = SourceTreeItemType.Website,
+                    Name = "Website",
+                    Icon = "",
+                    IsRoot = true,
+                    Constraints = Enumerable.Empty<SourceTreeItemType>()
+                },
+                new SourceTreeItemTypeModel
+                {
+                    ItemType = SourceTreeItemType.MenuRoot,
+                    Name = "Menus",
+                    Icon = "",
+                    IsRoot = true,
+                    Constraints = Enumerable.Empty<SourceTreeItemType>()
+                },
+                new SourceTreeItemTypeModel
+                {
+                    ItemType = SourceTreeItemType.Menu,
+                    Name = "Menu",
+                    Icon = "",
+                    IsRoot = true,
+                    Constraints = new []
+                    {
+                        SourceTreeItemType.MenuItem
+                    }
+                },
+                new SourceTreeItemTypeModel
+                {
+                    ItemType = SourceTreeItemType.MenuItem,
+                    Name = "Menu Item",
+                    Icon = "",
+                    IsRoot = false,
+                    Constraints = new []
+                    {
+                        SourceTreeItemType.MenuItem
+                    }
+                },
+                new SourceTreeItemTypeModel
+                {
+                    ItemType = SourceTreeItemType.PageRoot,
+                    Name = "Pages",
+                    Icon = "",
+                    IsRoot = true,
+                    Constraints = new []
+                    {
+                        SourceTreeItemType.Layout
+                    }
+                },
+                new SourceTreeItemTypeModel
+                {
+                    ItemType = SourceTreeItemType.Layout,
+                    Name = "Layout",
+                    Icon = "",
+                    IsRoot = true,
+                    Constraints = new []
+                    {
+                        SourceTreeItemType.Page
+                    }
+                },
+                new SourceTreeItemTypeModel
+                {
+                    ItemType = SourceTreeItemType.Page,
+                    Name = "Page",
+                    Icon = "",
+                    IsRoot = false,
+                    Constraints = new []
+                    {
+                        SourceTreeItemType.Page
+                    }
+                },
+                new SourceTreeItemTypeModel
+                {
+                    ItemType = SourceTreeItemType.ModuleRoot,
+                    Name = "Modules",
+                    Icon = "",
+                    IsRoot = true,
+                    Constraints = new []
+                    {
+                        SourceTreeItemType.Module
+                    }
+                },
+                new SourceTreeItemTypeModel
+                {
+                    ItemType = SourceTreeItemType.Module,
+                    Name = "Module",
+                    Icon = "",
                     IsRoot = true
-                }
+                },
+                new SourceTreeItemTypeModel
+                {
+                    ItemType = SourceTreeItemType.ContentRoot,
+                    Name = "Contents",
+                    Icon = "",
+                    IsRoot = true,
+                    Constraints = new []
+                    {
+                        SourceTreeItemType.Category
+                    }
+                },
+                new SourceTreeItemTypeModel
+                {
+                    ItemType = SourceTreeItemType.Category,
+                    Name = "Category",
+                    Icon = "",
+                    IsRoot = false,
+                    Constraints = new []
+                    {
+                        SourceTreeItemType.Category
+                    }
+                },
+                new SourceTreeItemTypeModel
+                {
+                    ItemType = SourceTreeItemType.None,
+                    Name = "None",
+                    Icon = "",
+                    IsRoot = true,
+                    Constraints = Enumerable.Empty<SourceTreeItemType>()
+                },
             };            
         }
 

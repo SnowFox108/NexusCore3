@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Linq;
-using System.Reflection;
+using NexusCore.Common.Data.Entities.SourceTree;
 using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Data.Models.Installation;
+using NexusCore.Common.Data.Models.SourceTree;
 using NexusCore.Common.Services;
 using NexusCore.Common.Services.Installation;
 using NexusCore.Infrasructure.Security;
@@ -24,13 +25,28 @@ namespace NexusCore.Core.Services.InstallationComponent
 
         public bool IsFirstTime()
         {
-            return true;
+            return !_aggregateServices.PrimitiveServices.SourceTreePrimitive.IsNodeExist(SourceTreeRoot.MasterNode.Id);
         }
 
         public void Setup(InstallationModel installation)
         {
+            if (!IsFirstTime()) 
+                throw new Exception("System already installed, you can't run installation again.");
+
+            // build user and roles
             CreateAdministratorRole();
             CreateAdministrator(installation.Administrator);
+
+            // creat default client
+            CreateDefaultClient();
+
+            // finishing install
+            CreateMasterNode();
+        }
+
+        private void CreateDefaultClient()
+        {
+            throw new NotImplementedException();
         }
 
         private void CreateAdministratorRole()
@@ -50,5 +66,12 @@ namespace NexusCore.Core.Services.InstallationComponent
                 admin.LastName,
                 admin.PhoneNumber);
         }
+
+        private void CreateMasterNode()
+        {
+            _unitOfWork.Repository<SourceTree>().Insert(SourceTreeRoot.MasterNode);
+            _unitOfWork.SaveChanges();
+        }
+
     }
 }

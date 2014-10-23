@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter\IdGenerator\IFriendlyIdProvider.cs" />
     <Compile Include="Adapter\IoC\IDiContainer.cs" />
     <Compile Include="Adapter\IoC\IDiContainerFactory.cs" />
     <Compile Include="Adapter\Logging\ILogger.cs" />
@@ -73,10 +74,11 @@
     <Compile Include="Security\IPasswordValidator.cs" />
     <Compile Include="Security\Models\IRole.cs" />
     <Compile Include="Security\Models\IUser.cs" />
-    <Compile Include="Services\IServiceContainer.cs" />
     <Compile Include="Web\IApiUrlProvider.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

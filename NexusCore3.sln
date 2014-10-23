@@ -4,9 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessLogicLayers", "BusinessLogicLayers", "{6D1DB10C-0DD6-48FE-98BD-BA92C4700AFF}"
-	ProjectSection(SolutionItems) = preProject
-		web.config = web.config
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrossCuttingLayers", "CrossCuttingLayers", "{11154F20-359E-4B0A-A525-CFA108EBC7B6}"
 EndProject

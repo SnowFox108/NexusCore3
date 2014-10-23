@@ -10,6 +10,7 @@ namespace NexusCore.Common.Data.Specifications
 {
     public static class SourceTreeSpecifications
     {
+
         public static ISpecification<SourceTree> ChildNodes(Guid parentId, SourceTreeItemType itemType = SourceTreeItemType.None)
         {
             Specification<SourceTree> specification = new TrueSpecification<SourceTree>();

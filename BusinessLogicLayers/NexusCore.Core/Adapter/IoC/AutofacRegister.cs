@@ -5,7 +5,11 @@ using NexusCore.Common.Adapter.Mapping;
 using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Security;
 using NexusCore.Common.Services;
+using NexusCore.Common.Services.FriendlyId;
+using NexusCore.Common.Services.SourceTree;
 using NexusCore.Core.Services;
+using NexusCore.Core.Services.FriendlyIdGenerator.Primitive;
+using NexusCore.Core.Services.SourceTreeComponent.Primitive;
 using NexusCore.Data.Infrastructure;
 using NexusCore.Infrasructure.Adapter.IoC;
 using NexusCore.Infrasructure.Adapter.Mapping;
@@ -27,10 +31,6 @@ namespace NexusCore.Core.Adapter.IoC
             if (Builder == null)
                 throw new Exception("Builder has not been initialized");
 
-            // Unit of Work
-            Builder.RegisterType<ContentContext>().As<IContentContext>().InstancePerLifetimeScope();
-            Builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().SingleInstance();
-
             // common register
             Builder.RegisterType<SimpleAuthenticationManager>().As<IAuthenticationManager>();
             Builder.RegisterType<CurrentUserProvider>().As<ICurrentUserProvider>();
@@ -41,6 +41,12 @@ namespace NexusCore.Core.Adapter.IoC
             Builder.RegisterType<PrimitiveServices>().As<IPrimitiveServices>().InstancePerLifetimeScope();
             Builder.RegisterType<AggregateServices>().As<IAggregateServices>().InstancePerLifetimeScope();
             Builder.RegisterType<ComponentServices>().As<IComponentServices>().InstancePerLifetimeScope();
+
+            // Misc
+            Builder.RegisterType<FriendlyIdPrimitive>().As<IFriendlyIdPrimitive>().InstancePerLifetimeScope();
+
+            // sourceTree service
+            Builder.RegisterType<SourceTreePrimitive>().As<ISourceTreePrimitive>().InstancePerLifetimeScope();
 
         }
     }
