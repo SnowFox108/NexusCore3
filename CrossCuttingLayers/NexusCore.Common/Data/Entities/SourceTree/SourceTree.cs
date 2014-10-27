@@ -11,6 +11,5 @@ namespace NexusCore.Common.Data.Entities.SourceTree
         public SourceTreeItemType ItemType { get; set; }
         public Guid ItemId { get; set; }
         public int SortOrder { get; set; }
-
     }
 }

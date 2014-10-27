@@ -1,6 +1,6 @@
 ﻿
 using Autofac;
-using NexusCore.Common.Services.Installation;
+using NexusCore.Common.Services.InstallationServices;
 using NexusCore.Core.Services.InstallationComponent;
 
 namespace NexusCore.Core.Adapter.IoC

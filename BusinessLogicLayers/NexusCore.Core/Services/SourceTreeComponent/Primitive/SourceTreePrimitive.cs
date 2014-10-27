@@ -5,28 +5,38 @@ using NexusCore.Common.Data.Entities.SourceTree;
 using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Data.Models.SourceTree;
 using NexusCore.Common.Data.Specifications;
-using NexusCore.Common.Services.SourceTree;
+using NexusCore.Common.Services.SourceTreeServices;
+using NexusCore.Core.Services.Infrastructure;
 
 namespace NexusCore.Core.Services.SourceTreeComponent.Primitive
 {
-    public class SourceTreePrimitive : ISourceTreePrimitive
+    public class SourceTreePrimitive : BasePrimitiveService, ISourceTreePrimitive
     {
-        private readonly IUnitOfWork _unitOfWork;
-
-        public SourceTreePrimitive(IUnitOfWork unitOfWork)
+        public SourceTreePrimitive(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
-            _unitOfWork = unitOfWork;
         }
 
-        public bool IsNodeExist(Guid id)
+        public void CreateClientNode(Guid clientId, string clientName)
         {
-            return _unitOfWork.Repository<SourceTree>().Get(s => s.Id == id).Any();
+            CreateNode(new SourceTree()
+            {
+                ParentId = SourceTreeRoot.MasterNode.Id,
+                Name = clientName,
+                ItemType = SourceTreeItemType.Client,
+                ItemId = clientId,
+                SortOrder = 1
+            });
+        }
+
+        private void CreateNode(SourceTree sourceTree)
+        {
+            UnitOfWork.Repository<SourceTree>().Insert(sourceTree);            
         }
 
         public IEnumerable<SourceTree> GetChildNodes(Guid parentId,
             SourceTreeItemType itemType = SourceTreeItemType.None)
         {
-            var result = _unitOfWork.Repository<SourceTree>().Get(SourceTreeSpecifications.ChildNodes(parentId, itemType));
+            var result = UnitOfWork.Repository<SourceTree>().Get(SourceTreeSpecifications.ChildNodes(parentId, itemType));
 
             if (result == null)
                 return new List<SourceTree>();
@@ -35,14 +45,17 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Primitive
 
         public IEnumerable<SourceTree> GetChildNodes(Guid parentId, IEnumerable<SourceTreeItemType> itemTypes)
         {
-            var result = _unitOfWork.Repository<SourceTree>().Get(SourceTreeSpecifications.ChildNodes(parentId, itemTypes));
+            var result = UnitOfWork.Repository<SourceTree>().Get(SourceTreeSpecifications.ChildNodes(parentId, itemTypes));
 
             if (result == null)
                 return new List<SourceTree>();
             return result;            
         }
 
-
+        public bool IsNodeExist(Guid id)
+        {
+            return UnitOfWork.Repository<SourceTree>().Get(s => s.Id == id).Any();
+        }
 
     }
 }

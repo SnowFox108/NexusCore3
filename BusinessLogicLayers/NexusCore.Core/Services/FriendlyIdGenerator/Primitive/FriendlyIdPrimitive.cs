@@ -2,7 +2,7 @@
 using NexusCore.Common.Data.Entities.Misc;
 using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Data.Specifications;
-using NexusCore.Common.Services.FriendlyId;
+using NexusCore.Common.Services.FriendlyIdServices;
 
 namespace NexusCore.Core.Services.FriendlyIdGenerator.Primitive
 {

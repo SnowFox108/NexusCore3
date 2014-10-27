@@ -1,6 +1,5 @@
-﻿using NexusCore.Common.Services.FriendlyId;
-using NexusCore.Common.Services.SourceTree;
-using NexusCore.Infrasructure.Adapter.IdGenerator;
+﻿using NexusCore.Common.Services.FriendlyIdServices;
+using NexusCore.Common.Services.SourceTreeServices;
 
 namespace NexusCore.Common.Services
 {

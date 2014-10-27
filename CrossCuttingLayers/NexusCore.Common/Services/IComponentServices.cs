@@ -1,11 +1,9 @@
-﻿using NexusCore.Common.Services.Installation;
+﻿using NexusCore.Common.Services.InstallationServices;
 
 namespace NexusCore.Common.Services
 {
     public interface IComponentServices
     {
-        IAggregateServices AggregateServices { get; }
-
         IInstallationService InstallationService { get; }
     }
 }

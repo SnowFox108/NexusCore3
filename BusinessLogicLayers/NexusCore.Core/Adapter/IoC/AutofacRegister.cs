@@ -2,16 +2,16 @@
 using Autofac;
 using NexusCore.Common.Adapter.IoC;
 using NexusCore.Common.Adapter.Mapping;
-using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Security;
 using NexusCore.Common.Services;
-using NexusCore.Common.Services.FriendlyId;
-using NexusCore.Common.Services.SourceTree;
-using NexusCore.Core.Services;
+using NexusCore.Common.Services.ClientServices;
+using NexusCore.Common.Services.FriendlyIdServices;
+using NexusCore.Common.Services.SourceTreeServices;
+using NexusCore.Core.Services.ClientComponent.Aggregate;
+using NexusCore.Core.Services.ClientComponent.Primitive;
 using NexusCore.Core.Services.FriendlyIdGenerator.Primitive;
+using NexusCore.Core.Services.Infrastructure;
 using NexusCore.Core.Services.SourceTreeComponent.Primitive;
-using NexusCore.Data.Infrastructure;
-using NexusCore.Infrasructure.Adapter.IoC;
 using NexusCore.Infrasructure.Adapter.Mapping;
 using NexusCore.Infrasructure.Security;
 
@@ -41,6 +41,13 @@ namespace NexusCore.Core.Adapter.IoC
             Builder.RegisterType<PrimitiveServices>().As<IPrimitiveServices>().InstancePerLifetimeScope();
             Builder.RegisterType<AggregateServices>().As<IAggregateServices>().InstancePerLifetimeScope();
             Builder.RegisterType<ComponentServices>().As<IComponentServices>().InstancePerLifetimeScope();
+
+            // Client
+            Builder.RegisterType<ClientAggregate>().As<IClientAggregate>().InstancePerLifetimeScope();
+            Builder.RegisterType<ClientDepartmentPrimitive>()
+                .As<IClientDepartmentPrimitive>()
+                .InstancePerLifetimeScope();
+            Builder.RegisterType<ClientPrimitive>().As<IClientPrimitive>().InstancePerLifetimeScope();
 
             // Misc
             Builder.RegisterType<FriendlyIdPrimitive>().As<IFriendlyIdPrimitive>().InstancePerLifetimeScope();

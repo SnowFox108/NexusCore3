@@ -1,9 +1,9 @@
 ﻿using NexusCore.Common.Infrastructure;
 using NexusCore.Common.Services;
-using NexusCore.Common.Services.FriendlyId;
-using NexusCore.Common.Services.SourceTree;
+using NexusCore.Common.Services.FriendlyIdServices;
+using NexusCore.Common.Services.SourceTreeServices;
 
-namespace NexusCore.Core.Services
+namespace NexusCore.Core.Services.Infrastructure
 {
     public class PrimitiveServices : IPrimitiveServices
     {

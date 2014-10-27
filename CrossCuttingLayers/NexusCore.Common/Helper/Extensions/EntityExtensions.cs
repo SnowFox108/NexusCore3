@@ -6,6 +6,7 @@ using System.Reflection;
 using AutoMapper;
 using NexusCore.Common.Adapter.Mapping;
 using NexusCore.Common.Infrastructure;
+using NexusCore.Infrasructure.Adapter.Mapping;
 using NexusCore.Infrasructure.Attributes;
 using NexusCore.Infrasructure.Data;
 
@@ -18,14 +19,14 @@ namespace NexusCore.Common.Helper.Extensions
 
         public static TTarget MapTo<TTarget>(this Entity item) where TTarget : class, new()
         {
-            var adapter = EngineContext.Instance.DiContainer.GetInstance<AutoMapperAdapterFacotry>().Create();
+            var adapter = EngineContext.Instance.DiContainer.GetInstance<IMapperAdapterFactory>().Create();
             return adapter.Adapt<TTarget>(item);
         }
 
         public static List<TTarget> MapTo<TTarget>(this IEnumerable<Entity> items)
             where TTarget : class, new()
         {
-            var adapter = EngineContext.Instance.DiContainer.GetInstance<AutoMapperAdapterFacotry>().Create();
+            var adapter = EngineContext.Instance.DiContainer.GetInstance<IMapperAdapterFactory>().Create();
             return adapter.Adapt<List<TTarget>>(items);
         }
 

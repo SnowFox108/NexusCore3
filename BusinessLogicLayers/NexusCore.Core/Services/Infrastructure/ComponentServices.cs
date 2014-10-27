@@ -1,8 +1,8 @@
 ﻿using NexusCore.Common.Infrastructure;
 using NexusCore.Common.Services;
-using NexusCore.Common.Services.Installation;
+using NexusCore.Common.Services.InstallationServices;
 
-namespace NexusCore.Core.Services
+namespace NexusCore.Core.Services.Infrastructure
 {
     public class ComponentServices : IComponentServices
     {

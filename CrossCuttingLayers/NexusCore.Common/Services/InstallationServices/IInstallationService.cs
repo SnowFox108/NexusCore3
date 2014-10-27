@@ -1,7 +1,7 @@
 ﻿
 using NexusCore.Common.Data.Models.Installation;
 
-namespace NexusCore.Common.Services.Installation
+namespace NexusCore.Common.Services.InstallationServices
 {
     public interface IInstallationService
     {

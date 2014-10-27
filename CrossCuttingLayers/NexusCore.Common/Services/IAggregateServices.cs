@@ -1,8 +1,10 @@
 ﻿
+using NexusCore.Common.Services.ClientServices;
+
 namespace NexusCore.Common.Services
 {
     public interface IAggregateServices
-    {
-        IPrimitiveServices PrimitiveServices { get; }
+    {        
+        IClientAggregate ClientAggregate { get; }
     }
 }

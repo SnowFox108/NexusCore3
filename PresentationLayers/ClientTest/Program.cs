@@ -27,8 +27,8 @@ namespace ClientTest
                 new AutofacRegisterAdmin(),
                 container => { }));
 
-            var itemTypeModel = new GetItemTypeModel();
-            //var install = new Installation();
+            //var itemTypeModel = new GetItemTypeModel();
+            var install = new Installation();
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         }

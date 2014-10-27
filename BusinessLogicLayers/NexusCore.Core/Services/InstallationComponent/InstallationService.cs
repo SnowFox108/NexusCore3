@@ -1,52 +1,53 @@
 ﻿using System;
 using System.Linq;
+using NexusCore.Common.Data.Entities.Clients;
 using NexusCore.Common.Data.Entities.SourceTree;
 using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Data.Models.Installation;
 using NexusCore.Common.Data.Models.SourceTree;
+using NexusCore.Common.Helper.Extensions;
 using NexusCore.Common.Services;
-using NexusCore.Common.Services.Installation;
+using NexusCore.Common.Services.InstallationServices;
+using NexusCore.Core.Services.Infrastructure;
 using NexusCore.Infrasructure.Security;
 
 namespace NexusCore.Core.Services.InstallationComponent
 {
-    public class InstallationService : IInstallationService
+    public class InstallationService : BaseComponentService, IInstallationService
     {
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IAggregateServices _aggregateServices;
         private readonly IAuthenticationManager _authenticationManager;
 
-        public InstallationService(IUnitOfWork unitOfWork, IAggregateServices aggregateServices, IAuthenticationManager authenticationManager)
+        public InstallationService(IUnitOfWork unitOfWork, IPrimitiveServices primitiveServices, IAggregateServices aggregateServices, IAuthenticationManager authenticationManager) : base(unitOfWork, primitiveServices, aggregateServices)
         {
-            _unitOfWork = unitOfWork;
-            _aggregateServices = aggregateServices;
             _authenticationManager = authenticationManager;
         }
 
         public bool IsFirstTime()
         {
-            return !_aggregateServices.PrimitiveServices.SourceTreePrimitive.IsNodeExist(SourceTreeRoot.MasterNode.Id);
+            return !PrimitiveServices.SourceTreePrimitive.IsNodeExist(SourceTreeRoot.MasterNode.Id);
         }
 
         public void Setup(InstallationModel installation)
         {
-            if (!IsFirstTime()) 
+            if (!IsFirstTime())
                 throw new Exception("System already installed, you can't run installation again.");
 
             // build user and roles
             CreateAdministratorRole();
             CreateAdministrator(installation.Administrator);
 
+            // creat master node
+            CreateMasterNode();
+
             // creat default client
-            CreateDefaultClient();
+            if (!installation.Client.IsSkip)
+            {
+                CreateDefaultClient(installation.Client);
+            }
 
             // finishing install
-            CreateMasterNode();
-        }
+            UnitOfWork.SaveChanges();
 
-        private void CreateDefaultClient()
-        {
-            throw new NotImplementedException();
         }
 
         private void CreateAdministratorRole()
@@ -69,8 +70,16 @@ namespace NexusCore.Core.Services.InstallationComponent
 
         private void CreateMasterNode()
         {
-            _unitOfWork.Repository<SourceTree>().Insert(SourceTreeRoot.MasterNode);
-            _unitOfWork.SaveChanges();
+            UnitOfWork.Repository<SourceTree>().Insert(SourceTreeRoot.MasterNode);
+        }
+
+        private void CreateDefaultClient(InstallationClientModel client)
+        {
+            client.Client.GenerateNewIdentity();
+            client.ClientDepartment.GenerateNewIdentity();
+
+            AggregateServices.ClientAggregate.CreateClient(client.Client.MapTo<Client>(),
+                client.ClientDepartment.MapTo<ClientDepartment>());
         }
 
     }
