@@ -71,6 +71,8 @@
     <Compile Include="Services\FriendlyIdGenerator\Primitive\FriendlyIdPrimitive.cs" />
     <Compile Include="Services\InstallationComponent\InstallationService.cs" />
     <Compile Include="Services\Infrastructure\PrimitiveServices.cs" />
+    <Compile Include="Services\SourceTreeComponent\Aggregate\SourceTreeAggregate.cs" />
+    <Compile Include="Services\SourceTreeComponent\Primitive\ItemInSourceTreePrimitive.cs" />
     <Compile Include="Services\SourceTreeComponent\Primitive\SourceTreePrimitive.cs" />
     <Compile Include="Utilities\Messager\MessageService.cs" />
   </ItemGroup>
@@ -90,7 +92,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\MembershipComponent\Primitive\" />
-    <Folder Include="Services\SourceTreeComponent\Aggregate\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

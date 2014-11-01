@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using NexusCore.Common.Data.Models.SourceTree;
+using NexusCore.Common.Data.Models.SourceTrees;
 
 namespace NexusCore.Common.Data.Values.SourceTree
 {

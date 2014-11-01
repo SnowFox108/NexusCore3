@@ -22,8 +22,6 @@ namespace NexusCore.Core.Services.ClientComponent.Aggregate
 
             UnitOfWork.Repository<Client>().Insert(client);
             UnitOfWork.Repository<ClientDepartment>().Insert(clientDepartment);
-
-            PrimitiveServices.SourceTreePrimitive.CreateClientNode(client.Id, client.Name);
         }
     }
 }

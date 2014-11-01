@@ -2,3 +2,4 @@ F:\MyWorkSpace\NexusCore3\Documentations\NexusCore.Document\bin\Debug\NexusCore.
 F:\MyWorkSpace\NexusCore3\Documentations\NexusCore.Document\bin\Debug\NexusCore.Document.pdb
 F:\MyWorkSpace\NexusCore3\Documentations\NexusCore.Document\obj\Debug\NexusCore.Document.dll
 F:\MyWorkSpace\NexusCore3\Documentations\NexusCore.Document\obj\Debug\NexusCore.Document.pdb
+F:\MyWorkSpace\NexusCore3\Documentations\NexusCore.Document\obj\Debug\NexusCore.Document.csprojResolveAssemblyReference.cache

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using NexusCore.Common.Data.Entities.SourceTree;
+using NexusCore.Common.Data.Entities.SourceTrees;
 using NexusCore.Common.Data.Infrastructure;
-using NexusCore.Common.Data.Models.SourceTree;
+using NexusCore.Common.Data.Models.SourceTrees;
 using NexusCore.Common.Data.Specifications;
 using NexusCore.Common.Services.SourceTreeServices;
 using NexusCore.Core.Services.Infrastructure;
@@ -14,23 +14,6 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Primitive
     {
         public SourceTreePrimitive(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
-        }
-
-        public void CreateClientNode(Guid clientId, string clientName)
-        {
-            CreateNode(new SourceTree()
-            {
-                ParentId = SourceTreeRoot.MasterNode.Id,
-                Name = clientName,
-                ItemType = SourceTreeItemType.Client,
-                ItemId = clientId,
-                SortOrder = 1
-            });
-        }
-
-        private void CreateNode(SourceTree sourceTree)
-        {
-            UnitOfWork.Repository<SourceTree>().Insert(sourceTree);            
         }
 
         public IEnumerable<SourceTree> GetChildNodes(Guid parentId,

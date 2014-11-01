@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using NexusCore.Common.Data.Entities.SourceTree;
-using NexusCore.Common.Data.Models.SourceTree;
+using NexusCore.Common.Data.Entities.SourceTrees;
+using NexusCore.Common.Data.Models.SourceTrees;
 using NexusCore.Common.Data.Specification;
 using NexusCore.Infrasructure.Data;
 

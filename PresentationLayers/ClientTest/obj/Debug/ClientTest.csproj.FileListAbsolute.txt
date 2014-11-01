@@ -17,7 +17,7 @@ F:\MyWorkSpace\NexusCore3\PresentationLayers\ClientTest\bin\Debug\Autofac.xml
 F:\MyWorkSpace\NexusCore3\PresentationLayers\ClientTest\bin\Debug\EntityFramework.xml
 F:\MyWorkSpace\NexusCore3\PresentationLayers\ClientTest\bin\Debug\EntityFramework.SqlServer.xml
 F:\MyWorkSpace\NexusCore3\PresentationLayers\ClientTest\bin\Debug\AutoMapper.xml
-F:\MyWorkSpace\NexusCore3\PresentationLayers\ClientTest\obj\Debug\ClientTest.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\NexusCore3\PresentationLayers\ClientTest\obj\Debug\ClientTest.exe
 F:\MyWorkSpace\NexusCore3\PresentationLayers\ClientTest\obj\Debug\ClientTest.pdb
+F:\MyWorkSpace\NexusCore3\PresentationLayers\ClientTest\obj\Debug\ClientTest.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\NexusCore3\PresentationLayers\ClientTest\bin\Debug\AutoMapper.Net4.dll

@@ -11,6 +11,7 @@ using NexusCore.Core.Services.ClientComponent.Aggregate;
 using NexusCore.Core.Services.ClientComponent.Primitive;
 using NexusCore.Core.Services.FriendlyIdGenerator.Primitive;
 using NexusCore.Core.Services.Infrastructure;
+using NexusCore.Core.Services.SourceTreeComponent.Aggregate;
 using NexusCore.Core.Services.SourceTreeComponent.Primitive;
 using NexusCore.Infrasructure.Adapter.Mapping;
 using NexusCore.Infrasructure.Security;
@@ -53,6 +54,7 @@ namespace NexusCore.Core.Adapter.IoC
             Builder.RegisterType<FriendlyIdPrimitive>().As<IFriendlyIdPrimitive>().InstancePerLifetimeScope();
 
             // sourceTree service
+            Builder.RegisterType<SourceTreeAggregate>().As<ISourceTreeAggregate>().InstancePerLifetimeScope();
             Builder.RegisterType<SourceTreePrimitive>().As<ISourceTreePrimitive>().InstancePerLifetimeScope();
 
         }

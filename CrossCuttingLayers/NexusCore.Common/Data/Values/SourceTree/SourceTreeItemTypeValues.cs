@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using NexusCore.Common.Data.Models.SourceTree;
+using NexusCore.Common.Data.Models.SourceTrees;
 
 namespace NexusCore.Common.Data.Values.SourceTree
 {
@@ -27,6 +27,7 @@ namespace NexusCore.Common.Data.Values.SourceTree
                     Name = "Master Root",
                     Icon = "",
                     IsRoot = true,
+                    IsSignleItemLinked = true,
                     Constraints = Enumerable.Empty<SourceTreeItemType>()
                 },
                 new SourceTreeItemTypeModel
@@ -35,6 +36,7 @@ namespace NexusCore.Common.Data.Values.SourceTree
                     Name = "Client",
                     Icon = "",
                     IsRoot = true,
+                    IsSignleItemLinked = true,
                     Constraints = Enumerable.Empty<SourceTreeItemType>()
                 },
                 new SourceTreeItemTypeModel
@@ -43,6 +45,7 @@ namespace NexusCore.Common.Data.Values.SourceTree
                     Name = "Websites",
                     Icon = "",
                     IsRoot = true,
+                    IsSignleItemLinked = true,
                     Constraints = Enumerable.Empty<SourceTreeItemType>()
                 },
                 new SourceTreeItemTypeModel
@@ -51,6 +54,7 @@ namespace NexusCore.Common.Data.Values.SourceTree
                     Name = "Website",
                     Icon = "",
                     IsRoot = true,
+                    IsSignleItemLinked = true,
                     Constraints = Enumerable.Empty<SourceTreeItemType>()
                 },
                 new SourceTreeItemTypeModel
@@ -59,6 +63,7 @@ namespace NexusCore.Common.Data.Values.SourceTree
                     Name = "Menus",
                     Icon = "",
                     IsRoot = true,
+                    IsSignleItemLinked = true,
                     Constraints = Enumerable.Empty<SourceTreeItemType>()
                 },
                 new SourceTreeItemTypeModel
@@ -67,6 +72,7 @@ namespace NexusCore.Common.Data.Values.SourceTree
                     Name = "Menu",
                     Icon = "",
                     IsRoot = true,
+                    IsSignleItemLinked = true,
                     Constraints = new []
                     {
                         SourceTreeItemType.MenuItem
@@ -78,6 +84,7 @@ namespace NexusCore.Common.Data.Values.SourceTree
                     Name = "Menu Item",
                     Icon = "",
                     IsRoot = false,
+                    IsSignleItemLinked = true,
                     Constraints = new []
                     {
                         SourceTreeItemType.MenuItem
@@ -89,6 +96,7 @@ namespace NexusCore.Common.Data.Values.SourceTree
                     Name = "Pages",
                     Icon = "",
                     IsRoot = true,
+                    IsSignleItemLinked = true,
                     Constraints = new []
                     {
                         SourceTreeItemType.Layout
@@ -100,6 +108,7 @@ namespace NexusCore.Common.Data.Values.SourceTree
                     Name = "Layout",
                     Icon = "",
                     IsRoot = true,
+                    IsSignleItemLinked = true,
                     Constraints = new []
                     {
                         SourceTreeItemType.Page
@@ -111,6 +120,7 @@ namespace NexusCore.Common.Data.Values.SourceTree
                     Name = "Page",
                     Icon = "",
                     IsRoot = false,
+                    IsSignleItemLinked = true,
                     Constraints = new []
                     {
                         SourceTreeItemType.Page
@@ -122,6 +132,7 @@ namespace NexusCore.Common.Data.Values.SourceTree
                     Name = "Modules",
                     Icon = "",
                     IsRoot = true,
+                    IsSignleItemLinked = true,
                     Constraints = new []
                     {
                         SourceTreeItemType.Module
@@ -132,7 +143,9 @@ namespace NexusCore.Common.Data.Values.SourceTree
                     ItemType = SourceTreeItemType.Module,
                     Name = "Module",
                     Icon = "",
-                    IsRoot = true
+                    IsRoot = true,
+                    IsSignleItemLinked = false,
+                    Constraints = Enumerable.Empty<SourceTreeItemType>()
                 },
                 new SourceTreeItemTypeModel
                 {
@@ -140,6 +153,7 @@ namespace NexusCore.Common.Data.Values.SourceTree
                     Name = "Contents",
                     Icon = "",
                     IsRoot = true,
+                    IsSignleItemLinked = true,
                     Constraints = new []
                     {
                         SourceTreeItemType.Category
@@ -151,6 +165,7 @@ namespace NexusCore.Common.Data.Values.SourceTree
                     Name = "Category",
                     Icon = "",
                     IsRoot = false,
+                    IsSignleItemLinked = false,
                     Constraints = new []
                     {
                         SourceTreeItemType.Category

@@ -9,7 +9,7 @@ using NexusCore.Common.Data.Entities.Clients;
 using NexusCore.Common.Data.Entities.Membership;
 using NexusCore.Common.Data.Entities.Misc;
 using NexusCore.Common.Data.Entities.Security;
-using NexusCore.Common.Data.Entities.SourceTree;
+using NexusCore.Common.Data.Entities.SourceTrees;
 using NexusCore.Common.Data.Entities.WebPage;
 using NexusCore.Common.Data.Entities.Website;
 using NexusCore.Common.Data.Infrastructure;
@@ -39,6 +39,7 @@ namespace NexusCore.Data.Infrastructure
         public IDbSet<SourceTreePermission> SourceTreePermissions { get; set; }
 
         // Source tree
+        public IDbSet<ItemInSourceTree> ItemsInSourceTrees { get; set; }
         public IDbSet<SourceTree> SourceTrees { get; set; }
 
         // WebPage

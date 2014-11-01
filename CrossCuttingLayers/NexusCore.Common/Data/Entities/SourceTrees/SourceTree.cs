@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using NexusCore.Common.Data.Entities.Security;
+using NexusCore.Common.Data.Models.SourceTrees;
+using NexusCore.Infrasructure.Data;
+
+namespace NexusCore.Common.Data.Entities.SourceTrees
+{
+    public class SourceTree : Entity
+    {
+        public Guid ParentId { get; set; }
+        public string Name { get; set; }
+        public SourceTreeItemType ItemType { get; set; }
+        public int SortOrder { get; set; }
+
+        public IEnumerable<ItemInSourceTree> ItemsInSourceTrees { get; set; }
+        public IEnumerable<SourceTreePermission> SourceTreePermissions { get; set; }
+    }
+}

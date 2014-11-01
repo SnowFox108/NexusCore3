@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Linq;
+using System.Security.Claims;
+using System.Security.Principal;
+using System.Threading;
 using NexusCore.Common.Data.Entities.Clients;
-using NexusCore.Common.Data.Entities.SourceTree;
+using NexusCore.Common.Data.Entities.SourceTrees;
 using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Data.Models.Installation;
-using NexusCore.Common.Data.Models.SourceTree;
+using NexusCore.Common.Data.Models.SourceTrees;
 using NexusCore.Common.Helper.Extensions;
 using NexusCore.Common.Services;
 using NexusCore.Common.Services.InstallationServices;
@@ -66,6 +69,13 @@ namespace NexusCore.Core.Services.InstallationComponent
                 admin.FirstName,
                 admin.LastName,
                 admin.PhoneNumber);
+
+            var user = _authenticationManager.GetUserByEmail(admin.Email);
+            if (user == null)
+                throw new Exception("Create Administrator failed");
+
+            // Login Admin
+            Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(user.Email, "Passport"), null);
         }
 
         private void CreateMasterNode()
@@ -80,6 +90,7 @@ namespace NexusCore.Core.Services.InstallationComponent
 
             AggregateServices.ClientAggregate.CreateClient(client.Client.MapTo<Client>(),
                 client.ClientDepartment.MapTo<ClientDepartment>());
+            AggregateServices.SourceTreeAggregate.CreateClientNode(client.Client.Id, client.Client.Name);
         }
 
     }

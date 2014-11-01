@@ -24,7 +24,7 @@ namespace NexusCore.Common.Security
             _passwordValidator = passwordValidator;
         }
 
-        public IActivationToken CreateUser(string email, string title, string userName, string firstName, string lastName, string phoneNumber)
+        public IActivationToken CreateUser(string title, string userName, string email,  string firstName, string lastName, string phoneNumber)
         {
             if (_unitOfWork.Repository<User>().Get(u => u.Email == email).Any())
                 throw new ValidationException("Email address is already registered");
@@ -89,7 +89,7 @@ namespace NexusCore.Common.Security
 
         public IUser GetUserByEmail(string email)
         {
-            return _unitOfWork.Repository<User>().Get(u => u.Email == email).Single();
+            return _unitOfWork.Repository<User>().Get(u => u.Email == email.ToLower()).Single();
         }
 
         public IUser GetUserByExternalUserName(string userName, string providerName)

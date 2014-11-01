@@ -31,7 +31,7 @@ namespace ClientTest
                         Client = new ClientModel()
                         {
                             FriendlyId = friendlyId.FriendlyIdPrimitive.GetFriendlyId("CL"),
-                            Name = "Default",
+                            Name = "Default Client",
                             Description = "Default Installation",
                             LogoUrl = ""
                         },

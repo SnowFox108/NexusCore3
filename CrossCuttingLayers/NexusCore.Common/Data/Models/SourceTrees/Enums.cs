@@ -1,5 +1,5 @@
 ﻿
-namespace NexusCore.Common.Data.Models.SourceTree
+namespace NexusCore.Common.Data.Models.SourceTrees
 {
     public enum SourceTreeItemType
     {
@@ -18,6 +18,11 @@ namespace NexusCore.Common.Data.Models.SourceTree
         ContentRoot = 60,
         Category = 65,
         None = 100
+    }
+
+    public enum SourceTreeItemModuleType
+    {
+        System = 1
     }
 
     public enum SourceTreePermissionType

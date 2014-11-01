@@ -77,12 +77,13 @@
     <Compile Include="Data\Entities\Membership\UserExternalLogin.cs" />
     <Compile Include="Data\Entities\Misc\FriendlyIdCounter.cs" />
     <Compile Include="Data\Entities\Security\SourceTreePermission.cs" />
+    <Compile Include="Data\Entities\SourceTrees\ItemInSourceTree.cs" />
     <Compile Include="Data\Entities\WebPage\MenuItem.cs" />
     <Compile Include="Data\Entities\WebPage\PageLink.cs" />
     <Compile Include="Data\Entities\WebPage\PageSeo.cs" />
     <Compile Include="Data\Entities\WebPage\WebPage.cs" />
     <Compile Include="Data\Entities\WebPage\PageControl.cs" />
-    <Compile Include="Data\Entities\SourceTree\SourceTree.cs" />
+    <Compile Include="Data\Entities\SourceTrees\SourceTree.cs" />
     <Compile Include="Data\Entities\Website\Domain.cs" />
     <Compile Include="Data\Entities\Website\WebSite.cs" />
     <Compile Include="Data\MappingProfiles\ClientProfile.cs" />
@@ -91,18 +92,18 @@
     <Compile Include="Data\Models\Installation\InstallationAdministratorModel.cs" />
     <Compile Include="Data\Models\Installation\InstallationClientModel.cs" />
     <Compile Include="Data\Models\Installation\InstallationModel.cs" />
-    <Compile Include="Data\Models\SourceTree\SourceTreeMasterRoot.cs" />
+    <Compile Include="Data\Models\SourceTrees\SourceTreeMasterRoot.cs" />
     <Compile Include="Data\Specifications\FriendlyIdSpecifications.cs" />
     <Compile Include="Data\Values\Page\PageExtensions.cs" />
     <Compile Include="Data\Values\SourceTree\SourceTreeExtensions.cs" />
     <Compile Include="Data\Infrastructure\IContentContext.cs" />
     <Compile Include="Data\Infrastructure\IRepository.cs" />
     <Compile Include="Data\Infrastructure\IUnitOfWork.cs" />
-    <Compile Include="Data\Models\Page\Enums.cs" />
-    <Compile Include="Data\Models\Page\PageGridTypeModel.cs" />
-    <Compile Include="Data\Models\SourceTree\Enums.cs" />
-    <Compile Include="Data\Models\SourceTree\SourceTreeItemTypeModel.cs" />
-    <Compile Include="Data\Models\SourceTree\SourceTreeModel.cs" />
+    <Compile Include="Data\Models\Pages\Enums.cs" />
+    <Compile Include="Data\Models\Pages\PageGridTypeModel.cs" />
+    <Compile Include="Data\Models\SourceTrees\Enums.cs" />
+    <Compile Include="Data\Models\SourceTrees\SourceTreeItemTypeModel.cs" />
+    <Compile Include="Data\Models\SourceTrees\SourceTreeModel.cs" />
     <Compile Include="Data\Infrastructure\Specification\AndSpecification.cs" />
     <Compile Include="Data\Infrastructure\Specification\CompositeSpecification.cs" />
     <Compile Include="Data\Infrastructure\Specification\DirectSpecification.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="Services\IAggregateServices.cs" />
     <Compile Include="Services\IComponentServices.cs" />
     <Compile Include="Services\IPrimitiveServices.cs" />
+    <Compile Include="Services\SourceTreeServices\ISourceTreeAggregate.cs" />
     <Compile Include="Services\SourceTreeServices\ISourceTreePrimitive.cs" />
   </ItemGroup>
   <ItemGroup>

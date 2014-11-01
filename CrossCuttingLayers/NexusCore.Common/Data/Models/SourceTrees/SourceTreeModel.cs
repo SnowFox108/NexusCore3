@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NexusCore.Common.Data.Models.SourceTree
+namespace NexusCore.Common.Data.Models.SourceTrees
 {
     public class SourceTreeModel
     {
