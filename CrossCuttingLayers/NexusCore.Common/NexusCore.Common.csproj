@@ -67,7 +67,7 @@
     <Compile Include="Adapter\IoC\IAutofacRegister.cs" />
     <Compile Include="Adapter\IoC\IDiRegister.cs" />
     <Compile Include="Adapter\Mapping\AutoMapperAdapter.cs" />
-    <Compile Include="Adapter\Mapping\AutoMapperAdapterFacotry.cs" />
+    <Compile Include="Adapter\Mapping\AutoMapperAdapterFactory.cs" />
     <Compile Include="Adapter\Messager\EmailSender.cs" />
     <Compile Include="Adapter\Messager\SmsSender.cs" />
     <Compile Include="Data\Entities\Clients\Client.cs" />
@@ -78,6 +78,7 @@
     <Compile Include="Data\Entities\Misc\FriendlyIdCounter.cs" />
     <Compile Include="Data\Entities\Security\SourceTreePermission.cs" />
     <Compile Include="Data\Entities\SourceTrees\ItemInSourceTree.cs" />
+    <Compile Include="Data\Entities\Logs\Logging.cs" />
     <Compile Include="Data\Entities\WebPage\MenuItem.cs" />
     <Compile Include="Data\Entities\WebPage\PageLink.cs" />
     <Compile Include="Data\Entities\WebPage\PageSeo.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Data\Entities\Website\Domain.cs" />
     <Compile Include="Data\Entities\Website\WebSite.cs" />
     <Compile Include="Data\MappingProfiles\ClientProfile.cs" />
+    <Compile Include="Data\Models\ClientModels\ClientCreateModel.cs" />
     <Compile Include="Data\Models\ClientModels\ClientDepartmentModel.cs" />
     <Compile Include="Data\Models\ClientModels\ClientModel.cs" />
     <Compile Include="Data\Models\Installation\InstallationAdministratorModel.cs" />
@@ -130,6 +132,7 @@
     <Compile Include="Services\ClientServices\IClientAggregate.cs" />
     <Compile Include="Services\ClientServices\IClientDepartmentPrimitive.cs" />
     <Compile Include="Services\ClientServices\IClientPrimitive.cs" />
+    <Compile Include="Services\ClientServices\IClientService.cs" />
     <Compile Include="Services\FriendlyIdServices\IFriendlyIdPrimitive.cs" />
     <Compile Include="Services\InstallationServices\IInstallationService.cs" />
     <Compile Include="Services\MessagerServices\IMessageService.cs" />

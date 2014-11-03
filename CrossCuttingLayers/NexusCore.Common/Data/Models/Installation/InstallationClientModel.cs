@@ -2,10 +2,8 @@
 
 namespace NexusCore.Common.Data.Models.Installation
 {
-    public class InstallationClientModel
+    public class InstallationClientModel : ClientCreateModel
     {
-        public ClientModel Client { get; set; }
-        public ClientDepartmentModel ClientDepartment { get; set; }
         public bool IsSkip { get; set; }
     }
 }

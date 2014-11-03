@@ -5,13 +5,13 @@ using NexusCore.Infrasructure.Adapter.Mapping;
 
 namespace NexusCore.Common.Adapter.Mapping
 {
-    public class AutoMapperAdapterFacotry : IMapperAdapterFactory
+    public class AutoMapperAdapterFactory : IMapperAdapterFactory
     {
 
         /// <summary>
         /// Create a new Automapper type adapter factory
         /// </summary>
-        public AutoMapperAdapterFacotry()
+        public AutoMapperAdapterFactory()
         {
             //scan all assemblies finding Automapper Profile
             var profiles = AppDomain.CurrentDomain

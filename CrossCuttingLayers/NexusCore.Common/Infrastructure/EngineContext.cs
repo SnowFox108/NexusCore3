@@ -1,5 +1,7 @@
 ﻿using System;
 using NexusCore.Infrasructure.Adapter.IoC;
+using NexusCore.Infrasructure.Adapter.Logging;
+using NexusCore.Infrasructure.Adapter.Logs;
 using NexusCore.Infrasructure.Infrastructure;
 
 namespace NexusCore.Common.Infrastructure
@@ -30,6 +32,9 @@ namespace NexusCore.Common.Infrastructure
             _diContainer = diContainerFactory.Create();
         }
 
-
+        public ILogger Logger
+        {
+            get { return Instance.DiContainer.GetInstance<ILoggerFactory>().Create(); }
+        }
     }
 }

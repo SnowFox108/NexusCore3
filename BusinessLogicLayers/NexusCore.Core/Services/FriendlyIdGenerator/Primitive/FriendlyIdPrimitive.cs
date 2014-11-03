@@ -2,45 +2,46 @@
 using NexusCore.Common.Data.Entities.Misc;
 using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Data.Specifications;
+using NexusCore.Common.Infrastructure;
 using NexusCore.Common.Services.FriendlyIdServices;
+using NexusCore.Data.Infrastructure;
+using NexusCore.Infrasructure.Security;
 
 namespace NexusCore.Core.Services.FriendlyIdGenerator.Primitive
 {
     public class FriendlyIdPrimitive : IFriendlyIdPrimitive
     {
-
-        private readonly IUnitOfWork _unitOfWork;
-
-        public FriendlyIdPrimitive(IUnitOfWork unitOfWork)
-        {
-            _unitOfWork = unitOfWork;
-        }
-
         public string GetFriendlyId(string prefix, string suffix = "")
         {
-            var friendlyIdCounter =  _unitOfWork.Repository<FriendlyIdCounter>().Get(FriendlyIdSpecifications.Counter(prefix, suffix)).FirstOrDefault();
-
-            if (friendlyIdCounter == null)
+            using (IUnitOfWork unitOfWork = new UnitOfWork(new ContentContext(), EngineContext.Instance.DiContainer.GetInstance<ICurrentUserProvider>()))
             {
-                friendlyIdCounter = new FriendlyIdCounter
+                var friendlyIdCounter =
+                    unitOfWork.Repository<FriendlyIdCounter>()
+                        .Get(FriendlyIdSpecifications.Counter(prefix, suffix))
+                        .FirstOrDefault();
+
+                if (friendlyIdCounter == null)
                 {
-                    Prefix = prefix.ToUpper(),
-                    Counter = 1001,
-                    Suffix = suffix.ToUpper()
-                };
+                    friendlyIdCounter = new FriendlyIdCounter
+                    {
+                        Prefix = prefix.ToUpper(),
+                        Counter = 1001,
+                        Suffix = suffix.ToUpper()
+                    };
 
-                _unitOfWork.Repository<FriendlyIdCounter>().Insert(friendlyIdCounter);
-                _unitOfWork.SaveChanges();
-            }
-            else
-            {
-                friendlyIdCounter.Counter++;
-                _unitOfWork.Repository<FriendlyIdCounter>().Update(friendlyIdCounter);
-                _unitOfWork.SaveChanges();
-            }
+                    unitOfWork.Repository<FriendlyIdCounter>().Insert(friendlyIdCounter);
+                    unitOfWork.SaveChanges();
+                }
+                else
+                {
+                    friendlyIdCounter.Counter++;
+                    unitOfWork.Repository<FriendlyIdCounter>().Update(friendlyIdCounter);
+                    unitOfWork.SaveChanges();
+                }
 
-            return string.Format("{0}{1}{2}", friendlyIdCounter.Prefix, friendlyIdCounter.Counter,
-                friendlyIdCounter.Suffix);
+                return string.Format("{0}{1}{2}", friendlyIdCounter.Prefix, friendlyIdCounter.Counter,
+                    friendlyIdCounter.Suffix);
+            }
         }
     }
 }

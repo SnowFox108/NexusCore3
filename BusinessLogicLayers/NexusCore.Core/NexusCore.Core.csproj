@@ -59,7 +59,10 @@
     <Compile Include="Adapter\IoC\AutofacRegister.cs" />
     <Compile Include="Adapter\IoC\AutofacRegisterAdmin.cs" />
     <Compile Include="Adapter\IoC\AutofacRegisterWebApi.cs" />
+    <Compile Include="Adapter\Logs\SimpleLogger.cs" />
+    <Compile Include="Adapter\Logs\SimpleLoggerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ClientComponent\ClientService.cs" />
     <Compile Include="Services\Infrastructure\AggregateServices.cs" />
     <Compile Include="Services\ClientComponent\Aggregate\ClientAggregate.cs" />
     <Compile Include="Services\ClientComponent\Primitive\ClientDepartmentPrimitive.cs" />

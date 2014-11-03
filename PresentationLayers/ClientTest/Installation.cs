@@ -49,10 +49,13 @@ namespace ClientTest
                         }
                     }
                 });
+                EngineContext.Instance.Logger.Debug("Installation Completed");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: {0}", ex.Message);
+                var error = string.Format("Error: {0}", ex.Message);
+                EngineContext.Instance.Logger.Debug(error);
+                Console.WriteLine(error);
             }
         }
     }

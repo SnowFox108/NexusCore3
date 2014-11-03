@@ -49,6 +49,11 @@ namespace NexusCore.Data.Infrastructure
                         var tracker = (ITrackable) item;
                         UpdateTrackableItem(tracker, true);
                     }
+                    else if (item.GetType().GetInterfaces().Contains(typeof (ILogable)))
+                    {
+                        var logger = (ILogable)item;
+                        UpdateLogableItem(logger);                        
+                    }
 
                     GetDbSet().Add(item);
                 }
@@ -199,6 +204,15 @@ namespace NexusCore.Data.Infrastructure
 
             var user = _contentContext.Users.SingleOrDefault(u => u.Email == _userProvider.Email);
             return user != null ? user.Id : default(Guid);
+        }
+
+        private void UpdateLogableItem(ILogable logger)
+        {
+            var timeNow = DateFormater.DateTimeNow;
+            if (logger.CreatedDate == default(DateTime))
+                logger.CreatedDate = timeNow;
+            if (logger.CreatedBy == default(Guid))
+                logger.CreatedBy = GetCurrentUserId();
         }
 
         private void UpdateTrackableItem(ITrackable tracker, bool isCreate)

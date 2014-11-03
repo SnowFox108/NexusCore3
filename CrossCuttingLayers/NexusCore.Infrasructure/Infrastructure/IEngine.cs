@@ -1,4 +1,6 @@
 ﻿using NexusCore.Infrasructure.Adapter.IoC;
+using NexusCore.Infrasructure.Adapter.Logging;
+using NexusCore.Infrasructure.Adapter.Logs;
 
 namespace NexusCore.Infrasructure.Infrastructure
 {
@@ -6,5 +8,6 @@ namespace NexusCore.Infrasructure.Infrastructure
     {
         IDiContainer DiContainer { get; }
         void DiContainerInitialize(IDiContainerFactory diContainerFactory);
+        ILogger Logger { get; }
     }
 }

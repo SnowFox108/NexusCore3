@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection;
 using NexusCore.Common.Data.Entities.Clients;
+using NexusCore.Common.Data.Entities.Logs;
 using NexusCore.Common.Data.Entities.Membership;
 using NexusCore.Common.Data.Entities.Misc;
 using NexusCore.Common.Data.Entities.Security;
@@ -28,6 +29,8 @@ namespace NexusCore.Data.Infrastructure
 
         // Misc
         public IDbSet<FriendlyIdCounter> FriendlyIdCounters { get; set; }
+        public IDbSet<Logging> Loggings { get; set; }
+
 
         // Membership
         public IDbSet<Role> Roles { get; set; }

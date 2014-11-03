@@ -7,12 +7,15 @@ using NexusCore.Common.Services;
 using NexusCore.Common.Services.ClientServices;
 using NexusCore.Common.Services.FriendlyIdServices;
 using NexusCore.Common.Services.SourceTreeServices;
+using NexusCore.Core.Adapter.Logs;
+using NexusCore.Core.Services.ClientComponent;
 using NexusCore.Core.Services.ClientComponent.Aggregate;
 using NexusCore.Core.Services.ClientComponent.Primitive;
 using NexusCore.Core.Services.FriendlyIdGenerator.Primitive;
 using NexusCore.Core.Services.Infrastructure;
 using NexusCore.Core.Services.SourceTreeComponent.Aggregate;
 using NexusCore.Core.Services.SourceTreeComponent.Primitive;
+using NexusCore.Infrasructure.Adapter.Logging;
 using NexusCore.Infrasructure.Adapter.Mapping;
 using NexusCore.Infrasructure.Security;
 
@@ -35,7 +38,8 @@ namespace NexusCore.Core.Adapter.IoC
             // common register
             Builder.RegisterType<SimpleAuthenticationManager>().As<IAuthenticationManager>();
             Builder.RegisterType<CurrentUserProvider>().As<ICurrentUserProvider>();
-            Builder.RegisterType<AutoMapperAdapterFacotry>().As<IMapperAdapterFactory>().SingleInstance();
+            Builder.RegisterType<SimpleLoggerFactory>().As<ILoggerFactory>();
+            Builder.RegisterType<AutoMapperAdapterFactory>().As<IMapperAdapterFactory>().SingleInstance();
             Builder.RegisterType<PasswordValidtor>().As<IPasswordValidator>();
 
             // services
@@ -49,6 +53,7 @@ namespace NexusCore.Core.Adapter.IoC
                 .As<IClientDepartmentPrimitive>()
                 .InstancePerLifetimeScope();
             Builder.RegisterType<ClientPrimitive>().As<IClientPrimitive>().InstancePerLifetimeScope();
+            Builder.RegisterType<ClientService>().As<IClientService>().InstancePerLifetimeScope();
 
             // Misc
             Builder.RegisterType<FriendlyIdPrimitive>().As<IFriendlyIdPrimitive>().InstancePerLifetimeScope();
