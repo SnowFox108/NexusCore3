@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter\ErrorHandlers\IErrorHandler.cs" />
+    <Compile Include="Adapter\ErrorHandlers\IErrorHandlerFactory.cs" />
+    <Compile Include="Adapter\ErrorHandlers\IErrorModel.cs" />
     <Compile Include="Adapter\IdGenerator\IFriendlyIdProvider.cs" />
     <Compile Include="Adapter\IoC\IDiContainer.cs" />
     <Compile Include="Adapter\IoC\IDiContainerFactory.cs" />
@@ -67,6 +70,7 @@
     <Compile Include="Attributes\InjectAttribute.cs" />
     <Compile Include="Infrastructure\IEngine.cs" />
     <Compile Include="Adapter\Messager\IEmailSender.cs" />
+    <Compile Include="Models\Attributes\LogCodeAttribute.cs" />
     <Compile Include="Models\Enums\Logging.cs" />
     <Compile Include="Models\Enums\SortDirection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

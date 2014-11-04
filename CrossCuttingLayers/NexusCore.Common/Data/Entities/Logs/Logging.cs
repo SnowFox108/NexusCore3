@@ -11,7 +11,7 @@ namespace NexusCore.Common.Data.Entities.Logs
         public TaskCategory Category { get; set; }
         public LogLevel Level { get; set; }
         public string Message { get; set; }
-        public int LogCode { get; set; }
+        public LogCode LogCode { get; set; }
         public string LogValues { get; set; }
     }
 }

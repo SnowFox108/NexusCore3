@@ -13,7 +13,7 @@ namespace NexusCore.Core.Services.FriendlyIdGenerator.Primitive
     {
         public string GetFriendlyId(string prefix, string suffix = "")
         {
-            using (IUnitOfWork unitOfWork = new UnitOfWork(new ContentContext(), EngineContext.Instance.DiContainer.GetInstance<ICurrentUserProvider>()))
+            using (IUnitOfWork unitOfWork = new UnitOfWork(EngineContext.Instance.DiContainer.GetInstance<ICurrentUserProvider>()))
             {
                 var friendlyIdCounter =
                     unitOfWork.Repository<FriendlyIdCounter>()

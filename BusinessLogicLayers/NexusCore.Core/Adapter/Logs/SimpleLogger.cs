@@ -11,7 +11,7 @@ namespace NexusCore.Core.Adapter.Logs
 {
     public class SimpleLogger : ILogger
     {
-        public void Debug(string message, Guid clientId = new Guid(), Guid moduleId = new Guid(), TaskCategory category = TaskCategory.None, int logCode = 0, params object[] args)
+        public void Debug(string message, Guid clientId = new Guid(), Guid moduleId = new Guid(), TaskCategory category = TaskCategory.None, LogCode logCode = LogCode.None, params object[] args)
         {
             CreateLogging(new Logging
             {
@@ -25,33 +25,34 @@ namespace NexusCore.Core.Adapter.Logs
             });
         }
 
-        public void Fatal(string message, Guid clientId = new Guid(), Guid moduleId = new Guid(), TaskCategory category = TaskCategory.None, params object[] args)
+        public void Fatal(string message, Guid clientId = new Guid(), Guid moduleId = new Guid(), TaskCategory category = TaskCategory.None, LogCode logCode = LogCode.None, params object[] args)
         {
             throw new NotImplementedException();
         }
 
-        public void LogInfo(string message, Guid clientId = new Guid(), Guid moduleId = new Guid(), TaskCategory category = TaskCategory.None, params object[] args)
+        public void LogInfo(string message, Guid clientId = new Guid(), Guid moduleId = new Guid(), TaskCategory category = TaskCategory.None, LogCode logCode = LogCode.None, params object[] args)
         {
             throw new NotImplementedException();
         }
 
-        public void LogWarning(string message, Guid clientId = new Guid(), Guid moduleId = new Guid(), TaskCategory category = TaskCategory.None, params object[] args)
+        public void LogWarning(string message, Guid clientId = new Guid(), Guid moduleId = new Guid(), TaskCategory category = TaskCategory.None, LogCode logCode = LogCode.None, params object[] args)
         {
             throw new NotImplementedException();
         }
 
-        public void LogError(string message, Guid clientId = new Guid(), Guid moduleId = new Guid(), TaskCategory category = TaskCategory.None, params object[] args)
+        public void LogError(string message, Guid clientId = new Guid(), Guid moduleId = new Guid(), TaskCategory category = TaskCategory.None, LogCode logCode = LogCode.None, params object[] args)
         {
             throw new NotImplementedException();
         }
 
         private void CreateLogging(Logging logging)
         {
-            using (IUnitOfWork unitOfWork = new UnitOfWork(new ContentContext(), EngineContext.Instance.DiContainer.GetInstance<ICurrentUserProvider>()))
+            using (IUnitOfWork unitOfWork = new UnitOfWork(EngineContext.Instance.DiContainer.GetInstance<ICurrentUserProvider>()))
             {
                 unitOfWork.Repository<Logging>().Insert(logging);
                 unitOfWork.SaveChanges();
-            }            
+            }
         }
+
     }
 }

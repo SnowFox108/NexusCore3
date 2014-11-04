@@ -38,7 +38,6 @@ namespace NexusCore.Core.Adapter.IoC
             // common register
             Builder.RegisterType<SimpleAuthenticationManager>().As<IAuthenticationManager>();
             Builder.RegisterType<CurrentUserProvider>().As<ICurrentUserProvider>();
-            Builder.RegisterType<SimpleLoggerFactory>().As<ILoggerFactory>();
             Builder.RegisterType<AutoMapperAdapterFactory>().As<IMapperAdapterFactory>().SingleInstance();
             Builder.RegisterType<PasswordValidtor>().As<IPasswordValidator>();
 

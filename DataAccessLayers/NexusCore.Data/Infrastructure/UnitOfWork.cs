@@ -20,6 +20,10 @@ namespace NexusCore.Data.Infrastructure
             get { return _contentContext; }
         }
 
+        public UnitOfWork(ICurrentUserProvider currentUserProvider): this(new ContentContext(), currentUserProvider)
+        {            
+        }
+
         public UnitOfWork(IContentContext contentContext, ICurrentUserProvider currentUserProvider)
         {
             _contentContext = contentContext ?? new ContentContext();

@@ -1,9 +1,11 @@
 ﻿using System;
+using NexusCore.Common.Adapter.ErrorHandlers;
 using NexusCore.Common.Data.Models.ClientModels;
 using NexusCore.Common.Data.Models.Installation;
 using NexusCore.Common.Infrastructure;
 using NexusCore.Common.Services;
 using NexusCore.Common.Services.InstallationServices;
+using NexusCore.Core.Adapter.Logs;
 
 namespace ClientTest
 {
@@ -14,8 +16,6 @@ namespace ClientTest
             var install = EngineContext.Instance.DiContainer.GetInstance<IInstallationService>();
             var friendlyId = EngineContext.Instance.DiContainer.GetInstance<IPrimitiveServices>();
 
-            try
-            {
                 install.Setup(new InstallationModel
                 {
                     Administrator = new InstallationAdministratorModel
@@ -49,14 +49,21 @@ namespace ClientTest
                         }
                     }
                 });
-                EngineContext.Instance.Logger.Debug("Installation Completed");
-            }
-            catch (Exception ex)
+
+            if (ErrorAdapter.ModelState.IsValid)
+                LoggerAdapter.Logger.Debug("Installation Completed");
+            else
             {
-                var error = string.Format("Error: {0}", ex.Message);
-                EngineContext.Instance.Logger.Debug(error);
-                Console.WriteLine(error);
+                foreach (var error in ErrorAdapter.ModelState.Errors)
+                {
+                    Console.WriteLine(error.ErrorMessage);
+                }
             }
+            //{
+            //    var error = string.Format("Error: {0}", ex.Message);
+            //    LoggerAdapter.Logger.Debug(error);
+            //    Console.WriteLine(error);
+            //}
         }
     }
 }

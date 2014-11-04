@@ -1,4 +1,6 @@
 ﻿
+using NexusCore.Infrasructure.Models.Attributes;
+
 namespace NexusCore.Infrasructure.Models.Enums
 {
     public enum TaskCategory
@@ -19,6 +21,13 @@ namespace NexusCore.Infrasructure.Models.Enums
         Notice = 6,
         Emergency = 7,
         Debug = 8
+    }
+
+    public enum LogCode
+    {
+        [StoreInLog]
+        None = 0,
+        Info = 100,
     }
 
 }

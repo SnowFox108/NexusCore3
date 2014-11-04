@@ -16,7 +16,7 @@ namespace NexusCore.Infrasructure.Adapter.Logs
         /// <param name="logCode">MessageId</param>
         /// <param name="args">The argument values</param>
         void Debug(string message, Guid clientId = new Guid(), Guid moduleId = new Guid(),
-            TaskCategory category = TaskCategory.None, int logCode = 0, params object[] args);
+            TaskCategory category = TaskCategory.None, LogCode logCode = LogCode.None, params object[] args);
 
 
         /// <summary>
@@ -26,9 +26,10 @@ namespace NexusCore.Infrasructure.Adapter.Logs
         /// <param name="clientId"></param>
         /// <param name="moduleId"></param>
         /// <param name="category"></param>
+        /// <param name="logCode">MessageId</param>
         /// <param name="args">The argument values</param>
         void Fatal(string message, Guid clientId = new Guid(), Guid moduleId = new Guid(),
-            TaskCategory category = TaskCategory.None, params object[] args);
+            TaskCategory category = TaskCategory.None, LogCode logCode = LogCode.None, params object[] args);
 
         /// <summary>
         /// Log message information 
@@ -37,9 +38,10 @@ namespace NexusCore.Infrasructure.Adapter.Logs
         /// <param name="clientId"></param>
         /// <param name="moduleId"></param>
         /// <param name="category"></param>
+        /// <param name="logCode">MessageId</param>
         /// <param name="args">The argument values</param>
         void LogInfo(string message, Guid clientId = new Guid(), Guid moduleId = new Guid(),
-            TaskCategory category = TaskCategory.None, params object[] args);
+            TaskCategory category = TaskCategory.None, LogCode logCode = LogCode.None, params object[] args);
 
 
 
@@ -50,10 +52,10 @@ namespace NexusCore.Infrasructure.Adapter.Logs
         /// <param name="clientId"></param>
         /// <param name="moduleId"></param>
         /// <param name="category"></param>
+        /// <param name="logCode">MessageId</param>
         /// <param name="args">The argument values</param>
-
         void LogWarning(string message, Guid clientId = new Guid(), Guid moduleId = new Guid(),
-            TaskCategory category = TaskCategory.None, params object[] args);
+            TaskCategory category = TaskCategory.None, LogCode logCode = LogCode.None, params object[] args);
 
 
         /// <summary>
@@ -63,9 +65,10 @@ namespace NexusCore.Infrasructure.Adapter.Logs
         /// <param name="clientId"></param>
         /// <param name="moduleId"></param>
         /// <param name="category"></param>
+        /// <param name="logCode">MessageId</param>
         /// <param name="args">The arguments values</param>
         void LogError(string message, Guid clientId = new Guid(), Guid moduleId = new Guid(),
-            TaskCategory category = TaskCategory.None, params object[] args);
+            TaskCategory category = TaskCategory.None, LogCode logCode = LogCode.None, params object[] args);
 
     }
 }

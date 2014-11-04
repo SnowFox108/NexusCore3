@@ -59,6 +59,7 @@
     <Compile Include="Adapter\IoC\AutofacRegister.cs" />
     <Compile Include="Adapter\IoC\AutofacRegisterAdmin.cs" />
     <Compile Include="Adapter\IoC\AutofacRegisterWebApi.cs" />
+    <Compile Include="Adapter\Logs\LoggerAdapter.cs" />
     <Compile Include="Adapter\Logs\SimpleLogger.cs" />
     <Compile Include="Adapter\Logs\SimpleLoggerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Security.Principal;
 using System.Threading;
+using NexusCore.Common.Adapter.ErrorHandlers;
 using NexusCore.Common.Data.Entities.Clients;
 using NexusCore.Common.Data.Entities.SourceTrees;
 using NexusCore.Common.Data.Infrastructure;
@@ -32,7 +33,10 @@ namespace NexusCore.Core.Services.InstallationComponent
         public void Setup(InstallationModel installation)
         {
             if (!IsFirstTime())
-                throw new Exception("System already installed, you can't run installation again.");
+            {
+                ErrorAdapter.ModelState.AddModleError("", "System already installed, you can't run installation again.");
+                return;
+            }
 
             // build user and roles
             CreateAdministratorRole();
@@ -71,7 +75,10 @@ namespace NexusCore.Core.Services.InstallationComponent
 
             var user = _authenticationManager.GetUserByEmail(admin.Email);
             if (user == null)
-                throw new Exception("Create Administrator failed");
+            {
+                ErrorAdapter.ModelState.AddModleError("installation", "Create Administrator failed");
+                return;
+            }
 
             // Login Admin
             Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(user.Email, "Passport"), null);
