@@ -61,3 +61,4 @@ F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\Syst
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\obj\Debug\NexusCore.WebAPI.Tests.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\obj\Debug\NexusCore.WebAPI.Tests.dll
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\obj\Debug\NexusCore.WebAPI.Tests.pdb
+F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\Resources\LogCodeRes.resx

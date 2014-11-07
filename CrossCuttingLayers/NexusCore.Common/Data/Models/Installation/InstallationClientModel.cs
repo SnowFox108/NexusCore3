@@ -1,4 +1,4 @@
-﻿using NexusCore.Common.Data.Models.ClientModels;
+﻿using NexusCore.Common.Data.Models.Clients;
 
 namespace NexusCore.Common.Data.Models.Installation
 {

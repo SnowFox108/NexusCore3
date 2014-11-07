@@ -77,3 +77,4 @@ F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI\bin\AutoMapper.xml
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI\obj\Debug\NexusCore.WebAPI.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI\obj\Debug\NexusCore.WebAPI.dll
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI\obj\Debug\NexusCore.WebAPI.pdb
+F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI\bin\Resources\LogCodeRes.resx

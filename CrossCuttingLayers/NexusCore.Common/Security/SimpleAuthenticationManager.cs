@@ -1,15 +1,15 @@
-﻿using System;
+﻿using NexusCore.Common.Data.Entities.Membership;
+using NexusCore.Common.Data.Infrastructure;
+using NexusCore.Common.Helper;
+using NexusCore.Infrasructure.Security;
+using NexusCore.Infrasructure.Security.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Transactions;
-using NexusCore.Common.Data.Entities.Membership;
-using NexusCore.Common.Data.Infrastructure;
-using NexusCore.Common.Helper;
-using NexusCore.Infrasructure.Security;
-using NexusCore.Infrasructure.Security.Models;
 
 namespace NexusCore.Common.Security
 {
@@ -18,9 +18,9 @@ namespace NexusCore.Common.Security
         private readonly IUnitOfWork _unitOfWork;
         private readonly IPasswordValidator _passwordValidator;
 
-        public SimpleAuthenticationManager(IUnitOfWork unitOfWork, IPasswordValidator passwordValidator)
+        public SimpleAuthenticationManager(IUnitOfWorkAsyncFactory unitOfWorkFactory, IPasswordValidator passwordValidator)
         {
-            _unitOfWork = unitOfWork;
+            _unitOfWork = unitOfWorkFactory.Create();
             _passwordValidator = passwordValidator;
         }
 
@@ -195,7 +195,7 @@ namespace NexusCore.Common.Security
             if (_unitOfWork.Repository<Role>().Get(r => r.RoleName == roleName).Any())
                 throw new ValidationException("Role name is already exist");
 
-            _unitOfWork.Repository<Role>().Insert(new Role()
+            _unitOfWork.Repository<Role>().Insert(new Role
             {
                 RoleName = roleName,
                 Description = description

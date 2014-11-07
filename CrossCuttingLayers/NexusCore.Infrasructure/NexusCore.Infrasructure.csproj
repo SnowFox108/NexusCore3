@@ -70,7 +70,7 @@
     <Compile Include="Attributes\InjectAttribute.cs" />
     <Compile Include="Infrastructure\IEngine.cs" />
     <Compile Include="Adapter\Messager\IEmailSender.cs" />
-    <Compile Include="Models\Attributes\LogCodeAttribute.cs" />
+    <Compile Include="Attributes\LogCodeAttribute.cs" />
     <Compile Include="Models\Enums\Logging.cs" />
     <Compile Include="Models\Enums\SortDirection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

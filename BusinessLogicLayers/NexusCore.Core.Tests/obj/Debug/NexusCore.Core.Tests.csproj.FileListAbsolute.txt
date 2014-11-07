@@ -20,3 +20,4 @@ F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core.Tests\bin\Debug\Nex
 F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core.Tests\obj\Debug\NexusCore.Core.Tests.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core.Tests\obj\Debug\NexusCore.Core.Tests.dll
 F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core.Tests\obj\Debug\NexusCore.Core.Tests.pdb
+F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core.Tests\bin\Debug\Resources\LogCodeRes.resx

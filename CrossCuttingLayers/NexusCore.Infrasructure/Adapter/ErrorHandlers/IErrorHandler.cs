@@ -8,11 +8,11 @@ namespace NexusCore.Infrasructure.Adapter.ErrorHandlers
     {
 
         IEnumerable<IErrorModel> Errors { get; }
-        
+
         bool IsValid { get; }
 
         void AddModleError(string key, string errorMessage, Guid clientId = new Guid(), Guid moduleId = new Guid(),
-            TaskCategory category = TaskCategory.None, LogCode logCode = LogCode.None, params object[] args);
+            LogCode logCode = LogCode.None, params object[] args);
 
         void Clear();
     }

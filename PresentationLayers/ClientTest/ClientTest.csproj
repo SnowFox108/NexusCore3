@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GetItemTypeModel.cs" />
+    <Compile Include="GetLogCodeAttributes.cs" />
     <Compile Include="Installation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

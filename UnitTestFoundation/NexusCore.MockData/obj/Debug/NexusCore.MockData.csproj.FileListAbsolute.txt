@@ -19,3 +19,4 @@ F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\bin\Debug\AutoMa
 F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\obj\Debug\NexusCore.MockData.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\obj\Debug\NexusCore.MockData.dll
 F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\obj\Debug\NexusCore.MockData.pdb
+F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\bin\Debug\Resources\LogCodeRes.resx

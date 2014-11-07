@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using NexusCore.Common.Data.Entities.Clients;
-using NexusCore.Common.Data.Models.ClientModels;
+using NexusCore.Common.Data.Models.Clients;
 using NexusCore.Common.Helper.Extensions;
 
 namespace NexusCore.Common.Data.MappingProfiles

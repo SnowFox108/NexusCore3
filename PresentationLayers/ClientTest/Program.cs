@@ -29,6 +29,9 @@ namespace ClientTest
 
             //var itemTypeModel = new GetItemTypeModel();
             var install = new Installation();
+            //var logCode = new GetLogCodeAttributes();
+
+
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         }

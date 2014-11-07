@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Security.Principal;
 using System.Threading;
 using NexusCore.Common.Adapter.ErrorHandlers;
@@ -12,6 +11,7 @@ using NexusCore.Common.Helper.Extensions;
 using NexusCore.Common.Services;
 using NexusCore.Common.Services.InstallationServices;
 using NexusCore.Core.Services.Infrastructure;
+using NexusCore.Infrasructure.Models.Enums;
 using NexusCore.Infrasructure.Security;
 
 namespace NexusCore.Core.Services.InstallationComponent
@@ -34,7 +34,7 @@ namespace NexusCore.Core.Services.InstallationComponent
         {
             if (!IsFirstTime())
             {
-                ErrorAdapter.ModelState.AddModleError("", "System already installed, you can't run installation again.");
+                ErrorAdapter.ModelState.AddModleError("", "Something is wrong here", logCode: LogCode.CriticalInstallationRepeated);
                 return;
             }
 

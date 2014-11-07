@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter\ErrorHandlers\LogCodeAttributeExtensions.cs" />
     <Compile Include="Adapter\ErrorHandlers\SimpleErrorHandlerFactory.cs" />
     <Compile Include="Adapter\ErrorHandlers\SimpleErrorModel.cs" />
     <Compile Include="Adapter\ErrorHandlers\SimpleErrorHandler.cs" />
@@ -71,6 +72,10 @@
     <Compile Include="Adapter\IoC\AutofacFactory.cs" />
     <Compile Include="Adapter\IoC\IAutofacRegister.cs" />
     <Compile Include="Adapter\IoC\IDiRegister.cs" />
+    <Compile Include="Adapter\Language\LogCodeText.cs" />
+    <Compile Include="Adapter\Logs\LoggerAdapter.cs" />
+    <Compile Include="Adapter\Logs\SimpleLogger.cs" />
+    <Compile Include="Adapter\Logs\SimpleLoggerFactory.cs" />
     <Compile Include="Adapter\Mapping\AutoMapperAdapter.cs" />
     <Compile Include="Adapter\Mapping\AutoMapperAdapterFactory.cs" />
     <Compile Include="Adapter\Messager\EmailSender.cs" />
@@ -92,15 +97,20 @@
     <Compile Include="Data\Entities\SourceTrees\SourceTree.cs" />
     <Compile Include="Data\Entities\Website\Domain.cs" />
     <Compile Include="Data\Entities\Website\WebSite.cs" />
+    <Compile Include="Data\Infrastructure\IUnitOfWorkAsyncFactory.cs" />
     <Compile Include="Data\MappingProfiles\ClientProfile.cs" />
-    <Compile Include="Data\Models\ClientModels\ClientCreateModel.cs" />
-    <Compile Include="Data\Models\ClientModels\ClientDepartmentModel.cs" />
-    <Compile Include="Data\Models\ClientModels\ClientModel.cs" />
+    <Compile Include="Data\Models\Clients\ClientCreateModel.cs" />
+    <Compile Include="Data\Models\Clients\ClientDepartmentModel.cs" />
+    <Compile Include="Data\Models\Clients\ClientModel.cs" />
     <Compile Include="Data\Models\Installation\InstallationAdministratorModel.cs" />
     <Compile Include="Data\Models\Installation\InstallationClientModel.cs" />
     <Compile Include="Data\Models\Installation\InstallationModel.cs" />
     <Compile Include="Data\Models\SourceTrees\SourceTreeMasterRoot.cs" />
+    <Compile Include="Data\Models\Websites\DomainModel.cs" />
+    <Compile Include="Data\Models\Websites\WebsiteModel.cs" />
+    <Compile Include="Data\Specifications\ClientSpecifications.cs" />
     <Compile Include="Data\Specifications\FriendlyIdSpecifications.cs" />
+    <Compile Include="Data\Specifications\WebsiteSpecifications.cs" />
     <Compile Include="Data\Values\Page\PageExtensions.cs" />
     <Compile Include="Data\Values\SourceTree\SourceTreeExtensions.cs" />
     <Compile Include="Data\Infrastructure\IContentContext.cs" />
@@ -129,6 +139,16 @@
     <Compile Include="Helper\Seo.cs" />
     <Compile Include="Infrastructure\EngineContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\DataAnnotationText.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataAnnotationText.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\LogCodeRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogCodeRes.resx</DependentUpon>
+    </Compile>
     <Compile Include="Security\ActivationToken.cs" />
     <Compile Include="Security\CurrentUserProvider.cs" />
     <Compile Include="Security\PasswordValidtor.cs" />
@@ -146,9 +166,12 @@
     <Compile Include="Services\IPrimitiveServices.cs" />
     <Compile Include="Services\SourceTreeServices\ISourceTreeAggregate.cs" />
     <Compile Include="Services\SourceTreeServices\ISourceTreePrimitive.cs" />
+    <Compile Include="Services\WebsiteServices\IWebsitePrimitive.cs" />
+    <Compile Include="Services\WebsiteServices\IWebsiteService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\DTO\" />
+    <Folder Include="Data\Models\Memberships\" />
     <Folder Include="Data\StoredProcedures\DataReaders\" />
     <Folder Include="Data\StoredProcedures\Definitaions\" />
   </ItemGroup>
@@ -161,6 +184,17 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\DataAnnotationText.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DataAnnotationText.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\LogCodeRes.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LogCodeRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />

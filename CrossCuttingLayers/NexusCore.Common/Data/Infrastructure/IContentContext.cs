@@ -46,7 +46,7 @@ namespace NexusCore.Common.Data.Infrastructure
 
         // Website
         IDbSet<Domain> Domains { get; set; }
-        IDbSet<WebSite> WebSites { get; set; }
+        IDbSet<Website> WebSites { get; set; }
 
         #endregion
 

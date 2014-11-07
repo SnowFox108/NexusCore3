@@ -12,6 +12,7 @@ namespace NexusCore.Common.Data.Entities.Clients
         public string Name { get; set; }
         public string Description { get; set; }
         public string LogoUrl { get; set; }
+        public bool IsActive { get; set; }
         public Guid PrimaryDepartmentId { get; set; }
 
         public IEnumerable<ClientDepartment> ClientDepartments { get; set; }

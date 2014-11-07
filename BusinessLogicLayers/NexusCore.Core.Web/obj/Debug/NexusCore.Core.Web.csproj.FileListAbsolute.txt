@@ -14,3 +14,4 @@ F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core.Web\bin\Debug\Entit
 F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core.Web\obj\Debug\NexusCore.Core.Web.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core.Web\obj\Debug\NexusCore.Core.Web.dll
 F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core.Web\obj\Debug\NexusCore.Core.Web.pdb
+F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core.Web\bin\Debug\Resources\LogCodeRes.resx

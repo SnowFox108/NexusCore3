@@ -2,12 +2,12 @@
 using Autofac;
 using NexusCore.Common.Adapter.IoC;
 using NexusCore.Common.Adapter.Mapping;
+using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Security;
 using NexusCore.Common.Services;
 using NexusCore.Common.Services.ClientServices;
 using NexusCore.Common.Services.FriendlyIdServices;
 using NexusCore.Common.Services.SourceTreeServices;
-using NexusCore.Core.Adapter.Logs;
 using NexusCore.Core.Services.ClientComponent;
 using NexusCore.Core.Services.ClientComponent.Aggregate;
 using NexusCore.Core.Services.ClientComponent.Primitive;
@@ -15,6 +15,7 @@ using NexusCore.Core.Services.FriendlyIdGenerator.Primitive;
 using NexusCore.Core.Services.Infrastructure;
 using NexusCore.Core.Services.SourceTreeComponent.Aggregate;
 using NexusCore.Core.Services.SourceTreeComponent.Primitive;
+using NexusCore.Data.Infrastructure;
 using NexusCore.Infrasructure.Adapter.Logging;
 using NexusCore.Infrasructure.Adapter.Mapping;
 using NexusCore.Infrasructure.Security;
@@ -40,6 +41,7 @@ namespace NexusCore.Core.Adapter.IoC
             Builder.RegisterType<CurrentUserProvider>().As<ICurrentUserProvider>();
             Builder.RegisterType<AutoMapperAdapterFactory>().As<IMapperAdapterFactory>().SingleInstance();
             Builder.RegisterType<PasswordValidtor>().As<IPasswordValidator>();
+            Builder.RegisterType<UnitOfWorkAsyncFactory>().As<IUnitOfWorkAsyncFactory>();
 
             // services
             Builder.RegisterType<PrimitiveServices>().As<IPrimitiveServices>().InstancePerLifetimeScope();

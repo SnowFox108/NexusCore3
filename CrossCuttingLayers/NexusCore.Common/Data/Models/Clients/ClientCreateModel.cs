@@ -1,5 +1,5 @@
 ﻿
-namespace NexusCore.Common.Data.Models.ClientModels
+namespace NexusCore.Common.Data.Models.Clients
 {
     public class ClientCreateModel
     {

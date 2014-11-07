@@ -31,3 +31,4 @@ F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin.UILogic\bin\Debug\E
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin.UILogic\obj\Debug\NexusCore.Admin.UILogic.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin.UILogic\obj\Debug\NexusCore.Admin.UILogic.dll
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin.UILogic\obj\Debug\NexusCore.Admin.UILogic.pdb
+F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin.UILogic\bin\Debug\Resources\LogCodeRes.resx

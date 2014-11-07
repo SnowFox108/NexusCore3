@@ -1,7 +1,9 @@
-﻿using NexusCore.Infrasructure.Adapter.Logging;
+﻿using NexusCore.Common.Data.Infrastructure;
+using NexusCore.Common.Infrastructure;
+using NexusCore.Infrasructure.Adapter.Logging;
 using NexusCore.Infrasructure.Adapter.Logs;
 
-namespace NexusCore.Core.Adapter.Logs
+namespace NexusCore.Common.Adapter.Logs
 {
     public static class LoggerAdapter
     {
@@ -9,7 +11,7 @@ namespace NexusCore.Core.Adapter.Logs
 
         static LoggerAdapter()
         {
-            LoggerFactory = new SimpleLoggerFactory();
+            LoggerFactory = new SimpleLoggerFactory(EngineContext.Instance.DiContainer.GetInstance<IUnitOfWorkAsyncFactory>());
         }
 
         public static ILogger Logger

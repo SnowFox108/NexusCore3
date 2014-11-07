@@ -4,14 +4,18 @@ using NexusCore.Infrasructure.Data;
 
 namespace NexusCore.Common.Data.Entities.Website
 {
-    public class WebSite : Entity , ITrackable
+    public class Website : TrackableEntity
     {
+        public string FriendlyId { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
         public Guid ActivedDomainId { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public Guid CreatedBy { get; set; }
-        public DateTime UpdatedDate { get; set; }
-        public Guid UpdatedBy { get; set; }
+        public Guid CurrentHomeMenuId { get; set; }
+        public string RootUrl { get; set; }
+        public string FavIconUrl { get; set; }
+        public string PageTitlePrefix { get; set; }
+        public string PageTitleSuffix { get; set; }
+        public bool IsActive { get; set; }
 
         public virtual IEnumerable<Domain> Domains { get; set; }
     }

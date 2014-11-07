@@ -2,18 +2,22 @@
 using NexusCore.Common.Data.Entities.Misc;
 using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Data.Specifications;
-using NexusCore.Common.Infrastructure;
 using NexusCore.Common.Services.FriendlyIdServices;
-using NexusCore.Data.Infrastructure;
-using NexusCore.Infrasructure.Security;
 
 namespace NexusCore.Core.Services.FriendlyIdGenerator.Primitive
 {
     public class FriendlyIdPrimitive : IFriendlyIdPrimitive
     {
+        private readonly IUnitOfWorkAsyncFactory _unitOfWorkAdapter;
+
+        public FriendlyIdPrimitive(IUnitOfWorkAsyncFactory unitOfWorkAdapter)
+        {
+            _unitOfWorkAdapter = unitOfWorkAdapter;
+        }
+
         public string GetFriendlyId(string prefix, string suffix = "")
         {
-            using (IUnitOfWork unitOfWork = new UnitOfWork(EngineContext.Instance.DiContainer.GetInstance<ICurrentUserProvider>()))
+            using (IUnitOfWork unitOfWork = _unitOfWorkAdapter.Create())
             {
                 var friendlyIdCounter =
                     unitOfWork.Repository<FriendlyIdCounter>()

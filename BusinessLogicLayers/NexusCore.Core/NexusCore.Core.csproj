@@ -59,9 +59,6 @@
     <Compile Include="Adapter\IoC\AutofacRegister.cs" />
     <Compile Include="Adapter\IoC\AutofacRegisterAdmin.cs" />
     <Compile Include="Adapter\IoC\AutofacRegisterWebApi.cs" />
-    <Compile Include="Adapter\Logs\LoggerAdapter.cs" />
-    <Compile Include="Adapter\Logs\SimpleLogger.cs" />
-    <Compile Include="Adapter\Logs\SimpleLoggerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ClientComponent\ClientService.cs" />
     <Compile Include="Services\Infrastructure\AggregateServices.cs" />
@@ -78,6 +75,7 @@
     <Compile Include="Services\SourceTreeComponent\Aggregate\SourceTreeAggregate.cs" />
     <Compile Include="Services\SourceTreeComponent\Primitive\ItemInSourceTreePrimitive.cs" />
     <Compile Include="Services\SourceTreeComponent\Primitive\SourceTreePrimitive.cs" />
+    <Compile Include="Services\WebsiteComponent\WebsiteService.cs" />
     <Compile Include="Utilities\Messager\MessageService.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -96,6 +94,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\MembershipComponent\Primitive\" />
+    <Folder Include="Services\WebsiteComponent\Aggregate\" />
+    <Folder Include="Services\WebsiteComponent\Primitive\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

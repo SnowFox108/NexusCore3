@@ -17,3 +17,4 @@ F:\MyWorkSpace\NexusCore3\DataAccessLayers\NexusCore.Data\obj\Debug\NexusCore.Da
 F:\MyWorkSpace\NexusCore3\DataAccessLayers\NexusCore.Data\obj\Debug\NexusCore.Data.dll
 F:\MyWorkSpace\NexusCore3\DataAccessLayers\NexusCore.Data\obj\Debug\NexusCore.Data.pdb
 F:\MyWorkSpace\NexusCore3\DataAccessLayers\NexusCore.Data\bin\Debug\AutoMapper.Net4.dll
+F:\MyWorkSpace\NexusCore3\DataAccessLayers\NexusCore.Data\bin\Debug\Resources\LogCodeRes.resx

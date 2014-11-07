@@ -1,11 +1,11 @@
 ﻿using System;
 using NexusCore.Common.Adapter.ErrorHandlers;
-using NexusCore.Common.Data.Models.ClientModels;
+using NexusCore.Common.Adapter.Logs;
+using NexusCore.Common.Data.Models.Clients;
 using NexusCore.Common.Data.Models.Installation;
 using NexusCore.Common.Infrastructure;
 using NexusCore.Common.Services;
 using NexusCore.Common.Services.InstallationServices;
-using NexusCore.Core.Adapter.Logs;
 
 namespace ClientTest
 {

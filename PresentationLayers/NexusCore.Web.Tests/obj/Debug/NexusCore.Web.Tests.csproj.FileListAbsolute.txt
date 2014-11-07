@@ -47,3 +47,4 @@ F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Web.Tests\bin\Debug\Syste
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Web.Tests\obj\Debug\NexusCore.Web.Tests.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Web.Tests\obj\Debug\NexusCore.Web.Tests.dll
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Web.Tests\obj\Debug\NexusCore.Web.Tests.pdb
+F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Web.Tests\bin\Debug\Resources\LogCodeRes.resx

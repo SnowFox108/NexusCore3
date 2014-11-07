@@ -1,6 +1,6 @@
 ﻿using NexusCore.Common.Data.Entities.Clients;
 using NexusCore.Common.Data.Infrastructure;
-using NexusCore.Common.Data.Models.ClientModels;
+using NexusCore.Common.Data.Models.Clients;
 using NexusCore.Common.Helper.Extensions;
 using NexusCore.Common.Services;
 using NexusCore.Common.Services.ClientServices;
@@ -14,6 +14,7 @@ namespace NexusCore.Core.Services.ClientComponent
         {
         }
 
+        
         public void CreateClient(ClientCreateModel client)
         {
             client.Client.GenerateNewIdentity();

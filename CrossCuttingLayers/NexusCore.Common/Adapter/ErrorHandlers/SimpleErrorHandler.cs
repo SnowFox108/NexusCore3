@@ -1,4 +1,7 @@
-﻿using NexusCore.Infrasructure.Adapter.ErrorHandlers;
+﻿using System.Globalization;
+using NexusCore.Common.Adapter.Language;
+using NexusCore.Common.Adapter.Logs;
+using NexusCore.Infrasructure.Adapter.ErrorHandlers;
 using NexusCore.Infrasructure.Models.Enums;
 using System;
 using System.Collections.Generic;
@@ -27,19 +30,25 @@ namespace NexusCore.Common.Adapter.ErrorHandlers
             get { return !_errors.Any(); }
         }
 
-        public void AddModleError(string key, string errorMessage, Guid clientId = new Guid(), Guid moduleId = new Guid(), TaskCategory category = TaskCategory.None, LogCode logCode = LogCode.None, params object[] args)
+        public void AddModleError(string key, string errorMessage, Guid clientId = new Guid(),
+            Guid moduleId = new Guid(), LogCode logCode = LogCode.None, params object[] args)
         {
             _errors.Add(new SimpleErrorModel
             {
                 Key = key,
-                ErrorMessage = errorMessage
+                ErrorMessage = string.IsNullOrEmpty(errorMessage) ? LogCodeText.GetString(logCode) : errorMessage
             });
+
+            // Check if this error need to be log
+            if (logCode.Value().IsLogged)
+                LoggerAdapter.Logger.Log(LogCodeText.GetString(logCode), clientId, moduleId, logCode.Value().Category,
+                    logCode.Value().Level, logCode, args);
         }
 
         public void Clear()
         {
             _errors.Clear();
         }
-
+        
     }
 }

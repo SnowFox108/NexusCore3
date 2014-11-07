@@ -54,6 +54,7 @@
     <Compile Include="Infrastructure\ContentContext.cs" />
     <Compile Include="Infrastructure\Repository.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
+    <Compile Include="Infrastructure\UnitOfWorkAsyncFactory.cs" />
     <Compile Include="Mapping\Membership\RoleMapping.cs" />
     <Compile Include="Mapping\Membership\UserMapping.cs" />
     <Compile Include="Migrations\Configuration.cs" />

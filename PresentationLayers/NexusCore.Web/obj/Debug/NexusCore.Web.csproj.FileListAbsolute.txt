@@ -59,3 +59,4 @@ F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Web\bin\AutoMapper.xml
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Web\obj\Debug\NexusCore.Web.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Web\obj\Debug\NexusCore.Web.dll
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Web\obj\Debug\NexusCore.Web.pdb
+F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Web\bin\Resources\LogCodeRes.resx

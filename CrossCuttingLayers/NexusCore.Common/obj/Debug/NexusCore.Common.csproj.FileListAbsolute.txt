@@ -15,3 +15,6 @@ F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\bin\Debug\EntityFr
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCore.Common.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCore.Common.dll
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCore.Common.pdb
+F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCore.Common.csproj.GenerateResource.Cache
+F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\bin\Debug\Resources\LogCodeRes.resx
+F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCore.Common.Resources.LogCodeRes.resources

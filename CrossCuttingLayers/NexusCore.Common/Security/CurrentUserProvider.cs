@@ -9,5 +9,11 @@ namespace NexusCore.Common.Security
         {
             get { return Thread.CurrentPrincipal.Identity.Name; }
         }
+
+        public static bool IsAdmin
+        {
+            get { return true; }
+        }
+
     }
 }

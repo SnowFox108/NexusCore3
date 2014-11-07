@@ -4,7 +4,6 @@ using System.Data;
 using System.Linq;
 using System.Reflection;
 using AutoMapper;
-using NexusCore.Common.Adapter.Mapping;
 using NexusCore.Common.Infrastructure;
 using NexusCore.Infrasructure.Adapter.Mapping;
 using NexusCore.Infrasructure.Attributes;
