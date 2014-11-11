@@ -13,7 +13,9 @@ namespace NexusCore.Common.Data.Entities.SourceTrees
         public SourceTreeItemType ItemType { get; set; }
         public int SortOrder { get; set; }
 
-        public IEnumerable<ItemInSourceTree> ItemsInSourceTrees { get; set; }
-        public IEnumerable<SourceTreePermission> SourceTreePermissions { get; set; }
+        public virtual SourceTree Parent { get; set; }
+        public virtual ICollection<SourceTree> ChildNodes { get; set; }
+        public virtual IEnumerable<ItemInSourceTree> ItemsInSourceTrees { get; set; }
+        public virtual IEnumerable<SourceTreePermission> SourceTreePermissions { get; set; }
     }
 }

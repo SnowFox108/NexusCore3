@@ -99,6 +99,7 @@
     <Compile Include="Data\Entities\Website\WebSite.cs" />
     <Compile Include="Data\Infrastructure\IUnitOfWorkAsyncFactory.cs" />
     <Compile Include="Data\MappingProfiles\ClientProfile.cs" />
+    <Compile Include="Data\MappingProfiles\WebsiteProfile.cs" />
     <Compile Include="Data\Models\Clients\ClientCreateModel.cs" />
     <Compile Include="Data\Models\Clients\ClientDepartmentModel.cs" />
     <Compile Include="Data\Models\Clients\ClientModel.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Data\Models\Installation\InstallationModel.cs" />
     <Compile Include="Data\Models\SourceTrees\SourceTreeMasterRoot.cs" />
     <Compile Include="Data\Models\Websites\DomainModel.cs" />
+    <Compile Include="Data\Models\Websites\WebsiteAdminModel.cs" />
     <Compile Include="Data\Models\Websites\WebsiteModel.cs" />
     <Compile Include="Data\Specifications\ClientSpecifications.cs" />
     <Compile Include="Data\Specifications\FriendlyIdSpecifications.cs" />
@@ -164,13 +166,15 @@
     <Compile Include="Services\IAggregateServices.cs" />
     <Compile Include="Services\IComponentServices.cs" />
     <Compile Include="Services\IPrimitiveServices.cs" />
+    <Compile Include="Services\SourceTreeServices\IItemInSourceTreePrimitive.cs" />
     <Compile Include="Services\SourceTreeServices\ISourceTreeAggregate.cs" />
     <Compile Include="Services\SourceTreeServices\ISourceTreePrimitive.cs" />
+    <Compile Include="Services\WebsiteServices\IDomainPrimitive.cs" />
+    <Compile Include="Services\WebsiteServices\IWebsiteAggregate.cs" />
     <Compile Include="Services\WebsiteServices\IWebsitePrimitive.cs" />
     <Compile Include="Services\WebsiteServices\IWebsiteService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\DTO\" />
     <Folder Include="Data\Models\Memberships\" />
     <Folder Include="Data\StoredProcedures\DataReaders\" />
     <Folder Include="Data\StoredProcedures\Definitaions\" />

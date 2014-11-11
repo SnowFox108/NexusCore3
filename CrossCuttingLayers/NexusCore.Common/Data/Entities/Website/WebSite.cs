@@ -16,6 +16,7 @@ namespace NexusCore.Common.Data.Entities.Website
         public string PageTitlePrefix { get; set; }
         public string PageTitleSuffix { get; set; }
         public bool IsActive { get; set; }
+        public bool IsUnderMaintenance { get; set; }
 
         public virtual IEnumerable<Domain> Domains { get; set; }
     }

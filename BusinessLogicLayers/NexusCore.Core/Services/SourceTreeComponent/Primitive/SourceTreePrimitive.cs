@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using NexusCore.Common.Data.Entities.SourceTrees;
@@ -14,6 +15,12 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Primitive
     {
         public SourceTreePrimitive(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
+        }
+
+        public SourceTree GetChildNode(Guid parentId,
+            SourceTreeItemType itemType = SourceTreeItemType.None)
+        {
+            return UnitOfWork.Repository<SourceTree>().Get(SourceTreeSpecifications.ChildNodes(parentId, itemType)).FirstOrDefault();
         }
 
         public IEnumerable<SourceTree> GetChildNodes(Guid parentId,
@@ -35,10 +42,27 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Primitive
             return result;            
         }
 
+        public IEnumerable<SourceTree> GetClientNodes()
+        {
+            return GetChildNodes(SourceTreeRoot.MasterNode.Id , SourceTreeItemType.Client);
+        }
+
+        public IEnumerable<SourceTree> GetWebsiteNodes(Guid websiteRootId)
+        {
+            return GetChildNodes(websiteRootId, SourceTreeItemType.Website);
+        }
+
+        public SourceTree GetWebsiteRoot(Guid clientRootId)
+        {
+            return GetChildNode(clientRootId, SourceTreeItemType.WebsiteRoot);
+        }
+
         public bool IsNodeExist(Guid id)
         {
             return UnitOfWork.Repository<SourceTree>().Get(s => s.Id == id).Any();
         }
+
+
 
     }
 }

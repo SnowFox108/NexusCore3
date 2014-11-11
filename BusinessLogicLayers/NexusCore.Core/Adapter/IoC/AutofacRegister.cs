@@ -8,6 +8,7 @@ using NexusCore.Common.Services;
 using NexusCore.Common.Services.ClientServices;
 using NexusCore.Common.Services.FriendlyIdServices;
 using NexusCore.Common.Services.SourceTreeServices;
+using NexusCore.Common.Services.WebsiteServices;
 using NexusCore.Core.Services.ClientComponent;
 using NexusCore.Core.Services.ClientComponent.Aggregate;
 using NexusCore.Core.Services.ClientComponent.Primitive;
@@ -15,6 +16,8 @@ using NexusCore.Core.Services.FriendlyIdGenerator.Primitive;
 using NexusCore.Core.Services.Infrastructure;
 using NexusCore.Core.Services.SourceTreeComponent.Aggregate;
 using NexusCore.Core.Services.SourceTreeComponent.Primitive;
+using NexusCore.Core.Services.WebsiteComponent.Aggregate;
+using NexusCore.Core.Services.WebsiteComponent.Primitive;
 using NexusCore.Data.Infrastructure;
 using NexusCore.Infrasructure.Adapter.Logging;
 using NexusCore.Infrasructure.Adapter.Mapping;
@@ -59,9 +62,16 @@ namespace NexusCore.Core.Adapter.IoC
             // Misc
             Builder.RegisterType<FriendlyIdPrimitive>().As<IFriendlyIdPrimitive>().InstancePerLifetimeScope();
 
-            // sourceTree service
+            // SourceTree service
+            Builder.RegisterType<ItemInSourceTreePrimitive>().As<IItemInSourceTreePrimitive>().InstancePerLifetimeScope();
             Builder.RegisterType<SourceTreeAggregate>().As<ISourceTreeAggregate>().InstancePerLifetimeScope();
             Builder.RegisterType<SourceTreePrimitive>().As<ISourceTreePrimitive>().InstancePerLifetimeScope();
+
+            // Webiste
+            Builder.RegisterType<DomainPrimitive>().As<IDomainPrimitive>().InstancePerLifetimeScope();
+            Builder.RegisterType<WebsiteAggregate>().As<IWebsiteAggregate>().InstancePerLifetimeScope();
+            Builder.RegisterType<WebsitePrimitive>().As<IWebsitePrimitive>().InstancePerLifetimeScope();
+
 
         }
     }

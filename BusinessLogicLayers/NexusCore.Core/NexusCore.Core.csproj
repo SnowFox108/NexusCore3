@@ -75,6 +75,9 @@
     <Compile Include="Services\SourceTreeComponent\Aggregate\SourceTreeAggregate.cs" />
     <Compile Include="Services\SourceTreeComponent\Primitive\ItemInSourceTreePrimitive.cs" />
     <Compile Include="Services\SourceTreeComponent\Primitive\SourceTreePrimitive.cs" />
+    <Compile Include="Services\WebsiteComponent\Aggregate\WebsiteAggregate.cs" />
+    <Compile Include="Services\WebsiteComponent\Primitive\WebsitePrimitive.cs" />
+    <Compile Include="Services\WebsiteComponent\Primitive\DomainPrimitive.cs" />
     <Compile Include="Services\WebsiteComponent\WebsiteService.cs" />
     <Compile Include="Utilities\Messager\MessageService.cs" />
   </ItemGroup>
@@ -94,8 +97,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\MembershipComponent\Primitive\" />
-    <Folder Include="Services\WebsiteComponent\Aggregate\" />
-    <Folder Include="Services\WebsiteComponent\Primitive\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

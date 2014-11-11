@@ -7,6 +7,7 @@ namespace NexusCore.Common.Data.Models.Websites
 {
     public class WebsiteModel: TrackableEntity
     {
+        public Guid ClientId { get; set; }
         public string FriendlyId { get; set; }
         [Required(ErrorMessageResourceType = typeof(DataAnnotationText), ErrorMessageResourceName = "WebsiteRequiredName")]
         [StringLength(500, ErrorMessageResourceType = typeof(DataAnnotationText), ErrorMessageResourceName = "GeneralMaximum500")]
@@ -19,6 +20,7 @@ namespace NexusCore.Common.Data.Models.Websites
         public string PageTitlePrefix { get; set; }
         public string PageTitleSuffix { get; set; }
         public bool IsActive { get; set; }
+        public bool IsUnderMaintenance { get; set; }
 
     }
 }

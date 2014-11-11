@@ -64,7 +64,7 @@ namespace NexusCore.Common.Data.Infrastructure
         /// Attach this item into "ObjectStateManager"
         /// </summary>
         /// <typeparam name="TEntity">The type of entity</typeparam>
-        /// <param name="entity">The item <</param>
+        /// <param name="entity">The item </param>
         void Attach<TEntity>(TEntity entity) where TEntity : Entity;
 
         /// <summary>

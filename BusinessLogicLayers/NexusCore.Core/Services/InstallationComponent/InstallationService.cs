@@ -80,6 +80,9 @@ namespace NexusCore.Core.Services.InstallationComponent
                 return;
             }
 
+            var adminRole = _authenticationManager.GetRoleByName(DefaultUserRoles.Administrators);
+            _authenticationManager.AddUesrToRole(user.Id, adminRole.Id);
+
             // Login Admin
             Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(user.Email, "Passport"), null);
         }

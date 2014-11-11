@@ -7,6 +7,12 @@ namespace NexusCore.Common.Data.Entities.Membership
 {
     public class User : TrackableEntity, IUser
     {
+        public User()
+        {
+            Roles = new HashSet<Role>();
+            UserExternalLogins = new HashSet<UserExternalLogin>();
+        }
+
         public string UserName { get; set; }
         public string Email { get; set; }
         public string PasswordHash { get; set; }
@@ -22,7 +28,7 @@ namespace NexusCore.Common.Data.Entities.Membership
 
         public DateTime LastActivityDate { get; set; }        
 
-        public virtual ICollection<Role> Roles { get; set; }
-        public virtual ICollection<UserExternalLogin> UserExternalLogins { get; set; }
+        public ICollection<Role> Roles { get; set; }
+        public ICollection<UserExternalLogin> UserExternalLogins { get; set; }
     }
 }
