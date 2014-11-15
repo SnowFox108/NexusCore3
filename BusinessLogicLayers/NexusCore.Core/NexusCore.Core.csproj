@@ -72,9 +72,12 @@
     <Compile Include="Services\FriendlyIdGenerator\Primitive\FriendlyIdPrimitive.cs" />
     <Compile Include="Services\InstallationComponent\InstallationService.cs" />
     <Compile Include="Services\Infrastructure\PrimitiveServices.cs" />
+    <Compile Include="Services\PermissionComponent\Aggregate\PermissionAggregate.cs" />
+    <Compile Include="Services\PermissionComponent\Primitive\PermissionPrimitive.cs" />
     <Compile Include="Services\SourceTreeComponent\Aggregate\SourceTreeAggregate.cs" />
     <Compile Include="Services\SourceTreeComponent\Primitive\ItemInSourceTreePrimitive.cs" />
     <Compile Include="Services\SourceTreeComponent\Primitive\SourceTreePrimitive.cs" />
+    <Compile Include="Services\SourceTreeComponent\SourceTreeService.cs" />
     <Compile Include="Services\WebsiteComponent\Aggregate\WebsiteAggregate.cs" />
     <Compile Include="Services\WebsiteComponent\Primitive\WebsitePrimitive.cs" />
     <Compile Include="Services\WebsiteComponent\Primitive\DomainPrimitive.cs" />
@@ -96,6 +99,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Resources\" />
     <Folder Include="Services\MembershipComponent\Primitive\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using NexusCore.Common.Data.Entities.SourceTrees;
 using NexusCore.Common.Data.Models.SourceTrees;
@@ -11,11 +10,11 @@ namespace NexusCore.Common.Data.Specifications
     public static class SourceTreeSpecifications
     {
 
-        public static ISpecification<SourceTree> ChildNodes(Guid parentId, SourceTreeItemType itemType = SourceTreeItemType.None)
+        public static ISpecification<SourceTree> ChildNodes(SourceTreeItemType itemType = SourceTreeItemType.None)
         {
             Specification<SourceTree> specification = new TrueSpecification<SourceTree>();
 
-            specification &= new DirectSpecification<SourceTree>(s => s.ParentId == parentId);
+            //specification &= new DirectSpecification<SourceTree>(s => s.ParentId == parentId);
 
             if (itemType != SourceTreeItemType.None)
                 specification &= new DirectSpecification<SourceTree>(s => s.ItemType == itemType);
@@ -23,11 +22,11 @@ namespace NexusCore.Common.Data.Specifications
             return specification;
         }
 
-        public static ISpecification<SourceTree> ChildNodes(Guid parentId, IEnumerable<SourceTreeItemType> itemTypes)
+        public static ISpecification<SourceTree> ChildNodes(IEnumerable<SourceTreeItemType> itemTypes)
         {
             Specification<SourceTree> specification = new TrueSpecification<SourceTree>();
 
-            specification &= new DirectSpecification<SourceTree>(s => s.ParentId == parentId);
+            //specification &= new DirectSpecification<SourceTree>(s => s.ParentId == parentId);
             specification &= new DirectSpecification<SourceTree>(s => itemTypes.Contains(s.ItemType));
 
             return specification;

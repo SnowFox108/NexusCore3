@@ -68,5 +68,32 @@ namespace NexusCore.Common.Resources {
                 return ResourceManager.GetString("C2", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can not find current user or current user did not login..
+        /// </summary>
+        public static string C20 {
+            get {
+                return ResourceManager.GetString("C20", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AutofacFactory has not been intialized, have you called Initialize()?.
+        /// </summary>
+        public static string C50 {
+            get {
+                return ResourceManager.GetString("C50", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CurrentUserProvider has not been intialized, have you called Initialize()?.
+        /// </summary>
+        public static string C51 {
+            get {
+                return ResourceManager.GetString("C51", resourceCulture);
+            }
+        }
     }
 }

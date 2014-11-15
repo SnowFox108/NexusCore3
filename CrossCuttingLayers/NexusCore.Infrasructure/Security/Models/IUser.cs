@@ -4,7 +4,7 @@ using NexusCore.Infrasructure.Data;
 
 namespace NexusCore.Infrasructure.Security.Models
 {
-    public interface IUser : IEntity
+    public interface IUser : IEntity, ITrackable
     {
         string UserName { get; set; }
         string Email { get; set; }
@@ -20,12 +20,6 @@ namespace NexusCore.Infrasructure.Security.Models
         bool IsAnonymous { get; set; }
 
         DateTime LastActivityDate { get; set; }
-
-        // Trackable item
-        DateTime CreatedDate { get; set; }
-        Guid CreatedBy { get; set; }
-        DateTime UpdatedDate { get; set; }
-        Guid UpdatedBy { get; set; }
 
     }
 }

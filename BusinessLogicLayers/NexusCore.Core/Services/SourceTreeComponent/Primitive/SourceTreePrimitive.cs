@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using NexusCore.Common.Data.Entities.SourceTrees;
@@ -17,52 +16,87 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Primitive
         {
         }
 
-        public SourceTree GetChildNode(Guid parentId,
-            SourceTreeItemType itemType = SourceTreeItemType.None)
+        public SourceTree GetSourceTree(Guid sourceTreeId)
         {
-            return UnitOfWork.Repository<SourceTree>().Get(SourceTreeSpecifications.ChildNodes(parentId, itemType)).FirstOrDefault();
+            return UnitOfWork.Repository<SourceTree>().GetById(sourceTreeId);
         }
 
-        public IEnumerable<SourceTree> GetChildNodes(Guid parentId,
+        public SourceTree GetChildNode(Guid parentId, SourceTreeItemType itemType = SourceTreeItemType.None)
+        {
+            return GetChildNode(GetSourceTree(parentId), itemType);
+        }
+
+        public SourceTree GetChildNode(SourceTree parent,
             SourceTreeItemType itemType = SourceTreeItemType.None)
         {
-            var result = UnitOfWork.Repository<SourceTree>().Get(SourceTreeSpecifications.ChildNodes(parentId, itemType));
+            return parent.ChildNodes.AsQueryable().SingleOrDefault(SourceTreeSpecifications.ChildNodes(itemType).SatisfiedBy());
+        }
 
-            if (result == null)
-                return new List<SourceTree>();
-            return result;
+        public IEnumerable<SourceTree> GetChildNodes(Guid parentId, SourceTreeItemType itemType = SourceTreeItemType.None)
+        {
+            return GetChildNodes(GetSourceTree(parentId), itemType);
+        }
+
+        public IEnumerable<SourceTree> GetChildNodes(SourceTree parent,
+            SourceTreeItemType itemType = SourceTreeItemType.None)
+        {
+            return parent.ChildNodes.AsQueryable().Where(SourceTreeSpecifications.ChildNodes(itemType).SatisfiedBy());
         }
 
         public IEnumerable<SourceTree> GetChildNodes(Guid parentId, IEnumerable<SourceTreeItemType> itemTypes)
         {
-            var result = UnitOfWork.Repository<SourceTree>().Get(SourceTreeSpecifications.ChildNodes(parentId, itemTypes));
+            return GetChildNodes(GetSourceTree(parentId), itemTypes);
+        }
 
-            if (result == null)
-                return new List<SourceTree>();
-            return result;            
+        public IEnumerable<SourceTree> GetChildNodes(SourceTree parent, IEnumerable<SourceTreeItemType> itemTypes)
+        {
+            return parent.ChildNodes.AsQueryable().Where(SourceTreeSpecifications.ChildNodes(itemTypes).SatisfiedBy());
+        }
+
+        public SourceTree GetClientByCurrentNode(Guid sourceTreeId)
+        {
+            return GetClientByCurrentNode(GetSourceTree(sourceTreeId));
+        }
+
+        public SourceTree GetClientByCurrentNode(SourceTree sourceTree)
+        {
+            return GetParentSourceTree(sourceTree, SourceTreeItemType.Client);
+        }
+
+        private SourceTree GetParentSourceTree(SourceTree sourceTree, SourceTreeItemType itemType)
+        {
+            if (sourceTree.ItemType == itemType)
+                return sourceTree;
+            else
+                if (sourceTree.Parent == null)
+                    return sourceTree;
+                else
+                    return GetParentSourceTree(sourceTree.Parent, itemType);
         }
 
         public IEnumerable<SourceTree> GetClientNodes()
         {
-            return GetChildNodes(SourceTreeRoot.MasterNode.Id , SourceTreeItemType.Client);
+            return GetChildNodes(SourceTreeRoot.MasterNode, SourceTreeItemType.Client);
         }
 
-        public IEnumerable<SourceTree> GetWebsiteNodes(Guid websiteRootId)
+        public IEnumerable<SourceTree> GetWebsiteNodes(SourceTree websiteRoot)
         {
-            return GetChildNodes(websiteRootId, SourceTreeItemType.Website);
+            return GetChildNodes(websiteRoot, SourceTreeItemType.Website);
         }
 
-        public SourceTree GetWebsiteRoot(Guid clientRootId)
+        public SourceTree GetWebsiteRoot(Guid clientId)
         {
-            return GetChildNode(clientRootId, SourceTreeItemType.WebsiteRoot);
+            return UnitOfWork.Repository<SourceTree>().GetById(clientId);
+        }
+
+        public SourceTree GetWebsiteRoot(SourceTree client)
+        {
+            return GetChildNode(client, SourceTreeItemType.WebsiteRoot);
         }
 
         public bool IsNodeExist(Guid id)
         {
             return UnitOfWork.Repository<SourceTree>().Get(s => s.Id == id).Any();
         }
-
-
-
     }
 }

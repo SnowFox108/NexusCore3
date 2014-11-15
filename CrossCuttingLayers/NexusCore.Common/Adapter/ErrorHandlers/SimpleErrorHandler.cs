@@ -30,19 +30,22 @@ namespace NexusCore.Common.Adapter.ErrorHandlers
             get { return !_errors.Any(); }
         }
 
-        public void AddModleError(string key, string errorMessage, Guid clientId = new Guid(),
+        public IErrorModel AddModleError(string key, string errorMessage, Guid clientId = new Guid(),
             Guid moduleId = new Guid(), LogCode logCode = LogCode.None, params object[] args)
         {
-            _errors.Add(new SimpleErrorModel
+            var errorModel = new SimpleErrorModel
             {
                 Key = key,
                 ErrorMessage = string.IsNullOrEmpty(errorMessage) ? LogCodeText.GetString(logCode) : errorMessage
-            });
+            };
+            _errors.Add(errorModel);
 
             // Check if this error need to be log
             if (logCode.Value().IsLogged)
                 LoggerAdapter.Logger.Log(LogCodeText.GetString(logCode), clientId, moduleId, logCode.Value().Category,
                     logCode.Value().Level, logCode, args);
+            
+            return errorModel;
         }
 
         public void Clear()

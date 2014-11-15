@@ -4,7 +4,7 @@ using NexusCore.Common.Data.Entities.Clients;
 using NexusCore.Common.Data.Entities.Logs;
 using NexusCore.Common.Data.Entities.Membership;
 using NexusCore.Common.Data.Entities.Misc;
-using NexusCore.Common.Data.Entities.Security;
+using NexusCore.Common.Data.Entities.Permission;
 using NexusCore.Common.Data.Entities.SourceTrees;
 using NexusCore.Common.Data.Entities.WebPage;
 using NexusCore.Common.Data.Entities.Website;

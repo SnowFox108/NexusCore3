@@ -7,6 +7,7 @@ using NexusCore.Common.Security;
 using NexusCore.Common.Services;
 using NexusCore.Common.Services.ClientServices;
 using NexusCore.Common.Services.FriendlyIdServices;
+using NexusCore.Common.Services.PermissionServices;
 using NexusCore.Common.Services.SourceTreeServices;
 using NexusCore.Common.Services.WebsiteServices;
 using NexusCore.Core.Services.ClientComponent;
@@ -14,12 +15,14 @@ using NexusCore.Core.Services.ClientComponent.Aggregate;
 using NexusCore.Core.Services.ClientComponent.Primitive;
 using NexusCore.Core.Services.FriendlyIdGenerator.Primitive;
 using NexusCore.Core.Services.Infrastructure;
+using NexusCore.Core.Services.PermissionComponent.Aggregate;
+using NexusCore.Core.Services.PermissionComponent.Primitive;
+using NexusCore.Core.Services.SourceTreeComponent;
 using NexusCore.Core.Services.SourceTreeComponent.Aggregate;
 using NexusCore.Core.Services.SourceTreeComponent.Primitive;
 using NexusCore.Core.Services.WebsiteComponent.Aggregate;
 using NexusCore.Core.Services.WebsiteComponent.Primitive;
 using NexusCore.Data.Infrastructure;
-using NexusCore.Infrasructure.Adapter.Logging;
 using NexusCore.Infrasructure.Adapter.Mapping;
 using NexusCore.Infrasructure.Security;
 
@@ -62,10 +65,15 @@ namespace NexusCore.Core.Adapter.IoC
             // Misc
             Builder.RegisterType<FriendlyIdPrimitive>().As<IFriendlyIdPrimitive>().InstancePerLifetimeScope();
 
+            // Permission
+            Builder.RegisterType<PermissionAggregate>().As<IPermissionAggregate>().InstancePerLifetimeScope();
+            Builder.RegisterType<PermissionPrimitive>().As<IPermissionPrimitive>().InstancePerLifetimeScope();
+
             // SourceTree service
             Builder.RegisterType<ItemInSourceTreePrimitive>().As<IItemInSourceTreePrimitive>().InstancePerLifetimeScope();
             Builder.RegisterType<SourceTreeAggregate>().As<ISourceTreeAggregate>().InstancePerLifetimeScope();
             Builder.RegisterType<SourceTreePrimitive>().As<ISourceTreePrimitive>().InstancePerLifetimeScope();
+            Builder.RegisterType<SourceTreeService>().As<ISourceTreeService>().InstancePerLifetimeScope();
 
             // Webiste
             Builder.RegisterType<DomainPrimitive>().As<IDomainPrimitive>().InstancePerLifetimeScope();

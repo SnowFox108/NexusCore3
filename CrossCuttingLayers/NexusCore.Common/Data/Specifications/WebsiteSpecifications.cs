@@ -1,7 +1,7 @@
 ﻿using System;
 using NexusCore.Common.Data.Entities.Website;
 using NexusCore.Common.Data.Specification;
-using NexusCore.Common.Security;
+using NexusCore.Common.Infrastructure;
 using NexusCore.Infrasructure.Data;
 
 namespace NexusCore.Common.Data.Specifications
@@ -11,7 +11,7 @@ namespace NexusCore.Common.Data.Specifications
         public static ISpecification<Website> GetWebsite()
         {
             Specification<Website> spec = new TrueSpecification<Website>();
-            if (!CurrentUserProvider.IsAdmin)
+            if (!EngineContext.Instance.CurrentUser.IsAdmin)
                 spec &= new DirectSpecification<Website>(w => w.IsActive);
 
             return spec;
@@ -23,7 +23,7 @@ namespace NexusCore.Common.Data.Specifications
 
             spec &= new DirectSpecification<Website>(w => w.Id == websiteId);
 
-            if (!CurrentUserProvider.IsAdmin)
+            if (!EngineContext.Instance.CurrentUser.IsAdmin)
                 spec &= new DirectSpecification<Website>(w => w.IsActive);
 
             return spec;

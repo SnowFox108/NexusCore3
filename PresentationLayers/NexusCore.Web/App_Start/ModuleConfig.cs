@@ -28,7 +28,7 @@ namespace NexusCore.Web
         private static void EngineConfig()
         {
             // Dependancy Injection initialize
-            EngineContext.Instance.DiContainerInitialize(new AutofacFactory(
+            EngineContext.Instance.Initialize(new AutofacFactory(
                 builder => builder.RegisterControllers(typeof(MvcApplication).Assembly),
                 new AutofacRegisterWeb(),
                 container => DependencyResolver.SetResolver(new AutofacDependencyResolver(container))));            

@@ -15,7 +15,7 @@ namespace NexusCore.WebAPI
         public EngineConfig()
         {
             // Dependancy Injection initialize
-            EngineContext.Instance.DiContainerInitialize(new AutofacFactory(
+            EngineContext.Instance.Initialize(new AutofacFactory(
                 builder =>
                 {
                     builder.RegisterApiControllers(Assembly.GetExecutingAssembly());

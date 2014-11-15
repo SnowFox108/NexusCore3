@@ -35,10 +35,10 @@ namespace NexusCore.Core.Services.WebsiteComponent.Aggregate
                 };
         }
 
-        private Guid GetWebsiteRootByClientId(Guid clientId)
+        private SourceTree GetWebsiteRootByClientId(Guid clientId)
         {
             return PrimitiveServices.SourceTreePrimitive.GetWebsiteRoot(
-                    PrimitiveServices.ItemInSourceTreePrimitive.GetSourceTreeId(clientId)).Id;            
+                    PrimitiveServices.ItemInSourceTreePrimitive.GetSourceTreeId(clientId));            
         }
     }
 }

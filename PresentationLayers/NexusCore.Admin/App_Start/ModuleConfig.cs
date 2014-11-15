@@ -29,7 +29,7 @@ namespace NexusCore.Admin
         private static void EngineConfig()
         {
             // Dependancy Injection initialize
-            EngineContext.Instance.DiContainerInitialize(new AutofacFactory(
+            EngineContext.Instance.Initialize(new AutofacFactory(
                 builder =>
                 {
                     builder.RegisterControllers(typeof (MvcApplication).Assembly);

@@ -79,6 +79,7 @@
     <Compile Include="Security\IActivationToken.cs" />
     <Compile Include="Security\ICurrentUserProvider.cs" />
     <Compile Include="Security\IPasswordValidator.cs" />
+    <Compile Include="Security\Models\ICurrentUserModel.cs" />
     <Compile Include="Security\Models\IRole.cs" />
     <Compile Include="Security\Models\IUser.cs" />
     <Compile Include="Web\IApiUrlProvider.cs" />

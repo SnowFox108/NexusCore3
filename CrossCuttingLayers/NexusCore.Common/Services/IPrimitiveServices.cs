@@ -1,5 +1,6 @@
 ﻿using NexusCore.Common.Services.ClientServices;
 using NexusCore.Common.Services.FriendlyIdServices;
+using NexusCore.Common.Services.PermissionServices;
 using NexusCore.Common.Services.SourceTreeServices;
 using NexusCore.Common.Services.WebsiteServices;
 
@@ -11,6 +12,7 @@ namespace NexusCore.Common.Services
         IDomainPrimitive DomainPrimitive { get; }
         IFriendlyIdPrimitive FriendlyIdPrimitive { get; }
         IItemInSourceTreePrimitive ItemInSourceTreePrimitive { get; }
+        IPermissionPrimitive PermissionPrimitive { get; }
         ISourceTreePrimitive SourceTreePrimitive { get; }
         IWebsitePrimitive WebsitePrimitive { get; }
     }

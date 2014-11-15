@@ -19,9 +19,10 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Aggregate
         {
             var clientNode = new SourceTree
             {
-                ParentId = SourceTreeRoot.MasterNode.Id,
+                Parent = SourceTreeRoot.MasterNode,
                 Name = clientName,
                 ItemType = SourceTreeItemType.Client,
+                IsPrivacyInherited = true,
                 SortOrder = 1,
             };
 
@@ -32,40 +33,43 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Aggregate
             UnitOfWork.Repository<ItemInSourceTree>().Insert(new ItemInSourceTree()
             {
                 SourceTreeId = clientNode.Id,
-                ModuleType = SourceTreeItemModuleType.System,
+                ModuleType = SourceTreeItemModuleType.System,               
                 ItemId = clientId
             });
 
-            CreateClientDefaultSubNodes(clientNode.Id);
+            CreateClientDefaultSubNodes(clientNode);
 
         }
 
-        private void CreateClientDefaultSubNodes(Guid clientId)
+        private void CreateClientDefaultSubNodes(SourceTree client)
         {
             // Create default client sub nodes
 
             // Websites
             CreateNode(new SourceTree
             {
-                ParentId = clientId,
+                Parent = client,
                 Name = "Websites",
                 ItemType = SourceTreeItemType.WebsiteRoot,
+                IsPrivacyInherited = true,
                 SortOrder = 1,
             });
             // Modules
             CreateNode(new SourceTree
             {
-                ParentId = clientId,
+                Parent = client,
                 Name = "Modules",
                 ItemType = SourceTreeItemType.ModuleRoot,
+                IsPrivacyInherited = true,
                 SortOrder = 2,
             });
             // Contents
             CreateNode(new SourceTree
             {
-                ParentId = clientId,
+                Parent = client,
                 Name = "Contents",
                 ItemType = SourceTreeItemType.ContentRoot,
+                IsPrivacyInherited = true,
                 SortOrder = 3,
             });
 

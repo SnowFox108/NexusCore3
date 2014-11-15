@@ -1,12 +1,17 @@
-﻿using System.Linq;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Security.Principal;
+using System.Text;
 using System.Threading;
 using NexusCore.Common.Adapter.ErrorHandlers;
 using NexusCore.Common.Data.Entities.Clients;
+using NexusCore.Common.Data.Entities.Membership;
 using NexusCore.Common.Data.Entities.SourceTrees;
 using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Data.Models.Installation;
 using NexusCore.Common.Data.Models.SourceTrees;
+using NexusCore.Common.Helper;
 using NexusCore.Common.Helper.Extensions;
 using NexusCore.Common.Services;
 using NexusCore.Common.Services.InstallationServices;
@@ -19,10 +24,12 @@ namespace NexusCore.Core.Services.InstallationComponent
     public class InstallationService : BaseComponentService, IInstallationService
     {
         private readonly IAuthenticationManager _authenticationManager;
+        private readonly IUnitOfWorkAsyncFactory _unitOfWorkFactory;
 
-        public InstallationService(IUnitOfWork unitOfWork, IPrimitiveServices primitiveServices, IAggregateServices aggregateServices, IAuthenticationManager authenticationManager) : base(unitOfWork, primitiveServices, aggregateServices)
+        public InstallationService(IUnitOfWorkAsyncFactory unitOfWorkFacotry, IUnitOfWork unitOfWork, IPrimitiveServices primitiveServices, IAggregateServices aggregateServices, IAuthenticationManager authenticationManager) : base(unitOfWork, primitiveServices, aggregateServices)
         {
             _authenticationManager = authenticationManager;
+            _unitOfWorkFactory = unitOfWorkFacotry;
         }
 
         public bool IsFirstTime()
@@ -65,13 +72,35 @@ namespace NexusCore.Core.Services.InstallationComponent
 
         private void CreateAdministrator(InstallationAdministratorModel admin)
         {
-            _authenticationManager.CreateUser(
-                admin.Title,
-                admin.UserName,
-                admin.Email,
-                admin.FirstName,
-                admin.LastName,
-                admin.PhoneNumber);
+            using (var unitOfWork = _unitOfWorkFactory.Create())
+            {
+                if (unitOfWork.Repository<User>().Get(u => u.Email == admin.Email).Any())
+                    throw new ValidationException("Email address is already registered");
+
+                var timeNow = DateFormater.DateTimeNow;
+                var userId = Guid.NewGuid();
+
+                unitOfWork.Repository<User>().Insert(new User
+                {
+                    Id = userId,
+                    Email = admin.Email,
+                    UserName = GetFriendlyUserName(admin.UserName, admin.FirstName, admin.LastName),
+                    Title = admin.Title,
+                    FirstName = admin.FirstName,
+                    LastName = admin.LastName,
+                    PhoneNumber = admin.PhoneNumber,
+                    LastActivityDate = timeNow,
+                    PasswordSalt = GenerateSalt(),
+                    CreatedBy = userId,
+                    CreatedDate = timeNow,
+                    UpdatedBy = userId,
+                    UpdatedDate = timeNow
+                });
+
+                unitOfWork.SaveChanges();
+            }
+
+            _authenticationManager.ResetUserPassword(admin.Email);
 
             var user = _authenticationManager.GetUserByEmail(admin.Email);
             if (user == null)
@@ -87,9 +116,19 @@ namespace NexusCore.Core.Services.InstallationComponent
             Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(user.Email, "Passport"), null);
         }
 
+        private string GetFriendlyUserName(string userName, string firstName, string lastName)
+        {
+            return userName ?? string.Format("{0} {1}", firstName, lastName);
+        }
+        private string GenerateSalt()
+        {
+            return Convert.ToBase64String(Encoding.ASCII.GetBytes(Guid.NewGuid().ToString().Substring(16)));
+        }
+
         private void CreateMasterNode()
         {
             UnitOfWork.Repository<SourceTree>().Insert(SourceTreeRoot.MasterNode);
+            PrimitiveServices.PermissionPrimitive.RemoveInheritPermission(SourceTreeRoot.MasterNode.Id);
         }
 
         private void CreateDefaultClient(InstallationClientModel client)

@@ -1,6 +1,9 @@
 ﻿using System;
+using NexusCore.Common.Adapter.ErrorHandlers;
 using NexusCore.Infrasructure.Adapter.IoC;
 using NexusCore.Infrasructure.Infrastructure;
+using NexusCore.Infrasructure.Models.Enums;
+using NexusCore.Infrasructure.Security;
 
 namespace NexusCore.Common.Infrastructure
 {
@@ -14,20 +17,53 @@ namespace NexusCore.Common.Infrastructure
         }
 
         private IDiContainer _diContainer;
+        private ICurrentUserProvider _currentUserProvider;
 
         public IDiContainer DiContainer
         {
             get
             {
                 if (_diContainer == null)
-                    throw new Exception("AutofacFactory has not been intiialized, have you called DiContainerInitialize()?");
+                {
+                    var error = ErrorAdapter.ModelState.AddModleError("", "",
+                        logCode: LogCode.CriticalEngineDiContainerNotInitialized);
+                    throw new Exception(error.ErrorMessage);                    
+                }
                 return _diContainer;
             }
         }
 
-        public void DiContainerInitialize(IDiContainerFactory diContainerFactory)
+        public ICurrentUserProvider CurrentUser
         {
-            _diContainer = diContainerFactory.Create();
+            get
+            {
+                if (_currentUserProvider == null)
+                {
+                    var error = ErrorAdapter.ModelState.AddModleError("", "",
+                        logCode: LogCode.CriticalEngineCurrentUserProviderNotInitialized);
+                    throw new Exception(error.ErrorMessage);
+                }
+                return _currentUserProvider;
+            }
         }
+
+        public void Initialize(IDiContainerFactory diContainerFactory)
+        {
+            DiContainerInitialize(diContainerFactory);
+            CurrentUserProviderInitialize();
+        }
+
+        private void DiContainerInitialize(IDiContainerFactory diContainerFactory)
+        {
+            _diContainer = diContainerFactory.Create();            
+        }
+
+        private void CurrentUserProviderInitialize()
+        {
+            _currentUserProvider = _diContainer.GetInstance<ICurrentUserProvider>();
+        }
+
+
+
     }
 }

@@ -3,7 +3,7 @@ using NexusCore.Common.Data.Entities.SourceTrees;
 using NexusCore.Common.Data.Models.SourceTrees;
 using NexusCore.Infrasructure.Data;
 
-namespace NexusCore.Common.Data.Entities.Security
+namespace NexusCore.Common.Data.Entities.Permission
 {
     public class SourceTreePermission : Entity
     {
@@ -17,7 +17,7 @@ namespace NexusCore.Common.Data.Entities.Security
         public bool CanPublish { get; set; }
         public bool CanEnterDesignMode { get; set; }
         public SourceTreePermissionType PermissionType { get; set; }
-        public Guid PermitId { get; set; }
+        public Guid PermitId { get; set; } // User or GroupId
 
         public SourceTree SourceTree { get; set; }
     }

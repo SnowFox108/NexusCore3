@@ -84,12 +84,12 @@ namespace NexusCore.Common.Security
 
         public IUser GetUser(Guid userId)
         {
-            return _unitOfWork.Repository<User>().Get(u => u.Id == userId).Single();
+            return _unitOfWork.Repository<User>().Get(u => u.Id == userId).SingleOrDefault();
         }
 
         public IUser GetUserByEmail(string email)
         {
-            return _unitOfWork.Repository<User>().Get(u => u.Email == email.ToLower()).Single();
+            return _unitOfWork.Repository<User>().Get(u => u.Email == email.ToLower()).SingleOrDefault();
         }
 
         public IUser GetUserByExternalUserName(string userName, string providerName)

@@ -11,7 +11,7 @@ namespace NexusCore.Infrasructure.Adapter.ErrorHandlers
 
         bool IsValid { get; }
 
-        void AddModleError(string key, string errorMessage, Guid clientId = new Guid(), Guid moduleId = new Guid(),
+        IErrorModel AddModleError(string key, string errorMessage, Guid clientId = new Guid(), Guid moduleId = new Guid(),
             LogCode logCode = LogCode.None, params object[] args);
 
         void Clear();

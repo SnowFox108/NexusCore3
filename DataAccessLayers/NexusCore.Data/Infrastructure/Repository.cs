@@ -5,8 +5,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Helper;
+using NexusCore.Common.Infrastructure;
 using NexusCore.Infrasructure.Data;
-using NexusCore.Infrasructure.Security;
 
 namespace NexusCore.Data.Infrastructure
 {
@@ -24,15 +24,12 @@ namespace NexusCore.Data.Infrastructure
             return _contentContext.CreateSet<TEntity>();
         }
 
-        private readonly ICurrentUserProvider _userProvider;
-
-        public Repository(IContentContext contentContext, ICurrentUserProvider userProvider)
+        public Repository(IContentContext contentContext)
         {
             if (contentContext == null)
                 throw new ArgumentNullException("missing dbContent");
 
             _contentContext = contentContext;
-            _userProvider = userProvider;
         }
 
         public void Insert(params TEntity[] items)
@@ -197,22 +194,13 @@ namespace NexusCore.Data.Infrastructure
                 _contentContext.Dispose();
         }
 
-        private Guid GetCurrentUserId()
-        {
-            if (_userProvider == null)
-                return default(Guid);
-
-            var user = _contentContext.Users.SingleOrDefault(u => u.Email == _userProvider.Email);
-            return user != null ? user.Id : default(Guid);
-        }
-
         private void UpdateLogableItem(ILogable logger)
         {
             var timeNow = DateFormater.DateTimeNow;
             if (logger.CreatedDate == default(DateTime))
                 logger.CreatedDate = timeNow;
             if (logger.CreatedBy == default(Guid))
-                logger.CreatedBy = GetCurrentUserId();
+                logger.CreatedBy = EngineContext.Instance.CurrentUser.User.Id;
         }
 
         private void UpdateTrackableItem(ITrackable tracker, bool isCreate)
@@ -223,13 +211,13 @@ namespace NexusCore.Data.Infrastructure
                 if (tracker.CreatedDate == default(DateTime))
                     tracker.CreatedDate = timeNow;
                 if (tracker.CreatedBy == default(Guid))
-                    tracker.CreatedBy = GetCurrentUserId();                
+                    tracker.CreatedBy = EngineContext.Instance.CurrentUser.User.Id;                
             }
 
             if (tracker.UpdatedDate == default(DateTime))
                 tracker.UpdatedDate = timeNow;
             if (tracker.UpdatedBy == default(Guid))
-                tracker.UpdatedBy = GetCurrentUserId();
+                tracker.UpdatedBy = EngineContext.Instance.CurrentUser.User.Id;
 
         }
     }

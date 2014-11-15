@@ -17,7 +17,7 @@ namespace ClientTest
     {
         static void Main(string[] args)
         {
-            EngineContext.Instance.DiContainerInitialize(new AutofacFactory(
+            EngineContext.Instance.Initialize(new AutofacFactory(
                 builder =>
                 {
                     // Unit of Work
@@ -28,8 +28,9 @@ namespace ClientTest
                 container => { }));
 
             //var itemTypeModel = new GetItemTypeModel();
-            var install = new Installation();
+            //var install = new Installation();
             //var logCode = new GetLogCodeAttributes();
+            var sourceTree = new GetSourceTreeModel();
 
 
             Console.WriteLine("Press any key to continue...");

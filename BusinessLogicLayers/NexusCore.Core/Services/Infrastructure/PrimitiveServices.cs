@@ -2,6 +2,7 @@
 using NexusCore.Common.Services;
 using NexusCore.Common.Services.ClientServices;
 using NexusCore.Common.Services.FriendlyIdServices;
+using NexusCore.Common.Services.PermissionServices;
 using NexusCore.Common.Services.SourceTreeServices;
 using NexusCore.Common.Services.WebsiteServices;
 
@@ -27,6 +28,11 @@ namespace NexusCore.Core.Services.Infrastructure
         public IItemInSourceTreePrimitive ItemInSourceTreePrimitive
         {
             get { return EngineContext.Instance.DiContainer.GetInstance<IItemInSourceTreePrimitive>(); }
+        }
+
+        public IPermissionPrimitive PermissionPrimitive
+        {
+            get { return EngineContext.Instance.DiContainer.GetInstance<IPermissionPrimitive>(); }
         }
 
         public ISourceTreePrimitive SourceTreePrimitive

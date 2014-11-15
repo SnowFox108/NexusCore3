@@ -28,7 +28,7 @@ namespace NexusCore.Common.Data.Entities.Membership
 
         public DateTime LastActivityDate { get; set; }        
 
-        public ICollection<Role> Roles { get; set; }
-        public ICollection<UserExternalLogin> UserExternalLogins { get; set; }
+        public virtual ICollection<Role> Roles { get; set; }
+        public virtual ICollection<UserExternalLogin> UserExternalLogins { get; set; }
     }
 }

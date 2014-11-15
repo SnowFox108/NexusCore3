@@ -31,6 +31,10 @@ namespace NexusCore.Infrasructure.Models.Enums
         [StoreInLog] None = 0,
         [StoreInLog(true, TaskCategory.System, LogLevel.Critical)] CriticalUncategoriedError = 1,
         [StoreInLog(true, TaskCategory.System, LogLevel.Critical)] CriticalInstallationRepeated = 2,
+        [StoreInLog(true, TaskCategory.System, LogLevel.Critical)] CriticalCurrentUserNotLogin = 20,
+
+        [StoreInLog(true, TaskCategory.System, LogLevel.Critical)] CriticalEngineDiContainerNotInitialized = 50,
+        [StoreInLog(true, TaskCategory.System, LogLevel.Critical)] CriticalEngineCurrentUserProviderNotInitialized = 51,
 
         #endregion
 
