@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using NexusCore.Common.Data.Entities.SourceTrees;
+using NexusCore.Common.Data.Enums;
 using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Data.Models.SourceTrees;
 using NexusCore.Common.Services;

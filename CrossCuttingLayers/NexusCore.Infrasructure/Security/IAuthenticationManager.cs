@@ -15,9 +15,10 @@ namespace NexusCore.Infrasructure.Security
         /// <param name="firstName"></param>
         /// <param name="lastName"></param>
         /// <param name="phoneNumber"></param>
+        /// <param name="isAutoService"></param>
         /// <returns></returns>
         IActivationToken CreateUser(string title, string userName, string email, string firstName, string lastName,
-            string phoneNumber);
+            string phoneNumber, bool isAutoService = false);
 
         /// <summary>
         /// Updates existing user basic information
@@ -29,9 +30,10 @@ namespace NexusCore.Infrasructure.Security
         /// <param name="firstName"></param>
         /// <param name="lastName"></param>
         /// <param name="phoneNumber"></param>
+        /// <param name="isAutoService">Set to true if there no human operate</param>
         /// <returns></returns>
         int UpdateUser(Guid userId, string title, string userName, string email, string firstName, string lastName,
-            string phoneNumber);
+            string phoneNumber, bool isAutoService = false);
 
         bool Authenticate(string userEmail, string password);
         IUser LoginAuthenticate(string userEmail, string password);

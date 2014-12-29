@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using NexusCore.Common.Data.Enums;
 using NexusCore.Common.Data.Models.Page;
 
 namespace NexusCore.Common.Data.Values.Page

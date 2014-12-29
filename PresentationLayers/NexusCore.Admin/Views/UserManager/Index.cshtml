@@ -1,0 +1,243 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <!-- Begin: life time stats -->
+        <div class="portlet box green">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-search"></i>Search Filter
+                </div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse" data-original-title="" title="">
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <!-- BEGIN FORM-->
+                <form action="javascript:;" class="form-horizontal">
+                    <div class="form-body">
+                        <h3 class="form-section">Person Info</h3>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Title</label>
+                                    <div class="col-md-9">
+                                        <select class="form-control" ng-model="searchFilter.Title">
+                                            <option value="">Any</option>
+                                            <option value="Mr">Mr</option>
+                                            <option value="Miss">Miss</option>
+                                        </select>
+                                        <span class="help-block">
+                                            Select user title.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Email</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" placeholder="Email Address" ng-model="searchFilter.Email">
+                                        <span class="help-block">
+                                            Full or part of email
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Phone Number</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" placeholder="Phone Number" ng-model="searchFilter.PhoneNumber">
+                                        <span class="help-block">
+                                            Full or part of phone number
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">First Name</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" placeholder="First Name" ng-model="searchFilter.FirstName">
+                                        <span class="help-block">
+                                            Full or part of firstname
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Last Name</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" placeholder="Last Name" ng-model="searchFilter.LastName">
+                                        <span class="help-block">
+                                            Full or part of lastname
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-9">
+                            </div>
+                            <div class="col-md-3">
+                                <div class="row">
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <div class="btn-group pull-right">
+                                            <button type="button" class="btn green" ng-click="applySearchFilter()"><i class="fa fa-search"></i> Apply Search</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- END FORM-->
+            </div>
+        </div>
+        <!-- End: life time stats -->
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-user font-green-sharp"></i>
+                    <span class="caption-subject font-green-sharp bold uppercase">User Listing</span>
+                    <span class="caption-helper">manage users...</span>
+                </div>
+                <div class="tools">
+                </div>
+            </div>
+            <div class="portlet-body flip-scroll">
+                <div class="table-toolbar">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="btn-group">
+                                <a href="@Url.Action("CreateUser")" class="btn green">
+                                    Create New User <i class="fa fa-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="btn-group pull-right">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-striped table-bordered table-hover flip-content" id="sample_1">
+                    <thead class="flip-content">
+                        <tr>
+                            <th width="15%">
+                                Email
+                            </th>
+                            <th width="8%">
+                                First Name
+                            </th>
+                            <th width="8%">
+                                Last Name
+                            </th>
+                            <th width="8%">
+                                Last Active
+                            </th>
+                            <th width="8%">
+                                Created Date
+                            </th>
+                            <th width="10%">
+                                Created By
+                            </th>
+                            <th width="8%">
+                                Update Date
+                            </th>
+                            <th width="10%">
+                                Update By
+                            </th>
+                            <th width="8%">
+                                Status
+                            </th>
+                            <th width="17%">
+                                Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="odd gradeX" ng-repeat="user in userManager.Users">
+                            <td>
+                                <a href="{{ user.Email }}">
+                                    {{ user.Email }}
+                                </a>
+                            </td>
+                            <td>
+                                {{ user.FirstName }}
+                            </td>
+                            <td>
+                                {{ user.LastName }}
+                            </td>
+                            <td class="center">
+                                {{ user.LastActivityDate }}
+                            </td>
+                            <td class="center">
+                                {{ user.CreatedDate }}
+                            </td>
+                            <td>
+                                {{ user.CreatedByUser.DisplayName }}
+                            </td>
+                            <td class="center">
+                                {{ user.UpdatedDate }}
+                            </td>
+                            <td>
+                                {{ user.UpdatedByUser.DisplayName }}
+                            </td>
+                            <td>
+                                <span class="label label-sm ng-class:user.UserStatus.Css">
+                                    {{ user.UserStatus.Text }}
+                                </span>
+                            </td>
+                            <td>
+                                Edit | Reset Password
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col-md-5 col-sm-12">
+                        <div class="dataTables_info" id="sample_1_info" role="status" aria-live="polite">
+                            Showing {{ userManager.Paging.CurrentPage * userManager.Paging.ItemsPerPage - userManager.Paging.ItemsPerPage + 1 }}
+                            to {{ userManager.Paging.CurrentPage * userManager.Paging.ItemsPerPage > userManager.Paging.TotalItems ? userManager.Paging.TotalItems : userManager.Paging.CurrentPage * userManager.Paging.ItemsPerPage }}
+                            of {{ userManager.Paging.TotalItems }} results
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-sm-12">
+                        <div class="dataTables_paginate paging_bootstrap_full_number">
+                            <pagination ng-change=""
+                                        total-items="userManager.Paging.TotalItems"
+                                        items-per-page="userManager.Paging.ItemsPerPage"
+                                        ng-model="userManager.Paging.CurrentPage"
+                                        max-size="4" class="" boundary-links="true"
+                                        previous-text="&lsaquo;" 
+                                        next-text="&rsaquo;" 
+                                        first-text="&laquo;" 
+                                        last-text="&raquo;"></pagination>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END EXAMPLE TABLE PORTLET-->
+    </div>
+</div>
+
+@section pageLevelScripts{
+    <script src="/Angular/Controllers/use-rmanager-index.js"></script>
+}

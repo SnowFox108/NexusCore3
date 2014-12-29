@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using NexusCore.Common.Data.Entities.Clients;
 using NexusCore.Common.Data.Entities.Logs;
+using NexusCore.Common.Data.Entities.MailTemplates;
 using NexusCore.Common.Data.Entities.Membership;
 using NexusCore.Common.Data.Entities.Misc;
 using NexusCore.Common.Data.Entities.Permission;
@@ -31,6 +32,8 @@ namespace NexusCore.Data.Infrastructure
         public IDbSet<FriendlyIdCounter> FriendlyIdCounters { get; set; }
         public IDbSet<Logging> Loggings { get; set; }
 
+        // MailTemplate
+        public IDbSet<MailTemplate> MailTemplates { get; set; }
 
         // Membership
         public IDbSet<Role> Roles { get; set; }
@@ -54,8 +57,8 @@ namespace NexusCore.Data.Infrastructure
 
         // Website
         public IDbSet<Domain> Domains { get; set; }
-        public IDbSet<Website> WebSites { get; set; }
-
+        public IDbSet<Website> Websites { get; set; }
+        public IDbSet<WebsiteSetting> WebsiteSettings { get; set; }
         #endregion
 
         public ContentContext() : base("name=NexusCore")
@@ -161,5 +164,6 @@ namespace NexusCore.Data.Infrastructure
         }
 
         #endregion
+
     }
 }

@@ -18,6 +18,7 @@ namespace NexusCore.Infrasructure.Security.Models
 
         bool IsActive { get; set; }
         bool IsAnonymous { get; set; }
+        bool IsDelete { get; set; }
 
         DateTime LastActivityDate { get; set; }
 

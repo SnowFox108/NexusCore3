@@ -1,23 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
-using System.Threading.Tasks;
+using NexusCore.Common.Helper;
 using NexusCore.Infrasructure.Adapter.Messager;
 
 namespace NexusCore.Common.Adapter.Messager
 {
     public class EmailSender : IEmailSender
     {
-        public MailMessage CreateEmail(string subject, string body, bool isBodyHtml, MailPriority priority, Encoding bodyEncoding, string from, string to, string replyTo = null, string bccTo = null, IDictionary<string, Stream> attachments = null)
+        public MailMessage CreateEmail(string subject, string body, bool isBodyHtml, MailPriority priority, Encoding bodyEncoding, string from, string to, string replyTo = null, string bccTo = null, IDictionary<string, string> tokenValues = null, IDictionary<string, Stream> attachments = null)
         {
-            var mailMessage = new MailMessage();
-            mailMessage.From = new MailAddress(from.ToLower());
+            var mailMessage = new MailMessage
+            {
+                From = new MailAddress(@from.ToLower()),
+                Subject = tokenValues == null ? subject : TextMessage.ReplaceTokens(subject, tokenValues),
+                Body = tokenValues == null ? body : TextMessage.ReplaceTokens(body, tokenValues),
+            };
+
             mailMessage.To.Add(to);
-            mailMessage.Subject = subject;
-            mailMessage.Body = body;
 
             if (!string.IsNullOrEmpty(replyTo))
                 mailMessage.ReplyToList.Add(replyTo);
@@ -40,6 +42,7 @@ namespace NexusCore.Common.Adapter.Messager
 
         public void SendEmail(string subject, string body, bool isBodyHtml, MailPriority priority, Encoding bodyEncoding,
             string from, string to, string replyTo = null, string bccTo = null,
+            IDictionary<string, string> tokenValues = null,
             IDictionary<string, Stream> attachments = null)
         {
             SendEmail(CreateEmail(
@@ -52,6 +55,7 @@ namespace NexusCore.Common.Adapter.Messager
                 to,
                 replyTo,
                 bccTo,
+                tokenValues,
                 attachments
                 ));
         }

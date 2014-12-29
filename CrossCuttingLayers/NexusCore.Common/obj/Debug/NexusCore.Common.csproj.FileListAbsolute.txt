@@ -19,3 +19,4 @@ F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCor
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\bin\Debug\Resources\LogCodeRes.resx
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCore.Common.Resources.LogCodeRes.resources
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCore.Common.Resources.DataAnnotationText.resources
+F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCore.Common.Resources.WebFormText.resources

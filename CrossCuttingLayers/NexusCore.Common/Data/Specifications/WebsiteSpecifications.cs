@@ -8,6 +8,18 @@ namespace NexusCore.Common.Data.Specifications
 {
     public class WebsiteSpecifications
     {
+
+        public static ISpecification<Domain> GetDomain(Guid websiteId = new Guid())
+        {
+            Specification<Domain> spec = new TrueSpecification<Domain>();
+            if (websiteId != default(Guid))
+                spec &= new DirectSpecification<Domain>(d => d.WebsiteId == websiteId);
+            if (!EngineContext.Instance.CurrentUser.IsAdmin)
+                spec &= new DirectSpecification<Domain>(d => d.IsActive);
+
+            return spec;
+        }
+
         public static ISpecification<Website> GetWebsite()
         {
             Specification<Website> spec = new TrueSpecification<Website>();

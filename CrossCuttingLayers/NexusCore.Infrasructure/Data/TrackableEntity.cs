@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NexusCore.Infrasructure.Data
 {
@@ -6,5 +7,7 @@ namespace NexusCore.Infrasructure.Data
     {
         public DateTime UpdatedDate { get; set; }
         public Guid UpdatedBy { get; set; }
+        [NotMapped]
+        public Guid PresetUpdatedBy { get; set; }
     }
 }

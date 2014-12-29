@@ -1,5 +1,6 @@
 ﻿using System;
 using NexusCore.Common.Data.Entities.SourceTrees;
+using NexusCore.Common.Data.Enums;
 
 namespace NexusCore.Common.Data.Models.SourceTrees
 {

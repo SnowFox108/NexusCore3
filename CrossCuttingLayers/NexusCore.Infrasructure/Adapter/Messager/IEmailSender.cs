@@ -17,6 +17,7 @@ namespace NexusCore.Infrasructure.Adapter.Messager
             string to,
             string replyTo = null,
             string bccTo = null,
+            IDictionary<string, string> tokenValues = null,
             IDictionary<string, Stream> attachments = null);
 
         void SendEmail(
@@ -29,6 +30,7 @@ namespace NexusCore.Infrasructure.Adapter.Messager
             string to,
             string replyTo = null,
             string bccTo = null,
+            IDictionary<string, string> tokenValues = null,
             IDictionary<string, Stream> attachments = null);
 
         void SendEmail(MailMessage message);

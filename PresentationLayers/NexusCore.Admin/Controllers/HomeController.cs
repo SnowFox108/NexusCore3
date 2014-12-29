@@ -7,8 +7,10 @@ using System.Web.Mvc;
 namespace NexusCore.Admin.Controllers
 {
     [Authorize]
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
+
+        // Dashboard
         public ActionResult Index()
         {
             return View();

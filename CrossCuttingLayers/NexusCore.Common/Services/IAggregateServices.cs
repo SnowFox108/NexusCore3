@@ -6,9 +6,9 @@ using NexusCore.Common.Services.SourceTreeServices;
 namespace NexusCore.Common.Services
 {
     public interface IAggregateServices
-    {        
-        IClientAggregate ClientAggregate { get; }
-        IPermissionAggregate PermissionAggregate { get; }
-        ISourceTreeAggregate SourceTreeAggregate { get; }
+    {
+        IClientAggregate ClientAggregate { get; set; }
+        IPermissionAggregate PermissionAggregate { get; set; }
+        ISourceTreeAggregate SourceTreeAggregate { get; set; }
     }
 }

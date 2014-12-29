@@ -28,19 +28,26 @@ namespace NexusCore.Infrasructure.Models.Enums
 
         #region 1-199 System Critical Error
 
-        [StoreInLog] None = 0,
-        [StoreInLog(true, TaskCategory.System, LogLevel.Critical)] CriticalUncategoriedError = 1,
-        [StoreInLog(true, TaskCategory.System, LogLevel.Critical)] CriticalInstallationRepeated = 2,
-        [StoreInLog(true, TaskCategory.System, LogLevel.Critical)] CriticalCurrentUserNotLogin = 20,
+        [StoreInLog]
+        None = 0,
+        [StoreInLog(true, TaskCategory.System, LogLevel.Critical)]
+        CriticalUncategoriedError = 1,
+        [StoreInLog(true, TaskCategory.System, LogLevel.Critical)]
+        CriticalInstallationRepeated = 2,
+        [StoreInLog(true, TaskCategory.System, LogLevel.Critical)]
+        CriticalCurrentUserNotLogin = 20,
 
-        [StoreInLog(true, TaskCategory.System, LogLevel.Critical)] CriticalEngineDiContainerNotInitialized = 50,
-        [StoreInLog(true, TaskCategory.System, LogLevel.Critical)] CriticalEngineCurrentUserProviderNotInitialized = 51,
+        [StoreInLog(true, TaskCategory.System, LogLevel.Critical)]
+        CriticalEngineDiContainerNotInitialized = 50,
+        [StoreInLog(true, TaskCategory.System, LogLevel.Critical)]
+        CriticalEngineCurrentUserProviderNotInitialized = 51,
 
         #endregion
 
         #region 200-299 System Error
 
-        Info = 200,
+        [StoreInLog(false, TaskCategory.System, LogLevel.Error)]
+        ErrorUserLoginFailed = 200,
 
         #endregion
 

@@ -25,6 +25,7 @@ namespace NexusCore.Common.Data.Entities.Membership
 
         public bool IsActive { get; set; }
         public bool IsAnonymous { get; set; }
+        public bool IsDelete { get; set; }
 
         public DateTime LastActivityDate { get; set; }        
 

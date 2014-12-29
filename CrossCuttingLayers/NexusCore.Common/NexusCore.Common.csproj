@@ -82,6 +82,7 @@
     <Compile Include="Adapter\Messager\SmsSender.cs" />
     <Compile Include="Data\Entities\Clients\Client.cs" />
     <Compile Include="Data\Entities\Clients\ClientDepartment.cs" />
+    <Compile Include="Data\Entities\MailTemplates\MailTemplate.cs" />
     <Compile Include="Data\Entities\Membership\Role.cs" />
     <Compile Include="Data\Entities\Membership\User.cs" />
     <Compile Include="Data\Entities\Membership\UserExternalLogin.cs" />
@@ -96,17 +97,28 @@
     <Compile Include="Data\Entities\WebPage\PageControl.cs" />
     <Compile Include="Data\Entities\SourceTrees\SourceTree.cs" />
     <Compile Include="Data\Entities\Website\Domain.cs" />
-    <Compile Include="Data\Entities\Website\WebSite.cs" />
+    <Compile Include="Data\Entities\Website\Website.cs" />
+    <Compile Include="Data\Entities\Website\WebsiteSetting.cs" />
+    <Compile Include="Data\Enums\Websites.cs" />
     <Compile Include="Data\Infrastructure\IUnitOfWorkAsyncFactory.cs" />
     <Compile Include="Data\MappingProfiles\ClientProfile.cs" />
+    <Compile Include="Data\MappingProfiles\UserProfile.cs" />
     <Compile Include="Data\MappingProfiles\WebsiteProfile.cs" />
     <Compile Include="Data\Models\Clients\ClientCreateModel.cs" />
     <Compile Include="Data\Models\Clients\ClientDepartmentModel.cs" />
     <Compile Include="Data\Models\Clients\ClientModel.cs" />
+    <Compile Include="Data\Models\CommonModels\PaginationModel.cs" />
+    <Compile Include="Data\Models\CommonModels\PagingAndSortingModel.cs" />
+    <Compile Include="Data\Models\CommonModels\SortingModel.cs" />
     <Compile Include="Data\Models\Installation\InstallationAdministratorModel.cs" />
     <Compile Include="Data\Models\Installation\InstallationClientModel.cs" />
     <Compile Include="Data\Models\Installation\InstallationModel.cs" />
     <Compile Include="Data\Models\Memberships\CurentUserModel.cs" />
+    <Compile Include="Data\Models\Memberships\LogableModel.cs" />
+    <Compile Include="Data\Models\Memberships\TrackableModel.cs" />
+    <Compile Include="Data\Models\Memberships\UserManagerModel.cs" />
+    <Compile Include="Data\Models\Memberships\UserModel.cs" />
+    <Compile Include="Data\Models\Memberships\UserSearchFilter.cs" />
     <Compile Include="Data\Models\Permission\SourceTreePermissionModel.cs" />
     <Compile Include="Data\Models\SourceTrees\SourceTreeMasterRoot.cs" />
     <Compile Include="Data\Models\Websites\DomainModel.cs" />
@@ -114,15 +126,16 @@
     <Compile Include="Data\Models\Websites\WebsiteModel.cs" />
     <Compile Include="Data\Specifications\ClientSpecifications.cs" />
     <Compile Include="Data\Specifications\FriendlyIdSpecifications.cs" />
+    <Compile Include="Data\Specifications\MembershipSpecifications.cs" />
     <Compile Include="Data\Specifications\WebsiteSpecifications.cs" />
     <Compile Include="Data\Values\Page\PageExtensions.cs" />
     <Compile Include="Data\Values\SourceTree\SourceTreeExtensions.cs" />
     <Compile Include="Data\Infrastructure\IContentContext.cs" />
     <Compile Include="Data\Infrastructure\IRepository.cs" />
     <Compile Include="Data\Infrastructure\IUnitOfWork.cs" />
-    <Compile Include="Data\Models\Pages\Enums.cs" />
+    <Compile Include="Data\Enums\Pages.cs" />
     <Compile Include="Data\Models\Pages\PageGridTypeModel.cs" />
-    <Compile Include="Data\Models\SourceTrees\Enums.cs" />
+    <Compile Include="Data\Enums\SourceTrees.cs" />
     <Compile Include="Data\Models\SourceTrees\SourceTreeItemTypeModel.cs" />
     <Compile Include="Data\Models\SourceTrees\SourceTreeModel.cs" />
     <Compile Include="Data\Infrastructure\Specification\AndSpecification.cs" />
@@ -138,9 +151,9 @@
     <Compile Include="Data\Values\Page\PageGridTypeValues.cs" />
     <Compile Include="Data\Values\SourceTree\SourceTreeItemTypeValues.cs" />
     <Compile Include="Helper\DateFormater.cs" />
-    <Compile Include="Helper\Extensions\DateExtensions.cs" />
     <Compile Include="Helper\Extensions\EntityExtensions.cs" />
     <Compile Include="Helper\Seo.cs" />
+    <Compile Include="Helper\TextMessage.cs" />
     <Compile Include="Infrastructure\EngineContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\DataAnnotationText.Designer.cs">
@@ -153,6 +166,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LogCodeRes.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\WebFormText.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebFormText.resx</DependentUpon>
+    </Compile>
     <Compile Include="Security\ActivationToken.cs" />
     <Compile Include="Security\CurrentUserProvider.cs" />
     <Compile Include="Security\PasswordValidtor.cs" />
@@ -164,10 +182,13 @@
     <Compile Include="Services\ClientServices\IClientService.cs" />
     <Compile Include="Services\FriendlyIdServices\IFriendlyIdPrimitive.cs" />
     <Compile Include="Services\InstallationServices\IInstallationService.cs" />
+    <Compile Include="Services\MembershipServices\IMembershipService.cs" />
+    <Compile Include="Services\MembershipServices\IUserPrimitive.cs" />
     <Compile Include="Services\MessagerServices\IMessageService.cs" />
     <Compile Include="Services\IAggregateServices.cs" />
     <Compile Include="Services\IComponentServices.cs" />
     <Compile Include="Services\IPrimitiveServices.cs" />
+    <Compile Include="Services\MessageServices\IMailTemplatePrimitive.cs" />
     <Compile Include="Services\PermissionServices\IPermissionAggregate.cs" />
     <Compile Include="Services\PermissionServices\IPermissionPrimitive.cs" />
     <Compile Include="Services\PermissionServices\IPermissionService.cs" />
@@ -196,13 +217,17 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\DataAnnotationText.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>DataAnnotationText.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\LogCodeRes.resx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>LogCodeRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\WebFormText.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>WebFormText.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

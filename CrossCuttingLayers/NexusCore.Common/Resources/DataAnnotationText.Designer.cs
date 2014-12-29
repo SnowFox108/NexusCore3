@@ -22,7 +22,7 @@ namespace NexusCore.Common.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class DataAnnotationText {
+    public class DataAnnotationText {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace NexusCore.Common.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NexusCore.Common.Resources.DataAnnotationText", typeof(DataAnnotationText).Assembly);
@@ -51,7 +51,7 @@ namespace NexusCore.Common.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace NexusCore.Common.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Please enter a contact person email.
         /// </summary>
-        internal static string ClientDepartmentRequiredContactEmail {
+        public static string ClientDepartmentRequiredContactEmail {
             get {
                 return ResourceManager.GetString("ClientDepartmentRequiredContactEmail", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace NexusCore.Common.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Please enter a contact person firstname.
         /// </summary>
-        internal static string ClientDepartmentRequiredContactFirstName {
+        public static string ClientDepartmentRequiredContactFirstName {
             get {
                 return ResourceManager.GetString("ClientDepartmentRequiredContactFirstName", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace NexusCore.Common.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Please enter a contact person lastname.
         /// </summary>
-        internal static string ClientDepartmentRequiredContactLastName {
+        public static string ClientDepartmentRequiredContactLastName {
             get {
                 return ResourceManager.GetString("ClientDepartmentRequiredContactLastName", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace NexusCore.Common.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Please enter a contact person phone.
         /// </summary>
-        internal static string ClientDepartmentRequiredContactPhoneNumber {
+        public static string ClientDepartmentRequiredContactPhoneNumber {
             get {
                 return ResourceManager.GetString("ClientDepartmentRequiredContactPhoneNumber", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace NexusCore.Common.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Please select a contact person title.
         /// </summary>
-        internal static string ClientDepartmentRequiredContactTitle {
+        public static string ClientDepartmentRequiredContactTitle {
             get {
                 return ResourceManager.GetString("ClientDepartmentRequiredContactTitle", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace NexusCore.Common.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Please enter a department name.
         /// </summary>
-        internal static string ClientDepartmentRequiredName {
+        public static string ClientDepartmentRequiredName {
             get {
                 return ResourceManager.GetString("ClientDepartmentRequiredName", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace NexusCore.Common.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Please enter a client name.
         /// </summary>
-        internal static string ClientRequiredName {
+        public static string ClientRequiredName {
             get {
                 return ResourceManager.GetString("ClientRequiredName", resourceCulture);
             }
@@ -126,16 +126,79 @@ namespace NexusCore.Common.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Please enter a domain name.
         /// </summary>
-        internal static string DomainRequiredName {
+        public static string DomainRequiredName {
             get {
                 return ResourceManager.GetString("DomainRequiredName", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The new password and confirmation password do not match..
+        /// </summary>
+        public static string GeneralComparePassword {
+            get {
+                return ResourceManager.GetString("GeneralComparePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm Passowrd.
+        /// </summary>
+        public static string GeneralDisplayConfirmPassword {
+            get {
+                return ResourceManager.GetString("GeneralDisplayConfirmPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string GeneralDisplayEmail {
+            get {
+                return ResourceManager.GetString("GeneralDisplayEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First Name.
+        /// </summary>
+        public static string GeneralDisplayFirstName {
+            get {
+                return ResourceManager.GetString("GeneralDisplayFirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Name.
+        /// </summary>
+        public static string GeneralDisplayLastName {
+            get {
+                return ResourceManager.GetString("GeneralDisplayLastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone Number.
+        /// </summary>
+        public static string GeneralDisplayPhoneNumber {
+            get {
+                return ResourceManager.GetString("GeneralDisplayPhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        public static string GeneralDisplayTitle {
+            get {
+                return ResourceManager.GetString("GeneralDisplayTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You can enter maximum 500 characters.
         /// </summary>
-        internal static string GeneralMaximum500 {
+        public static string GeneralMaximum500 {
             get {
                 return ResourceManager.GetString("GeneralMaximum500", resourceCulture);
             }
@@ -144,7 +207,7 @@ namespace NexusCore.Common.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Please enter a email address.
         /// </summary>
-        internal static string GeneralRequiredEmail {
+        public static string GeneralRequiredEmail {
             get {
                 return ResourceManager.GetString("GeneralRequiredEmail", resourceCulture);
             }
@@ -153,7 +216,7 @@ namespace NexusCore.Common.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Please enter a firstname.
         /// </summary>
-        internal static string GeneralRequiredFirstname {
+        public static string GeneralRequiredFirstname {
             get {
                 return ResourceManager.GetString("GeneralRequiredFirstname", resourceCulture);
             }
@@ -162,34 +225,52 @@ namespace NexusCore.Common.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Please enter a lastname.
         /// </summary>
-        internal static string GeneralRequiredLastname {
+        public static string GeneralRequiredLastname {
             get {
                 return ResourceManager.GetString("GeneralRequiredLastname", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please enter a valid email address.
+        ///   Looks up a localized string similar to Please enter a new password..
         /// </summary>
-        internal static string GeneralRequiredValidEmail {
+        public static string GeneralRequiredNewPassword {
             get {
-                return ResourceManager.GetString("GeneralRequiredValidEmail", resourceCulture);
+                return ResourceManager.GetString("GeneralRequiredNewPassword", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Please select a title.
         /// </summary>
-        internal static string InstallationAdministratorRequiredTitle {
+        public static string GeneralRequiredTitle {
             get {
-                return ResourceManager.GetString("InstallationAdministratorRequiredTitle", resourceCulture);
+                return ResourceManager.GetString("GeneralRequiredTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter a valid email address.
+        /// </summary>
+        public static string GeneralRequiredValidEmail {
+            get {
+                return ResourceManager.GetString("GeneralRequiredValidEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The password must be at least 8 characters long, and at least 1 number.
+        /// </summary>
+        public static string GeneralValidationNewPassword {
+            get {
+                return ResourceManager.GetString("GeneralValidationNewPassword", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Please enter a website name.
         /// </summary>
-        internal static string WebsiteRequiredName {
+        public static string WebsiteRequiredName {
             get {
                 return ResourceManager.GetString("WebsiteRequiredName", resourceCulture);
             }

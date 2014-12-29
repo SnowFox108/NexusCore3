@@ -41,7 +41,7 @@ namespace NexusCore.Core.Services.InstallationComponent
         {
             if (!IsFirstTime())
             {
-                ErrorAdapter.ModelState.AddModleError("", "Something is wrong here", logCode: LogCode.CriticalInstallationRepeated);
+                ErrorAdapter.ModelState.AddModelError("", "Something is wrong here", logCode: LogCode.CriticalInstallationRepeated);
                 return;
             }
 
@@ -72,40 +72,48 @@ namespace NexusCore.Core.Services.InstallationComponent
 
         private void CreateAdministrator(InstallationAdministratorModel admin)
         {
-            using (var unitOfWork = _unitOfWorkFactory.Create())
-            {
-                if (unitOfWork.Repository<User>().Get(u => u.Email == admin.Email).Any())
-                    throw new ValidationException("Email address is already registered");
+            //using (var unitOfWork = _unitOfWorkFactory.Create())
+            //{
+            //    if (unitOfWork.Repository<User>().Get(u => u.Email == admin.Email).Any())
+            //        throw new ValidationException("Email address is already registered");
 
-                var timeNow = DateFormater.DateTimeNow;
-                var userId = Guid.NewGuid();
+            //    var timeNow = DateFormater.DateTimeNow;
+            //    var userId = Guid.NewGuid();
 
-                unitOfWork.Repository<User>().Insert(new User
-                {
-                    Id = userId,
-                    Email = admin.Email,
-                    UserName = GetFriendlyUserName(admin.UserName, admin.FirstName, admin.LastName),
-                    Title = admin.Title,
-                    FirstName = admin.FirstName,
-                    LastName = admin.LastName,
-                    PhoneNumber = admin.PhoneNumber,
-                    LastActivityDate = timeNow,
-                    PasswordSalt = GenerateSalt(),
-                    CreatedBy = userId,
-                    CreatedDate = timeNow,
-                    UpdatedBy = userId,
-                    UpdatedDate = timeNow
-                });
+            //    unitOfWork.Repository<User>().Insert(new User
+            //    {
+            //        Id = userId,
+            //        Email = admin.Email,
+            //        UserName = GetFriendlyUserName(admin.UserName, admin.FirstName, admin.LastName),
+            //        Title = admin.Title,
+            //        FirstName = admin.FirstName,
+            //        LastName = admin.LastName,
+            //        PhoneNumber = admin.PhoneNumber,
+            //        LastActivityDate = timeNow,
+            //        PasswordSalt = GenerateSalt(),
+            //        CreatedBy = userId,
+            //        CreatedDate = timeNow,
+            //        UpdatedBy = userId,
+            //        UpdatedDate = timeNow
+            //    });
 
-                unitOfWork.SaveChanges();
-            }
+            //    unitOfWork.SaveChanges();
+            //}
 
-            _authenticationManager.ResetUserPassword(admin.Email);
+            var token = _authenticationManager.CreateUser(admin.Title,
+                GetFriendlyUserName(admin.UserName, admin.FirstName, admin.LastName),
+                admin.Email,
+                admin.FirstName,
+                admin.LastName,
+                admin.PhoneNumber,
+                true);
+
+            _authenticationManager.ActivateUser(token, admin.NewPassword);
 
             var user = _authenticationManager.GetUserByEmail(admin.Email);
             if (user == null)
             {
-                ErrorAdapter.ModelState.AddModleError("installation", "Create Administrator failed");
+                ErrorAdapter.ModelState.AddModelError("installation", "Create Administrator failed");
                 return;
             }
 

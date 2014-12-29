@@ -19,5 +19,6 @@ namespace NexusCore.Common.Data.Entities.Website
         public bool IsUnderMaintenance { get; set; }
 
         public virtual IEnumerable<Domain> Domains { get; set; }
+        public virtual IEnumerable<WebsiteSetting> WebsiteSettings { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using NexusCore.Common.Data.Enums;
 using NexusCore.Common.Data.Models.SourceTrees;
 
 namespace NexusCore.Common.Data.Values.SourceTree

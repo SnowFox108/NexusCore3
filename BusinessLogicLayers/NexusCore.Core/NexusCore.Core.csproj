@@ -72,6 +72,9 @@
     <Compile Include="Services\FriendlyIdGenerator\Primitive\FriendlyIdPrimitive.cs" />
     <Compile Include="Services\InstallationComponent\InstallationService.cs" />
     <Compile Include="Services\Infrastructure\PrimitiveServices.cs" />
+    <Compile Include="Services\MembershipComponent\MembershipService.cs" />
+    <Compile Include="Services\MembershipComponent\Primitive\UserPrimitive.cs" />
+    <Compile Include="Services\MessageComponent\Primitive\MailTemplatePrimitive.cs" />
     <Compile Include="Services\PermissionComponent\Aggregate\PermissionAggregate.cs" />
     <Compile Include="Services\PermissionComponent\Primitive\PermissionPrimitive.cs" />
     <Compile Include="Services\SourceTreeComponent\Aggregate\SourceTreeAggregate.cs" />
@@ -100,7 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="Services\MembershipComponent\Primitive\" />
+    <Folder Include="Services\MembershipComponent\Aggregate\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

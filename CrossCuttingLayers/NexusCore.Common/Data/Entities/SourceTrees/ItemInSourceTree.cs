@@ -1,4 +1,5 @@
 ﻿using System;
+using NexusCore.Common.Data.Enums;
 using NexusCore.Common.Data.Models.SourceTrees;
 using NexusCore.Infrasructure.Data;
 

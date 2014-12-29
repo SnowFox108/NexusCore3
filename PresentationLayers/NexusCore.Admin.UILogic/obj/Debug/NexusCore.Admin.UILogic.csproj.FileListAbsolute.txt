@@ -1,4 +1,3 @@
-F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin.UILogic\bin\Debug\AutoMapper.Net4.dll
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin.UILogic\bin\Debug\NexusCore.Admin.UILogic.dll
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin.UILogic\bin\Debug\NexusCore.Admin.UILogic.pdb
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin.UILogic\bin\Debug\Microsoft.Web.Infrastructure.dll
@@ -32,3 +31,5 @@ F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin.UILogic\obj\Debug\N
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin.UILogic\obj\Debug\NexusCore.Admin.UILogic.dll
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin.UILogic\obj\Debug\NexusCore.Admin.UILogic.pdb
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin.UILogic\bin\Debug\Resources\LogCodeRes.resx
+F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin.UILogic\obj\Debug\NexusCore.Admin.UILogic.Resources.AdminUIDataAnnotationText.resources
+F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin.UILogic\obj\Debug\NexusCore.Admin.UILogic.csproj.GenerateResource.Cache

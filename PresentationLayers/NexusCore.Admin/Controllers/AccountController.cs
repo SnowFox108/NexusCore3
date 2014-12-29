@@ -3,18 +3,25 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
+using NexusCore.Admin.UILogic.Adapter.ErrorHandlers;
 using NexusCore.Admin.UILogic.ViewModels.Security;
+using NexusCore.Common.Adapter.ErrorHandlers;
+using NexusCore.Common.Security;
+using NexusCore.Common.Services;
+using IAuthenticationManager = Microsoft.Owin.Security.IAuthenticationManager;
 
 namespace NexusCore.Admin.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private readonly Infrasructure.Security.IAuthenticationManager _userManager;
+        private readonly IComponentServices _services;
 
-        public AccountController(Infrasructure.Security.IAuthenticationManager userManager)
+        public AccountController(Infrasructure.Security.IAuthenticationManager userManager, IComponentServices services)
         {
             _userManager = userManager;
+            _services = services;
         }
 
         public IAuthenticationManager UserManager
@@ -30,7 +37,7 @@ namespace NexusCore.Admin.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl = "/")
         {
-            return View(new UserLoginViewModel()
+            return View(new UserLoginViewModel
             {
                 ReturnUrl = returnUrl
             });
@@ -50,15 +57,12 @@ namespace NexusCore.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var user = _userManager.LoginAuthenticate(userLogin.Email, userLogin.Password);
-                if (user != null)
-                {
+                ModelState.AddFromErrorAdapter();
 
+                if (ModelState.IsValid)
+                {
                     SignIn(user, userLogin.IsRememberMe);
                     return RedirectToLocal(userLogin.ReturnUrl);
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "The user name or password you entered is incorrect");
                 }
             }
 
@@ -72,19 +76,19 @@ namespace NexusCore.Admin.Controllers
             var identity = new ClaimsIdentity(new[]
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.UserName),
-                new Claim(ClaimTypes.Email, user.Email),
+                new Claim(ClaimTypes.Name, user.Email)
             },
                 DefaultAuthenticationTypes.ApplicationCookie);
 
             AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = rememberMe }, identity);
         }
 
+        // POST: /Account/LogOff
         [AllowAnonymous]
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login");
         }
 
         public IAuthenticationManager AuthenticationManager
@@ -140,71 +144,121 @@ namespace NexusCore.Admin.Controllers
         //    return View(model);
         //}
 
-        ////
-        //// GET: /Account/ConfirmEmail
-        //[AllowAnonymous]
-        //public async Task<ActionResult> ConfirmEmail(string userId, string code)
-        //{
-        //    if (userId == null || code == null) 
-        //    {
-        //        return View("Error");
-        //    }
 
-        //    IdentityResult result = await UserManager.ConfirmEmailAsync(userId, code);
-        //    if (result.Succeeded)
-        //    {
-        //        return View("ConfirmEmail");
-        //    }
-        //    else
-        //    {
-        //        AddErrors(result);
-        //        return View();
-        //    }
-        //}
 
-        ////
-        //// GET: /Account/ForgotPassword
-        //[AllowAnonymous]
-        //public ActionResult ForgotPassword()
-        //{
-        //    return View();
-        //}
+        //
+        // GET: /Account/ConfirmEmail
+        [AllowAnonymous]
+        public ActionResult ConfirmEmail(string token)
+        {
+            if (User.Identity.IsAuthenticated)
+                return RedirectToAction("Index", "Home");
 
-        ////
-        //// POST: /Account/ForgotPassword
-        //[HttpPost]
-        //[AllowAnonymous]
-        //[ValidateAntiForgeryToken]
-        //public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var user = await UserManager.FindByNameAsync(model.Email);
-        //        if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
-        //        {
-        //            ModelState.AddModelError("", "The user either does not exist or is not confirmed.");
-        //            return View();
-        //        }
+            var activationToken = new ActivationToken(token);
 
-        //        // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-        //        // Send an email with this link
-        //        // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-        //        // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
-        //        // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
-        //        // return RedirectToAction("ForgotPasswordConfirmation", "Account");
-        //    }
+            if (!_userManager.IsUserExist(activationToken.Email))
+                ModelState.AddModelError("", "Token is not valid, do you want to try manual typing?");
 
-        //    // If we got this far, something failed, redisplay form
-        //    return View(model);
-        //}
+            // Set User IsAnonymous to true
 
-        ////
-        //// GET: /Account/ForgotPasswordConfirmation
-        //[AllowAnonymous]
-        //public ActionResult ForgotPasswordConfirmation()
-        //{
-        //    return View();
-        //}
+            return RedirectToAction("SetupPassword", new {token = token});
+
+        }
+
+        //
+        // GET: /Account/SetupPassword
+        [AllowAnonymous]
+        public ActionResult SetupPassword(string token)
+        {
+            if (User.Identity.IsAuthenticated)
+                return RedirectToAction("Index", "Home");
+
+            var activationToken = new ActivationToken(token);
+
+            if (!_userManager.IsUserExist(activationToken.Email))
+                ModelState.AddModelError("", "Token is not valid, do you want to try manual typing?");
+
+            return View(new UserActivationViewModel
+            {
+                Token = token
+            });
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult SetupPassword(UserActivationViewModel model)
+        {
+            if (User.Identity.IsAuthenticated)
+                return RedirectToAction("Index", "Home");
+
+            var activationToken = new ActivationToken(model.Token);
+
+            if (_userManager.IsUserExist(activationToken.Email))
+            {
+                //_services.MembershipService.SetupPassword(activationToken, model.NewPassword);
+                return RedirectToAction("SetupPasswordConfirmation");
+            }
+
+            ModelState.AddModelError("", "Token is not valid, do you want to try manual typing?");
+            return View(model);
+
+
+        }
+
+        [AllowAnonymous]
+        public ActionResult SetupPasswordConfirmation()
+        {
+            return View();
+        }
+
+        //
+        // GET: /Account/ForgotPassword
+        [AllowAnonymous]
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Account/ForgotPassword
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult ForgotPassword(UserForgetPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (_userManager.IsUserExist(model.Email))
+                {
+                    _services.MembershipService.ResetUserPassword(model.Email);
+                    if (ErrorAdapter.ModelState.IsValid)
+                        return RedirectToAction("ForgotPasswordConfirmation");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "The user either does not exist or is not confirmed.");
+                    return View();
+                }
+
+                // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+                // Send an email with this link
+                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
+                // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
+        //
+        // GET: /Account/ForgotPasswordConfirmation
+        [AllowAnonymous]
+        public ActionResult ForgotPasswordConfirmation()
+        {
+            return View();
+        }
 
         ////
         //// GET: /Account/ResetPassword
@@ -463,7 +517,7 @@ namespace NexusCore.Admin.Controllers
         //public ActionResult LogOff()
         //{
         //    AuthenticationManager.SignOut();
-        //    return RedirectToAction("Index", "Home");
+        //    return RedirectToAction("Login");
         //}
 
         ////
@@ -581,5 +635,6 @@ namespace NexusCore.Admin.Controllers
         //    }
         //}
         //#endregion
+
     }
 }

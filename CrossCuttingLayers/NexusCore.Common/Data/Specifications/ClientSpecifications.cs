@@ -1,8 +1,8 @@
-﻿using System;
-using NexusCore.Common.Data.Entities.Clients;
+﻿using NexusCore.Common.Data.Entities.Clients;
+using NexusCore.Common.Data.Specification;
 using NexusCore.Common.Infrastructure;
 using NexusCore.Infrasructure.Data;
-using NexusCore.Common.Data.Specification;
+using System;
 
 namespace NexusCore.Common.Data.Specifications
 {

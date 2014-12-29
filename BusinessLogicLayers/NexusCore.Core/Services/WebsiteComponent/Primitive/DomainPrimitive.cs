@@ -1,6 +1,7 @@
 ﻿using NexusCore.Common.Data.Entities.Website;
 using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Data.Models.Websites;
+using NexusCore.Common.Data.Specifications;
 using NexusCore.Common.Helper.Extensions;
 using NexusCore.Common.Services.WebsiteServices;
 using NexusCore.Core.Services.Infrastructure;
@@ -38,7 +39,7 @@ namespace NexusCore.Core.Services.WebsiteComponent.Primitive
 
         public IEnumerable<Domain> GetDomains(Guid websiteId)
         {
-            return UnitOfWork.Repository<Domain>().Get(d => d.WebsiteId == websiteId);
+            return UnitOfWork.Repository<Domain>().Get(WebsiteSpecifications.GetDomain(websiteId));
         }
 
         public IEnumerable<Domain> GetLiveDomains(Guid websiteId)

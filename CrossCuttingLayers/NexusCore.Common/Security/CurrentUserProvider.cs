@@ -1,5 +1,7 @@
 ﻿using NexusCore.Common.Adapter.ErrorHandlers;
+using NexusCore.Common.Data.Entities.Membership;
 using NexusCore.Common.Data.Models.Memberships;
+using NexusCore.Common.Helper.Extensions;
 using NexusCore.Infrasructure.Models.Enums;
 using NexusCore.Infrasructure.Security;
 using NexusCore.Infrasructure.Security.Models;
@@ -34,16 +36,7 @@ namespace NexusCore.Common.Security
         {
             get
             {
-                var user = UserIsNotNull(_authenticationManager.GetUserByEmail(Email));
-                return new CurrentUserModel
-                {
-                    Id = user.Id,
-                    Email = user.Email,
-                    Title = user.Title,
-                    FirstName = user.FirstName,
-                    LastName = user.LastName,
-                    LastActivityDate = user.LastActivityDate
-                };
+                return ((User)UserIsNotNull(_authenticationManager.GetUserByEmail(Email))).MapTo<CurrentUserModel>();
             }
         }
 
@@ -60,7 +53,7 @@ namespace NexusCore.Common.Security
         {
             if (user == null)
             {
-                var error = ErrorAdapter.ModelState.AddModleError("", "",
+                var error = ErrorAdapter.ModelState.AddModelError("", "",
                     logCode: LogCode.CriticalCurrentUserNotLogin);
                 throw new Exception(error.ErrorMessage);
             }

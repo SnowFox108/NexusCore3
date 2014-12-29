@@ -1,6 +1,8 @@
-﻿using NexusCore.Common.Data.Entities.Membership;
+﻿using NexusCore.Common.Adapter.ErrorHandlers;
+using NexusCore.Common.Data.Entities.Membership;
 using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Helper;
+using NexusCore.Infrasructure.Models.Enums;
 using NexusCore.Infrasructure.Security;
 using NexusCore.Infrasructure.Security.Models;
 using System;
@@ -24,12 +26,14 @@ namespace NexusCore.Common.Security
             _passwordValidator = passwordValidator;
         }
 
-        public IActivationToken CreateUser(string title, string userName, string email,  string firstName, string lastName, string phoneNumber)
+        public IActivationToken CreateUser(string title, string userName, string email, string firstName, string lastName, string phoneNumber, bool isAutoService = false)
         {
             if (_unitOfWork.Repository<User>().Get(u => u.Email == email).Any())
                 throw new ValidationException("Email address is already registered");
 
-            _unitOfWork.Repository<User>().Insert(new User
+            var timeNow = DateFormater.DateTimeNow;
+
+            var user = new User
             {
                 Email = email,
                 UserName = GetFriendlyUserName(userName, firstName, lastName),
@@ -37,15 +41,24 @@ namespace NexusCore.Common.Security
                 FirstName = firstName,
                 LastName = lastName,
                 PhoneNumber = phoneNumber,
-                LastActivityDate = DateTime.Now,
+                LastActivityDate = timeNow,
                 PasswordSalt = GenerateSalt()
-            });
+            };
+
+            if (isAutoService)
+            {
+                user.GenerateNewIdentity();
+                user.CreatedBy = user.Id;
+                user.PresetUpdatedBy = user.Id;
+            }
+
+            _unitOfWork.Repository<User>().Insert(user);
 
             _unitOfWork.SaveChanges();
             return ResetUserPassword(email);
         }
 
-        public int UpdateUser(Guid userId, string title, string userName, string email, string firstName, string lastName, string phoneNumber)
+        public int UpdateUser(Guid userId, string title, string userName, string email, string firstName, string lastName, string phoneNumber, bool isAutoService = false)
         {
             int recordsAffected = 0;
             var user = _unitOfWork.Repository<User>().Get(u => u.Id == userId).FirstOrDefault();
@@ -79,7 +92,20 @@ namespace NexusCore.Common.Security
 
         public IUser LoginAuthenticate(string userEmail, string password)
         {
-            throw new NotImplementedException();
+            var user = GetUserByEmail(userEmail);
+
+            if (user == null || user.PasswordHash != EncodePassword(password, user.PasswordSalt) || !user.IsActive)
+            {
+                ErrorAdapter.ModelState.AddModelError(logCode: LogCode.ErrorUserLoginFailed);
+                return null;
+            }
+
+            user.LastActivityDate = DateFormater.DateTimeNow;
+            user.PresetUpdatedBy = user.UpdatedBy;
+            _unitOfWork.Repository<User>().Update((User)user);
+            _unitOfWork.SaveChanges();
+            return user;
+
         }
 
         public IUser GetUser(Guid userId)
@@ -163,6 +189,7 @@ namespace NexusCore.Common.Security
                 if (canActivate)
                 {
                     user.IsActive = true;
+                    user.IsAnonymous = false;
                     //_unitOfWork.Repository<User>().Update(user);
                     //_unitOfWork.SaveChanges();
                     UpdatePassword(token.Email, newPassword);

@@ -1,0 +1,90 @@
+﻿@model NexusCore.Admin.UILogic.ViewModels.Memberships.CreateUserViewModel
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-user font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase">User Information</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+            <div class="portlet-input input-inline input-small">
+                <div class="input-icon right">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portlet-body form">
+        <!-- BEGIN FORM-->
+        @using (Html.BeginForm("CreateUser", "UserManager", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <div class="form-body">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.User.Title, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(model => model.User.Title, Model.FormValue.TitleTypes, null, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.User.Email, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-envelope"></i>
+                            </span>
+                            @Html.EditorFor(model => model.User.Email)
+                        </div>
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.User.Email, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.User.FirstName, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.User.FirstName)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.User.FirstName, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.User.LastName, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.User.LastName)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.User.LastName, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.User.PhoneNumber, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.User.PhoneNumber)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.User.PhoneNumber, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.DisplayFor(model => model.User.UserName)
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.User.UserName)
+                        <span class="help-block">
+                            leave username to empty it will use your firstname and lastname.
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-9">
+                        <input type="submit" class="btn green" value="Submit" />
+                        <a href="@Url.Action("Index")" class="btn default">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        }
+        <!-- END FORM-->
+    </div>
+</div>

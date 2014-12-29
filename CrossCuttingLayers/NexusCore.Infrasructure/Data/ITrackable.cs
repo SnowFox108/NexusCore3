@@ -6,5 +6,6 @@ namespace NexusCore.Infrasructure.Data
     {
         DateTime UpdatedDate { get; set; }
         Guid UpdatedBy { get; set; }
+        Guid PresetUpdatedBy { get; set; }
     }
 }

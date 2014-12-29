@@ -216,8 +216,7 @@ namespace NexusCore.Data.Infrastructure
 
             if (tracker.UpdatedDate == default(DateTime))
                 tracker.UpdatedDate = timeNow;
-            if (tracker.UpdatedBy == default(Guid))
-                tracker.UpdatedBy = EngineContext.Instance.CurrentUser.User.Id;
+            tracker.UpdatedBy = tracker.PresetUpdatedBy == default(Guid) ? EngineContext.Instance.CurrentUser.User.Id : tracker.PresetUpdatedBy;
 
         }
     }

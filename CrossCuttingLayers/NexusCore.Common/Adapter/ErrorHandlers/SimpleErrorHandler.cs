@@ -30,7 +30,7 @@ namespace NexusCore.Common.Adapter.ErrorHandlers
             get { return !_errors.Any(); }
         }
 
-        public IErrorModel AddModleError(string key, string errorMessage, Guid clientId = new Guid(),
+        public IErrorModel AddModelError(string key, string errorMessage, Guid clientId = new Guid(),
             Guid moduleId = new Guid(), LogCode logCode = LogCode.None, params object[] args)
         {
             var errorModel = new SimpleErrorModel
@@ -48,10 +48,17 @@ namespace NexusCore.Common.Adapter.ErrorHandlers
             return errorModel;
         }
 
+        public IErrorModel AddModelError(Guid clientId = new Guid(), Guid moduleId = new Guid(), LogCode logCode = LogCode.None, params object[] args)
+        {
+            return AddModelError("", "", clientId, moduleId, logCode, args);
+        }
+
         public void Clear()
         {
             _errors.Clear();
         }
-        
+
+
+
     }
 }

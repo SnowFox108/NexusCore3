@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using AutoMapper;
 using NexusCore.Common.Infrastructure;
 using NexusCore.Infrasructure.Adapter.Mapping;
 using NexusCore.Infrasructure.Attributes;
 using NexusCore.Infrasructure.Data;
+using NexusCore.Infrasructure.Model.Enums;
 
 namespace NexusCore.Common.Helper.Extensions
 {
@@ -99,6 +101,46 @@ namespace NexusCore.Common.Helper.Extensions
         public static string ToParameter(this IEnumerable<int> property)
         {
             return string.Join(",", property.Where(m => m != 0));
+        }
+
+        #endregion
+
+        #region SortOrder by string
+
+        private static IOrderedQueryable<TSource> OrderingHelper<TSource>(IQueryable<TSource> source, string propertyName, SortDirection sortDirection, bool isSubLevel)
+        {
+            ParameterExpression param = Expression.Parameter(typeof(TSource), string.Empty);
+            MemberExpression property = Expression.PropertyOrField(param, propertyName);
+            LambdaExpression sort = Expression.Lambda(property, param);
+
+            MethodCallExpression call = Expression.Call(
+                typeof(Queryable),
+                (!isSubLevel ? "OrderBy" : "ThenBy") + (sortDirection == SortDirection.Desc ? "Descending" : string.Empty),
+                new[] { typeof(TSource), property.Type },
+                source.Expression,
+                Expression.Quote(sort));
+
+            return (IOrderedQueryable<TSource>)source.Provider.CreateQuery<TSource>(call);
+        }
+
+        public static IOrderedQueryable<TSource> OrderBy<TSource>(this IQueryable<TSource> source, string propertyName, SortDirection sortDirection = SortDirection.Asc)
+        {
+            return OrderingHelper(source, propertyName, sortDirection, false);
+        }
+
+        public static IOrderedQueryable<TSource> OrderByDescending<TSource>(this IQueryable<TSource> source, string propertyName)
+        {
+            return OrderBy(source, propertyName, SortDirection.Desc);
+        }
+
+        public static IOrderedQueryable<TSource> ThenBy<TSource>(this IOrderedQueryable<TSource> source, string propertyName, SortDirection sortDirection = SortDirection.Asc)
+        {
+            return OrderingHelper(source, propertyName, sortDirection, true);
+        }
+
+        public static IOrderedQueryable<T> ThenByDescending<T>(this IOrderedQueryable<T> source, string propertyName)
+        {
+            return ThenBy(source, propertyName, SortDirection.Desc);
         }
 
         #endregion

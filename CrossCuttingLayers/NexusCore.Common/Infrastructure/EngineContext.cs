@@ -25,7 +25,7 @@ namespace NexusCore.Common.Infrastructure
             {
                 if (_diContainer == null)
                 {
-                    var error = ErrorAdapter.ModelState.AddModleError("", "",
+                    var error = ErrorAdapter.ModelState.AddModelError("", "",
                         logCode: LogCode.CriticalEngineDiContainerNotInitialized);
                     throw new Exception(error.ErrorMessage);                    
                 }
@@ -39,7 +39,7 @@ namespace NexusCore.Common.Infrastructure
             {
                 if (_currentUserProvider == null)
                 {
-                    var error = ErrorAdapter.ModelState.AddModleError("", "",
+                    var error = ErrorAdapter.ModelState.AddModelError("", "",
                         logCode: LogCode.CriticalEngineCurrentUserProviderNotInitialized);
                     throw new Exception(error.ErrorMessage);
                 }

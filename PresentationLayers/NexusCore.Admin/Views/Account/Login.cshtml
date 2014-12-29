@@ -2,61 +2,73 @@
 
 @{
     ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
 }
 
-<h2>@ViewBag.Title.</h2>
-<div class="row">
-    <div class="col-md-8">
-        <section id="loginForm">
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <div class="checkbox">
-                            @Html.CheckBoxFor(m => m.IsRememberMe)
-                            @Html.LabelFor(m => m.IsRememberMe)
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Log in" class="btn btn-default" />
-                    </div>
-                </div>
-                @*<p>
-                    @Html.ActionLink("Register as a new user", "Register")
-                </p>*@
-                @* Enable this once you have account confirmation enabled for password reset functionality
-                <p>
-                    @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                </p>*@
-            }
-        </section>
-    </div>
-    @*<div class="col-md-4">
-        <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
-        </section>
-    </div>*@
+
+<div class="content">
+    <!-- BEGIN LOGIN FORM -->
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "login-form" }))
+    {
+        @Html.AntiForgeryToken()
+        <h3 class="form-title">Login to your account</h3>
+        <div class="alert alert-danger @string.Format("{0}", ViewData.ModelState.IsValid ? "display-hide" : "")">
+            <button class="close" data-close="alert"></button>
+            @Html.ValidationSummary(false, null, new { @class = "list-unstyled" })
+        </div>
+    @Html.HiddenFor(model => model.ReturnUrl)
+        <div class="form-group">
+            <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+            @Html.LabelFor(m => m.Email, new { @class = "control-label visible-ie8 visible-ie9" })
+            <div class="input-icon">
+                <i class="fa fa-user"></i>
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control placeholder-no-fix", placeholder = @Html.DisplayNameFor(m => m.Email) })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label visible-ie8 visible-ie9">Password</label>
+            @Html.LabelFor(m => m.Password, new { @class = "control-label visible-ie8 visible-ie9" })
+            <div class="input-icon">
+                <i class="fa fa-lock"></i>
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control placeholder-no-fix", placeholder = @Html.DisplayNameFor(m => m.Password) })
+            </div>
+        </div>
+        <div class="form-actions">
+            <label class="checkbox">
+                @Html.CheckBoxFor(m => m.IsRememberMe) @Html.LabelFor(m => m.IsRememberMe)
+            </label>
+            <button type="submit" class="btn blue pull-right">
+                Login <i class="m-icon-swapright m-icon-white"></i>
+            </button>
+        </div>
+        <div class="login-options">
+            <h4>Or login with</h4>
+            <ul class="social-icons">
+                <li>
+                    <a class="facebook" data-original-title="facebook" href="#">
+                    </a>
+                </li>
+                <li>
+                    <a class="twitter" data-original-title="Twitter" href="#">
+                    </a>
+                </li>
+                <li>
+                    <a class="googleplus" data-original-title="Goole Plus" href="#">
+                    </a>
+                </li>
+                <li>
+                    <a class="linkedin" data-original-title="Linkedin" href="#">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="forget-password">
+            <h4>Forgot your password ?</h4>
+            <p>
+                no worries, click @Html.ActionLink("here", "ForgotPassword")
+                to reset your password.
+            </p>
+        </div>
+    }
+    <!-- END LOGIN FORM -->
 </div>
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

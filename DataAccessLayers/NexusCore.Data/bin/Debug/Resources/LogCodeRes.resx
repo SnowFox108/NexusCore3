@@ -123,6 +123,9 @@
   <data name="C20" xml:space="preserve">
     <value>Can not find current user or current user did not login.</value>
   </data>
+  <data name="C200" xml:space="preserve">
+    <value>The user name or password you entered is incorrect.</value>
+  </data>
   <data name="C50" xml:space="preserve">
     <value>AutofacFactory has not been intialized, have you called Initialize()?</value>
   </data>

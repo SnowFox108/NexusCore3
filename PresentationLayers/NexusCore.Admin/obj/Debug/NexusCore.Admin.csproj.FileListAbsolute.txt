@@ -1,4 +1,3 @@
-F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\AutoMapper.Net4.dll
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\NexusCore.Admin.dll.config
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\NexusCore.Admin.dll
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\NexusCore.Admin.pdb

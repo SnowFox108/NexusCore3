@@ -1,4 +1,5 @@
-﻿using NexusCore.Infrasructure.Adapter.ErrorHandlers;
+﻿using NexusCore.Common.Infrastructure;
+using NexusCore.Infrasructure.Adapter.ErrorHandlers;
 
 namespace NexusCore.Common.Adapter.ErrorHandlers
 {
@@ -8,7 +9,7 @@ namespace NexusCore.Common.Adapter.ErrorHandlers
 
         static ErrorAdapter()
         {
-            ErrorHandlerFactory = new SimpleErrorHandlerFactory();
+            ErrorHandlerFactory = EngineContext.Instance.DiContainer.GetInstance<IErrorHandlerFactory>();
         }
 
         public static IErrorHandler ModelState

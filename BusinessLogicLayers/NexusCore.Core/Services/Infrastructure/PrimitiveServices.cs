@@ -1,7 +1,8 @@
-﻿using NexusCore.Common.Infrastructure;
-using NexusCore.Common.Services;
+﻿using NexusCore.Common.Services;
 using NexusCore.Common.Services.ClientServices;
 using NexusCore.Common.Services.FriendlyIdServices;
+using NexusCore.Common.Services.MembershipServices;
+using NexusCore.Common.Services.MessageServices;
 using NexusCore.Common.Services.PermissionServices;
 using NexusCore.Common.Services.SourceTreeServices;
 using NexusCore.Common.Services.WebsiteServices;
@@ -10,40 +11,22 @@ namespace NexusCore.Core.Services.Infrastructure
 {
     public class PrimitiveServices : IPrimitiveServices
     {
-        public IClientPrimitive ClientPrimitive
-        {
-            get { return EngineContext.Instance.DiContainer.GetInstance<IClientPrimitive>(); }
-        }
+        public IClientPrimitive ClientPrimitive { get; set; }
 
-        public IDomainPrimitive DomainPrimitive
-        {
-            get { return EngineContext.Instance.DiContainer.GetInstance<IDomainPrimitive>(); }
-        }
+        public IDomainPrimitive DomainPrimitive { get; set; }
 
-        public IFriendlyIdPrimitive FriendlyIdPrimitive
-        {
-            get { return EngineContext.Instance.DiContainer.GetInstance<IFriendlyIdPrimitive>(); }
-        }
+        public IFriendlyIdPrimitive FriendlyIdPrimitive { get; set; }
 
-        public IItemInSourceTreePrimitive ItemInSourceTreePrimitive
-        {
-            get { return EngineContext.Instance.DiContainer.GetInstance<IItemInSourceTreePrimitive>(); }
-        }
+        public IMailTemplatePrimitive MailTemplatePrimitive { get; set; }
 
-        public IPermissionPrimitive PermissionPrimitive
-        {
-            get { return EngineContext.Instance.DiContainer.GetInstance<IPermissionPrimitive>(); }
-        }
+        public IItemInSourceTreePrimitive ItemInSourceTreePrimitive { get; set; }
 
-        public ISourceTreePrimitive SourceTreePrimitive
-        {
-            get { return EngineContext.Instance.DiContainer.GetInstance<ISourceTreePrimitive>(); }
-        }
+        public IPermissionPrimitive PermissionPrimitive { get; set; }
 
-        public IWebsitePrimitive WebsitePrimitive
-        {
-            get { return EngineContext.Instance.DiContainer.GetInstance<IWebsitePrimitive>(); }
-        }
+        public ISourceTreePrimitive SourceTreePrimitive { get; set; }
 
+        public IUserPrimitive UserPrimitive { get; set; }
+
+        public IWebsitePrimitive WebsitePrimitive { get; set; }
     }
 }

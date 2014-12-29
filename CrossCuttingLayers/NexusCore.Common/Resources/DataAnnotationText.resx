@@ -147,7 +147,7 @@
   <data name="DomainRequiredName" xml:space="preserve">
     <value>Please enter a domain name</value>
   </data>
-  <data name="InstallationAdministratorRequiredTitle" xml:space="preserve">
+  <data name="GeneralRequiredTitle" xml:space="preserve">
     <value>Please select a title</value>
   </data>
   <data name="GeneralRequiredEmail" xml:space="preserve">
@@ -161,5 +161,32 @@
   </data>
   <data name="GeneralRequiredLastname" xml:space="preserve">
     <value>Please enter a lastname</value>
+  </data>
+  <data name="GeneralComparePassword" xml:space="preserve">
+    <value>The new password and confirmation password do not match.</value>
+  </data>
+  <data name="GeneralDisplayConfirmPassword" xml:space="preserve">
+    <value>Confirm Passowrd</value>
+  </data>
+  <data name="GeneralValidationNewPassword" xml:space="preserve">
+    <value>The password must be at least 8 characters long, and at least 1 number</value>
+  </data>
+  <data name="GeneralRequiredNewPassword" xml:space="preserve">
+    <value>Please enter a new password.</value>
+  </data>
+  <data name="GeneralDisplayEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="GeneralDisplayFirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="GeneralDisplayLastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="GeneralDisplayPhoneNumber" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="GeneralDisplayTitle" xml:space="preserve">
+    <value>Title</value>
   </data>
 </root>

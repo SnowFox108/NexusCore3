@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using NexusCore.Common.Data.Enums;
 using NexusCore.Common.Data.Models.Page;
 using NexusCore.Infrasructure.Data;
 

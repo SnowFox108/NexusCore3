@@ -23,7 +23,7 @@ namespace ClientTest
             Console.WriteLine("IsLogged: {0} \t Category: {1} \t Level: {2}", result.IsLogged, result.Category,
                 result.Level);
 
-            ErrorAdapter.ModelState.AddModleError("", "Something is wrong", logCode: LogCode.CriticalInstallationRepeated);
+            ErrorAdapter.ModelState.AddModelError("", "Something is wrong", logCode: LogCode.CriticalInstallationRepeated);
 
             Console.WriteLine(LogCodeText.GetString(LogCode.CriticalInstallationRepeated));
         }

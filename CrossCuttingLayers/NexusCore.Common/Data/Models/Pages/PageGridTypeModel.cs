@@ -1,5 +1,6 @@
 ﻿
 using System.Collections.Generic;
+using NexusCore.Common.Data.Enums;
 
 namespace NexusCore.Common.Data.Models.Page
 {

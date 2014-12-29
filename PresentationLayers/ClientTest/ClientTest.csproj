@@ -58,8 +58,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DebugMembershipService.cs" />
     <Compile Include="GetItemTypeModel.cs" />
     <Compile Include="GetLogCodeAttributes.cs" />
+    <Compile Include="GetUserModel.cs" />
     <Compile Include="Installation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -18,6 +18,26 @@ namespace NexusCore.Core.Services.WebsiteComponent.Aggregate
         {
         }
 
+        public IEnumerable<DomainModel> GetDomainsByWebssite(Guid websiteId)
+        {
+            return PrimitiveServices.DomainPrimitive.GetDomains(websiteId).MapTo<DomainModel>();
+        }
+
+        public IEnumerable<DomainModel> GetDomains(Guid clientId, Guid websiteId = new Guid())
+        {
+            var websiteRootId = GetWebsiteRootByClientId(clientId);
+
+            return from sourceTreeNodes in PrimitiveServices.SourceTreePrimitive.GetWebsiteNodes(websiteRootId)
+                join itemsInSourceTree in UnitOfWork.Repository<ItemInSourceTree>().Get()
+                    on sourceTreeNodes.Id equals itemsInSourceTree.SourceTreeId
+                join websites in PrimitiveServices.WebsitePrimitive.GetWebsites()
+                    on itemsInSourceTree.ItemId equals websites.Id
+                join domains in PrimitiveServices.DomainPrimitive.GetDomains(websiteId)
+                    on websites.Id equals domains.WebsiteId
+                select domains.MapTo<DomainModel>();
+
+        }
+
         public IEnumerable<WebsiteAdminModel> GetWebsiteByClient(Guid clientId)
         {
             var websiteRootId = GetWebsiteRootByClientId(clientId);

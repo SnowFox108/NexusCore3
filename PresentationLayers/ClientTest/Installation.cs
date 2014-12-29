@@ -4,6 +4,7 @@ using NexusCore.Common.Adapter.Logs;
 using NexusCore.Common.Data.Models.Clients;
 using NexusCore.Common.Data.Models.Installation;
 using NexusCore.Common.Infrastructure;
+using NexusCore.Common.Resources;
 using NexusCore.Common.Services;
 using NexusCore.Common.Services.InstallationServices;
 
@@ -20,11 +21,13 @@ namespace ClientTest
                 {
                     Administrator = new InstallationAdministratorModel
                     {
-                        Title = "Mr",
+                        Title = WebFormText.FormValue_Mr,
                         Email = "mike.zhang@admin.com",
                         FirstName = "Mike",
                         LastName = "Zhang",
-                        PhoneNumber = ""
+                        PhoneNumber = "",
+                        NewPassword = "Windsong1",
+                        ConfirmPassword = "Windsong1"
                     },
                     Client = new InstallationClientModel()
                     {
@@ -39,7 +42,7 @@ namespace ClientTest
                         {
                             Name = "Main Department",
                             Description = "Main Department",
-                            ContactTitle = "Mr",
+                            ContactTitle = WebFormText.FormValue_Mr,
                             ContactFirstName = "Mike",
                             ContactLastName = "Zhang",
                             ContactPhone = "",
