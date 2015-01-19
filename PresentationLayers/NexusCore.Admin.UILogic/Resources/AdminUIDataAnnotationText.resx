@@ -183,4 +183,7 @@
   <data name="UserAccountDisplayUserName" xml:space="preserve">
     <value>User Name</value>
   </data>
+  <data name="UserAccountDisplayWebsite" xml:space="preserve">
+    <value>Website</value>
+  </data>
 </root>

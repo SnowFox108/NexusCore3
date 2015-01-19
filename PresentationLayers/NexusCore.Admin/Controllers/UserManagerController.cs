@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using NexusCore.Admin.UILogic.Adapter.ErrorHandlers;
 using NexusCore.Admin.UILogic.ViewModels.ControlPanel;
 using NexusCore.Admin.UILogic.ViewModels.Memberships;
+using NexusCore.Common.Adapter.ErrorHandlers;
+using NexusCore.Common.Adapter.Language;
 using NexusCore.Common.Data.Models.Memberships;
 using NexusCore.Common.Services.MembershipServices;
+using NexusCore.Common.Services.SourceTreeServices;
+using NexusCore.Common.Services.WebsiteServices;
+using NexusCore.Infrasructure.Models.Enums;
 using NexusCore.Infrasructure.Security;
 
 namespace NexusCore.Admin.Controllers
@@ -16,11 +22,15 @@ namespace NexusCore.Admin.Controllers
     {
         private readonly IAuthenticationManager _userManager;
         private readonly IMembershipService _membership;
+        private readonly ISourceTreeService _sourceTree;
+        private readonly IWebsitePrimitive _website;
 
-        public UserManagerController(IMembershipService membership, IAuthenticationManager userManager)
+        public UserManagerController(IAuthenticationManager userManager, IMembershipService membership, ISourceTreeService sourceTreeService, IWebsitePrimitive websiteService)
         {
             _membership = membership;
             _userManager = userManager;
+            _sourceTree = sourceTreeService;
+            _website = websiteService;
         }
 
         // List Users
@@ -43,7 +53,9 @@ namespace NexusCore.Admin.Controllers
         public ActionResult CreateUser()
         {
             CreateUserPageSetting();
-            return View(new CreateUserViewModel());
+            var model = new CreateUserViewModel();
+            model.FormValue.Init(_sourceTree, _website);
+            return View(model);
         }
 
         [HttpPost]
@@ -52,22 +64,35 @@ namespace NexusCore.Admin.Controllers
             if (ModelState.IsValid)
             {
                 if (_userManager.IsUserExist(model.User.Email))
-                    ModelState.AddModelError("User.Email", "User already exist in system");
-                //// TODO get default websiteId
-                //_membership.RegisterNewUser(
-                //    new Guid(), model.User.Title, model.User.UserName, model.User.Email, model.User.FirstName,
-                //    model.User.LastName, model.User.PhoneNumber);
-                TempData["InfoBox"] = new GeneralPage.Message
+                    ModelState.AddModelError("User.Email", LogCodeText.GetString(LogCode.WarningUserEmailAlreadyExist));
+
+                if (ModelState.IsValid)
                 {
-                    HasMessage = true,
-                    Level = GeneralPage.MessageType.Success,
-                    Title = "Success",
-                    Text = "A new user has been created."
-                };
-                return RedirectToAction("Index");
+                    _membership.RegisterNewUser(
+                        model.RegistedWebsiteId, model.User.Title, model.User.UserName, model.User.Email,
+                        model.User.FirstName,
+                        model.User.LastName, model.User.PhoneNumber);
+
+                    if (ErrorAdapter.ModelState.IsValid)
+                    {
+
+                        TempData["InfoBox"] = new GeneralPage.Message
+                        {
+                            HasMessage = true,
+                            Level = GeneralPage.MessageType.Success,
+                            Title = "Success",
+                            Text = string.Format("A new user ({0}) has been created.", model.User.UserName)
+                        };
+
+                        return RedirectToAction("Index");
+                    }
+
+                    ModelState.AddFromErrorAdapter();
+                }
             }
 
             CreateUserPageSetting();
+            model.FormValue.Init(_sourceTree, _website);
             return View(model);
         }
 
@@ -79,6 +104,41 @@ namespace NexusCore.Admin.Controllers
             {
                 IsEnabled = false,
             };            
+        }
+
+        [HttpGet]
+        public ActionResult EditUser(Guid id)
+        {
+            var model = new EditUserViewModel();
+            model.InitData(_membership, id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult EditUser(EditUserViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                _membership.UpdateUser(model.User);
+
+                if (ErrorAdapter.ModelState.IsValid)
+                {
+                    TempData["InfoBox"] = new GeneralPage.Message
+                    {
+                        HasMessage = true,
+                        Level = GeneralPage.MessageType.Success,
+                        Title = "Success",
+                        Text = string.Format("User ({0}) information has been updated.", model.User.UserName)
+                    };
+
+                    return RedirectToAction("Index");
+                }
+
+                ModelState.AddFromErrorAdapter();
+            }
+
+            model.FormValue.Init(model.User.Title);
+            return View(model);
         }
 
         [HttpPost]

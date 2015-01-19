@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using NexusCore.Common.Adapter.ErrorHandlers;
 using NexusCore.Common.Data.Entities.Membership;
+using NexusCore.Common.Data.Enums;
 using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Data.Models.CommonModels;
 using NexusCore.Common.Data.Models.Memberships;
@@ -72,18 +74,37 @@ namespace NexusCore.Core.Services.MembershipComponent
         public void RegisterNewUser(Guid websiteId, string title, string userName, string email, string firstName, string lastName,
             string phoneNumber)
         {
-            _userManager.CreateUser(title, userName, email, firstName, lastName, phoneNumber);
+            var activationToken = _userManager.CreateUser(title, userName, email, firstName, lastName, phoneNumber);
 
-            // send Email depend on which website send different register Email
-            //var mailTemplateid = new Guid(); // need to be update
+            if (!ErrorAdapter.ModelState.IsValid)
+                return;
 
-            //var mailTemplate = PrimitiveServices.MailTemplatePrimitive.GetMailTemplate(mailTemplateid);
-            //if (mailTemplate != null)
-            //{
-            //    _messageService.SendEmail(mailTemplate.Subject, mailTemplate.BodyTemplate, mailTemplate.IsBodyHtml,
-            //        mailTemplate.Priority, Encoding.UTF8, mailTemplate.From, email, mailTemplate.ReplyTo,
-            //        mailTemplate.Bcc);
-            //}
+
+            var mailTemplateid = PrimitiveServices.WebsiteSettingPrimitive.GetSettingId(websiteId,
+                WebsiteSettingType.MailTemplateRegister);
+
+            if (ErrorAdapter.ModelState.IsValid)
+            {
+                // send Email depend on which website send different register Email
+                var mailTokens = new Dictionary<string, string>
+                {
+                    {"Title", title},
+                    {"UserName", userName},
+                    {"Email", email},
+                    {"FirstName", firstName},
+                    {"LastName", lastName},
+                    {"ActivationToken", activationToken.GetToken()}
+                };
+
+                var mailTemplate = PrimitiveServices.MailTemplatePrimitive.GetMailTemplate(mailTemplateid);
+                if (mailTemplate != null)
+                {
+                    _messageService.SendEmail(mailTemplate.Subject, mailTemplate.BodyTemplate, mailTemplate.IsBodyHtml,
+                        mailTemplate.Priority, Encoding.UTF8, mailTemplate.From, email, mailTemplate.ReplyTo,
+                        mailTemplate.Bcc, mailTokens);
+                }
+            }
+            ErrorAdapter.ModelState.Clear(); // remove this after upgrade to warning message
         }
 
         public void SetupPassword(IActivationToken token, string password)
@@ -100,7 +121,9 @@ namespace NexusCore.Core.Services.MembershipComponent
 
         public void UpdateUser(UserModel user)
         {
-            PrimitiveServices.UserPrimitive.UpdateUser(user.MapTo<User>());
+            //PrimitiveServices.UserPrimitive.UpdateUser(user.MapTo<User>());
+            _userManager.UpdateUser(user.Id, user.Title, user.UserName, user.Email, user.FirstName, user.LastName,
+                user.PhoneNumber);
         }
 
 

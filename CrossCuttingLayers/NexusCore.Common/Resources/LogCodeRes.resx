@@ -132,4 +132,13 @@
   <data name="C51" xml:space="preserve">
     <value>CurrentUserProvider has not been intialized, have you called Initialize()?</value>
   </data>
+  <data name="C60" xml:space="preserve">
+    <value>Website Setting not exist or value type is wrong.</value>
+  </data>
+  <data name="C600" xml:space="preserve">
+    <value>Email address is already registered.</value>
+  </data>
+  <data name="C61" xml:space="preserve">
+    <value>Website Setting already exist, can not create a new one.</value>
+  </data>
 </root>

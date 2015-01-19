@@ -19,5 +19,6 @@ namespace NexusCore.Common.Services
         ISourceTreePrimitive SourceTreePrimitive { get; }
         IUserPrimitive UserPrimitive { get; }
         IWebsitePrimitive WebsitePrimitive { get; }
+        IWebsiteSettingPrimitive WebsiteSettingPrimitive { get; }
     }
 }

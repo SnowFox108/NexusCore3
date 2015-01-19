@@ -99,6 +99,7 @@ namespace NexusCore.Core.Adapter.IoC
             Builder.RegisterType<DomainPrimitive>().As<IDomainPrimitive>().InstancePerLifetimeScope();
             Builder.RegisterType<WebsiteAggregate>().As<IWebsiteAggregate>().InstancePerLifetimeScope();
             Builder.RegisterType<WebsitePrimitive>().As<IWebsitePrimitive>().InstancePerLifetimeScope();
+            Builder.RegisterType<WebsiteSettingPrimitive>().As<IWebsiteSettingPrimitive>().InstancePerLifetimeScope();
 
 
         }

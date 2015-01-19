@@ -42,16 +42,24 @@ namespace NexusCore.Infrasructure.Models.Enums
         [StoreInLog(true, TaskCategory.System, LogLevel.Critical)]
         CriticalEngineCurrentUserProviderNotInitialized = 51,
 
+        [StoreInLog(true, TaskCategory.System, LogLevel.Critical)]
+        CriticalWebsiteSettingCannotReadValue = 60,
+        [StoreInLog(true, TaskCategory.System, LogLevel.Critical)]
+        CriticalWebsiteSettingRepeated = 61,
+
         #endregion
 
-        #region 200-299 System Error
+        #region 200-599 System Error
 
         [StoreInLog(false, TaskCategory.System, LogLevel.Error)]
         ErrorUserLoginFailed = 200,
 
         #endregion
 
-        #region 300-399 System Warning
+        #region 600-999 System Warning
+
+        [StoreInLog(false, TaskCategory.System, LogLevel.Warning)]
+        WarningUserEmailAlreadyExist = 600,
 
         #endregion
 

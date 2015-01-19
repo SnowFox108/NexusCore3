@@ -5,5 +5,6 @@ namespace NexusCore.Common.Data.Models.Installation
     {
         public InstallationAdministratorModel Administrator { get; set; }
         public InstallationClientModel Client { get; set; }
+        public InstallationWebsiteModel Website { get; set; }
     }
 }

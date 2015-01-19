@@ -16,7 +16,7 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Aggregate
         {
         }
 
-        public void CreateClientNode(Guid clientId, string clientName)
+        public SourceTree CreateClientNode(Guid clientId, string clientName)
         {
             var clientNode = new SourceTree
             {
@@ -40,6 +40,32 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Aggregate
 
             CreateClientDefaultSubNodes(clientNode);
 
+            return clientNode;
+        }
+
+        public SourceTree CreateWebsiteNode(SourceTree websiteRoot, Guid websiteId, string websiteName)
+        {
+            var websiteNode = new SourceTree
+            {
+                Parent = websiteRoot,
+                Name = websiteName,
+                ItemType = SourceTreeItemType.Website,
+                IsPrivacyInherited = true,
+                SortOrder = 1,
+            };
+
+            websiteNode.GenerateNewIdentity();
+
+            CreateNode(websiteNode);
+
+            UnitOfWork.Repository<ItemInSourceTree>().Insert(new ItemInSourceTree
+            {
+                SourceTreeId = websiteNode.Id,
+                ModuleType = SourceTreeItemModuleType.System,
+                ItemId = websiteId
+            });
+
+            return websiteNode;
         }
 
         private void CreateClientDefaultSubNodes(SourceTree client)

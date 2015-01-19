@@ -87,7 +87,7 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Primitive
 
         public SourceTree GetWebsiteRoot(Guid clientId)
         {
-            return UnitOfWork.Repository<SourceTree>().GetById(clientId);
+            return GetChildNode(UnitOfWork.Repository<SourceTree>().GetById(clientId), SourceTreeItemType.WebsiteRoot);
         }
 
         public SourceTree GetWebsiteRoot(SourceTree client)

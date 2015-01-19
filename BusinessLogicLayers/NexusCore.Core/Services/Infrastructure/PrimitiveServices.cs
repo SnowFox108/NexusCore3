@@ -28,5 +28,7 @@ namespace NexusCore.Core.Services.Infrastructure
         public IUserPrimitive UserPrimitive { get; set; }
 
         public IWebsitePrimitive WebsitePrimitive { get; set; }
+
+        public IWebsiteSettingPrimitive WebsiteSettingPrimitive { get; set; }
     }
 }

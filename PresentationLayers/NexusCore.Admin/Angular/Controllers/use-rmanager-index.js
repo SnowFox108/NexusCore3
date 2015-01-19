@@ -22,7 +22,7 @@
             ]).then(function (data) {
                 $scope.userManager = data[0];
                 $scope.friendlyDisplay();
-                console.log($scope.userManager);
+                //console.log($scope.userManager);
             });
         };
 
@@ -40,6 +40,11 @@
                     Css: $scope.userManager.Users[i].IsActive ? "label-success" : $scope.userManager.Users[i].IsAnonymous ? "label-warning" : $scope.userManager.Users[i].IsDelete ? "label-danger" : "label-danger"
                 }
             }
+        };
+
+        $scope.paginationSetPage = function () {
+            $scope.searchFilter.Filter.Paging.CurrentPage = $scope.userManager.Paging.CurrentPage;
+            $scope.queryUserList();
         };
     });
 })();

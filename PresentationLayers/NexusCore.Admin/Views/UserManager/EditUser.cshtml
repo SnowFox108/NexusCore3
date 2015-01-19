@@ -1,4 +1,4 @@
-﻿@model NexusCore.Admin.UILogic.ViewModels.Memberships.CreateUserViewModel
+﻿@model NexusCore.Admin.UILogic.ViewModels.Memberships.EditUserViewModel
 
 <div class="portlet light bordered">
     <div class="portlet-title">
@@ -16,7 +16,7 @@
     </div>
     <div class="portlet-body form">
         <!-- BEGIN FORM-->
-        @using (Html.BeginForm("CreateUser", "UserManager", FormMethod.Post, new { @class = "form-horizontal general-form" }))
+        @using (Html.BeginForm("EditUser", "UserManager", FormMethod.Post, new { @class = "form-horizontal" }))
         {
             <div class="form-body">
                 @if (!ViewData.ModelState.IsValidField(""))
@@ -29,11 +29,10 @@
                             </div>
                         </div>
                     </div>
-                }
+                }               
                 <div class="form-group">
-                    @Html.LabelFor(model => model.RegistedWebsiteId, new { @class = "col-md-3 control-label" })
                     <div class="col-md-4">
-                        @Html.DropDownListFor(model => model.RegistedWebsiteId, Model.FormValue.Website, null, new { @class = "form-control" })
+                        @Html.HiddenFor(model => model.User.Id)
                     </div>
                 </div>
                 <div class="form-group">
@@ -49,11 +48,9 @@
                             <span class="input-group-addon">
                                 <i class="fa fa-envelope"></i>
                             </span>
-                            @Html.EditorFor(model => model.User.Email)
+                            @Html.TextBoxFor(model => model.User.Email, new { disabled = "disabled", @class = "form-control" })
+                            @Html.HiddenFor(model => model.User.Email)
                         </div>
-                    </div>
-                    <div class="col-md-5 form-validation-message">
-                        @Html.ValidationMessageFor(model => model.User.Email, null, new { @class = "control-label" })
                     </div>
                 </div>
                 <div class="form-group">

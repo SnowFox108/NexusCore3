@@ -8,6 +8,8 @@ using NexusCore.Common.Adapter.ErrorHandlers;
 using NexusCore.Common.Data.Entities.Clients;
 using NexusCore.Common.Data.Entities.Membership;
 using NexusCore.Common.Data.Entities.SourceTrees;
+using NexusCore.Common.Data.Entities.Website;
+using NexusCore.Common.Data.Enums;
 using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Data.Models.Installation;
 using NexusCore.Common.Data.Models.SourceTrees;
@@ -55,11 +57,18 @@ namespace NexusCore.Core.Services.InstallationComponent
             // creat default client
             if (!installation.Client.IsSkip)
             {
-                CreateDefaultClient(installation.Client);
+                var clientNode = CreateDefaultClient(installation.Client);
+
+                // client install
+                UnitOfWork.SaveChanges();
+
+                if (!installation.Website.IsSkip)
+                    CreateDefaultWebsite(installation.Website, clientNode);
             }
 
-            // finishing install
+            // finish install
             UnitOfWork.SaveChanges();
+
 
         }
 
@@ -139,15 +148,29 @@ namespace NexusCore.Core.Services.InstallationComponent
             PrimitiveServices.PermissionPrimitive.RemoveInheritPermission(SourceTreeRoot.MasterNode.Id);
         }
 
-        private void CreateDefaultClient(InstallationClientModel client)
+        private SourceTree CreateDefaultClient(InstallationClientModel client)
         {
             client.Client.GenerateNewIdentity();
             client.ClientDepartment.GenerateNewIdentity();
 
             AggregateServices.ClientAggregate.CreateClient(client.Client.MapTo<Client>(),
                 client.ClientDepartment.MapTo<ClientDepartment>());
-            AggregateServices.SourceTreeAggregate.CreateClientNode(client.Client.Id, client.Client.Name);
+            return AggregateServices.SourceTreeAggregate.CreateClientNode(client.Client.Id, client.Client.Name);
         }
+
+        private void CreateDefaultWebsite(InstallationWebsiteModel website, SourceTree clientNode)
+        {
+            website.Website.GenerateNewIdentity();
+            website.Domain.GenerateNewIdentity();
+
+            AggregateServices.WebsiteAggregate.CreateWebsite(website.Website.MapTo<Website>(),
+                website.Domain.MapTo<Domain>());
+
+            AggregateServices.SourceTreeAggregate.CreateWebsiteNode(
+                PrimitiveServices.SourceTreePrimitive.GetWebsiteRoot(clientNode),
+                website.Website.Id, website.Website.Name);
+        }
+
 
     }
 }

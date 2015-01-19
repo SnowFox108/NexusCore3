@@ -29,7 +29,10 @@ namespace NexusCore.Common.Security
         public IActivationToken CreateUser(string title, string userName, string email, string firstName, string lastName, string phoneNumber, bool isAutoService = false)
         {
             if (_unitOfWork.Repository<User>().Get(u => u.Email == email).Any())
-                throw new ValidationException("Email address is already registered");
+            {
+                ErrorAdapter.ModelState.AddModelError(logCode: LogCode.WarningUserEmailAlreadyExist);
+                return null;
+            }
 
             var timeNow = DateFormater.DateTimeNow;
 

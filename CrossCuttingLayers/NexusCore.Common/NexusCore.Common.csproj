@@ -113,6 +113,7 @@
     <Compile Include="Data\Models\Installation\InstallationAdministratorModel.cs" />
     <Compile Include="Data\Models\Installation\InstallationClientModel.cs" />
     <Compile Include="Data\Models\Installation\InstallationModel.cs" />
+    <Compile Include="Data\Models\Installation\InstallationWebsiteModel.cs" />
     <Compile Include="Data\Models\Memberships\CurentUserModel.cs" />
     <Compile Include="Data\Models\Memberships\LogableModel.cs" />
     <Compile Include="Data\Models\Memberships\TrackableModel.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="Data\Models\SourceTrees\SourceTreeMasterRoot.cs" />
     <Compile Include="Data\Models\Websites\DomainModel.cs" />
     <Compile Include="Data\Models\Websites\WebsiteAdminModel.cs" />
+    <Compile Include="Data\Models\Websites\WebsiteCreateModel.cs" />
     <Compile Include="Data\Models\Websites\WebsiteModel.cs" />
     <Compile Include="Data\Specifications\ClientSpecifications.cs" />
     <Compile Include="Data\Specifications\FriendlyIdSpecifications.cs" />
@@ -152,6 +154,7 @@
     <Compile Include="Data\Values\SourceTree\SourceTreeItemTypeValues.cs" />
     <Compile Include="Helper\DateFormater.cs" />
     <Compile Include="Helper\Extensions\EntityExtensions.cs" />
+    <Compile Include="Helper\Extensions\WebsiteSettingExtensions.cs" />
     <Compile Include="Helper\Seo.cs" />
     <Compile Include="Helper\TextMessage.cs" />
     <Compile Include="Infrastructure\EngineContext.cs" />
@@ -200,6 +203,7 @@
     <Compile Include="Services\WebsiteServices\IWebsiteAggregate.cs" />
     <Compile Include="Services\WebsiteServices\IWebsitePrimitive.cs" />
     <Compile Include="Services\WebsiteServices\IWebsiteService.cs" />
+    <Compile Include="Services\WebsiteServices\IWebsiteSettingPrimitive.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\StoredProcedures\DataReaders\" />

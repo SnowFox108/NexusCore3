@@ -12,9 +12,16 @@ input.input-validation-error {
 input[type="checkbox"].input-validation-error {
   border: 0 none;
 }
-.validation-summary-errors ul {
+.login-form .validation-summary-errors ul {
   list-style: none;
   padding-left: 0;
+}
+.general-form .validation-summary-errors {
+  color: #f00;
+  font-weight: bold;
+}
+.general-form .validation-summary-errors ul {
+  padding-left: 25px;
 }
 .validation-summary-valid {
   display: none;

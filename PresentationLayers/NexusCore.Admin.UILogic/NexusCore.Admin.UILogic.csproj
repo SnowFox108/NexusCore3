@@ -87,7 +87,9 @@
     </Compile>
     <Compile Include="TestLogic.cs" />
     <Compile Include="ViewModels\ControlPanel\GeneralPage.cs" />
+    <Compile Include="ViewModels\Memberships\CreateUserInfoFormValue.cs" />
     <Compile Include="ViewModels\Memberships\CreateUserViewModel.cs" />
+    <Compile Include="ViewModels\Memberships\EditUserViewModel.cs" />
     <Compile Include="ViewModels\Memberships\UserViewModel.cs" />
     <Compile Include="ViewModels\Memberships\UserInfoFormValue.cs" />
     <Compile Include="ViewModels\Security\UserActivationViewModel.cs" />

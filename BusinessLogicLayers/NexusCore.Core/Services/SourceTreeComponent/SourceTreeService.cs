@@ -1,4 +1,7 @@
-﻿using NexusCore.Common.Data.Entities.SourceTrees;
+﻿using System.Collections.Generic;
+using System.Linq;
+using NexusCore.Common.Data.Entities.SourceTrees;
+using NexusCore.Common.Data.Enums;
 using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Data.Models.SourceTrees;
 using NexusCore.Common.Data.Values.SourceTree;
@@ -16,12 +19,48 @@ namespace NexusCore.Core.Services.SourceTreeComponent
         {
         }
 
+        public IEnumerable<Guid> GetClientNodeIds()
+        {
+            return GetClientNodes().Select(c => c.Id);
+        }
+
+        public IEnumerable<SourceTree> GetClientNodes()
+        {
+            return GetSourceTreeNodes(SourceTreeItemType.Client);
+        }
+
+        public IEnumerable<Guid> GetWebsiteIds()
+        {
+            return
+                PrimitiveServices.ItemInSourceTreePrimitive.GetItems(GetWebsiteNodes().Select(n => n.Id).ToList())
+                    .Select(i => i.ItemId);
+        }
+
+        public IEnumerable<SourceTree> GetWebsiteNodes()
+        {
+            //var clientNodes = GetClientNodes();
+            //foreach (var clientNode in clientNodes)
+            //{
+            //    var websites =
+            //        PrimitiveServices.SourceTreePrimitive.GetChildNodes(
+            //            PrimitiveServices.SourceTreePrimitive.GetWebsiteRoot(clientNode.Id));
+
+            //    foreach (var website in websites)
+            //    {
+            //        if (AggregateServices.PermissionAggregate.CanView(website.Id))
+            //            yield return website;
+            //    }
+            //}
+            return GetSourceTreeNodes(SourceTreeItemType.Website);
+        }
+
         public SourceTreeModel GetSourceTreeBuild()
         {
             var sourceTree = GetSourceTreeModel(SourceTreeRoot.MasterNode, new Guid());
             BuildChildNodes(sourceTree);
             return sourceTree;
         }
+
 
         private void BuildChildNodes(SourceTreeModel parentNode)
         {
@@ -48,5 +87,27 @@ namespace NexusCore.Core.Services.SourceTreeComponent
                 ItemType = sourceTree.ItemType.Value()
             };
         }
+
+        public IEnumerable<SourceTree> GetSourceTreeNodes(SourceTreeItemType itemType)
+        {
+            var sourceTrees = new List<SourceTree>();
+            VerifyChildNodes(sourceTrees, SourceTreeRoot.MasterNode, itemType);
+            return sourceTrees;
+        }
+
+        private void VerifyChildNodes(List<SourceTree> sourceTrees, SourceTree parentNode, SourceTreeItemType itemType)
+        {
+            var childNodes = PrimitiveServices.SourceTreePrimitive.GetChildNodes(parentNode.Id);
+            foreach (var sourceTree in childNodes)
+            {
+                if (AggregateServices.PermissionAggregate.CanView(sourceTree.Id))
+                {
+                    if (sourceTree.ItemType == itemType)
+                        sourceTrees.Add(sourceTree);
+                    VerifyChildNodes(sourceTrees, sourceTree, itemType);
+                }
+            }
+        }
+
     }
 }

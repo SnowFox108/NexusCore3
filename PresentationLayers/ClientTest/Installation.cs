@@ -1,8 +1,10 @@
 ﻿using System;
 using NexusCore.Common.Adapter.ErrorHandlers;
 using NexusCore.Common.Adapter.Logs;
+using NexusCore.Common.Data.Entities.Website;
 using NexusCore.Common.Data.Models.Clients;
 using NexusCore.Common.Data.Models.Installation;
+using NexusCore.Common.Data.Models.Websites;
 using NexusCore.Common.Infrastructure;
 using NexusCore.Common.Resources;
 using NexusCore.Common.Services;
@@ -49,7 +51,31 @@ namespace ClientTest
                             ContactEmail = "mike.zhang@admin.com",
                             AddressLine1 = "",
                             PostCode = ""
-                        }
+                        },
+                        IsSkip = false
+                    },
+                    Website = new InstallationWebsiteModel
+                    {
+                        Website = new WebsiteModel
+                        {
+                            FriendlyId = friendlyId.FriendlyIdPrimitive.GetFriendlyId("WEB"),
+                            Name = "Default Website",
+                            Description = "Default website install by default",
+                            ActivedDomainId = new Guid(),
+                            CurrentHomeMenuId = new Guid(),
+                            RootUrl = "",
+                            FavIconUrl = "",
+                            PageTitlePrefix = "",
+                            PageTitleSuffix = "",
+                            IsActive = true,
+                            IsUnderMaintenance = true
+                        },
+                        Domain = new DomainModel
+                        {
+                            Name = "nexuscore.e2tech.co.uk",
+                            IsActive = true
+                        },
+                        IsSkip = false
                     }
                 });
 

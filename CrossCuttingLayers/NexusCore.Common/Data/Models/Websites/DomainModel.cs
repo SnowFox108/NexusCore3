@@ -9,7 +9,7 @@ namespace NexusCore.Common.Data.Models.Websites
     {
         public Guid WebsiteId { get; set; }
         [Required(ErrorMessageResourceType = typeof (DataAnnotationText), ErrorMessageResourceName = "DomainRequiredName")]
-        public Guid Name { get; set; }
+        public string Name { get; set; }
         public bool IsActive { get; set; }
 
     }

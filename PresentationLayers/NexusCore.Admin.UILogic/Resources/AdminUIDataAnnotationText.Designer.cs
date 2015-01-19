@@ -169,6 +169,15 @@ namespace NexusCore.Admin.UILogic.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Website.
+        /// </summary>
+        public static string UserAccountDisplayWebsite {
+            get {
+                return ResourceManager.GetString("UserAccountDisplayWebsite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please enter a activation token from your email..
         /// </summary>
         public static string UserAccountRequiredActivationToken {

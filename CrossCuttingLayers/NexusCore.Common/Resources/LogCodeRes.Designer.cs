@@ -104,5 +104,32 @@ namespace NexusCore.Common.Resources {
                 return ResourceManager.GetString("C51", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Website Setting not exist or value type is wrong..
+        /// </summary>
+        public static string C60 {
+            get {
+                return ResourceManager.GetString("C60", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email address is already registered..
+        /// </summary>
+        public static string C600 {
+            get {
+                return ResourceManager.GetString("C600", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Website Setting already exist, can not create a new one..
+        /// </summary>
+        public static string C61 {
+            get {
+                return ResourceManager.GetString("C61", resourceCulture);
+            }
+        }
     }
 }

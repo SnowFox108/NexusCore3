@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using NexusCore.Common.Data.Entities.SourceTrees;
+using NexusCore.Common.Data.Entities.Website;
 using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Data.Models.Clients;
 using NexusCore.Common.Data.Models.Websites;
@@ -16,6 +17,17 @@ namespace NexusCore.Core.Services.WebsiteComponent.Aggregate
     {
         public WebsiteAggregate(IUnitOfWork unitOfWork, IPrimitiveServices primitiveServices) : base(unitOfWork, primitiveServices)
         {
+        }
+
+        public void CreateWebsite(Website website, Domain domain)
+        {
+            website.GenerateNewIdentity();
+            domain.GenerateNewIdentity();
+            domain.WebsiteId = website.Id;
+            website.ActivedDomainId = domain.Id;
+
+            UnitOfWork.Repository<Website>().Insert(website);
+            UnitOfWork.Repository<Domain>().Insert(domain);
         }
 
         public IEnumerable<DomainModel> GetDomainsByWebssite(Guid websiteId)
@@ -60,5 +72,6 @@ namespace NexusCore.Core.Services.WebsiteComponent.Aggregate
             return PrimitiveServices.SourceTreePrimitive.GetWebsiteRoot(
                     PrimitiveServices.ItemInSourceTreePrimitive.GetSourceTreeId(clientId));            
         }
+
     }
 }

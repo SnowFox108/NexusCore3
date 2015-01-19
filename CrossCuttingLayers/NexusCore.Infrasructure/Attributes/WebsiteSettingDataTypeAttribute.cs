@@ -7,6 +7,10 @@ namespace NexusCore.Infrasructure.Attributes
     {
         public WebsiteSettingDataType DataType { get; set; }
 
+        public SettingDataTypeAttribute() : this(WebsiteSettingDataType.Null)
+        {            
+        }
+
         public SettingDataTypeAttribute(WebsiteSettingDataType dataType)
         {
             DataType = dataType;

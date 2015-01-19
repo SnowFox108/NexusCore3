@@ -205,7 +205,7 @@
                                 </span>
                             </td>
                             <td>
-                                Edit | Reset Password
+                                <a href="/UserManager/EditUser/{{ user.Id }}">Edit</a>
                             </td>
                         </tr>
                     </tbody>
@@ -220,14 +220,14 @@
                     </div>
                     <div class="col-md-7 col-sm-12">
                         <div class="dataTables_paginate paging_bootstrap_full_number">
-                            <pagination ng-change=""
+                            <pagination ng-change="paginationSetPage()"
                                         total-items="userManager.Paging.TotalItems"
                                         items-per-page="userManager.Paging.ItemsPerPage"
                                         ng-model="userManager.Paging.CurrentPage"
                                         max-size="4" class="" boundary-links="true"
-                                        previous-text="&lsaquo;" 
-                                        next-text="&rsaquo;" 
-                                        first-text="&laquo;" 
+                                        previous-text="&lsaquo;"
+                                        next-text="&rsaquo;"
+                                        first-text="&laquo;"
                                         last-text="&raquo;"></pagination>
                         </div>
                     </div>

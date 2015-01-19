@@ -17,6 +17,11 @@ namespace NexusCore.Core.Services.WebsiteComponent.Primitive
         {
         }
 
+        public void CreateWebsite(WebsiteModel website)
+        {
+            UnitOfWork.Repository<Website>().Insert(website.MapTo<Website>());
+        }
+
         public void UpdateWebsite(WebsiteModel website)
         {
             UnitOfWork.Repository<Website>().Update(website.MapTo<Website>());
@@ -35,6 +40,11 @@ namespace NexusCore.Core.Services.WebsiteComponent.Primitive
         public IEnumerable<Website> GetWebsites()
         {
             return UnitOfWork.Repository<Website>().Get(WebsiteSpecifications.GetWebsite());
+        }
+
+        public IEnumerable<Website> GetWebsites(IEnumerable<Guid> websiteIds)
+        {
+            return GetWebsites().Where(w => websiteIds.Contains(w.Id));
         }
     }
 }

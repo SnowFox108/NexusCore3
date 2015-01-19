@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using NexusCore.Common.Data.Entities.SourceTrees;
+using NexusCore.Common.Data.Enums;
 using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Services.SourceTreeServices;
 using NexusCore.Core.Services.Infrastructure;
@@ -19,6 +21,11 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Primitive
             if (item == null)
                 return new Guid();
             return item.SourceTreeId;
+        }
+
+        public IEnumerable<ItemInSourceTree> GetItems(IEnumerable<Guid> sourceTreeIds, SourceTreeItemModuleType itemModuleType = SourceTreeItemModuleType.System)
+        {
+            return UnitOfWork.Repository<ItemInSourceTree>().Get(i => sourceTreeIds.Contains(i.SourceTreeId) && i.ModuleType == itemModuleType);
         }
     }
 }
