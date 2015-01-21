@@ -73,6 +73,7 @@
     <Compile Include="Services\InstallationComponent\InstallationService.cs" />
     <Compile Include="Services\Infrastructure\PrimitiveServices.cs" />
     <Compile Include="Services\MembershipComponent\MembershipService.cs" />
+    <Compile Include="Services\MembershipComponent\Primitive\RolePrimitive.cs" />
     <Compile Include="Services\MembershipComponent\Primitive\UserPrimitive.cs" />
     <Compile Include="Services\MessageComponent\Primitive\MailTemplatePrimitive.cs" />
     <Compile Include="Services\PermissionComponent\Aggregate\PermissionAggregate.cs" />

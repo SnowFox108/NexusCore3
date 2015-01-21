@@ -30,7 +30,7 @@ namespace NexusCore.Common.Security
         {
             if (_unitOfWork.Repository<User>().Get(u => u.Email == email).Any())
             {
-                ErrorAdapter.ModelState.AddModelError(logCode: LogCode.WarningUserEmailAlreadyExist);
+                ErrorAdapter.ModelState.AddModelError("User.Email", "", logCode: LogCode.ErrorUserEmailAlreadyExist);
                 return null;
             }
 
@@ -223,7 +223,10 @@ namespace NexusCore.Common.Security
         public void CreateRole(string roleName, string description)
         {
             if (_unitOfWork.Repository<Role>().Get(r => r.RoleName == roleName).Any())
-                throw new ValidationException("Role name is already exist");
+            {
+                ErrorAdapter.ModelState.AddModelError("Role.RoleName", "", logCode: LogCode.WarningRoleNameAlreadyExist);
+                return;
+            }
 
             _unitOfWork.Repository<Role>().Insert(new Role
             {

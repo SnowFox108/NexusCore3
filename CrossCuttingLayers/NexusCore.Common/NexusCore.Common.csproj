@@ -102,7 +102,7 @@
     <Compile Include="Data\Enums\Websites.cs" />
     <Compile Include="Data\Infrastructure\IUnitOfWorkAsyncFactory.cs" />
     <Compile Include="Data\MappingProfiles\ClientProfile.cs" />
-    <Compile Include="Data\MappingProfiles\UserProfile.cs" />
+    <Compile Include="Data\MappingProfiles\MembershipProfile.cs" />
     <Compile Include="Data\MappingProfiles\WebsiteProfile.cs" />
     <Compile Include="Data\Models\Clients\ClientCreateModel.cs" />
     <Compile Include="Data\Models\Clients\ClientDepartmentModel.cs" />
@@ -115,8 +115,11 @@
     <Compile Include="Data\Models\Installation\InstallationModel.cs" />
     <Compile Include="Data\Models\Installation\InstallationWebsiteModel.cs" />
     <Compile Include="Data\Models\Memberships\CurentUserModel.cs" />
-    <Compile Include="Data\Models\Memberships\LogableModel.cs" />
-    <Compile Include="Data\Models\Memberships\TrackableModel.cs" />
+    <Compile Include="Data\Models\Infrastructure\LogableModel.cs" />
+    <Compile Include="Data\Models\Infrastructure\TrackableModel.cs" />
+    <Compile Include="Data\Models\Memberships\RoleManagerModel.cs" />
+    <Compile Include="Data\Models\Memberships\RoleModel.cs" />
+    <Compile Include="Data\Models\Memberships\RoleSearchFilter.cs" />
     <Compile Include="Data\Models\Memberships\UserManagerModel.cs" />
     <Compile Include="Data\Models\Memberships\UserModel.cs" />
     <Compile Include="Data\Models\Memberships\UserSearchFilter.cs" />
@@ -186,6 +189,7 @@
     <Compile Include="Services\FriendlyIdServices\IFriendlyIdPrimitive.cs" />
     <Compile Include="Services\InstallationServices\IInstallationService.cs" />
     <Compile Include="Services\MembershipServices\IMembershipService.cs" />
+    <Compile Include="Services\MembershipServices\IRolePrimitive.cs" />
     <Compile Include="Services\MembershipServices\IUserPrimitive.cs" />
     <Compile Include="Services\MessagerServices\IMessageService.cs" />
     <Compile Include="Services\IAggregateServices.cs" />

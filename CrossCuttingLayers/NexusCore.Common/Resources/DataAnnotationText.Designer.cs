@@ -151,6 +151,15 @@ namespace NexusCore.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string GeneralDisplayDescription {
+            get {
+                return ResourceManager.GetString("GeneralDisplayDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string GeneralDisplayEmail {
@@ -264,6 +273,24 @@ namespace NexusCore.Common.Resources {
         public static string GeneralValidationNewPassword {
             get {
                 return ResourceManager.GetString("GeneralValidationNewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Role Name.
+        /// </summary>
+        public static string MembershipDisplayRoleName {
+            get {
+                return ResourceManager.GetString("MembershipDisplayRoleName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter a role name.
+        /// </summary>
+        public static string MembershipRequiredRoleName {
+            get {
+                return ResourceManager.GetString("MembershipRequiredRoleName", resourceCulture);
             }
         }
         

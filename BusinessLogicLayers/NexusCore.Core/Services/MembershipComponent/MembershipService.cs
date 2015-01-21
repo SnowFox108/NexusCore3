@@ -13,7 +13,7 @@ using NexusCore.Common.Services;
 using NexusCore.Common.Services.MembershipServices;
 using NexusCore.Common.Services.MessagerServices;
 using NexusCore.Core.Services.Infrastructure;
-using NexusCore.Infrasructure.Model.Enums;
+using NexusCore.Infrasructure.Models.Enums;
 using NexusCore.Infrasructure.Security;
 
 namespace NexusCore.Core.Services.MembershipComponent
@@ -23,18 +23,18 @@ namespace NexusCore.Core.Services.MembershipComponent
 
         private readonly IAuthenticationManager _userManager;
         private readonly IMessageService _messageService;
-        private readonly IAuthenticationManager _simpleAuthenticationManager;
 
         public MembershipService(IUnitOfWork unitOfWork, 
             IPrimitiveServices primitiveServices, 
             IAggregateServices aggregateServices, 
             IAuthenticationManager userManager,
-            IMessageService messageService, IAuthenticationManager simpleAuthenticationManager) : base(unitOfWork, primitiveServices, aggregateServices)
+            IMessageService messageService) : base(unitOfWork, primitiveServices, aggregateServices)
         {
             _userManager = userManager;
             _messageService = messageService;
-            _simpleAuthenticationManager = simpleAuthenticationManager;
         }
+
+        #region Users
 
         public void DeleteUser(UserModel user)
         {
@@ -60,8 +60,8 @@ namespace NexusCore.Core.Services.MembershipComponent
             var result = users.MapTo<UserModel>();
             foreach (var userModel in result)
             {
-                userModel.CreatedByUser = ((User)_simpleAuthenticationManager.GetUser(userModel.CreatedBy)).MapTo<CurrentUserModel>();
-                userModel.UpdatedByUser = ((User)_simpleAuthenticationManager.GetUser(userModel.UpdatedBy)).MapTo<CurrentUserModel>();
+                userModel.CreatedByUser = ((User)_userManager.GetUser(userModel.CreatedBy)).MapTo<CurrentUserModel>();
+                userModel.UpdatedByUser = ((User)_userManager.GetUser(userModel.UpdatedBy)).MapTo<CurrentUserModel>();
                 yield return userModel;
             }            
         }
@@ -81,9 +81,9 @@ namespace NexusCore.Core.Services.MembershipComponent
 
 
             var mailTemplateid = PrimitiveServices.WebsiteSettingPrimitive.GetSettingId(websiteId,
-                WebsiteSettingType.MailTemplateRegister);
+                WebsiteSettingType.MailTemplateRegister, false);
 
-            if (ErrorAdapter.ModelState.IsValid)
+            if (mailTemplateid != Guid.Empty)
             {
                 // send Email depend on which website send different register Email
                 var mailTokens = new Dictionary<string, string>
@@ -104,7 +104,7 @@ namespace NexusCore.Core.Services.MembershipComponent
                         mailTemplate.Bcc, mailTokens);
                 }
             }
-            ErrorAdapter.ModelState.Clear(); // remove this after upgrade to warning message
+            //ErrorAdapter.ModelState.Clear(); // remove this after upgrade to warning message
         }
 
         public void SetupPassword(IActivationToken token, string password)
@@ -126,6 +126,62 @@ namespace NexusCore.Core.Services.MembershipComponent
                 user.PhoneNumber);
         }
 
+        #endregion
+
+        #region Roles
+
+        public void CreateRole(RoleModel role)
+        {
+            _userManager.CreateRole(role.RoleName, role.Description);
+        }
+
+        public void DeleteRole(RoleModel role)
+        {
+            if (RoleHasUsers(role.Id))
+            {
+                ErrorAdapter.ModelState.AddModelError(logCode: LogCode.WarningRoleNameCannotDeleteDueHasUser);
+                return;
+            }
+
+            PrimitiveServices.RolePrimitive.DeleteRole(role.MapTo<Role>());
+        }
+
+        public bool RoleHasUsers(Guid roleId)
+        {
+            return ((Role) _userManager.GetRoleById(roleId)).Users.Any();
+        }
+
+        public RoleManagerModel GetRoles(RoleSearchFilter searchFilter)
+        {
+            return new RoleManagerModel
+            {
+                Roles = PrimitiveServices.RolePrimitive.GetRoles(searchFilter).MapTo<RoleModel>(),
+                Paging = new PaginationModel
+                {
+                    TotalItems = PrimitiveServices.RolePrimitive.GetRoleCount(searchFilter),
+                    ItemsPerPage = searchFilter.Filter.Paging.ItemsPerPage,
+                    CurrentPage = searchFilter.Filter.Paging.CurrentPage
+                }
+            };
+        }
+
+        public RoleModel GetRole(Guid roleId)
+        {
+            return PrimitiveServices.RolePrimitive.GetRole(roleId).MapTo<RoleModel>();
+        }
+
+        public void UpdateRole(RoleModel role)
+        {
+            if (UnitOfWork.Repository<Role>().Get(r => r.RoleName == role.RoleName).Any())
+            {
+                ErrorAdapter.ModelState.AddModelError(logCode: LogCode.WarningRoleNameAlreadyExist);
+                return;
+            }
+
+            PrimitiveServices.RolePrimitive.UpdateRole(role.MapTo<Role>());
+        }
+
+        #endregion
 
     }
 }

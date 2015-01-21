@@ -15,9 +15,51 @@ namespace NexusCore.Common.Adapter.ErrorHandlers
     {
         private readonly List<IErrorModel> _errors;
 
-        public IEnumerable<IErrorModel> Errors
+        private readonly LogLevel[] _errorTypes =
+        {
+            LogLevel.Error,
+            LogLevel.Critical
+        };
+
+        private readonly LogLevel[] _warningTypes =
+        {
+            LogLevel.Alert,
+            LogLevel.Warning
+        };
+
+        private readonly LogLevel[] _infomationTypes =
+        {
+            LogLevel.Information,
+            LogLevel.Notice
+        };
+
+        public IEnumerable<IErrorModel> All
         {
             get { return _errors; }
+        }
+
+        public IEnumerable<IErrorModel> Errors
+        {
+            get
+            {
+                return _errors.Where(e => _errorTypes.Contains(e.Level));
+            }
+        }
+
+        public IEnumerable<IErrorModel> Warnings
+        {
+            get
+            {
+                return _errors.Where(e => _warningTypes.Contains(e.Level));
+            }
+        }
+
+        public IEnumerable<IErrorModel> Information
+        {
+            get
+            {
+                return _errors.Where(e => _infomationTypes.Contains(e.Level));
+            }
         }
 
         public SimpleErrorHandler()
@@ -27,7 +69,17 @@ namespace NexusCore.Common.Adapter.ErrorHandlers
 
         public bool IsValid
         {
-            get { return !_errors.Any(); }
+            get { return !Errors.Any(); }
+        }
+
+        public bool IsWarning
+        {
+            get { return Warnings.Any(); }            
+        }
+
+        public bool IsInformation
+        {
+            get { return Information.Any(); }
         }
 
         public IErrorModel AddModelError(string key, string errorMessage, Guid clientId = new Guid(),
@@ -36,6 +88,7 @@ namespace NexusCore.Common.Adapter.ErrorHandlers
             var errorModel = new SimpleErrorModel
             {
                 Key = key,
+                Level = logCode == LogCode.None? LogLevel.Error: logCode.Value().Level,
                 ErrorMessage = string.IsNullOrEmpty(errorMessage) ? LogCodeText.GetString(logCode) : errorMessage
             };
             _errors.Add(errorModel);
@@ -57,8 +110,5 @@ namespace NexusCore.Common.Adapter.ErrorHandlers
         {
             _errors.Clear();
         }
-
-
-
     }
 }

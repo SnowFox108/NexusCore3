@@ -177,6 +177,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstallationController.cs" />
+    <Compile Include="Controllers\RoleManagerController.cs" />
     <Compile Include="Controllers\UserManagerController.cs" />
     <Compile Include="Controllers\WebServices\ModelBuilderController.cs" />
     <Compile Include="Global.asax.cs">
@@ -189,7 +190,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Angular\app.js" />
-    <Content Include="Angular\Controllers\use-rmanager-index.js" />
+    <Content Include="Angular\Controllers\role-manager-index.js" />
+    <Content Include="Angular\Controllers\user-manager-index.js" />
     <Content Include="Angular\Services\apiCallService.js" />
     <Content Include="Angular\Services\dateConverterService.js" />
     <Content Include="assets\admin\layout3\css\custom.css" />
@@ -4201,6 +4203,7 @@
     <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\String.cshtml" />
     <Content Include="Views\UserManager\EditUser.cshtml" />
+    <Content Include="Views\RoleManager\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Angular\References\" />

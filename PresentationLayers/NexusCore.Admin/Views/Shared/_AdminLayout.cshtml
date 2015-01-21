@@ -154,9 +154,12 @@
             <!-- BEGIN PAGE CONTENT INNER -->
             @if (pageInfo.InfoBox.HasMessage)
             {
-                <div class="@string.Format("alert {0}", pageInfo.InfoBox.Css)">
-                    <strong>@pageInfo.InfoBox.Title</strong> @pageInfo.InfoBox.Text
-                </div>
+                foreach (var messageDetail in pageInfo.InfoBox.MessageDetails)
+                {
+                    <div class="@string.Format("alert {0}", messageDetail.Css)">
+                        <strong>@messageDetail.Title</strong> @messageDetail.Text
+                    </div>
+                }
             }
             @RenderBody()
             <!-- END PAGE CONTENT INNER -->

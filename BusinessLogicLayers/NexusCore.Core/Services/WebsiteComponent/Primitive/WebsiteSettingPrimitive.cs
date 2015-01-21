@@ -37,15 +37,15 @@ namespace NexusCore.Core.Services.WebsiteComponent.Primitive
                     .FirstOrDefault();
         }
 
-        public Guid GetSettingId(Guid websiteId, WebsiteSettingType settingType)
+        public Guid GetSettingId(Guid websiteId, WebsiteSettingType settingType, bool isConstrain = true)
         {
             var setting = GetSetting(websiteId, settingType);
             if (setting != null && setting.SettingType.Value().DataType == WebsiteSettingDataType.Id)
                 return setting.ItemId;
             else
-            {
-                ErrorAdapter.ModelState.AddModelError(logCode: LogCode.CriticalWebsiteSettingCannotReadValue);
-                return new Guid();
+            {                
+                ErrorAdapter.ModelState.AddModelError(logCode: isConstrain? LogCode.CriticalWebsiteSettingCannotReadValue : LogCode.WarningWebsiteSettingCannotReadValue);
+                return Guid.Empty;
             }
         }
 

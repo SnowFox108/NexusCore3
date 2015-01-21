@@ -1,5 +1,6 @@
 ﻿
 using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 
 namespace NexusCore.Admin.UILogic.ViewModels.ControlPanel
@@ -52,29 +53,40 @@ namespace NexusCore.Admin.UILogic.ViewModels.ControlPanel
 
         public class Message
         {
-            public bool HasMessage { get; set; }
-            public MessageType Level { get; set; }
-            public string Title { get; set; }
-            public string Text { get; set; }
-
-            public string Css
+            public class MessageDetail
             {
-                get
+                public MessageType Level { get; set; }
+                public string Title { get; set; }
+                public string Text { get; set; }
+
+                public string Css
                 {
-                    switch (Level)
+                    get
                     {
-                        case MessageType.Success:
-                            return "alert-success";
-                        case MessageType.Info:
-                            return "alert-info";
-                        case MessageType.Warning:
-                            return "alert-warning";
-                        case MessageType.Error:
-                            return "alert-danger";
+                        switch (Level)
+                        {
+                            case MessageType.Success:
+                                return "alert-success";
+                            case MessageType.Info:
+                                return "alert-info";
+                            case MessageType.Warning:
+                                return "alert-warning";
+                            case MessageType.Error:
+                                return "alert-danger";
+                        }
+                        return "alert-info";
                     }
-                    return "alert-info";
                 }
             }
+
+            public bool HasMessage { get { return MessageDetails.Any(); } }
+            public List<MessageDetail> MessageDetails { get; private set; }
+
+            public Message()
+            {
+                MessageDetails = new List<MessageDetail>();
+            }
+
         }
 
         public Meta MetaData { get; set; }

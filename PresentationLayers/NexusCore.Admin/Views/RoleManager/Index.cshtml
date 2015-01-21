@@ -1,0 +1,88 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-user font-green-sharp"></i>
+                    <span class="caption-subject font-green-sharp bold uppercase">Role Listing</span>
+                    <span class="caption-helper">manage users...</span>
+                </div>
+                <div class="tools">
+                </div>
+            </div>
+            <div class="portlet-body flip-scroll">
+                <div class="table-toolbar">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="btn-group">
+                                <a href="@Url.Action("CreateRole")" class="btn green">
+                                    Create New Role <i class="fa fa-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="btn-group pull-right">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-striped table-bordered table-hover flip-content" id="sample_1">
+                    <thead class="flip-content">
+                        <tr>
+                            <th width="15%">
+                                Role Name
+                            </th>
+                            <th width="65%">
+                                Description
+                            </th>
+                            <th width="20%">
+                                Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="odd gradeX" ng-repeat="user in userManager.Users">
+                            <td>
+                                {{ role.RoleName }}
+                            </td>
+                            <td>
+                                {{ role.Description }}
+                            </td>
+                            <td>
+                                <a href="/RoleManager/EditRole/{{ role.Id }}">Edit</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col-md-5 col-sm-12">
+                        <div class="dataTables_info" id="sample_1_info" role="status" aria-live="polite">
+                            Showing {{ userManager.Paging.CurrentPage * userManager.Paging.ItemsPerPage - userManager.Paging.ItemsPerPage + 1 }}
+                            to {{ userManager.Paging.CurrentPage * userManager.Paging.ItemsPerPage > userManager.Paging.TotalItems ? userManager.Paging.TotalItems : userManager.Paging.CurrentPage * userManager.Paging.ItemsPerPage }}
+                            of {{ userManager.Paging.TotalItems }} results
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-sm-12">
+                        <div class="dataTables_paginate paging_bootstrap_full_number">
+                            <pagination ng-change="paginationSetPage()"
+                                        total-items="userManager.Paging.TotalItems"
+                                        items-per-page="userManager.Paging.ItemsPerPage"
+                                        ng-model="userManager.Paging.CurrentPage"
+                                        max-size="4" class="" boundary-links="true"
+                                        previous-text="&lsaquo;"
+                                        next-text="&rsaquo;"
+                                        first-text="&laquo;"
+                                        last-text="&raquo;"></pagination>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END EXAMPLE TABLE PORTLET-->
+    </div>
+</div>
+
+@section pageLevelScripts{
+    <script src="/Angular/Controllers/role-manager-index.js"></script>
+}

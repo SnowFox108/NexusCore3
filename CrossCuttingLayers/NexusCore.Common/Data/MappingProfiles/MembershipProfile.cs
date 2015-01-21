@@ -5,7 +5,7 @@ using NexusCore.Common.Helper.Extensions;
 
 namespace NexusCore.Common.Data.MappingProfiles
 {
-    public class UserProfile : Profile
+    public class MembershipProfile : Profile
     {
         protected override void Configure()
         {
@@ -19,6 +19,11 @@ namespace NexusCore.Common.Data.MappingProfiles
             Mapper.CreateMap<UserModel, User>()
                 .IgnoreAllMissingInTarget();
 
+            Mapper.CreateMap<Role, RoleModel>()
+                .IgnoreAllMissingInTarget();
+
+            Mapper.CreateMap<RoleModel, Role>()
+                .IgnoreAllMissingInTarget();
         }
     }
 }

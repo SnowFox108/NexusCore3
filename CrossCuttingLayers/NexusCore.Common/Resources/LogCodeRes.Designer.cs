@@ -88,6 +88,15 @@ namespace NexusCore.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email address is already registered..
+        /// </summary>
+        public static string C201 {
+            get {
+                return ResourceManager.GetString("C201", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to AutofacFactory has not been intialized, have you called Initialize()?.
         /// </summary>
         public static string C50 {
@@ -115,11 +124,29 @@ namespace NexusCore.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Email address is already registered..
+        ///   Looks up a localized string similar to Website Setting {0} not exist or value type is wrong..
         /// </summary>
-        public static string C600 {
+        public static string C601 {
             get {
-                return ResourceManager.GetString("C600", resourceCulture);
+                return ResourceManager.GetString("C601", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Role name is already exist..
+        /// </summary>
+        public static string C602 {
+            get {
+                return ResourceManager.GetString("C602", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can not delete select role because there are users exist in role..
+        /// </summary>
+        public static string C603 {
+            get {
+                return ResourceManager.GetString("C603", resourceCulture);
             }
         }
         

@@ -74,6 +74,7 @@ namespace NexusCore.Core.Adapter.IoC
 
             // Membership
             Builder.RegisterType<MembershipService>().As<IMembershipService>().InstancePerLifetimeScope();
+            Builder.RegisterType<RolePrimitive>().As<IRolePrimitive>().InstancePerLifetimeScope();
             Builder.RegisterType<UserPrimitive>().As<IUserPrimitive>().InstancePerLifetimeScope();
 
             // Messager

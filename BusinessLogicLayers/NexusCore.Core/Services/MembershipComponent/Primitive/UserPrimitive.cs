@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using NexusCore.Common.Data.Entities.Membership;
+﻿using NexusCore.Common.Data.Entities.Membership;
 using NexusCore.Common.Data.Infrastructure;
 using NexusCore.Common.Data.Models.Memberships;
 using NexusCore.Common.Data.Specifications;
+using NexusCore.Common.Helper.Extensions;
 using NexusCore.Common.Services.MembershipServices;
 using NexusCore.Core.Services.Infrastructure;
-using NexusCore.Common.Helper.Extensions;
 using NexusCore.Infrasructure.Model.Enums;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace NexusCore.Core.Services.MembershipComponent.Primitive

@@ -15,9 +15,9 @@ namespace NexusCore.Admin.UILogic.ViewModels.Memberships
             FormValue = new UserInfoFormValue();
         }
 
-        public void InitData(IMembershipService membershipService, Guid userId)
+        public void InitData(IMembershipService membership, Guid userId)
         {
-            User = membershipService.GetUser(userId);
+            User = membership.GetUser(userId);
             FormValue.Init(User.Title);
         }
     }

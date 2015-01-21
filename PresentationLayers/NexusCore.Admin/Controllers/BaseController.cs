@@ -28,10 +28,7 @@ namespace NexusCore.Admin.Controllers
                 {
                     IsEnabled = false
                 },
-                InfoBox = new GeneralPage.Message
-                {
-                    HasMessage = false
-                },
+                InfoBox = new GeneralPage.Message(),
                 Title = "General Page",
                 TitleDescription = ""                
             };

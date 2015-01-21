@@ -54,24 +54,34 @@ namespace NexusCore.Infrasructure.Models.Enums
         [StoreInLog(false, TaskCategory.System, LogLevel.Error)]
         ErrorUserLoginFailed = 200,
 
+        [StoreInLog(false, TaskCategory.System, LogLevel.Error)]
+        ErrorUserEmailAlreadyExist = 201,
+
         #endregion
 
         #region 600-999 System Warning
 
+
         [StoreInLog(false, TaskCategory.System, LogLevel.Warning)]
-        WarningUserEmailAlreadyExist = 600,
+        WarningWebsiteSettingCannotReadValue = 601,
+
+        [StoreInLog(false, TaskCategory.System, LogLevel.Warning)]
+        WarningRoleNameAlreadyExist = 602,
+
+        [StoreInLog(false, TaskCategory.System, LogLevel.Warning)]
+        WarningRoleNameCannotDeleteDueHasUser = 603,
 
         #endregion
 
-        #region 400-499 System Information
+        #region 1000-1499 System Information
 
         #endregion
 
-        #region 500-599 Web page Error
+        #region 1500-1999 Web page Error
 
         #endregion
 
-        #region 600-699 Web page Warning
+        #region 2000-2699 Web page Warning
 
         #endregion
 

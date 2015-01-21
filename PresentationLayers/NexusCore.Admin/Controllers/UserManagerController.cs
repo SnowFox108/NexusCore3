@@ -1,34 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using NexusCore.Admin.UILogic.Adapter.ErrorHandlers;
 using NexusCore.Admin.UILogic.ViewModels.ControlPanel;
 using NexusCore.Admin.UILogic.ViewModels.Memberships;
 using NexusCore.Common.Adapter.ErrorHandlers;
-using NexusCore.Common.Adapter.Language;
 using NexusCore.Common.Data.Models.Memberships;
 using NexusCore.Common.Services.MembershipServices;
 using NexusCore.Common.Services.SourceTreeServices;
 using NexusCore.Common.Services.WebsiteServices;
-using NexusCore.Infrasructure.Models.Enums;
-using NexusCore.Infrasructure.Security;
 
 namespace NexusCore.Admin.Controllers
 {
     [Authorize]
     public class UserManagerController : BaseController
     {
-        private readonly IAuthenticationManager _userManager;
         private readonly IMembershipService _membership;
         private readonly ISourceTreeService _sourceTree;
         private readonly IWebsitePrimitive _website;
 
-        public UserManagerController(IAuthenticationManager userManager, IMembershipService membership, ISourceTreeService sourceTreeService, IWebsitePrimitive websiteService)
+        public UserManagerController(IMembershipService membership, ISourceTreeService sourceTreeService, IWebsitePrimitive websiteService)
         {
             _membership = membership;
-            _userManager = userManager;
             _sourceTree = sourceTreeService;
             _website = websiteService;
         }
@@ -39,6 +32,7 @@ namespace NexusCore.Admin.Controllers
         {
             GetInfoBox();
             PageInfo.Title = "User Manager";
+            PageInfo.MetaData.Title = "User Manager";
             PageInfo.Angular = new GeneralPage.AngularJs
             {
                 IsEnabled = true,
@@ -63,32 +57,27 @@ namespace NexusCore.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (_userManager.IsUserExist(model.User.Email))
-                    ModelState.AddModelError("User.Email", LogCodeText.GetString(LogCode.WarningUserEmailAlreadyExist));
+                _membership.RegisterNewUser(
+                    model.RegistedWebsiteId, model.User.Title, model.User.UserName, model.User.Email,
+                    model.User.FirstName,
+                    model.User.LastName, model.User.PhoneNumber);
 
-                if (ModelState.IsValid)
+                if (ErrorAdapter.ModelState.IsValid)
                 {
-                    _membership.RegisterNewUser(
-                        model.RegistedWebsiteId, model.User.Title, model.User.UserName, model.User.Email,
-                        model.User.FirstName,
-                        model.User.LastName, model.User.PhoneNumber);
+                    var messages = new GeneralPage.Message();
+                    messages.AddWarningFromErrorAdapter();
 
-                    if (ErrorAdapter.ModelState.IsValid)
+                    messages.MessageDetails.Add(new GeneralPage.Message.MessageDetail
                     {
+                        Level = GeneralPage.MessageType.Success,
+                        Title = "Success",
+                        Text = string.Format("A new user ({0}) has been created.", model.User.Email)
+                    });
 
-                        TempData["InfoBox"] = new GeneralPage.Message
-                        {
-                            HasMessage = true,
-                            Level = GeneralPage.MessageType.Success,
-                            Title = "Success",
-                            Text = string.Format("A new user ({0}) has been created.", model.User.UserName)
-                        };
-
-                        return RedirectToAction("Index");
-                    }
-
-                    ModelState.AddFromErrorAdapter();
+                    TempData["InfoBox"] = messages;
+                    return RedirectToAction("Index");
                 }
+                ModelState.AddFromErrorAdapter();
             }
 
             CreateUserPageSetting();
@@ -100,10 +89,8 @@ namespace NexusCore.Admin.Controllers
         {
             PageInfo.Title = "Create New User";
             PageInfo.TitleDescription = "User will receive an email to active their account and set password.";
-            PageInfo.Angular = new GeneralPage.AngularJs
-            {
-                IsEnabled = false,
-            };            
+
+            PageInfo.MetaData.Title = "Create New User";
         }
 
         [HttpGet]
@@ -111,6 +98,7 @@ namespace NexusCore.Admin.Controllers
         {
             var model = new EditUserViewModel();
             model.InitData(_membership, id);
+            EditUserPageSetting(model.User.UserName);
             return View(model);
         }
 
@@ -123,14 +111,17 @@ namespace NexusCore.Admin.Controllers
 
                 if (ErrorAdapter.ModelState.IsValid)
                 {
-                    TempData["InfoBox"] = new GeneralPage.Message
+                    var messages = new GeneralPage.Message();
+                    messages.AddWarningFromErrorAdapter();
+
+                    messages.MessageDetails.Add(new GeneralPage.Message.MessageDetail
                     {
-                        HasMessage = true,
                         Level = GeneralPage.MessageType.Success,
                         Title = "Success",
                         Text = string.Format("User ({0}) information has been updated.", model.User.UserName)
-                    };
+                    });
 
+                    TempData["InfoBox"] = messages;
                     return RedirectToAction("Index");
                 }
 
@@ -138,7 +129,17 @@ namespace NexusCore.Admin.Controllers
             }
 
             model.FormValue.Init(model.User.Title);
+            EditUserPageSetting(model.User.UserName);
             return View(model);
+        }
+
+        private void EditUserPageSetting(string userName)
+        {
+            PageInfo.Title = string.Format("Editing User {0}", userName);
+            PageInfo.TitleDescription = "User will receive an email to active their account and set password.";
+
+            PageInfo.MetaData.Title = string.Format("Editing User {0}", userName);
+
         }
 
         [HttpPost]

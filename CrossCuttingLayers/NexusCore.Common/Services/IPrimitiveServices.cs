@@ -16,6 +16,7 @@ namespace NexusCore.Common.Services
         IMailTemplatePrimitive MailTemplatePrimitive { get; }
         IItemInSourceTreePrimitive ItemInSourceTreePrimitive { get; }
         IPermissionPrimitive PermissionPrimitive { get; }
+        IRolePrimitive RolePrimitive { get; }
         ISourceTreePrimitive SourceTreePrimitive { get; }
         IUserPrimitive UserPrimitive { get; }
         IWebsitePrimitive WebsitePrimitive { get; }

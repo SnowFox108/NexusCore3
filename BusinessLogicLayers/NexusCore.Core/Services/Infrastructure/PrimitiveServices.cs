@@ -23,6 +23,8 @@ namespace NexusCore.Core.Services.Infrastructure
 
         public IPermissionPrimitive PermissionPrimitive { get; set; }
 
+        public IRolePrimitive RolePrimitive { get; set; }
+
         public ISourceTreePrimitive SourceTreePrimitive { get; set; }
 
         public IUserPrimitive UserPrimitive { get; set; }

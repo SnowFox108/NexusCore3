@@ -24,5 +24,15 @@ namespace NexusCore.Common.Data.Specifications
 
             return spec;
         }
+
+        public static ISpecification<Role> GetRole(RoleSearchFilter searchFilter)
+        {
+            Specification<Role> spec = new TrueSpecification<Role>();
+
+            if (!string.IsNullOrEmpty(searchFilter.RoleName))
+                spec &= new DirectSpecification<Role>(r => r.RoleName.Contains(searchFilter.RoleName));
+
+            return spec;
+        }
     }
 }

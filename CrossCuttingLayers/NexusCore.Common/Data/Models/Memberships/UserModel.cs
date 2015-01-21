@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using NexusCore.Common.Data.Models.Infrastructure;
 using NexusCore.Common.Resources;
 
 namespace NexusCore.Common.Data.Models.Memberships

@@ -189,4 +189,13 @@
   <data name="GeneralDisplayTitle" xml:space="preserve">
     <value>Title</value>
   </data>
+  <data name="GeneralDisplayDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="MembershipDisplayRoleName" xml:space="preserve">
+    <value>Role Name</value>
+  </data>
+  <data name="MembershipRequiredRoleName" xml:space="preserve">
+    <value>Please enter a role name</value>
+  </data>
 </root>
