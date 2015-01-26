@@ -224,7 +224,7 @@ namespace NexusCore.Common.Security
         {
             if (_unitOfWork.Repository<Role>().Get(r => r.RoleName == roleName).Any())
             {
-                ErrorAdapter.ModelState.AddModelError("Role.RoleName", "", logCode: LogCode.WarningRoleNameAlreadyExist);
+                ErrorAdapter.ModelState.AddModelError("Role.RoleName", "", logCode: LogCode.ErrorRoleNameAlreadyExist);
                 return;
             }
 

@@ -1,4 +1,18 @@
-﻿/*	Validation
+﻿/*div.checker input {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    border: none;
+    background: none;
+    display: -moz-inline-box;
+    display: inline-block;
+    *display: inline;
+    zoom: 1; 
+}*/
+.form-validation-message {
+  padding-top: 7px;
+}
+/*	Validation
 ------------------------------------*/
 .field-validation-error {
   color: #f00;
@@ -26,21 +40,35 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
   display: none;
 }
-/*div.checker input {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    -moz-opacity: 0;
-    border: none;
-    background: none;
-    display: -moz-inline-box;
-    display: inline-block;
-    *display: inline;
-    zoom: 1; 
-}*/
-.form-validation-message {
-  padding-top: 7px;
-}
 .login .widecontent {
   width: 550px !important;
+}
+.sortable-column {
+  cursor: pointer;
+}
+.modal-dialog {
+  margin-top: 100px !important;
+}
+.dialog-header-error {
+  background-color: #d2322d;
+}
+.dialog-header-wait {
+  background-color: #428bca;
+}
+.dialog-header-notify {
+  background-color: #428bca;
+}
+.dialog-header-confirm {
+  background-color: #333333;
+}
+.dialog-header-error span,
+.dialog-header-wait span,
+.dialog-header-notify span,
+.dialog-header-confirm span,
+.dialog-header-error h4,
+.dialog-header-wait h4,
+.dialog-header-notify h4,
+.dialog-header-confirm h4 {
+  color: #ffffff;
 }
 /*# sourceMappingURL=mainCore.css.map */

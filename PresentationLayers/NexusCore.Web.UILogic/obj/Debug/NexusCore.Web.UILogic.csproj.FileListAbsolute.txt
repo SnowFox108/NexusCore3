@@ -1,4 +1,5 @@
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Web.UILogic\bin\Debug\AutoMapper.Net4.dll
+F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Web.UILogic\bin\Debug\Resources\LogCodeRes.resx
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Web.UILogic\bin\Debug\NexusCore.Web.UILogic.dll
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Web.UILogic\bin\Debug\NexusCore.Web.UILogic.pdb
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Web.UILogic\bin\Debug\Microsoft.Web.Infrastructure.dll
@@ -29,4 +30,3 @@ F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Web.UILogic\bin\Debug\Ent
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Web.UILogic\obj\Debug\NexusCore.Web.UILogic.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Web.UILogic\obj\Debug\NexusCore.Web.UILogic.dll
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Web.UILogic\obj\Debug\NexusCore.Web.UILogic.pdb
-F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Web.UILogic\bin\Debug\Resources\LogCodeRes.resx

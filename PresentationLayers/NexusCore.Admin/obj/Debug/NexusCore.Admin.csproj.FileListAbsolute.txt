@@ -1,3 +1,4 @@
+F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\Resources\LogCodeRes.resx
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\NexusCore.Admin.dll.config
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\NexusCore.Admin.dll
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\NexusCore.Admin.pdb
@@ -45,11 +46,11 @@ F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\Autofac.xml
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\Autofac.Integration.Mvc.xml
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\System.Web.Helpers.xml
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\System.Web.Mvc.xml
-F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\System.Web.Optimization.xml
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\System.Web.Razor.xml
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\System.Web.WebPages.xml
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\System.Web.WebPages.Deployment.xml
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\System.Web.WebPages.Razor.xml
+F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\System.Web.Optimization.xml
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\Antlr3.Runtime.pdb
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\Newtonsoft.Json.xml
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\EntityFramework.xml
@@ -70,4 +71,3 @@ F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\AutoMapper.xml
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\obj\Debug\NexusCore.Admin.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\obj\Debug\NexusCore.Admin.dll
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\obj\Debug\NexusCore.Admin.pdb
-F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\Resources\LogCodeRes.resx

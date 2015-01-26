@@ -39,6 +39,7 @@ namespace NexusCore.Core.Services.MembershipComponent
         public void DeleteUser(UserModel user)
         {
             PrimitiveServices.UserPrimitive.DeleteUser(user.MapTo<User>());
+            UnitOfWork.SaveChanges();
         }
 
         public UserManagerModel GetUsers(UserSearchFilter searchFilter)
@@ -135,20 +136,27 @@ namespace NexusCore.Core.Services.MembershipComponent
             _userManager.CreateRole(role.RoleName, role.Description);
         }
 
-        public void DeleteRole(RoleModel role)
+        public void DeleteRole(Guid roleId)
         {
-            if (RoleHasUsers(role.Id))
+            var role = PrimitiveServices.RolePrimitive.GetRole(roleId);
+            if (DefaultUserRoles.SystemUserRoles.Contains(role.RoleName))
             {
-                ErrorAdapter.ModelState.AddModelError(logCode: LogCode.WarningRoleNameCannotDeleteDueHasUser);
+                ErrorAdapter.ModelState.AddModelError(logCode: LogCode.ErrorRoleNameCannotDeleteDueSystemRole);
+                return;
+            }
+            if (RoleHasUsers(roleId))
+            {
+                ErrorAdapter.ModelState.AddModelError(logCode: LogCode.ErrorRoleNameCannotDeleteDueHasUser);
                 return;
             }
 
-            PrimitiveServices.RolePrimitive.DeleteRole(role.MapTo<Role>());
+            PrimitiveServices.RolePrimitive.DeleteRole(role);
+            UnitOfWork.SaveChanges();
         }
 
         public bool RoleHasUsers(Guid roleId)
         {
-            return ((Role) _userManager.GetRoleById(roleId)).Users.Any();
+            return PrimitiveServices.RolePrimitive.GetRole(roleId).Users.Any();
         }
 
         public RoleManagerModel GetRoles(RoleSearchFilter searchFilter)
@@ -172,13 +180,20 @@ namespace NexusCore.Core.Services.MembershipComponent
 
         public void UpdateRole(RoleModel role)
         {
-            if (UnitOfWork.Repository<Role>().Get(r => r.RoleName == role.RoleName).Any())
+            if (IsDifferFromOriginalRoleName(role) && UnitOfWork.Repository<Role>().Get(r => r.RoleName == role.RoleName).Any())
             {
-                ErrorAdapter.ModelState.AddModelError(logCode: LogCode.WarningRoleNameAlreadyExist);
+                ErrorAdapter.ModelState.AddModelError("Role.RoleName", "", logCode: LogCode.ErrorRoleNameAlreadyExist);
                 return;
             }
 
             PrimitiveServices.RolePrimitive.UpdateRole(role.MapTo<Role>());
+            UnitOfWork.SaveChanges();
+        }
+
+        private bool IsDifferFromOriginalRoleName(RoleModel role)
+        {
+            var orgRole = PrimitiveServices.RolePrimitive.GetRole(role.Id);
+            return role.RoleName != orgRole.RoleName;
         }
 
         #endregion

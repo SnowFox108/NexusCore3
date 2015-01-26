@@ -18,7 +18,7 @@ namespace NexusCore.Common.Services.MembershipServices
 
         // Roles
         void CreateRole(RoleModel role);
-        void DeleteRole(RoleModel role);
+        void DeleteRole(Guid roleId);
         RoleManagerModel GetRoles(RoleSearchFilter searchFilter);
         RoleModel GetRole(Guid roleId);
         void UpdateRole(RoleModel role);

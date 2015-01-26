@@ -100,17 +100,17 @@ namespace NexusCore.Data.Infrastructure
         {
             var entry = base.Entry(entity);
 
-            if (entry.State == EntityState.Deleted)
-            {
+            //if (entry.State == EntityState.Deleted)
+            //{
                 var set = CreateSet<TEntity>();
                 TEntity attachedEntity = set.Find(entity.Id);
                 if (attachedEntity != null)
                     ApplyCurrentValues(attachedEntity, entity);
                 else
                     entry.State = EntityState.Modified;
-            }
+            //}
 
-            base.Entry(entity).State = EntityState.Modified;
+            //base.Entry(entity).State = EntityState.Modified;
         }
 
         public virtual void ApplyCurrentValues<TEntity>(TEntity original, TEntity current) where TEntity : Entity

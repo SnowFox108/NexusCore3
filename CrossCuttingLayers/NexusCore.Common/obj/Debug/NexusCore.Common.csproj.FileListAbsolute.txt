@@ -1,4 +1,5 @@
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\bin\Debug\AutoMapper.Net4.dll
+F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\bin\Debug\Resources\LogCodeRes.resx
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\bin\Debug\NexusCore.Common.dll.config
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\bin\Debug\NexusCore.Common.dll
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\bin\Debug\NexusCore.Common.pdb
@@ -13,10 +14,9 @@ F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\bin\Debug\AutoMapp
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\bin\Debug\EntityFramework.xml
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\bin\Debug\EntityFramework.SqlServer.xml
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCore.Common.csprojResolveAssemblyReference.cache
+F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCore.Common.Resources.DataAnnotationText.resources
+F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCore.Common.Resources.LogCodeRes.resources
+F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCore.Common.Resources.WebFormText.resources
+F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCore.Common.csproj.GenerateResource.Cache
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCore.Common.dll
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCore.Common.pdb
-F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCore.Common.csproj.GenerateResource.Cache
-F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\bin\Debug\Resources\LogCodeRes.resx
-F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCore.Common.Resources.LogCodeRes.resources
-F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCore.Common.Resources.DataAnnotationText.resources
-F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Common\obj\Debug\NexusCore.Common.Resources.WebFormText.resources

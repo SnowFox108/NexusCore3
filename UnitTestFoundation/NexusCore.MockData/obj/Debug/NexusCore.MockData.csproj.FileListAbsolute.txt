@@ -1,4 +1,5 @@
 F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\bin\Debug\AutoMapper.Net4.dll
+F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\bin\Debug\Resources\LogCodeRes.resx
 F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\bin\Debug\NexusCore.MockData.dll.config
 F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\bin\Debug\NexusCore.MockData.dll
 F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\bin\Debug\NexusCore.MockData.pdb
@@ -7,16 +8,15 @@ F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\bin\Debug\Entity
 F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\bin\Debug\NexusCore.Common.dll
 F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\bin\Debug\NexusCore.Data.dll
 F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\bin\Debug\NexusCore.Infrasructure.dll
-F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\bin\Debug\Autofac.dll
 F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\bin\Debug\AutoMapper.dll
+F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\bin\Debug\Autofac.dll
 F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\bin\Debug\NexusCore.Common.pdb
 F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\bin\Debug\NexusCore.Infrasructure.pdb
 F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\bin\Debug\NexusCore.Data.pdb
 F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\bin\Debug\EntityFramework.xml
 F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\bin\Debug\EntityFramework.SqlServer.xml
-F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\bin\Debug\Autofac.xml
 F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\bin\Debug\AutoMapper.xml
+F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\bin\Debug\Autofac.xml
 F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\obj\Debug\NexusCore.MockData.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\obj\Debug\NexusCore.MockData.dll
 F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\obj\Debug\NexusCore.MockData.pdb
-F:\MyWorkSpace\NexusCore3\UnitTestFoundation\NexusCore.MockData\bin\Debug\Resources\LogCodeRes.resx

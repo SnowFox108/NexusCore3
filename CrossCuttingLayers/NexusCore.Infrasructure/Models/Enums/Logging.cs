@@ -57,6 +57,15 @@ namespace NexusCore.Infrasructure.Models.Enums
         [StoreInLog(false, TaskCategory.System, LogLevel.Error)]
         ErrorUserEmailAlreadyExist = 201,
 
+        [StoreInLog(false, TaskCategory.System, LogLevel.Error)]
+        ErrorRoleNameAlreadyExist = 202,
+
+        [StoreInLog(false, TaskCategory.System, LogLevel.Error)]
+        ErrorRoleNameCannotDeleteDueHasUser = 203,
+
+        [StoreInLog(false, TaskCategory.System, LogLevel.Error)]
+        ErrorRoleNameCannotDeleteDueSystemRole = 204,
+
         #endregion
 
         #region 600-999 System Warning
@@ -65,11 +74,6 @@ namespace NexusCore.Infrasructure.Models.Enums
         [StoreInLog(false, TaskCategory.System, LogLevel.Warning)]
         WarningWebsiteSettingCannotReadValue = 601,
 
-        [StoreInLog(false, TaskCategory.System, LogLevel.Warning)]
-        WarningRoleNameAlreadyExist = 602,
-
-        [StoreInLog(false, TaskCategory.System, LogLevel.Warning)]
-        WarningRoleNameCannotDeleteDueHasUser = 603,
 
         #endregion
 

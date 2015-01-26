@@ -1,0 +1,33 @@
+﻿
+<div class="col-md-4 col-sm-6">
+    <div class="dataTables_info" id="sample_1_info" role="status" aria-live="polite">
+        Showing {{ model.Paging.CurrentPage * model.Paging.ItemsPerPage - model.Paging.ItemsPerPage + 1 }}
+        to {{ model.Paging.CurrentPage * model.Paging.ItemsPerPage > model.Paging.TotalItems ? model.Paging.TotalItems : model.Paging.CurrentPage * model.Paging.ItemsPerPage }}
+        of {{ model.Paging.TotalItems }} results
+    </div>
+</div>
+<div class="col-md-3 col-sm-6">
+    <div class="dataTables_length">
+        <label>
+            <select ng-model="model.Paging.ItemsPerPage" ng-change="itemPerPageSetPage()" class="form-control input-xsmall input-inline">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+            </select> records
+        </label>
+    </div>
+</div>
+<div class="col-md-5 col-sm-12">
+    <div class="dataTables_paginate paging_bootstrap_full_number">
+        <pagination ng-change="paginationSetPage()"
+                    total-items="model.Paging.TotalItems"
+                    items-per-page="model.Paging.ItemsPerPage"
+                    ng-model="model.Paging.CurrentPage"
+                    max-size="4" class="" boundary-links="true"
+                    previous-text="&lsaquo;"
+                    next-text="&rsaquo;"
+                    first-text="&laquo;"
+                    last-text="&raquo;"></pagination>
+    </div>
+</div>

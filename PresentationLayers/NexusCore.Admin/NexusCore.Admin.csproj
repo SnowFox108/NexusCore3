@@ -193,7 +193,7 @@
     <Content Include="Angular\Controllers\role-manager-index.js" />
     <Content Include="Angular\Controllers\user-manager-index.js" />
     <Content Include="Angular\Services\apiCallService.js" />
-    <Content Include="Angular\Services\dateConverterService.js" />
+    <Content Include="Angular\Services\pageHelperService.js" />
     <Content Include="assets\admin\layout3\css\custom.css" />
     <Content Include="assets\admin\layout3\css\layout.css" />
     <Content Include="assets\admin\layout3\css\themes\blue-hoki.css" />
@@ -3825,12 +3825,6 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Css\components\form-validation.css">
-      <DependentUpon>form-validation.less</DependentUpon>
-    </Content>
-    <Content Include="Content\Css\components\form-validation.min.css">
-      <DependentUpon>form-validation.css</DependentUpon>
-    </Content>
     <Content Include="Content\Css\components\forms.css">
       <DependentUpon>forms.less</DependentUpon>
     </Content>
@@ -3843,23 +3837,22 @@
     <Content Include="Content\Css\components\login.min.css">
       <DependentUpon>login.css</DependentUpon>
     </Content>
+    <Content Include="Content\Css\components\tables.css">
+      <DependentUpon>tables.less</DependentUpon>
+    </Content>
+    <Content Include="Content\Css\components\tables.min.css">
+      <DependentUpon>tables.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Css\components\windows.css">
+      <DependentUpon>windows.less</DependentUpon>
+    </Content>
     <Content Include="Content\Css\mainCore.css">
       <DependentUpon>mainCore.less</DependentUpon>
-    </Content>
-    <Content Include="Content\Css\mainCore.min.css">
-      <DependentUpon>mainCore.css</DependentUpon>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Css\components\form-validation.less" />
-    <Content Include="Content\Css\components\form-validation.css.map">
-      <DependentUpon>form-validation.css</DependentUpon>
-    </Content>
     <Content Include="Content\Css\mainCore.less" />
-    <Content Include="Content\Css\mainCore.css.map">
-      <DependentUpon>mainCore.css</DependentUpon>
-    </Content>
     <Content Include="Content\Css\components\login.less" />
     <Content Include="Content\Css\components\login.css.map">
       <DependentUpon>login.css</DependentUpon>
@@ -3871,6 +3864,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Scripts\angular-cookies.js" />
     <Content Include="Scripts\angular-cookies.min.js" />
+    <Content Include="Scripts\angular-dialog\dialogs-default-translations.min.js" />
+    <Content Include="Scripts\angular-dialog\dialogs.min.js" />
     <Content Include="Scripts\angular-resource.js" />
     <Content Include="Scripts\angular-resource.min.js" />
     <Content Include="Scripts\angular-route.js" />
@@ -4136,6 +4131,17 @@
     <Content Include="Content\Css\components\forms.css.map">
       <DependentUpon>forms.css</DependentUpon>
     </Content>
+    <Content Include="Content\Css\components\tables.less" />
+    <Content Include="Content\Css\components\tables.css.map">
+      <DependentUpon>tables.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Css\components\windows.less" />
+    <Content Include="Content\Css\components\windows.css.map">
+      <DependentUpon>windows.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Css\mainCore.css.map">
+      <DependentUpon>mainCore.css</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -4204,6 +4210,10 @@
     <Content Include="Views\Shared\DisplayTemplates\String.cshtml" />
     <Content Include="Views\UserManager\EditUser.cshtml" />
     <Content Include="Views\RoleManager\Index.cshtml" />
+    <Content Include="Views\Shared\BaseTemplates\_Pagination.cshtml" />
+    <Content Include="Views\RoleManager\CreateRole.cshtml" />
+    <Content Include="Views\RoleManager\EditRole.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\MultilineText.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Angular\References\" />

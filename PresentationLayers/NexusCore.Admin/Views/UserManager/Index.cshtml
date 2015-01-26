@@ -136,20 +136,20 @@
                         </div>
                     </div>
                 </div>
-                <table class="table table-striped table-bordered table-hover flip-content" id="sample_1">
+                <table class="table table-striped table-bordered table-hover flip-content">
                     <thead class="flip-content">
                         <tr>
-                            <th width="15%">
-                                Email
+                            <th width="15%" class="sortable-column" ng-click="sortOrderSetPage('Email')">
+                                Email <i class="fa pull-right" ng-class="table.Email"></i>
                             </th>
-                            <th width="8%">
-                                First Name
+                            <th width="8%" class="sortable-column" ng-click="sortOrderSetPage('FirstName')">
+                                First Name <i class="fa pull-right" ng-class="table.FirstName"></i>
                             </th>
-                            <th width="8%">
-                                Last Name
+                            <th width="8%" class="sortable-column" ng-click="sortOrderSetPage('LastName')">
+                                Last Name <i class="fa pull-right" ng-class="table.LastName"></i>
                             </th>
-                            <th width="8%">
-                                Last Active
+                            <th width="8%" class="sortable-column" ng-click="sortOrderSetPage('LastActivityDate')">
+                                Last Active <i class="fa pull-right" ng-class="table.LastActivityDate"></i>
                             </th>
                             <th width="8%">
                                 Created Date
@@ -172,7 +172,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="odd gradeX" ng-repeat="user in userManager.Users">
+                        <tr class="odd gradeX" ng-repeat="user in model.Users">
                             <td>
                                 <a href="{{ user.Email }}">
                                     {{ user.Email }}
@@ -205,32 +205,13 @@
                                 </span>
                             </td>
                             <td>
-                                <a href="/UserManager/EditUser/{{ user.Id }}">Edit</a>
+                                <a class="label label-primary label-sm" href="/UserManager/EditUser/{{ user.Id }}" title="{{ user.Email }}"><i class="fa fa-pencil"></i> Edit</a>
                             </td>
                         </tr>
                     </tbody>
                 </table>
                 <div class="row">
-                    <div class="col-md-5 col-sm-12">
-                        <div class="dataTables_info" id="sample_1_info" role="status" aria-live="polite">
-                            Showing {{ userManager.Paging.CurrentPage * userManager.Paging.ItemsPerPage - userManager.Paging.ItemsPerPage + 1 }}
-                            to {{ userManager.Paging.CurrentPage * userManager.Paging.ItemsPerPage > userManager.Paging.TotalItems ? userManager.Paging.TotalItems : userManager.Paging.CurrentPage * userManager.Paging.ItemsPerPage }}
-                            of {{ userManager.Paging.TotalItems }} results
-                        </div>
-                    </div>
-                    <div class="col-md-7 col-sm-12">
-                        <div class="dataTables_paginate paging_bootstrap_full_number">
-                            <pagination ng-change="paginationSetPage()"
-                                        total-items="userManager.Paging.TotalItems"
-                                        items-per-page="userManager.Paging.ItemsPerPage"
-                                        ng-model="userManager.Paging.CurrentPage"
-                                        max-size="4" class="" boundary-links="true"
-                                        previous-text="&lsaquo;"
-                                        next-text="&rsaquo;"
-                                        first-text="&laquo;"
-                                        last-text="&raquo;"></pagination>
-                        </div>
-                    </div>
+                    @Html.Partial("/Views/Shared/BaseTemplates/_Pagination.cshtml")
                 </div>
             </div>
         </div>

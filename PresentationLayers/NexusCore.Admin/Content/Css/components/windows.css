@@ -1,0 +1,26 @@
+﻿.modal-dialog {
+  margin-top: 100px !important;
+}
+.dialog-header-error {
+  background-color: #d2322d;
+}
+.dialog-header-wait {
+  background-color: #428bca;
+}
+.dialog-header-notify {
+  background-color: #428bca;
+}
+.dialog-header-confirm {
+  background-color: #333333;
+}
+.dialog-header-error span,
+.dialog-header-wait span,
+.dialog-header-notify span,
+.dialog-header-confirm span,
+.dialog-header-error h4,
+.dialog-header-wait h4,
+.dialog-header-notify h4,
+.dialog-header-confirm h4 {
+  color: #ffffff;
+}
+/*# sourceMappingURL=windows.css.map */

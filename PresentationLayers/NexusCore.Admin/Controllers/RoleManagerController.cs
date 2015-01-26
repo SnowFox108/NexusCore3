@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using NexusCore.Admin.UILogic.Adapter.ErrorHandlers;
@@ -141,6 +142,16 @@ namespace NexusCore.Admin.Controllers
         public JsonResult GetRoleList(RoleSearchFilter searchFilter)
         {
             return Json(_membership.GetRoles(searchFilter), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult DeleteRole(Guid roleId)
+        {
+            _membership.DeleteRole(roleId);
+            if (!ErrorAdapter.ModelState.IsValid)
+                return Json(Response.ReturnError());
+            
+            return Json("Success");
         }
     }
 }

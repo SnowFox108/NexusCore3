@@ -120,4 +120,34 @@
   <data name="C2" xml:space="preserve">
     <value>System has been already installed, you can't run installation again.</value>
   </data>
+  <data name="C20" xml:space="preserve">
+    <value>Can not find current user or current user did not login.</value>
+  </data>
+  <data name="C200" xml:space="preserve">
+    <value>The user name or password you entered is incorrect.</value>
+  </data>
+  <data name="C201" xml:space="preserve">
+    <value>Email address is already registered.</value>
+  </data>
+  <data name="C202" xml:space="preserve">
+    <value>Role name is already exist.</value>
+  </data>
+  <data name="C50" xml:space="preserve">
+    <value>AutofacFactory has not been intialized, have you called Initialize()?</value>
+  </data>
+  <data name="C51" xml:space="preserve">
+    <value>CurrentUserProvider has not been intialized, have you called Initialize()?</value>
+  </data>
+  <data name="C60" xml:space="preserve">
+    <value>Website Setting not exist or value type is wrong.</value>
+  </data>
+  <data name="C601" xml:space="preserve">
+    <value>Website Setting {0} not exist or value type is wrong.</value>
+  </data>
+  <data name="C603" xml:space="preserve">
+    <value>Can not delete select role because there are users exist in role.</value>
+  </data>
+  <data name="C61" xml:space="preserve">
+    <value>Website Setting already exist, can not create a new one.</value>
+  </data>
 </root>

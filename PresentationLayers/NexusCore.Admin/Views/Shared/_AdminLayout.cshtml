@@ -108,9 +108,20 @@
                         <li class="active">
                             <a href="/">Dashboard</a>
                         </li>
-                        <li>
-                            @Html.ActionLink("User Manager", "Index", "UserManager")
+                        <li class="menu-dropdown classic-menu-dropdown">
+                            <a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="javascript:;" class="dropdown-toggle">
+                                Administratives <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    @Html.ActionLink("User Manager", "Index", "UserManager")
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Role Manager", "Index", "RoleManager")
+                                </li>
+                            </ul>
                         </li>
+
                     </ul>
                 </div>
                 <!-- END MEGA MENU -->
@@ -240,7 +251,9 @@
     <script type="text/javascript" src="/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
 
     <script src="~/Angular/Services/apiCallService.js" type="text/javascript"></script>
-    <script src="~/Angular/Services/dateConverterService.js" type="text/javascript"></script>
+    <script src="~/Scripts/angular-dialog/dialogs.min.js"></script>
+    <script src="~/Angular/Services/pageHelperService.js"></script>
+
     @RenderSection("pageLevelScriptPlugins", false)
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN PAGE LEVEL SCRIPTS -->

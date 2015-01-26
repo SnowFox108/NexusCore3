@@ -12,4 +12,32 @@
 .form-validation-message {
   padding-top: 7px;
 }
+/*	Validation
+------------------------------------*/
+.field-validation-error {
+  color: #f00;
+}
+.field-validation-valid {
+  display: none;
+}
+input.input-validation-error {
+  border: 1px solid #f00;
+}
+input[type="checkbox"].input-validation-error {
+  border: 0 none;
+}
+.login-form .validation-summary-errors ul {
+  list-style: none;
+  padding-left: 0;
+}
+.general-form .validation-summary-errors {
+  color: #f00;
+  font-weight: bold;
+}
+.general-form .validation-summary-errors ul {
+  padding-left: 25px;
+}
+.validation-summary-valid {
+  display: none;
+}
 /*# sourceMappingURL=forms.css.map */

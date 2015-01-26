@@ -1,0 +1,63 @@
+﻿@model NexusCore.Admin.UILogic.ViewModels.Memberships.CreateRoleViewModel
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-user font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase">Role Information</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+            <div class="portlet-input input-inline input-small">
+                <div class="input-icon right">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portlet-body form">
+        <!-- BEGIN FORM-->
+        @using (Html.BeginForm("CreateRole", "RoleManager", FormMethod.Post, new { @class = "form-horizontal general-form" }))
+        {
+            <div class="form-body">
+                @if (!ViewData.ModelState.IsValidField(""))
+                {
+                    <div class="form-group">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-4">
+                            <div class="note note-danger">
+                                @Html.ValidationSummary(true)
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Role.RoleName, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                            @Html.EditorFor(model => model.Role.RoleName)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.Role.RoleName, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Role.Description, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Role.Description)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.Role.Description, null, new { @class = "control-label" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-9">
+                        <input type="submit" class="btn green" value="Submit" />
+                        <a href="@Url.Action("Index")" class="btn default">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        }
+        <!-- END FORM-->
+    </div>
+</div>
