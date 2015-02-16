@@ -4,6 +4,7 @@ namespace NexusCore.Common.Services.ClientServices
 {
     public interface IClientService
     {
-        void CreateClient(ClientCreateModel client);
+        void CreateClient(ClientModel client, ClientDepartmentModel department);
+        ClientManagerModel GetClients(ClientSearchFilter searchFilter);
     }
 }

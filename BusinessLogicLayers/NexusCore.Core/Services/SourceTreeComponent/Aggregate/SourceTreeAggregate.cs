@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using NexusCore.Common.Data.Entities.SourceTrees;
 using NexusCore.Common.Data.Enums;
 using NexusCore.Common.Data.Infrastructure;
@@ -20,7 +19,7 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Aggregate
         {
             var clientNode = new SourceTree
             {
-                Parent = SourceTreeRoot.MasterNode,
+                Parent = PrimitiveServices.SourceTreePrimitive.GetSourceTree(SourceTreeRoot.MasterNode.Id),
                 Name = clientName,
                 ItemType = SourceTreeItemType.Client,
                 IsPrivacyInherited = true,
@@ -31,7 +30,7 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Aggregate
 
             CreateNode(clientNode);
             
-            UnitOfWork.Repository<ItemInSourceTree>().Insert(new ItemInSourceTree()
+            UnitOfWork.Repository<ItemInSourceTree>().Insert(new ItemInSourceTree
             {
                 SourceTreeId = clientNode.Id,
                 ModuleType = SourceTreeItemModuleType.System,               
@@ -105,8 +104,14 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Aggregate
         private void CreateNode(SourceTree sourceTree)
         {
             UnitOfWork.Repository<SourceTree>().Insert(sourceTree);
+            //UnitOfWork.SaveChanges();
         }
 
-
+        public SourceTree GetSourceTreeByItemId(Guid itemId)
+        {
+            return
+                PrimitiveServices.SourceTreePrimitive.GetSourceTree(
+                    PrimitiveServices.ItemInSourceTreePrimitive.GetSourceTreeId(itemId));
+        }
     }
 }

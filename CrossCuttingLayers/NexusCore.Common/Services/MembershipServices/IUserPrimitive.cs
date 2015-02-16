@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using NexusCore.Common.Data.Entities.Membership;
+using NexusCore.Common.Data.Models.Infrastructure;
 using NexusCore.Common.Data.Models.Memberships;
 using NexusCore.Infrasructure.Model.Enums;
 
@@ -14,5 +15,10 @@ namespace NexusCore.Common.Services.MembershipServices
         User GetUser(Guid userId);
         void UpdateUser(User user);
         void DeleteUser(User user);
-    }    
+
+        T MapToTrackableUser<T>(LogableModel tracker);
+        IEnumerable<T> MapToTrackableUser<T>(IEnumerable<LogableModel> trackers);
+        T MapToTrackableUser<T>(TrackableModel tracker);
+        IEnumerable<T> MapToTrackableUser<T>(IEnumerable<TrackableModel> trackers);
+    }
 }

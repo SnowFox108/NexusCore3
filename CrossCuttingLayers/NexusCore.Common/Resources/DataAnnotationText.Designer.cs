@@ -61,6 +61,15 @@ namespace NexusCore.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Department Name.
+        /// </summary>
+        public static string ClientDepartmentDisplayName {
+            get {
+                return ResourceManager.GetString("ClientDepartmentDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please enter a contact person email.
         /// </summary>
         public static string ClientDepartmentRequiredContactEmail {
@@ -115,6 +124,24 @@ namespace NexusCore.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Logo Url.
+        /// </summary>
+        public static string ClientDisplayLogoUrl {
+            get {
+                return ResourceManager.GetString("ClientDisplayLogoUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Client Name.
+        /// </summary>
+        public static string ClientDisplayName {
+            get {
+                return ResourceManager.GetString("ClientDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please enter a client name.
         /// </summary>
         public static string ClientRequiredName {
@@ -142,11 +169,47 @@ namespace NexusCore.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Address Line 1.
+        /// </summary>
+        public static string GeneralDisplayAddress1 {
+            get {
+                return ResourceManager.GetString("GeneralDisplayAddress1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address Line 2.
+        /// </summary>
+        public static string GeneralDisplayAddress2 {
+            get {
+                return ResourceManager.GetString("GeneralDisplayAddress2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirm Passowrd.
         /// </summary>
         public static string GeneralDisplayConfirmPassword {
             get {
                 return ResourceManager.GetString("GeneralDisplayConfirmPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country.
+        /// </summary>
+        public static string GeneralDisplayCountry {
+            get {
+                return ResourceManager.GetString("GeneralDisplayCountry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to County.
+        /// </summary>
+        public static string GeneralDisplayCounty {
+            get {
+                return ResourceManager.GetString("GeneralDisplayCounty", resourceCulture);
             }
         }
         
@@ -187,6 +250,15 @@ namespace NexusCore.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mobile Number.
+        /// </summary>
+        public static string GeneralDisplayMobile {
+            get {
+                return ResourceManager.GetString("GeneralDisplayMobile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Phone Number.
         /// </summary>
         public static string GeneralDisplayPhoneNumber {
@@ -196,11 +268,29 @@ namespace NexusCore.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Postcode.
+        /// </summary>
+        public static string GeneralDisplayPostCode {
+            get {
+                return ResourceManager.GetString("GeneralDisplayPostCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Title.
         /// </summary>
         public static string GeneralDisplayTitle {
             get {
                 return ResourceManager.GetString("GeneralDisplayTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Town.
+        /// </summary>
+        public static string GeneralDisplayTown {
+            get {
+                return ResourceManager.GetString("GeneralDisplayTown", resourceCulture);
             }
         }
         

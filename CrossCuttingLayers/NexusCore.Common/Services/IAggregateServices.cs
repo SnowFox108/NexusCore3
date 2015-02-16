@@ -9,6 +9,7 @@ namespace NexusCore.Common.Services
     public interface IAggregateServices
     {
         IClientAggregate ClientAggregate { get; set; }
+        IItemInSourceTreeAggregate ItemInSourceTreeAggregate { get; set; }
         IPermissionAggregate PermissionAggregate { get; set; }
         ISourceTreeAggregate SourceTreeAggregate { get; set; }
         IWebsiteAggregate WebsiteAggregate { get; set; }

@@ -1,7 +1,10 @@
 ﻿using NexusCore.Common.Adapter.ErrorHandlers;
 using NexusCore.Common.Data.Entities.Membership;
 using NexusCore.Common.Data.Infrastructure;
+using NexusCore.Common.Data.Models.Infrastructure;
+using NexusCore.Common.Data.Models.Memberships;
 using NexusCore.Common.Helper;
+using NexusCore.Common.Helper.Extensions;
 using NexusCore.Infrasructure.Models.Enums;
 using NexusCore.Infrasructure.Security;
 using NexusCore.Infrasructure.Security.Models;

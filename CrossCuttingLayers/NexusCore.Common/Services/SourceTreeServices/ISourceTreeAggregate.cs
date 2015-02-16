@@ -7,5 +7,12 @@ namespace NexusCore.Common.Services.SourceTreeServices
     {
         SourceTree CreateClientNode(Guid clientId, string clientName);
         SourceTree CreateWebsiteNode(SourceTree websiteRoot, Guid websiteId, string websiteName);
+
+        /// <summary>
+        /// Get SourceTree item by itemId in ItemsInSourceTree table
+        /// </summary>
+        /// <param name="itemId">itemId</param>
+        /// <returns>SourceTree</returns>
+        SourceTree GetSourceTreeByItemId(Guid itemId);
     }
 }

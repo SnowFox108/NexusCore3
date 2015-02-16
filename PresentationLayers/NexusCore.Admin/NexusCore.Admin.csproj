@@ -175,11 +175,13 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstallationController.cs" />
     <Compile Include="Controllers\RoleManagerController.cs" />
     <Compile Include="Controllers\UserManagerController.cs" />
     <Compile Include="Controllers\WebServices\ModelBuilderController.cs" />
+    <Compile Include="Controllers\WebsitesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -190,8 +192,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Angular\app.js" />
+    <Content Include="Angular\Controllers\client-index.js" />
     <Content Include="Angular\Controllers\role-manager-index.js" />
     <Content Include="Angular\Controllers\user-manager-index.js" />
+    <Content Include="Angular\Controllers\website-index.js" />
     <Content Include="Angular\Services\apiCallService.js" />
     <Content Include="Angular\Services\pageHelperService.js" />
     <Content Include="assets\admin\layout3\css\custom.css" />
@@ -4142,6 +4146,7 @@
     <Content Include="Content\Css\mainCore.css.map">
       <DependentUpon>mainCore.css</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -4214,6 +4219,9 @@
     <Content Include="Views\RoleManager\CreateRole.cshtml" />
     <Content Include="Views\RoleManager\EditRole.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\MultilineText.cshtml" />
+    <Content Include="Views\Websites\Index.cshtml" />
+    <Content Include="Views\Clients\Index.cshtml" />
+    <Content Include="Views\Clients\CreateClient.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Angular\References\" />

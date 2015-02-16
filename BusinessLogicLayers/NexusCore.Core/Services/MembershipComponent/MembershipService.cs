@@ -18,17 +18,18 @@ using NexusCore.Infrasructure.Security;
 
 namespace NexusCore.Core.Services.MembershipComponent
 {
-    public class MembershipService : BaseComponentService , IMembershipService
+    public class MembershipService : BaseComponentService, IMembershipService
     {
 
         private readonly IAuthenticationManager _userManager;
         private readonly IMessageService _messageService;
 
-        public MembershipService(IUnitOfWork unitOfWork, 
-            IPrimitiveServices primitiveServices, 
-            IAggregateServices aggregateServices, 
+        public MembershipService(IUnitOfWork unitOfWork,
+            IPrimitiveServices primitiveServices,
+            IAggregateServices aggregateServices,
             IAuthenticationManager userManager,
-            IMessageService messageService) : base(unitOfWork, primitiveServices, aggregateServices)
+            IMessageService messageService)
+            : base(unitOfWork, primitiveServices, aggregateServices)
         {
             _userManager = userManager;
             _messageService = messageService;
@@ -64,7 +65,7 @@ namespace NexusCore.Core.Services.MembershipComponent
                 userModel.CreatedByUser = ((User)_userManager.GetUser(userModel.CreatedBy)).MapTo<CurrentUserModel>();
                 userModel.UpdatedByUser = ((User)_userManager.GetUser(userModel.UpdatedBy)).MapTo<CurrentUserModel>();
                 yield return userModel;
-            }            
+            }
         }
 
         public UserModel GetUser(Guid userId)

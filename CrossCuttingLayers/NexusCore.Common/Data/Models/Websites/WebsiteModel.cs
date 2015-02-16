@@ -1,13 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using NexusCore.Common.Data.Models.Infrastructure;
 using NexusCore.Common.Resources;
-using NexusCore.Infrasructure.Data;
 
 namespace NexusCore.Common.Data.Models.Websites
 {
-    public class WebsiteModel: TrackableEntity
+    public class WebsiteModel: TrackableModel
     {
-        public Guid ClientId { get; set; }
         public string FriendlyId { get; set; }
         [Required(ErrorMessageResourceType = typeof(DataAnnotationText), ErrorMessageResourceName = "WebsiteRequiredName")]
         [StringLength(500, ErrorMessageResourceType = typeof(DataAnnotationText), ErrorMessageResourceName = "GeneralMaximum500")]

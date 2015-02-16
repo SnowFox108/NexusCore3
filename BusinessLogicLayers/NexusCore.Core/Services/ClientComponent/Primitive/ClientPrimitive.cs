@@ -38,9 +38,29 @@ namespace NexusCore.Core.Services.ClientComponent.Primitive
                 UnitOfWork.Repository<Client>().Get(ClientSpecifications.GetClient(clientId)).FirstOrDefault();
         }
 
+        public int GetClientCount(ClientSearchFilter searchFilter)
+        {
+            return UnitOfWork.Repository<Client>().Get().Count();
+        }
+
+        public IEnumerable<Client> GetClients(ClientSearchFilter searchFilter)
+        {
+            return
+                UnitOfWork.Repository<Client>()
+                    .Get(
+                        orderBy:
+                            c =>
+                                c.OrderBy(searchFilter.Filter.Sorting.SortOrder,
+                                    searchFilter.Filter.Sorting.SortDirection),
+                        pageNumber: searchFilter.Filter.Paging.CurrentPage,
+                        pageSize: searchFilter.Filter.Paging.ItemsPerPage);
+        }
+
         public IEnumerable<Client> GetClients()
         {
             return UnitOfWork.Repository<Client>().Get();
         }
+
+
     }
 }

@@ -81,33 +81,6 @@ namespace NexusCore.Core.Services.InstallationComponent
 
         private void CreateAdministrator(InstallationAdministratorModel admin)
         {
-            //using (var unitOfWork = _unitOfWorkFactory.Create())
-            //{
-            //    if (unitOfWork.Repository<User>().Get(u => u.Email == admin.Email).Any())
-            //        throw new ValidationException("Email address is already registered");
-
-            //    var timeNow = DateFormater.DateTimeNow;
-            //    var userId = Guid.NewGuid();
-
-            //    unitOfWork.Repository<User>().Insert(new User
-            //    {
-            //        Id = userId,
-            //        Email = admin.Email,
-            //        UserName = GetFriendlyUserName(admin.UserName, admin.FirstName, admin.LastName),
-            //        Title = admin.Title,
-            //        FirstName = admin.FirstName,
-            //        LastName = admin.LastName,
-            //        PhoneNumber = admin.PhoneNumber,
-            //        LastActivityDate = timeNow,
-            //        PasswordSalt = GenerateSalt(),
-            //        CreatedBy = userId,
-            //        CreatedDate = timeNow,
-            //        UpdatedBy = userId,
-            //        UpdatedDate = timeNow
-            //    });
-
-            //    unitOfWork.SaveChanges();
-            //}
 
             var token = _authenticationManager.CreateUser(admin.Title,
                 GetFriendlyUserName(admin.UserName, admin.FirstName, admin.LastName),
@@ -137,6 +110,7 @@ namespace NexusCore.Core.Services.InstallationComponent
         {
             return userName ?? string.Format("{0} {1}", firstName, lastName);
         }
+
         private string GenerateSalt()
         {
             return Convert.ToBase64String(Encoding.ASCII.GetBytes(Guid.NewGuid().ToString().Substring(16)));

@@ -1,0 +1,202 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <!-- Begin: life time stats -->
+        <div class="portlet box green">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-search"></i>Search Filter
+                </div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse" data-original-title="" title="">
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <!-- BEGIN FORM-->
+                <form action="javascript:;" class="form-horizontal">
+                    <div class="form-body">
+                        <h3 class="form-section">Website Info</h3>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Client</label>
+                                    <div class="col-md-9">
+                                        <select class="form-control" ng-model="searchFilter.ClientId">
+                                            <option value="">Any</option>
+                                        </select>
+                                        <span class="help-block">
+                                            Select client
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Website Id</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" placeholder="Website Id" ng-model="searchFilter.FriendlyId">
+                                        <span class="help-block">
+                                            Full or part of website Id
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Name</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" placeholder="Website name" ng-model="searchFilter.Name">
+                                        <span class="help-block">
+                                            Full or part of website name
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Domain Name</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" placeholder="Domain name" ng-model="searchFilter.DomainName">
+                                        <span class="help-block">
+                                            Full or part of domain name
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-9">
+                            </div>
+                            <div class="col-md-3">
+                                <div class="row">
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <div class="btn-group pull-right">
+                                            <button type="button" class="btn green" ng-click="applySearchFilter()"><i class="fa fa-search"></i> Apply Search</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- END FORM-->
+            </div>
+        </div>
+        <!-- End: life time stats -->
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-globe font-green-sharp"></i>
+                    <span class="caption-subject font-green-sharp bold uppercase">Website Listing</span>
+                    <span class="caption-helper">manage websites...</span>
+                </div>
+                <div class="tools">
+                </div>
+            </div>
+            <div class="portlet-body flip-scroll">
+                <div class="table-toolbar">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="btn-group">
+                                <a href="@Url.Action("CreateWebsite")" class="btn green">
+                                    Create New Website <i class="fa fa-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="btn-group pull-right">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-striped table-bordered table-hover flip-content">
+                    <thead class="flip-content">
+                        <tr>
+                            <th width="15%" class="sortable-column" ng-click="sortOrderSetPage('FriendlyId')">
+                                Id <i class="fa pull-right" ng-class="table.FriendlyId"></i>
+                            </th>
+                            <th width="8%" class="sortable-column" ng-click="sortOrderSetPage('Name')">
+                                Name <i class="fa pull-right" ng-class="table.Name"></i>
+                            </th>
+                            <th width="12%">
+                                Client
+                            </th>
+                            <th width="8%" class="sortable-column" ng-click="sortOrderSetPage('CreatedDate')">
+                                Created Date <i class="fa pull-right" ng-class="table.CreatedDate"></i>
+                            </th>
+                            <th width="10%">
+                                Created By
+                            </th>
+                            <th width="8%" class="sortable-column" ng-click="sortOrderSetPage('UpdatedDate')">
+                                Update Date <i class="fa pull-right" ng-class="table.UpdatedDate"></i>
+                            </th>
+                            <th width="10%">
+                                Update By
+                            </th>
+                            <th width="8%">
+                                Status
+                            </th>
+                            <th width="21%">
+                                Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="odd gradeX" ng-repeat="item in model.Websites">
+                            <td>
+                                {{ item.Website.FriendlyId }}
+                            </td>
+                            <td>
+                                {{ item.Website.Name }}
+                            </td>
+                            <td>
+                                {{ item.Client.Name }}
+                            </td>
+                            <td class="center">
+                                {{ item.Website.CreatedDate }}
+                            </td>
+                            <td>
+                                {{ item.Website.CreatedByUser.DisplayName }}
+                            </td>
+                            <td class="center">
+                                {{ item.Website.UpdatedDate }}
+                            </td>
+                            <td>
+                                {{ item.Website.UpdatedByUser.DisplayName }}
+                            </td>
+                            <td>
+                                <span class="label label-sm ng-class:item.Status.Css">
+                                    {{ item.Status.Text }}
+                                </span>
+                            </td>
+                            <td>
+                                <a class="label label-primary label-sm" href="/Websites/EditWebsite/{{ item.Website.Id }}" title="{{ user.Website.Name }}"><i class="fa fa-pencil"></i> Edit</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="row">
+                    @Html.Partial("/Views/Shared/BaseTemplates/_Pagination.cshtml")
+                </div>
+            </div>
+        </div>
+        <!-- END EXAMPLE TABLE PORTLET-->
+    </div>
+</div>
+
+@section pageLevelScripts{
+    <script src="/Angular/Controllers/website-index.js"></script>
+}

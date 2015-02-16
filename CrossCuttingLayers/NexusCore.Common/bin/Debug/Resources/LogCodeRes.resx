@@ -138,6 +138,9 @@
   <data name="C204" xml:space="preserve">
     <value>Can not delete system default role</value>
   </data>
+  <data name="C205" xml:space="preserve">
+    <value>Item Id not found in ItemInSourceTree.</value>
+  </data>
   <data name="C50" xml:space="preserve">
     <value>AutofacFactory has not been intialized, have you called Initialize()?</value>
   </data>
@@ -152,5 +155,8 @@
   </data>
   <data name="C61" xml:space="preserve">
     <value>Website Setting already exist, can not create a new one.</value>
+  </data>
+  <data name="C70" xml:space="preserve">
+    <value>Item Id not found in SourceTree</value>
   </data>
 </root>

@@ -22,7 +22,12 @@ namespace NexusCore.Common.Data.Enums
 
     public enum SourceTreeItemModuleType
     {
-        System = 1
+        // one on one
+        System = 1,
+        // one on one
+        ModuleItem = 2,
+        // one on many
+        ModuleItems = 3
     }
 
     public enum SourceTreePermissionType

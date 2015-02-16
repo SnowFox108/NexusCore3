@@ -47,6 +47,9 @@ namespace NexusCore.Infrasructure.Models.Enums
         [StoreInLog(true, TaskCategory.System, LogLevel.Critical)]
         CriticalWebsiteSettingRepeated = 61,
 
+        [StoreInLog(true, TaskCategory.System, LogLevel.Critical)]
+        CriticalItemIdNotInSourceTree = 70,
+
         #endregion
 
         #region 200-599 System Error
@@ -65,6 +68,9 @@ namespace NexusCore.Infrasructure.Models.Enums
 
         [StoreInLog(false, TaskCategory.System, LogLevel.Error)]
         ErrorRoleNameCannotDeleteDueSystemRole = 204,
+
+        [StoreInLog(false, TaskCategory.System, LogLevel.Error)]
+        ErrorItemIdNotInItemsInSourceTree = 205,
 
         #endregion
 

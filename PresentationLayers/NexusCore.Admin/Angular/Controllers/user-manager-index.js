@@ -51,44 +51,26 @@
             }
         };
 
-        $scope.itemPerPageSetPage = function() {
-            $scope.searchFilter.Filter.Paging.CurrentPage = 1;
-            $scope.searchFilter.Filter.Paging.ItemsPerPage = $scope.model.Paging.ItemsPerPage;
+        // Table Paging and Sorting        
+        $scope.itemPerPageSetPage = function () {
+            tableFilter.itemPerPageSetPage($scope.searchFilter.Filter.Paging, $scope.model.Paging.ItemsPerPage);
             $scope.querySearch();
         };
 
         $scope.paginationSetPage = function () {
-            $scope.searchFilter.Filter.Paging.CurrentPage = $scope.model.Paging.CurrentPage;
+            tableFilter.paginationSetPage($scope.searchFilter.Filter.Paging, $scope.model.Paging.CurrentPage);
             $scope.querySearch();
         };
 
         $scope.sortOrderInit = function () {
-            $scope.sortOrderResetPage();
-            if ($scope.table.Columns.indexOf($scope.searchFilter.Filter.Sorting.SortOrder) > -1) {
-                $scope.table[$scope.searchFilter.Filter.Sorting.SortOrder] = tableFilter.sortOrderInit($scope.searchFilter.Filter.Sorting.SortDirection);
-            }
-        }
+            tableFilter.sortOrderResetPage($scope.table);
+            tableFilter.sortOrderInit($scope.table, $scope.searchFilter.Filter.Sorting);
+        };
 
         $scope.sortOrderSetPage = function (column) {
-            $scope.sortOrderResetPage();
-
-            if ($scope.table.Columns.indexOf(column) > -1) {
-                var sortOrder = tableFilter.sortOrder(column,
-                    $scope.searchFilter.Filter.Sorting.SortOrder,
-                    $scope.searchFilter.Filter.Sorting.SortDirection);
-
-                $scope.searchFilter.Filter.Sorting.SortOrder = column;
-                $scope.searchFilter.Filter.Sorting.SortDirection = sortOrder.sortDirection;
-                $scope.table[column] = sortOrder.css;
-
+            tableFilter.sortOrderResetPage($scope.table);
+            if (tableFilter.sortOrder($scope.table, $scope.searchFilter.Filter.Sorting, column)) {
                 $scope.querySearch();
-            }
-        }
-
-        $scope.sortOrderResetPage = function () {
-            var i = $scope.table.Columns.length;
-            while (i-- > 0) {
-                $scope.table[$scope.table.Columns[i]] = tableFilter.sortOrderDefaultCss;
             }
         }
 

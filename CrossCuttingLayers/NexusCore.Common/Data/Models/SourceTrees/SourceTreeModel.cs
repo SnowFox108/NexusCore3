@@ -12,15 +12,15 @@ namespace NexusCore.Common.Data.Models.SourceTrees
 
         public SourceTreeItemTypeModel ItemType { get; set; }
 
-        private readonly List<SourceTreeModel> childNodes;
+        private readonly List<SourceTreeModel> _childNodes;
 
         public List<SourceTreeModel> ChildNodes {
-            get { return childNodes; }
+            get { return _childNodes; }
         }
 
         public SourceTreeModel()
         {
-            childNodes = new List<SourceTreeModel>();
+            _childNodes = new List<SourceTreeModel>();
         }
     }
 }

@@ -1,8 +1,6 @@
 ﻿using NexusCore.Common.Data.Entities.Website;
 using NexusCore.Common.Data.Infrastructure;
-using NexusCore.Common.Data.Models.Websites;
 using NexusCore.Common.Data.Specifications;
-using NexusCore.Common.Helper.Extensions;
 using NexusCore.Common.Services.WebsiteServices;
 using NexusCore.Core.Services.Infrastructure;
 using System;
@@ -17,14 +15,14 @@ namespace NexusCore.Core.Services.WebsiteComponent.Primitive
         {
         }
 
-        public void CreateWebsite(WebsiteModel website)
+        public void CreateWebsite(Website website)
         {
-            UnitOfWork.Repository<Website>().Insert(website.MapTo<Website>());
+            UnitOfWork.Repository<Website>().Insert(website);
         }
 
-        public void UpdateWebsite(WebsiteModel website)
+        public void UpdateWebsite(Website website)
         {
-            UnitOfWork.Repository<Website>().Update(website.MapTo<Website>());
+            UnitOfWork.Repository<Website>().Update(website);
         }
 
         public void DeleteWebsite(Guid websiteId)
@@ -46,5 +44,6 @@ namespace NexusCore.Core.Services.WebsiteComponent.Primitive
         {
             return GetWebsites().Where(w => websiteIds.Contains(w.Id));
         }
+
     }
 }

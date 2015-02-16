@@ -104,9 +104,10 @@
     <Compile Include="Data\MappingProfiles\ClientProfile.cs" />
     <Compile Include="Data\MappingProfiles\MembershipProfile.cs" />
     <Compile Include="Data\MappingProfiles\WebsiteProfile.cs" />
-    <Compile Include="Data\Models\Clients\ClientCreateModel.cs" />
     <Compile Include="Data\Models\Clients\ClientDepartmentModel.cs" />
+    <Compile Include="Data\Models\Clients\ClientManagerModel.cs" />
     <Compile Include="Data\Models\Clients\ClientModel.cs" />
+    <Compile Include="Data\Models\Clients\ClientSearchFilter.cs" />
     <Compile Include="Data\Models\CommonModels\PaginationModel.cs" />
     <Compile Include="Data\Models\CommonModels\PagingAndSortingModel.cs" />
     <Compile Include="Data\Models\CommonModels\SortingModel.cs" />
@@ -127,8 +128,9 @@
     <Compile Include="Data\Models\SourceTrees\SourceTreeMasterRoot.cs" />
     <Compile Include="Data\Models\Websites\DomainModel.cs" />
     <Compile Include="Data\Models\Websites\WebsiteAdminModel.cs" />
-    <Compile Include="Data\Models\Websites\WebsiteCreateModel.cs" />
+    <Compile Include="Data\Models\Websites\WebsiteManagerModel.cs" />
     <Compile Include="Data\Models\Websites\WebsiteModel.cs" />
+    <Compile Include="Data\Models\Websites\WebsiteSearchFilter.cs" />
     <Compile Include="Data\Specifications\ClientSpecifications.cs" />
     <Compile Include="Data\Specifications\FriendlyIdSpecifications.cs" />
     <Compile Include="Data\Specifications\MembershipSpecifications.cs" />
@@ -199,6 +201,7 @@
     <Compile Include="Services\PermissionServices\IPermissionAggregate.cs" />
     <Compile Include="Services\PermissionServices\IPermissionPrimitive.cs" />
     <Compile Include="Services\PermissionServices\IPermissionService.cs" />
+    <Compile Include="Services\SourceTreeServices\IItemInSourceTreeAggregate.cs" />
     <Compile Include="Services\SourceTreeServices\IItemInSourceTreePrimitive.cs" />
     <Compile Include="Services\SourceTreeServices\ISourceTreeAggregate.cs" />
     <Compile Include="Services\SourceTreeServices\ISourceTreePrimitive.cs" />

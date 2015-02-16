@@ -1,0 +1,203 @@
+﻿@model NexusCore.Admin.UILogic.ViewModels.Clients.CreateClientViewModel
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-user font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase">Client Information</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+            <div class="portlet-input input-inline input-small">
+                <div class="input-icon right">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portlet-body form">
+        <!-- BEGIN FORM-->
+        @using (Html.BeginForm("CreateClient", "Clients", FormMethod.Post, new { @class = "form-horizontal general-form" }))
+        {
+            <div class="form-body">
+                @if (!ViewData.ModelState.IsValidField(""))
+                {
+                    <div class="form-group">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-4">
+                            <div class="note note-danger">
+                                @Html.ValidationSummary(true)
+                            </div>
+                        </div>
+                    </div>
+                }
+                <h3 class="form-section">Client</h3>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Client.Name, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Client.Name)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.Client.Name, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Client.Description, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Client.Description)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.Client.Description, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Client.LogoUrl, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Client.LogoUrl)
+                        <span class="help-block">
+                            This is unfinished image selector
+                        </span>
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.Client.LogoUrl, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <h3 class="form-section">Primary Contact Infomation</h3>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClientDepartment.Name, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.ClientDepartment.Name)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.ClientDepartment.Name, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClientDepartment.Description, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.ClientDepartment.Description)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.ClientDepartment.Description, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClientDepartment.ContactTitle, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(model => model.ClientDepartment.ContactTitle, Model.FormValue.TitleTypes, null, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.ClientDepartment.ContactTitle, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClientDepartment.ContactFirstName, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.ClientDepartment.ContactFirstName)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.ClientDepartment.ContactFirstName, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClientDepartment.ContactLastName, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.ClientDepartment.ContactLastName)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.ClientDepartment.ContactLastName, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClientDepartment.ContactPhone, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.ClientDepartment.ContactPhone)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.ClientDepartment.ContactPhone, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClientDepartment.ContactMobile, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.ClientDepartment.ContactMobile)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.ClientDepartment.ContactMobile, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClientDepartment.ContactEmail, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.ClientDepartment.ContactEmail)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.ClientDepartment.ContactEmail, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClientDepartment.AddressLine1, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.ClientDepartment.AddressLine1)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.ClientDepartment.AddressLine1, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClientDepartment.AddressLine2, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.ClientDepartment.AddressLine2)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.ClientDepartment.AddressLine2, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClientDepartment.Town, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.ClientDepartment.Town)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.ClientDepartment.Town, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClientDepartment.County, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.ClientDepartment.County)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.ClientDepartment.County, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClientDepartment.Country, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.ClientDepartment.Country)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.ClientDepartment.Country, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClientDepartment.PostCode, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.ClientDepartment.PostCode)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.ClientDepartment.PostCode, null, new { @class = "control-label" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-9">
+                        <input type="submit" class="btn green" value="Submit" />
+                        <a href="@Url.Action("Index")" class="btn default">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        }
+        <!-- END FORM-->
+    </div>
+</div>

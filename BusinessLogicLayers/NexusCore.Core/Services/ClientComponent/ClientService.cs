@@ -15,14 +15,31 @@ namespace NexusCore.Core.Services.ClientComponent
         }
 
         
-        public void CreateClient(ClientCreateModel client)
+        public void CreateClient(ClientModel client, ClientDepartmentModel department)
         {
-            client.Client.GenerateNewIdentity();
-            client.ClientDepartment.GenerateNewIdentity();
+            client.GenerateNewIdentity();
+            department.GenerateNewIdentity();
 
-            AggregateServices.ClientAggregate.CreateClient(client.Client.MapTo<Client>(),
-                client.ClientDepartment.MapTo<ClientDepartment>());
-            AggregateServices.SourceTreeAggregate.CreateClientNode(client.Client.Id, client.Client.Name);            
+            AggregateServices.ClientAggregate.CreateClient(client.MapTo<Client>(),
+                department.MapTo<ClientDepartment>());
+            AggregateServices.SourceTreeAggregate.CreateClientNode(client.Id, client.Name);
+            
+            UnitOfWork.SaveChanges();
+        }
+
+
+        public ClientManagerModel GetClients(ClientSearchFilter searchFilter)
+        {
+            return new ClientManagerModel
+            {
+                Clients = PrimitiveServices.UserPrimitive.MapToTrackableUser<ClientModel>(PrimitiveServices.ClientPrimitive.GetClients(searchFilter).MapTo<ClientModel>()),
+                Paging = new Common.Data.Models.CommonModels.PaginationModel
+                {
+                    TotalItems = PrimitiveServices.ClientPrimitive.GetClientCount(searchFilter),
+                    ItemsPerPage = searchFilter.Filter.Paging.ItemsPerPage,
+                    CurrentPage = searchFilter.Filter.Paging.CurrentPage
+                }
+            };
         }
     }
 }

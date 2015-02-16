@@ -78,6 +78,7 @@
     <Compile Include="Services\MessageComponent\Primitive\MailTemplatePrimitive.cs" />
     <Compile Include="Services\PermissionComponent\Aggregate\PermissionAggregate.cs" />
     <Compile Include="Services\PermissionComponent\Primitive\PermissionPrimitive.cs" />
+    <Compile Include="Services\SourceTreeComponent\Aggregate\ItemInSourceTreeAggregate.cs" />
     <Compile Include="Services\SourceTreeComponent\Aggregate\SourceTreeAggregate.cs" />
     <Compile Include="Services\SourceTreeComponent\Primitive\ItemInSourceTreePrimitive.cs" />
     <Compile Include="Services\SourceTreeComponent\Primitive\SourceTreePrimitive.cs" />

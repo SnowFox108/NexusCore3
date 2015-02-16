@@ -16,6 +16,8 @@ namespace NexusCore.Core.Services.ClientComponent.Aggregate
         public void CreateClient(Client client, ClientDepartment clientDepartment)
         {
             client.GenerateNewIdentity();
+            if (string.IsNullOrEmpty(client.FriendlyId))
+                client.FriendlyId = PrimitiveServices.FriendlyIdPrimitive.GetFriendlyId("CL");
             clientDepartment.GenerateNewIdentity();
             clientDepartment.ClientId = client.Id;
             client.PrimaryDepartmentId = clientDepartment.Id;

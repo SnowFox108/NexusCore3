@@ -11,6 +11,12 @@ namespace NexusCore.Common.Services.WebsiteServices
         IEnumerable<DomainModel> GetDomainsByWebssite(Guid websiteId);
         IEnumerable<DomainModel> GetDomains(Guid clientId, Guid websiteId = new Guid());
 
+        int GetWebsiteCount(WebsiteSearchFilter searchFilter,
+            IEnumerable<Guid> websitesInClientIds);
+
+        IEnumerable<WebsiteAdminModel> GetWebsites(WebsiteSearchFilter searchFilter,
+            IEnumerable<Guid> websitesInClientIds);
+
         IEnumerable<WebsiteAdminModel> GetWebsiteByClient(Guid clientId);
     }
 }

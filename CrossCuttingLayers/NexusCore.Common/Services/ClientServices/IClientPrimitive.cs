@@ -10,6 +10,9 @@ namespace NexusCore.Common.Services.ClientServices
         void UpdateClient(ClientModel client);
         void DeleteClient(Guid clientId);
         Client GetClient(Guid clientId);
+
+        int GetClientCount(ClientSearchFilter searchFilter);
+        IEnumerable<Client> GetClients(ClientSearchFilter searchFilter);
         IEnumerable<Client> GetClients();
     }
 }

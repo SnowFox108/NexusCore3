@@ -26,6 +26,7 @@ using NexusCore.Core.Services.PermissionComponent.Primitive;
 using NexusCore.Core.Services.SourceTreeComponent;
 using NexusCore.Core.Services.SourceTreeComponent.Aggregate;
 using NexusCore.Core.Services.SourceTreeComponent.Primitive;
+using NexusCore.Core.Services.WebsiteComponent;
 using NexusCore.Core.Services.WebsiteComponent.Aggregate;
 using NexusCore.Core.Services.WebsiteComponent.Primitive;
 using NexusCore.Core.Utilities.Messager;
@@ -90,6 +91,7 @@ namespace NexusCore.Core.Adapter.IoC
             Builder.RegisterType<PermissionPrimitive>().As<IPermissionPrimitive>().InstancePerLifetimeScope();
 
             // SourceTree service
+            Builder.RegisterType<ItemInSourceTreeAggregate>().As<IItemInSourceTreeAggregate>().InstancePerLifetimeScope();
             Builder.RegisterType<ItemInSourceTreePrimitive>().As<IItemInSourceTreePrimitive>().InstancePerLifetimeScope();
             Builder.RegisterType<SourceTreeAggregate>().As<ISourceTreeAggregate>().InstancePerLifetimeScope();
             Builder.RegisterType<SourceTreePrimitive>().As<ISourceTreePrimitive>().InstancePerLifetimeScope();
@@ -100,8 +102,8 @@ namespace NexusCore.Core.Adapter.IoC
             Builder.RegisterType<DomainPrimitive>().As<IDomainPrimitive>().InstancePerLifetimeScope();
             Builder.RegisterType<WebsiteAggregate>().As<IWebsiteAggregate>().InstancePerLifetimeScope();
             Builder.RegisterType<WebsitePrimitive>().As<IWebsitePrimitive>().InstancePerLifetimeScope();
+            Builder.RegisterType<WebsiteService>().As<IWebsiteService>().InstancePerLifetimeScope();
             Builder.RegisterType<WebsiteSettingPrimitive>().As<IWebsiteSettingPrimitive>().InstancePerLifetimeScope();
-
 
         }
     }

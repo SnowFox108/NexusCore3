@@ -28,8 +28,8 @@ namespace ClientTest
                         FirstName = "Mike",
                         LastName = "Zhang",
                         PhoneNumber = "",
-                        NewPassword = "Windsong1",
-                        ConfirmPassword = "Windsong1"
+                        NewPassword = "Password1",
+                        ConfirmPassword = "Password1"
                     },
                     Client = new InstallationClientModel()
                     {

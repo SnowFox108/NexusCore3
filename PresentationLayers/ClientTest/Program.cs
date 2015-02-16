@@ -31,7 +31,8 @@ namespace ClientTest
                 container => { }));
 
             //var itemTypeModel = new GetItemTypeModel();
-            var install = new Installation();
+            //var install = new Installation();
+            var registerNewUser = new RegisterNewUser();
             //var logCode = new GetLogCodeAttributes();
             //var sourceTree = new GetSourceTreeModel();
             //var user = new GetUserModel();

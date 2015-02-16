@@ -19,13 +19,21 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Primitive
         {
             var item = UnitOfWork.Repository<ItemInSourceTree>().Get(i => i.ItemId == itemId).FirstOrDefault();
             if (item == null)
-                return new Guid();
+                return new Guid();                
             return item.SourceTreeId;
+        }
+
+        public ItemInSourceTree GetItem(Guid sourceTreeId, SourceTreeItemModuleType itemModuleType = SourceTreeItemModuleType.System)
+        {
+            return UnitOfWork.Repository<ItemInSourceTree>().Get(i => i.SourceTreeId == sourceTreeId && i.ModuleType == itemModuleType).FirstOrDefault();
         }
 
         public IEnumerable<ItemInSourceTree> GetItems(IEnumerable<Guid> sourceTreeIds, SourceTreeItemModuleType itemModuleType = SourceTreeItemModuleType.System)
         {
             return UnitOfWork.Repository<ItemInSourceTree>().Get(i => sourceTreeIds.Contains(i.SourceTreeId) && i.ModuleType == itemModuleType);
         }
+
+
+
     }
 }

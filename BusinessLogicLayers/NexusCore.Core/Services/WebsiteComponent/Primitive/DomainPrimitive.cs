@@ -17,14 +17,14 @@ namespace NexusCore.Core.Services.WebsiteComponent.Primitive
         {
         }
 
-        public void CreateDomain(DomainModel domain)
+        public void CreateDomain(Domain domain)
         {
-            UnitOfWork.Repository<Domain>().Insert(domain.MapTo<Domain>());
+            UnitOfWork.Repository<Domain>().Insert(domain);
         }
 
-        public void UpdateDomain(DomainModel domain)
+        public void UpdateDomain(Domain domain)
         {
-            UnitOfWork.Repository<Domain>().Update(domain.MapTo<Domain>());
+            UnitOfWork.Repository<Domain>().Update(domain);
         }
 
         public void DeleteDomain(Guid domainId)
@@ -42,9 +42,17 @@ namespace NexusCore.Core.Services.WebsiteComponent.Primitive
             return UnitOfWork.Repository<Domain>().Get(WebsiteSpecifications.GetDomain(websiteId));
         }
 
+        public IEnumerable<Domain> GetDomains(string domainName)
+        {
+            return UnitOfWork.Repository<Domain>().Get(WebsiteSpecifications.GetDomain(domainName));
+        }
+
         public IEnumerable<Domain> GetLiveDomains(Guid websiteId)
         {
             return GetDomains(websiteId).Where(d => d.IsActive);
         }
+
+
+
     }
 }

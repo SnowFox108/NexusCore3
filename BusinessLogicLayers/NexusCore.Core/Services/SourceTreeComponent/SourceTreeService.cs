@@ -90,12 +90,10 @@ namespace NexusCore.Core.Services.SourceTreeComponent
 
         public IEnumerable<SourceTree> GetSourceTreeNodes(SourceTreeItemType itemType)
         {
-            var sourceTrees = new List<SourceTree>();
-            VerifyChildNodes(sourceTrees, SourceTreeRoot.MasterNode, itemType);
-            return sourceTrees;
+            return VerifyChildNodes(SourceTreeRoot.MasterNode, itemType);
         }
 
-        private void VerifyChildNodes(List<SourceTree> sourceTrees, SourceTree parentNode, SourceTreeItemType itemType)
+        private IEnumerable<SourceTree> VerifyChildNodes(SourceTree parentNode, SourceTreeItemType itemType)
         {
             var childNodes = PrimitiveServices.SourceTreePrimitive.GetChildNodes(parentNode.Id);
             foreach (var sourceTree in childNodes)
@@ -103,8 +101,10 @@ namespace NexusCore.Core.Services.SourceTreeComponent
                 if (AggregateServices.PermissionAggregate.CanView(sourceTree.Id))
                 {
                     if (sourceTree.ItemType == itemType)
-                        sourceTrees.Add(sourceTree);
-                    VerifyChildNodes(sourceTrees, sourceTree, itemType);
+                        yield return sourceTree;
+                        //sourceTrees.Add(sourceTree);
+                    foreach (var item in VerifyChildNodes(sourceTree, itemType))
+                        yield return item;
                 }
             }
         }

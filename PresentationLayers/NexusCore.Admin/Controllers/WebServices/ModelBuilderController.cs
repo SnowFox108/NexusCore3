@@ -1,10 +1,19 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
+using NexusCore.Common.Data.Models.Clients;
 using NexusCore.Common.Data.Models.Memberships;
+using NexusCore.Common.Data.Models.Websites;
 
 namespace NexusCore.Admin.Controllers.WebServices
 {
     public class ModelBuilderController : Controller
     {
+        [HttpGet]
+        public JsonResult ClientSearchFilter()
+        {
+            return Json(new ClientSearchFilter(), JsonRequestBehavior.AllowGet);
+        }
+
         [HttpGet]
         public JsonResult RoleSearchFilter()
         {
@@ -22,6 +31,18 @@ namespace NexusCore.Admin.Controllers.WebServices
                 Title = "",
                 FirstName = "",
                 LastName = ""
+            }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult WebsiteSearchFilter()
+        {
+            return Json(new WebsiteSearchFilter
+            {
+                ClientId = Guid.Empty,
+                FriendlyId = "",
+                Name = "",
+                DomainName = "",
             }, JsonRequestBehavior.AllowGet);
         }
     }

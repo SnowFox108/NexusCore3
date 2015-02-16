@@ -3,6 +3,7 @@ using NexusCore.Common.Services;
 using NexusCore.Common.Services.InstallationServices;
 using NexusCore.Common.Services.MembershipServices;
 using NexusCore.Common.Services.SourceTreeServices;
+using NexusCore.Common.Services.WebsiteServices;
 
 
 namespace NexusCore.Core.Services.Infrastructure
@@ -13,5 +14,6 @@ namespace NexusCore.Core.Services.Infrastructure
         public IInstallationService InstallationService { get; set; }
         public IMembershipService MembershipService { get; set; }
         public ISourceTreeService SourceTreeService { get; set; }
+        public IWebsiteService WebsiteService { get; set; }
     }
 }

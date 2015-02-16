@@ -1,0 +1,100 @@
+﻿
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-user font-green-sharp"></i>
+                    <span class="caption-subject font-green-sharp bold uppercase">Client Listing</span>
+                    <span class="caption-helper">manage clients...</span>
+                </div>
+                <div class="tools">
+                </div>
+            </div>
+            <div class="portlet-body flip-scroll">
+                <div class="table-toolbar">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="btn-group">
+                                <a href="@Url.Action("CreateClient")" class="btn green">
+                                    Create New Client <i class="fa fa-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="btn-group pull-right">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-striped table-bordered table-hover flip-content">
+                    <thead class="flip-content">
+                        <tr>
+                            <th width="6%">
+                                
+                            </th>
+                            <th width="10%" class="sortable-column" ng-click="sortOrderSetPage('FriendlyId')">
+                                Id <i class="fa pull-right" ng-class="table.FriendlyId"></i>
+                            </th>                            
+                            <th width="20%" class="sortable-column" ng-click="sortOrderSetPage('Name')">
+                                Name <i class="fa pull-right" ng-class="table.Name"></i>
+                            </th>
+                            <th width="10%" class="sortable-column" ng-click="sortOrderSetPage('CreatedDate')">
+                                Created Date <i class="fa pull-right" ng-class="table.CreatedDate"></i>
+                            </th>
+                            <th width="10%">
+                                Created By
+                            </th>
+                            <th width="10%" class="sortable-column" ng-click="sortOrderSetPage('UpdatedDate')">
+                                Update Date <i class="fa pull-right" ng-class="table.UpdatedDate"></i>
+                            </th>
+                            <th width="10%">
+                                Update By
+                            </th>
+                            <th width="24%">
+                                Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="odd gradeX" ng-repeat="item in model.Clients">
+                            <td>
+                                {{ item.LogoUrl }}
+                            </td>
+                            <td>
+                                {{ item.FriendlyId }}
+                            </td>
+                            <td>
+                                {{ item.Name }}
+                            </td>
+                            <td class="center">
+                                {{ item.CreatedDate }}
+                            </td>
+                            <td>
+                                {{ item.CreatedByUser.DisplayName }}
+                            </td>
+                            <td class="center">
+                                {{ item.UpdatedDate }}
+                            </td>
+                            <td>
+                                {{ item.UpdatedByUser.DisplayName }}
+                            </td>
+                            <td>
+                                <a class="label label-primary label-sm" href="/Clients/EditClient/{{ item.Id }}" title="{{ user.Name }}"><i class="fa fa-pencil"></i> Edit</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="row">
+                    @Html.Partial("/Views/Shared/BaseTemplates/_Pagination.cshtml")
+                </div>
+            </div>
+        </div>
+        <!-- END EXAMPLE TABLE PORTLET-->
+    </div>
+</div>
+
+@section pageLevelScripts{
+    <script src="/Angular/Controllers/client-index.js"></script>
+}
