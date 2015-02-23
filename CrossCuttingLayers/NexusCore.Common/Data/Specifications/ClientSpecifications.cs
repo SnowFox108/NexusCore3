@@ -8,6 +8,17 @@ namespace NexusCore.Common.Data.Specifications
 {
     public class ClientSpecifications
     {
+
+        public static ISpecification<Client> GetClient()
+        {
+            Specification<Client> spec = new TrueSpecification<Client>();
+
+            if (!EngineContext.Instance.CurrentUser.IsAdmin)
+                spec &= new DirectSpecification<Client>(c => c.IsActive);
+
+            return spec;
+        }
+
         public static ISpecification<Client> GetClient(Guid clientId)
         {
             Specification<Client> spec = new TrueSpecification<Client>();

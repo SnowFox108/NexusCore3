@@ -1,0 +1,80 @@
+﻿<div class="modal-header dialog-header-wait">
+    <button type="button" class="close" ng-click="close()">×</button>
+    <h4 class="modal-title ng-binding">
+        <span class="glyphicon glyphicon-check"></span> {{ data.Name }} Domains
+    </h4>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+            <div class="portlet light">
+                <div class="portlet-body flip-scroll">
+                    <div class="table-toolbar">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="btn-group">
+                                    <a href="" class="btn green" ng-click="addNewVisible = true">
+                                        Create New Domain <i class="fa fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="btn-group pull-right">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-striped table-bordered table-hover flip-content">
+                        <thead class="flip-content">
+                            <tr>
+                                <th width="60%" class="sortable-column" ng-click="sortOrderSetPage('Name')">
+                                    Domain <i class="fa pull-right" ng-class="table.Name"></i>
+                                </th>
+                                <th width="20%">
+                                    Status
+                                </th>
+                                <th width="20%">
+                                    Actions
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="odd gradeX" ng-repeat="item in model.Websites">
+                                <td>
+                                    {{ item.Website.FriendlyId }}
+                                </td>
+                                <td>
+                                    {{ item.Website.Name }}
+                                </td>
+                                <td>
+                                    <a class="label label-primary label-sm" href="/Websites/EditWebsite/{{ item.Website.Id }}" title="{{ user.Website.Name }}"><i class="fa fa-pencil"></i> Edit</a>
+                                    <a class="label label-info label-sm" href="" ng-click="manageDomains(item.Website)" title="{{ item.Name }}"><i class="fa fa-globe"></i> Domains</a>
+                                </td>
+                            </tr>
+                            <tr class="odd gradeX" ng-show="addNewVisible">
+                                <td>
+                                    <input form="addNewForm" type="text" class="form-control" ng-model="Name" />
+                                </td>
+                                <td></td>
+                                <td>
+                                    <form id="addNewForm" ng-submit="addNew()">
+                                        <input type="submit" class="btn green" value="Save" />
+                                        <button class="btn danger" ng-click="addNewVisible = false">Cancel</button>
+                                    </form>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+            <!-- END EXAMPLE TABLE PORTLET-->
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" ng-click="close()">Close</button>
+</div>

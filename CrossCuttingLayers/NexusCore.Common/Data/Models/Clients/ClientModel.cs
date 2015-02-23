@@ -18,5 +18,8 @@ namespace NexusCore.Common.Data.Models.Clients
 
         [Display(ResourceType = typeof(DataAnnotationText), Name = "ClientDisplayLogoUrl")]
         public string LogoUrl { get; set; }
+
+        [Display(ResourceType= typeof(DataAnnotationText), Name = "GeneralDisplayIsActive")]
+        public bool IsActive { get; set; }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using NexusCore.Common.Data.Models.Websites;
 
 namespace NexusCore.Common.Services.WebsiteServices
@@ -10,6 +9,7 @@ namespace NexusCore.Common.Services.WebsiteServices
         void UpdateWebsite(WebsiteModel website);
         void DeleteWebsite(Guid websiteId);
 
+        WebsiteModel GetWebsite(Guid websiteId);
         WebsiteManagerModel GetWebsites(WebsiteSearchFilter searchFilter);
     }
 }

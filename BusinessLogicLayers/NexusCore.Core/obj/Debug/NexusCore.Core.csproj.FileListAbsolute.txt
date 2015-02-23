@@ -19,3 +19,4 @@ F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core\bin\Debug\AutoMappe
 F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core\obj\Debug\NexusCore.Core.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core\obj\Debug\NexusCore.Core.dll
 F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core\obj\Debug\NexusCore.Core.pdb
+F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core\bin\Debug\AutoMapper.Net4.dll

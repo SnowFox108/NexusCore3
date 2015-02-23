@@ -7,30 +7,20 @@ namespace NexusCore.Common.Services.SourceTreeServices
 {
     public interface ISourceTreePrimitive
     {
+        void CreateSourceTree(SourceTree sourceTree);
+
+        void DeleteSourceTree(Guid sourceTreeId);
+        void DeleteSourceTree(SourceTree sourceTree);
+
+        void UpdateSourceTree(SourceTree sourceTree);
+
         SourceTree GetSourceTree(Guid sourceTreeId);
 
-        /// <summary>
-        /// Get Flat source list
-        /// </summary>
-        /// <param name="itemType">SourceTreeItemType</param>
-        /// <returns>IEnumerable SourceTree</returns>
         IEnumerable<SourceTree> GetSourceTreeNodes(SourceTreeItemType itemType = SourceTreeItemType.None);
 
-        /// <summary>
-        /// Get Flat source list
-        /// </summary>
-        /// <param name="sourceTreeId">parent source tree Id</param>
-        /// <param name="itemType">SourceTreeItemType</param>
-        /// <returns>IEnumerable SourceTree</returns>
         IEnumerable<SourceTree> GetSourceTreeNodes(Guid sourceTreeId,
             SourceTreeItemType itemType = SourceTreeItemType.None);
 
-        /// <summary>
-        /// Get Flat source list
-        /// </summary>
-        /// <param name="parentNode">parent source tree node</param>
-        /// <param name="itemType">SourceTreeItemType</param>
-        /// <returns>IEnumerable SourceTree</returns>
         IEnumerable<SourceTree> GetSourceTreeNodes(SourceTree parentNode,
             SourceTreeItemType itemType = SourceTreeItemType.None);
 

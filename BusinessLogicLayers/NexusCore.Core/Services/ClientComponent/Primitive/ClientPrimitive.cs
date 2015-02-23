@@ -17,14 +17,14 @@ namespace NexusCore.Core.Services.ClientComponent.Primitive
         {
         }
 
-        public void CreateClient(ClientModel client)
+        public void CreateClient(Client client)
         {
-            UnitOfWork.Repository<Client>().Insert(client.MapTo<Client>());            
+            UnitOfWork.Repository<Client>().Insert(client);            
         }
 
-        public void UpdateClient(ClientModel client)
+        public void UpdateClient(Client client)
         {
-            UnitOfWork.Repository<Client>().Update(client.MapTo<Client>());
+            UnitOfWork.Repository<Client>().Update(client);
         }
 
         public void DeleteClient(Guid clientId)
@@ -58,9 +58,12 @@ namespace NexusCore.Core.Services.ClientComponent.Primitive
 
         public IEnumerable<Client> GetClients()
         {
-            return UnitOfWork.Repository<Client>().Get();
+            return UnitOfWork.Repository<Client>().Get(ClientSpecifications.GetClient());
         }
 
-
+        public IEnumerable<Client> GetClients(IEnumerable<Guid> clientIds)
+        {
+            return GetClients().Where(c => clientIds.Contains(c.Id));
+        }
     }
 }

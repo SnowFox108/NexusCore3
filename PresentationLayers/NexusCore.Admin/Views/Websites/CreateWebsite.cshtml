@@ -1,0 +1,138 @@
+﻿@model NexusCore.Admin.UILogic.ViewModels.Websites.CreateWebsiteViewModel
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-globe font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase">Website Information</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+            <div class="portlet-input input-inline input-small">
+                <div class="input-icon right">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portlet-body form">
+        <!-- BEGIN FORM-->
+        @using (Html.BeginForm("CreateWebsite", "Websites", FormMethod.Post, new { @class = "form-horizontal general-form" }))
+        {
+            <div class="form-body">
+                @if (!ViewData.ModelState.IsValidField(""))
+                {
+                    <div class="form-group">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-4">
+                            <div class="note note-danger">
+                                @Html.ValidationSummary(true)
+                            </div>
+                        </div>
+                    </div>
+                }
+                <h3 class="form-section">Website</h3>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClientId, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(model => model.ClientId, Model.FormValue.Clients, null, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Website.Name, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Website.Name)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.Website.Name, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Website.Description, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Website.Description)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.Website.Description, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Website.RootUrl, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Website.RootUrl)
+                        <span class="help-block">
+                            this will update to path selector
+                        </span>
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.Website.RootUrl, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Website.FavIconUrl, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Website.FavIconUrl)
+                        <span class="help-block">
+                            this will update to file selector
+                        </span>
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.Website.Description, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Website.PageTitlePrefix, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Website.PageTitlePrefix)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.Website.PageTitlePrefix, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Website.PageTitleSuffix, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Website.PageTitleSuffix)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.Website.PageTitleSuffix, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Website.IsActive, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        <div class="checkbox-list">
+                            <label class="checkbox-inline">
+                                @Html.EditorFor(model => model.Website.IsActive)
+                                Active
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.Website.IsActive, null, new { @class = "control-label" })
+                    </div>
+                </div>
+                <h3 class="form-section">Primary Domain</h3>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Domain.Name, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.Domain.Name)
+                    </div>
+                    <div class="col-md-5 form-validation-message">
+                        @Html.ValidationMessageFor(model => model.Domain.Name, null, new { @class = "control-label" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-9">
+                        <input type="submit" class="btn green" value="Submit" />
+                        <a href="@Url.Action("Index")" class="btn default">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        }
+        <!-- END FORM-->
+    </div>
+</div>
+

@@ -71,3 +71,4 @@ F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\AutoMapper.xml
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\obj\Debug\NexusCore.Admin.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\obj\Debug\NexusCore.Admin.dll
 F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\obj\Debug\NexusCore.Admin.pdb
+F:\MyWorkSpace\NexusCore3\PresentationLayers\NexusCore.Admin\bin\AutoMapper.Net4.dll

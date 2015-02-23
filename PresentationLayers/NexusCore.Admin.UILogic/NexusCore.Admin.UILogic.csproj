@@ -80,6 +80,7 @@
     <Compile Include="Adapter\ErrorHandlers\HttpResponseExtension.cs" />
     <Compile Include="Adapter\ErrorHandlers\ModelStateExtension.cs" />
     <Compile Include="Adapter\ErrorHandlers\WebErrorHandlerFactory.cs" />
+    <Compile Include="Infrastructure\GeneralPageMessages.cs" />
     <Compile Include="Infrastructure\PresetFormValues.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AdminUIDataAnnotationText.Designer.cs">
@@ -90,6 +91,7 @@
     <Compile Include="TestLogic.cs" />
     <Compile Include="ViewModels\Clients\ClientInfoFormValue.cs" />
     <Compile Include="ViewModels\Clients\CreateClientViewModel.cs" />
+    <Compile Include="ViewModels\Clients\EditClientViewModel.cs" />
     <Compile Include="ViewModels\ControlPanel\GeneralPage.cs" />
     <Compile Include="ViewModels\ControlPanel\InfoBoxMessageExtension.cs" />
     <Compile Include="ViewModels\Memberships\CreateRoleViewModel.cs" />
@@ -101,6 +103,9 @@
     <Compile Include="ViewModels\Security\UserActivationViewModel.cs" />
     <Compile Include="ViewModels\Security\UserForgetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Security\UserLoginViewModel.cs" />
+    <Compile Include="ViewModels\Websites\CreateWebsiteFormValue.cs" />
+    <Compile Include="ViewModels\Websites\CreateWebsiteViewModel.cs" />
+    <Compile Include="ViewModels\Websites\EditWebsiteViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

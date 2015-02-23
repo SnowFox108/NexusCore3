@@ -133,6 +133,15 @@ namespace NexusCore.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Client has website..
+        /// </summary>
+        public static string C206 {
+            get {
+                return ResourceManager.GetString("C206", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to AutofacFactory has not been intialized, have you called Initialize()?.
         /// </summary>
         public static string C50 {

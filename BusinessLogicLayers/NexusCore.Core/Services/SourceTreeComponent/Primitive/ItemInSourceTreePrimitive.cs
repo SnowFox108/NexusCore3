@@ -15,6 +15,11 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Primitive
         {
         }
 
+        public void DeleteItemInSourceTree(Guid itemInSourceTreeId)
+        {
+            UnitOfWork.Repository<ItemInSourceTree>().Delete(itemInSourceTreeId);
+        }
+
         public Guid GetSourceTreeId(Guid itemId)
         {
             var item = UnitOfWork.Repository<ItemInSourceTree>().Get(i => i.ItemId == itemId).FirstOrDefault();
@@ -23,9 +28,19 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Primitive
             return item.SourceTreeId;
         }
 
+        public ItemInSourceTree GetItemByItemId(Guid itemId)
+        {
+            return UnitOfWork.Repository<ItemInSourceTree>().Get(i => i.ItemId == itemId).FirstOrDefault();
+        }
+
         public ItemInSourceTree GetItem(Guid sourceTreeId, SourceTreeItemModuleType itemModuleType = SourceTreeItemModuleType.System)
         {
             return UnitOfWork.Repository<ItemInSourceTree>().Get(i => i.SourceTreeId == sourceTreeId && i.ModuleType == itemModuleType).FirstOrDefault();
+        }
+
+        public ItemInSourceTree GetItem(SourceTree sourceTree, SourceTreeItemModuleType itemModuleType = SourceTreeItemModuleType.System)
+        {
+            return GetItem(sourceTree.Id, itemModuleType);
         }
 
         public IEnumerable<ItemInSourceTree> GetItems(IEnumerable<Guid> sourceTreeIds, SourceTreeItemModuleType itemModuleType = SourceTreeItemModuleType.System)
@@ -33,7 +48,9 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Primitive
             return UnitOfWork.Repository<ItemInSourceTree>().Get(i => sourceTreeIds.Contains(i.SourceTreeId) && i.ModuleType == itemModuleType);
         }
 
-
-
+        public IEnumerable<ItemInSourceTree> GetItems(IEnumerable<SourceTree> sourceTrees, SourceTreeItemModuleType itemModuleType = SourceTreeItemModuleType.System)
+        {
+            return GetItems(sourceTrees.Select(s => s.Id).ToList(), itemModuleType);
+        }
     }
 }

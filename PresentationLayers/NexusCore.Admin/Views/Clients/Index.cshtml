@@ -82,6 +82,7 @@
                             </td>
                             <td>
                                 <a class="label label-primary label-sm" href="/Clients/EditClient/{{ item.Id }}" title="{{ user.Name }}"><i class="fa fa-pencil"></i> Edit</a>
+                                <a class="label label-danger label-sm" href="" ng-click="deleteClient(item)" title="{{ item.Name }}"><i class="fa fa-trash"></i> Delete</a>
                             </td>
                         </tr>
                     </tbody>

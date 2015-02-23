@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using NexusCore.Common.Data.Entities.SourceTrees;
 using NexusCore.Common.Data.Enums;
 using NexusCore.Common.Data.Infrastructure;
@@ -28,7 +30,7 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Aggregate
 
             clientNode.GenerateNewIdentity();
 
-            CreateNode(clientNode);
+            PrimitiveServices.SourceTreePrimitive.CreateSourceTree(clientNode);
             
             UnitOfWork.Repository<ItemInSourceTree>().Insert(new ItemInSourceTree
             {
@@ -55,7 +57,7 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Aggregate
 
             websiteNode.GenerateNewIdentity();
 
-            CreateNode(websiteNode);
+            PrimitiveServices.SourceTreePrimitive.CreateSourceTree(websiteNode);
 
             UnitOfWork.Repository<ItemInSourceTree>().Insert(new ItemInSourceTree
             {
@@ -72,7 +74,7 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Aggregate
             // Create default client sub nodes
 
             // Websites
-            CreateNode(new SourceTree
+            PrimitiveServices.SourceTreePrimitive.CreateSourceTree(new SourceTree
             {
                 Parent = client,
                 Name = "Websites",
@@ -81,7 +83,7 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Aggregate
                 SortOrder = 1,
             });
             // Modules
-            CreateNode(new SourceTree
+            PrimitiveServices.SourceTreePrimitive.CreateSourceTree(new SourceTree
             {
                 Parent = client,
                 Name = "Modules",
@@ -90,7 +92,7 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Aggregate
                 SortOrder = 2,
             });
             // Contents
-            CreateNode(new SourceTree
+            PrimitiveServices.SourceTreePrimitive.CreateSourceTree(new SourceTree
             {
                 Parent = client,
                 Name = "Contents",
@@ -101,10 +103,35 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Aggregate
 
         }
 
-        private void CreateNode(SourceTree sourceTree)
+        public void DeleteClientNode(Guid clientId)
         {
-            UnitOfWork.Repository<SourceTree>().Insert(sourceTree);
-            //UnitOfWork.SaveChanges();
+            var item = PrimitiveServices.ItemInSourceTreePrimitive.GetItemByItemId(clientId);
+
+            // remove item in source tree
+            PrimitiveServices.ItemInSourceTreePrimitive.DeleteItemInSourceTree(item.Id);
+
+            var sourceTreeNode = PrimitiveServices.SourceTreePrimitive.GetSourceTree(item.SourceTreeId);
+            var childNodes = DeleteClientChildNodes(sourceTreeNode.ChildNodes).ToList();
+
+            // remove child nodes
+            foreach (var sourceTree in childNodes)
+                PrimitiveServices.SourceTreePrimitive.DeleteSourceTree(sourceTree);                                
+
+            // remove source tree
+            PrimitiveServices.SourceTreePrimitive.DeleteSourceTree(item.SourceTreeId);
+        }
+
+        private IEnumerable<SourceTree> DeleteClientChildNodes(IEnumerable<SourceTree> sourceTrees)
+        {
+            foreach (var sourceTree in sourceTrees)
+            {
+                if (sourceTree.ChildNodes.Any())
+                {
+                    foreach (var childNode in DeleteClientChildNodes(sourceTree.ChildNodes))
+                        yield return childNode;
+                }
+                yield return sourceTree;
+            }
         }
 
         public SourceTree GetSourceTreeByItemId(Guid itemId)

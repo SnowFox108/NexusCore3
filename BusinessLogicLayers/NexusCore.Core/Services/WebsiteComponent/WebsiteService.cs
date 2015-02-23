@@ -43,9 +43,28 @@ namespace NexusCore.Core.Services.WebsiteComponent
                 website.Id, website.Name);
         }
 
-        public void UpdateWebsite(WebsiteModel website)
+        public void UpdateWebsite(WebsiteModel model)
         {
-            PrimitiveServices.WebsitePrimitive.UpdateWebsite(website.MapTo<Website>());
+            var website = PrimitiveServices.WebsitePrimitive.GetWebsite(model.Id);
+
+            website.Name = model.Name;
+            website.Description = model.Description;
+            website.RootUrl = model.RootUrl;
+            website.FavIconUrl = model.FavIconUrl;
+            website.PageTitlePrefix = model.PageTitlePrefix;
+            website.PageTitleSuffix = model.PageTitleSuffix;
+            website.IsActive = model.IsActive;
+            website.IsUnderMaintenance = model.IsUnderMaintenance;
+            
+            // update sourceTree name
+            var sourceTree = AggregateServices.SourceTreeAggregate.GetSourceTreeByItemId(website.Id);
+            if (sourceTree.Name != website.Name)
+            {
+                sourceTree.Name = website.Name;
+                PrimitiveServices.SourceTreePrimitive.UpdateSourceTree(sourceTree);
+            }
+
+            PrimitiveServices.WebsitePrimitive.UpdateWebsite(website);
         }
 
         public void DeleteWebsite(Guid websiteId)
@@ -58,6 +77,10 @@ namespace NexusCore.Core.Services.WebsiteComponent
             //TODO remove website
         }
 
+        public WebsiteModel GetWebsite(Guid websiteId)
+        {
+            return PrimitiveServices.WebsitePrimitive.GetWebsite(websiteId).MapTo<WebsiteModel>();
+        }
         public WebsiteManagerModel GetWebsites(WebsiteSearchFilter searchFilter)
         {
             var websitesInClientIds =

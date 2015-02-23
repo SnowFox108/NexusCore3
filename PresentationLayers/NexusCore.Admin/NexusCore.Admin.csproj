@@ -4165,6 +4165,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="testPage.html" />
+    <Content Include="Angular\Views\Domains\index.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -4222,6 +4223,9 @@
     <Content Include="Views\Websites\Index.cshtml" />
     <Content Include="Views\Clients\Index.cshtml" />
     <Content Include="Views\Clients\CreateClient.cshtml" />
+    <Content Include="Views\Clients\EditClient.cshtml" />
+    <Content Include="Views\Websites\CreateWebsite.cshtml" />
+    <Content Include="Views\Websites\EditWebsite.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Angular\References\" />

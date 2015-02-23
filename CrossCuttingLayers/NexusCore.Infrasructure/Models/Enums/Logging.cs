@@ -72,6 +72,10 @@ namespace NexusCore.Infrasructure.Models.Enums
         [StoreInLog(false, TaskCategory.System, LogLevel.Error)]
         ErrorItemIdNotInItemsInSourceTree = 205,
 
+        [StoreInLog(false, TaskCategory.System, LogLevel.Error)]
+        ErrorClientCannotDeleteDueHasWebsite = 206,
+
+
         #endregion
 
         #region 600-999 System Warning

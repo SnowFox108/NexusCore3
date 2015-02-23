@@ -17,21 +17,58 @@ namespace NexusCore.Core.Services.SourceTreeComponent.Primitive
         {
         }
 
+        public void CreateSourceTree(SourceTree sourceTree)
+        {
+            UnitOfWork.Repository<SourceTree>().Insert(sourceTree);
+        }
+
+        public void DeleteSourceTree(Guid sourceTreeId)
+        {
+            UnitOfWork.Repository<SourceTree>().Delete(sourceTreeId);
+        }
+
+        public void DeleteSourceTree(SourceTree sourceTree)
+        {
+            UnitOfWork.Repository<SourceTree>().Delete(sourceTree);
+        }
+
+        public void UpdateSourceTree(SourceTree sourceTree)
+        {
+            UnitOfWork.Repository<SourceTree>().Update(sourceTree);
+        }
+
         public SourceTree GetSourceTree(Guid sourceTreeId)
         {
             return UnitOfWork.Repository<SourceTree>().GetById(sourceTreeId);
         }
 
+        /// <summary>
+        /// Get Flat source list
+        /// </summary>
+        /// <param name="itemType">SourceTreeItemType</param>
+        /// <returns>IEnumerable SourceTree</returns>
         public IEnumerable<SourceTree> GetSourceTreeNodes(SourceTreeItemType itemType = SourceTreeItemType.None)
         {
             return VerifyChildNodes(SourceTreeRoot.MasterNode, itemType);
         }
 
+        /// <summary>
+        /// Get Flat source list
+        /// </summary>
+        /// <param name="sourceTreeId">parent source tree Id</param>
+        /// <param name="itemType">SourceTreeItemType</param>
+        /// <returns>IEnumerable SourceTree</returns>
         public IEnumerable<SourceTree> GetSourceTreeNodes(Guid sourceTreeId, SourceTreeItemType itemType = SourceTreeItemType.None)
         {
             return VerifyChildNodes(GetSourceTree(sourceTreeId), itemType);
         }
 
+        /// <summary>
+        /// Get Flat source list
+        /// </summary>
+        /// <param name="parentNode">parent source tree node</param>
+        /// <param name="itemType">SourceTreeItemType</param>
+        /// <returns>IEnumerable SourceTree</returns>
         public IEnumerable<SourceTree> GetSourceTreeNodes(SourceTree parentNode, SourceTreeItemType itemType = SourceTreeItemType.None)
         {
             return VerifyChildNodes(parentNode, itemType);

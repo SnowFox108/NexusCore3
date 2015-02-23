@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('nexusCore.Admin').controller("website", function ($scope, apiCall, dataConverter, tableFilter) {
+    angular.module('nexusCore.Admin').controller("website", function ($scope, apiCall, dataConverter, dialogs, messageBuilder, tableFilter) {
 
         $scope.table = {
             Columns: ["FriendlyId", "Name", "CreatedDate", "UpdatedDate"],
@@ -52,6 +52,15 @@
             }
         };
 
+        $scope.manageDomains = function(website) {
+            var dlg = dialogs.create('/Angular/Views/Domains/index.html', 'domainDialog', website, 'lg');
+            dlg.result.then(function(data) {
+                console.log("returned");
+            }, function() {
+                console.log("Canceled");
+            });
+        }
+
         // Table Paging and Sorting        
         $scope.itemPerPageSetPage = function () {
             tableFilter.itemPerPageSetPage($scope.searchFilter.Filter.Paging, $scope.model.Paging.ItemsPerPage);
@@ -73,6 +82,24 @@
             if (tableFilter.sortOrder($scope.table, $scope.searchFilter.Filter.Sorting, column)) {
                 $scope.querySearch();
             }
+        }
+    });
+
+    // Domain popup
+    angular.module('nexusCore.Admin').controller("domainDialog", function($scope, apiCall, dataConverter, $modalInstance, tableFilter, data) {
+        $scope.website = data;
+
+        $scope.close = function() {
+            $modalInstance.dismiss("Close");
+        }
+
+        $scope.addNew = function () {
+            // TODO: ready to add new domain
+            console.log($scope.Name);
+
+            // TODO: success updated
+            $scope.Name = "";
+            $scope.addNewVisible = false;
         }
     });
 })();

@@ -142,11 +142,29 @@ namespace NexusCore.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Client.
+        /// </summary>
+        public static string ClientDisplaySelect {
+            get {
+                return ResourceManager.GetString("ClientDisplaySelect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please enter a client name.
         /// </summary>
         public static string ClientRequiredName {
             get {
                 return ResourceManager.GetString("ClientRequiredName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Domain.
+        /// </summary>
+        public static string DomainDisplayName {
+            get {
+                return ResourceManager.GetString("DomainDisplayName", resourceCulture);
             }
         }
         
@@ -237,6 +255,15 @@ namespace NexusCore.Common.Resources {
         public static string GeneralDisplayFirstName {
             get {
                 return ResourceManager.GetString("GeneralDisplayFirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active Status.
+        /// </summary>
+        public static string GeneralDisplayIsActive {
+            get {
+                return ResourceManager.GetString("GeneralDisplayIsActive", resourceCulture);
             }
         }
         
@@ -385,11 +412,101 @@ namespace NexusCore.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Site Description.
+        /// </summary>
+        public static string WebsiteDisplayDescription {
+            get {
+                return ResourceManager.GetString("WebsiteDisplayDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fav icon url.
+        /// </summary>
+        public static string WebsiteDisplayFavIconUrl {
+            get {
+                return ResourceManager.GetString("WebsiteDisplayFavIconUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Website ID.
+        /// </summary>
+        public static string WebsiteDisplayFriendlyId {
+            get {
+                return ResourceManager.GetString("WebsiteDisplayFriendlyId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active Status.
+        /// </summary>
+        public static string WebsiteDisplayIsActive {
+            get {
+                return ResourceManager.GetString("WebsiteDisplayIsActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Site Name.
+        /// </summary>
+        public static string WebsiteDisplayName {
+            get {
+                return ResourceManager.GetString("WebsiteDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page title prefix.
+        /// </summary>
+        public static string WebsiteDisplayPageTitlePrefix {
+            get {
+                return ResourceManager.GetString("WebsiteDisplayPageTitlePrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page title suffix.
+        /// </summary>
+        public static string WebsiteDisplayPageTitleSuffix {
+            get {
+                return ResourceManager.GetString("WebsiteDisplayPageTitleSuffix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Site Root Url.
+        /// </summary>
+        public static string WebsiteDisplayRootUrl {
+            get {
+                return ResourceManager.GetString("WebsiteDisplayRootUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select a Fav icon url.
+        /// </summary>
+        public static string WebsiteRequiredFavIconUrl {
+            get {
+                return ResourceManager.GetString("WebsiteRequiredFavIconUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please enter a website name.
         /// </summary>
         public static string WebsiteRequiredName {
             get {
                 return ResourceManager.GetString("WebsiteRequiredName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select a Site Root Url.
+        /// </summary>
+        public static string WebsiteRequiredRootUrl {
+            get {
+                return ResourceManager.GetString("WebsiteRequiredRootUrl", resourceCulture);
             }
         }
     }

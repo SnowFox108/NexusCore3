@@ -228,4 +228,43 @@
   <data name="GeneralDisplayTown" xml:space="preserve">
     <value>Town</value>
   </data>
+  <data name="GeneralDisplayIsActive" xml:space="preserve">
+    <value>Active Status</value>
+  </data>
+  <data name="ClientDisplaySelect" xml:space="preserve">
+    <value>Client</value>
+  </data>
+  <data name="DomainDisplayName" xml:space="preserve">
+    <value>Domain</value>
+  </data>
+  <data name="WebsiteDisplayDescription" xml:space="preserve">
+    <value>Site Description</value>
+  </data>
+  <data name="WebsiteDisplayFavIconUrl" xml:space="preserve">
+    <value>Fav icon url</value>
+  </data>
+  <data name="WebsiteDisplayFriendlyId" xml:space="preserve">
+    <value>Website ID</value>
+  </data>
+  <data name="WebsiteDisplayIsActive" xml:space="preserve">
+    <value>Active Status</value>
+  </data>
+  <data name="WebsiteDisplayName" xml:space="preserve">
+    <value>Site Name</value>
+  </data>
+  <data name="WebsiteDisplayPageTitlePrefix" xml:space="preserve">
+    <value>Page title prefix</value>
+  </data>
+  <data name="WebsiteDisplayPageTitleSuffix" xml:space="preserve">
+    <value>Page title suffix</value>
+  </data>
+  <data name="WebsiteDisplayRootUrl" xml:space="preserve">
+    <value>Site Root Url</value>
+  </data>
+  <data name="WebsiteRequiredFavIconUrl" xml:space="preserve">
+    <value>Please select a Fav icon url</value>
+  </data>
+  <data name="WebsiteRequiredRootUrl" xml:space="preserve">
+    <value>Please select a Site Root Url</value>
+  </data>
 </root>

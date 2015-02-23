@@ -19,16 +19,24 @@ namespace NexusCore.Core.Services.SourceTreeComponent
         {
         }
 
+        public IEnumerable<Guid> GetItemIds(SourceTreeItemType itemType)
+        {
+            return PrimitiveServices.ItemInSourceTreePrimitive.GetItems(GetSourceTreeNodes(itemType).Select(c => c.Id).ToList()).Select(i => i.ItemId);            
+        }
+
+        [Obsolete("replaced with GetItemIds")]
         public IEnumerable<Guid> GetClientNodeIds()
         {
             return GetClientNodes().Select(c => c.Id);
         }
 
+        [Obsolete("replaced with GetSourceTreeNodes")]
         public IEnumerable<SourceTree> GetClientNodes()
         {
             return GetSourceTreeNodes(SourceTreeItemType.Client);
         }
 
+        [Obsolete("replaced with GetItemIds")]
         public IEnumerable<Guid> GetWebsiteIds()
         {
             return
@@ -36,6 +44,7 @@ namespace NexusCore.Core.Services.SourceTreeComponent
                     .Select(i => i.ItemId);
         }
 
+        [Obsolete("replaced with GetSourceTreeNodes")]
         public IEnumerable<SourceTree> GetWebsiteNodes()
         {
             //var clientNodes = GetClientNodes();

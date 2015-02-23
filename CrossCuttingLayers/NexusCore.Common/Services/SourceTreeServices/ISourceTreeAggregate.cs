@@ -8,6 +8,8 @@ namespace NexusCore.Common.Services.SourceTreeServices
         SourceTree CreateClientNode(Guid clientId, string clientName);
         SourceTree CreateWebsiteNode(SourceTree websiteRoot, Guid websiteId, string websiteName);
 
+        void DeleteClientNode(Guid clientId);
+
         /// <summary>
         /// Get SourceTree item by itemId in ItemsInSourceTree table
         /// </summary>

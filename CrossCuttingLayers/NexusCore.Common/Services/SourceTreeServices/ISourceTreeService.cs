@@ -8,6 +8,7 @@ namespace NexusCore.Common.Services.SourceTreeServices
 {
     public interface ISourceTreeService
     {
+        IEnumerable<Guid> GetItemIds(SourceTreeItemType itemType);
         IEnumerable<Guid> GetClientNodeIds();
         IEnumerable<SourceTree> GetClientNodes();
         IEnumerable<Guid> GetWebsiteIds();

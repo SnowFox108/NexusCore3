@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('nexusCore.Admin').controller("client", function ($scope, apiCall, dataConverter, tableFilter) {
+    angular.module('nexusCore.Admin').controller("client", function ($scope, apiCall, dataConverter, dialogs, messageBuilder, tableFilter) {
 
         $scope.table = {
             Columns: ["FriendlyId", "Name", "CreatedDate", "UpdatedDate"],
@@ -42,6 +42,20 @@
                 $scope.model.Clients[i].UpdatedDate = dataConverter.date($scope.model.Clients[i].UpdatedDate);
             }
         };
+
+        $scope.deleteClient = function(client) {
+            var dlg = dialogs.confirm("Confirm to Delete", "Are you sure you want to delete '" + client.Name + "'?");
+            dlg.result.then(function (btn) {
+                apiCall([
+                    { postMethod: "POST", url: "/Clients/DeleteClient", data: { clientId: client.Id } }
+                ]).then(function (data) {
+                    dialogs.notify("Infomation", data[0]);
+                    $scope.itemPerPageSetPage();
+                }, function (error) {
+                    dialogs.error("Error", messageBuilder.modalErrorSummary(error));
+                });
+            });
+        }
 
         // Table Paging and Sorting        
         $scope.itemPerPageSetPage = function () {
