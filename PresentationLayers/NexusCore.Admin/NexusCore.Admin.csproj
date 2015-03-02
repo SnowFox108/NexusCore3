@@ -180,6 +180,7 @@
     <Compile Include="Controllers\InstallationController.cs" />
     <Compile Include="Controllers\RoleManagerController.cs" />
     <Compile Include="Controllers\UserManagerController.cs" />
+    <Compile Include="Controllers\WebServices\DomainServicesController.cs" />
     <Compile Include="Controllers\WebServices\ModelBuilderController.cs" />
     <Compile Include="Controllers\WebsitesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -4234,6 +4235,7 @@
     <Folder Include="assets\global\plugins\jquery-file-upload\server\php\files\thumbnail\" />
     <Folder Include="Content\Images\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\DomainServices\" />
     <Folder Include="Views\Installation\" />
     <Folder Include="Views\ModelBuilder\" />
   </ItemGroup>

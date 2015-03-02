@@ -1,5 +1,6 @@
-F:\MyWorkSpace\NexusCore3\PresentationLayers\ClientTest\bin\Debug\ClientTest.exe.config
+F:\MyWorkSpace\NexusCore3\PresentationLayers\ClientTest\bin\Debug\AutoMapper.Net4.dll
 F:\MyWorkSpace\NexusCore3\PresentationLayers\ClientTest\bin\Debug\Resources\LogCodeRes.resx
+F:\MyWorkSpace\NexusCore3\PresentationLayers\ClientTest\bin\Debug\ClientTest.exe.config
 F:\MyWorkSpace\NexusCore3\PresentationLayers\ClientTest\bin\Debug\ClientTest.exe
 F:\MyWorkSpace\NexusCore3\PresentationLayers\ClientTest\bin\Debug\ClientTest.pdb
 F:\MyWorkSpace\NexusCore3\PresentationLayers\ClientTest\bin\Debug\Autofac.dll

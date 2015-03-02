@@ -8,6 +8,8 @@ namespace NexusCore.Admin.Controllers.WebServices
 {
     public class ModelBuilderController : Controller
     {
+        #region Filters
+
         [HttpGet]
         public JsonResult ClientSearchFilter()
         {
@@ -45,5 +47,17 @@ namespace NexusCore.Admin.Controllers.WebServices
                 DomainName = "",
             }, JsonRequestBehavior.AllowGet);
         }
+
+        #endregion
+
+        #region Models
+
+        [HttpGet]
+        public JsonResult DomainViewModel()
+        {
+            return Json(new DomainModel(), JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
     }
 }

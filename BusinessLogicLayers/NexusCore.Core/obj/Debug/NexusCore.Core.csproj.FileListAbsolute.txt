@@ -1,3 +1,5 @@
+F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core\obj\Debug\NexusCore.Core.csprojResolveAssemblyReference.cache
+F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core\bin\Debug\AutoMapper.Net4.dll
 F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core\bin\Debug\Resources\LogCodeRes.resx
 F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core\bin\Debug\NexusCore.Core.dll.config
 F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core\bin\Debug\NexusCore.Core.dll
@@ -16,7 +18,5 @@ F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core\bin\Debug\Autofac.x
 F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core\bin\Debug\EntityFramework.xml
 F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core\bin\Debug\EntityFramework.SqlServer.xml
 F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core\bin\Debug\AutoMapper.xml
-F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core\obj\Debug\NexusCore.Core.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core\obj\Debug\NexusCore.Core.dll
 F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core\obj\Debug\NexusCore.Core.pdb
-F:\MyWorkSpace\NexusCore3\BusinessLogicLayers\NexusCore.Core\bin\Debug\AutoMapper.Net4.dll

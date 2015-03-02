@@ -142,9 +142,7 @@ namespace NexusCore.Admin.Controllers
         public JsonResult DeleteClient(Guid clientId)
         {
             _clientService.DeleteClient(clientId);
-            if (!ErrorAdapter.ModelState.IsValid)
-                return Json(Response.ReturnError());
-            return Json("Success");
+            return Json(Response.Result());
         }
 
     }

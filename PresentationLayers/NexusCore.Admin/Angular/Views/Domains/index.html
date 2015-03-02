@@ -31,8 +31,11 @@
                                 <th width="60%" class="sortable-column" ng-click="sortOrderSetPage('Name')">
                                     Domain <i class="fa pull-right" ng-class="table.Name"></i>
                                 </th>
-                                <th width="20%">
+                                <th width="10%">
                                     Status
+                                </th>
+                                <th width="10%">
+                                    Primary
                                 </th>
                                 <th width="20%">
                                     Actions
@@ -40,22 +43,30 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="odd gradeX" ng-repeat="item in model.Websites">
+                            <tr class="odd gradeX" ng-repeat="item in model">
                                 <td>
-                                    {{ item.Website.FriendlyId }}
+                                    {{ item.Name }}
                                 </td>
                                 <td>
-                                    {{ item.Website.Name }}
+                                    <span class="label label-sm ng-class:item.Status.Css">
+                                        {{ item.Status.Text }}
+                                    </span>
                                 </td>
                                 <td>
-                                    <a class="label label-primary label-sm" href="/Websites/EditWebsite/{{ item.Website.Id }}" title="{{ user.Website.Name }}"><i class="fa fa-pencil"></i> Edit</a>
-                                    <a class="label label-info label-sm" href="" ng-click="manageDomains(item.Website)" title="{{ item.Name }}"><i class="fa fa-globe"></i> Domains</a>
+                                    <span class="label label-sm ng-class:item.Primary.Css">
+                                        {{ item.Primary.Text }}
+                                    </span>                                    
+                                </td>
+                                <td>
+                                    <a class="label label-primary label-sm" href="" title="{{ item.Name }}"><i class="fa fa-pencil"></i> Edit</a>
+                                    <a class="label label-info label-sm" href="" ng-click="manageDomains(item.Website)" title="{{ item.Name }}"><i class="fa fa-thumbs-o-up"></i> Set to Primary</a>
                                 </td>
                             </tr>
                             <tr class="odd gradeX" ng-show="addNewVisible">
                                 <td>
-                                    <input form="addNewForm" type="text" class="form-control" ng-model="Name" />
+                                    <input form="addNewForm" type="text" class="form-control" ng-model="Name" required />
                                 </td>
+                                <td></td>
                                 <td></td>
                                 <td>
                                     <form id="addNewForm" ng-submit="addNew()">

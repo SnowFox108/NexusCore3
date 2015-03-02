@@ -147,11 +147,8 @@ namespace NexusCore.Admin.Controllers
         [HttpPost]
         public JsonResult DeleteRole(Guid roleId)
         {
-            _membership.DeleteRole(roleId);
-            if (!ErrorAdapter.ModelState.IsValid)
-                return Json(Response.ReturnError());
-            
-            return Json("Success");
+            _membership.DeleteRole(roleId);            
+            return Json(Response.Result());
         }
     }
 }

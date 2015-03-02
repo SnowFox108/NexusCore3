@@ -23,6 +23,8 @@ namespace NexusCore.Core.Services.WebsiteComponent
         {
         }
 
+        #region Website
+
         public void CreateWebsite(WebsiteModel website, DomainModel domain, Guid clientId)
         {
             website.GenerateNewIdentity();
@@ -98,5 +100,70 @@ namespace NexusCore.Core.Services.WebsiteComponent
                 }
             };
         }
+
+        #endregion
+
+        #region Domain
+
+        public IEnumerable<DomainModel> GetDomains(Guid websiteId)
+        {
+            return PrimitiveServices.DomainPrimitive.GetDomains(websiteId).MapTo<DomainModel>();
+        }
+
+        public void CreateDomain(DomainModel model)
+        {
+            PrimitiveServices.DomainPrimitive.CreateDomain(new Domain
+            {
+                WebsiteId = model.WebsiteId,
+                Name = model.Name,
+                IsActive = model.IsActive
+            });
+        }
+
+        public void UpdateDomain(DomainModel model)
+        {
+            var domain = PrimitiveServices.DomainPrimitive.GetDomain(model.Id);
+
+            if (domain.WebSite.ActivedDomainId == domain.Id && model.IsActive == false)
+            {
+                ErrorAdapter.ModelState.AddModelError(logCode: LogCode.ErrorWebsitePrimaryDomainCannotInactive);
+                return;
+            }
+
+            domain.Name = model.Name;
+            domain.IsActive = model.IsActive;
+
+            PrimitiveServices.DomainPrimitive.UpdateDomain(domain);
+        }
+
+        public void DeleteDomain(Guid domainId)
+        {
+            var domain = PrimitiveServices.DomainPrimitive.GetDomain(domainId);
+
+            if (domain.WebSite.ActivedDomainId == domain.Id)
+            {
+                ErrorAdapter.ModelState.AddModelError(logCode: LogCode.ErrorWebsitePrimaryDomainCannotDelete);
+                return;
+            }
+
+            PrimitiveServices.DomainPrimitive.DeleteDomain(domainId);
+        }
+
+        public void SetPrimaryDomain(Guid domainId)
+        {
+            var domain = PrimitiveServices.DomainPrimitive.GetDomain(domainId);
+            var website = domain.WebSite;
+
+            if (website.ActivedDomainId != domain.Id)
+            {
+                website.ActivedDomainId = domainId;
+                PrimitiveServices.WebsitePrimitive.UpdateWebsite(website);
+            }            
+        }
+
+        #endregion
+
+
+
     }
 }

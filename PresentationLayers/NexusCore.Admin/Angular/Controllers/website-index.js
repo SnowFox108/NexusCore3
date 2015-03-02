@@ -59,7 +59,7 @@
             }, function() {
                 console.log("Canceled");
             });
-        }
+        };
 
         // Table Paging and Sorting        
         $scope.itemPerPageSetPage = function () {
@@ -77,29 +77,73 @@
             tableFilter.sortOrderInit($scope.table, $scope.searchFilter.Filter.Sorting);
         };
 
-        $scope.sortOrderSetPage = function (column) {
+        $scope.sortOrderSetPage = function(column) {
             tableFilter.sortOrderResetPage($scope.table);
             if (tableFilter.sortOrder($scope.table, $scope.searchFilter.Filter.Sorting, column)) {
                 $scope.querySearch();
             }
-        }
+        };
     });
 
     // Domain popup
     angular.module('nexusCore.Admin').controller("domainDialog", function($scope, apiCall, dataConverter, $modalInstance, tableFilter, data) {
         $scope.website = data;
 
+        $scope.init = function () {
+            apiCall([
+                {
+                    url: "/ModelBuilder/DomainViewModel"
+                }
+            ]).then(function(data) {
+                $scope.viewModel = data[0];
+                $scope.viewModel.websiteId = $scope.website.Id;
+                $scope.querySearch();
+            });
+        };
+
+        $scope.querySearch = function() {
+            apiCall([
+                { url: "/DomainServices", params: { websiteId: $scope.website.Id } }
+            ]).then(function(data) {
+                $scope.model = data[0];
+                $scope.friendlyDisplay();
+            });
+        };
+
         $scope.close = function() {
             $modalInstance.dismiss("Close");
-        }
+        };
+
+        $scope.friendlyDisplay = function () {
+            var i = $scope.model.length;
+            while (i-- > 0) {
+                $scope.model[i].Status = {
+                    Text: $scope.model[i].IsActive ? "Active"
+                        : "InActive",
+                    Css: $scope.model[i].IsActive ? "label-success"
+                        : "label-danger"
+                }
+                $scope.model[i].Primary = {
+                    Text: $scope.model[i].Id == $scope.website.ActivedDomainId ? "Primary"
+                        : "Sub",
+                    Css: $scope.model[i].Id == $scope.website.ActivedDomainId ? "label-success"
+                        : "label-warning"
+                }
+            }
+        };
+
 
         $scope.addNew = function () {
             // TODO: ready to add new domain
-            console.log($scope.Name);
+            $scope.viewModel.Name = $scope.Name;
+            console.log($scope.viewModel);
 
             // TODO: success updated
             $scope.Name = "";
             $scope.addNewVisible = false;
-        }
+        };
+
+        $scope.init();
+
     });
 })();

@@ -75,11 +75,15 @@ namespace NexusCore.Infrasructure.Models.Enums
         [StoreInLog(false, TaskCategory.System, LogLevel.Error)]
         ErrorClientCannotDeleteDueHasWebsite = 206,
 
+        [StoreInLog(false, TaskCategory.System, LogLevel.Error)]
+        ErrorWebsitePrimaryDomainCannotInactive = 207,
+
+        [StoreInLog(false, TaskCategory.System, LogLevel.Error)]
+        ErrorWebsitePrimaryDomainCannotDelete = 208,
 
         #endregion
 
         #region 600-999 System Warning
-
 
         [StoreInLog(false, TaskCategory.System, LogLevel.Warning)]
         WarningWebsiteSettingCannotReadValue = 601,

@@ -1,3 +1,4 @@
+F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\obj\Debug\NexusCore.WebAPI.Tests.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\AutoMapper.Net4.dll
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\Resources\LogCodeRes.resx
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\NexusCore.WebAPI.Tests.dll.config
@@ -59,6 +60,5 @@ F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\Syst
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\System.Web.WebPages.Razor.xml
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\System.Web.WebPages.xml
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
-F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\obj\Debug\NexusCore.WebAPI.Tests.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\obj\Debug\NexusCore.WebAPI.Tests.dll
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI.Tests\obj\Debug\NexusCore.WebAPI.Tests.pdb

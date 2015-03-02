@@ -1,3 +1,4 @@
+F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI\obj\Debug\NexusCore.WebAPI.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI\bin\AutoMapper.Net4.dll
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI\bin\Resources\LogCodeRes.resx
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI\bin\NexusCore.WebAPI.dll.config
@@ -75,6 +76,5 @@ F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI\bin\Microsoft.AspNet
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI\bin\System.Web.Http.Owin.xml
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI\bin\AutoMapper.xml
-F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI\obj\Debug\NexusCore.WebAPI.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI\obj\Debug\NexusCore.WebAPI.dll
 F:\MyWorkSpace\NexusCore3\WebServiceLayers\NexusCore.WebAPI\obj\Debug\NexusCore.WebAPI.pdb

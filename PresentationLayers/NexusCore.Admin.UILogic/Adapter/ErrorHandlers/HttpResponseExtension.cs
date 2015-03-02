@@ -8,7 +8,14 @@ namespace NexusCore.Admin.UILogic.Adapter.ErrorHandlers
 {
     public static class HttpResponseExtension
     {
-        public static IEnumerable<IErrorModel> ReturnError(this HttpResponseBase response)
+        public static object Result(this HttpResponseBase response)
+        {
+            if (ErrorAdapter.ModelState.IsValid)
+                return "Success";
+            return ReturnError(response);
+        }
+
+        private static IEnumerable<IErrorModel> ReturnError(HttpResponseBase response)
         {
             response.StatusCode = (int) HttpStatusCode.BadRequest;
             return ErrorAdapter.ModelState.Errors;

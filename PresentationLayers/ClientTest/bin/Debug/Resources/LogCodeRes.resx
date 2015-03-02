@@ -141,6 +141,15 @@
   <data name="C205" xml:space="preserve">
     <value>Item Id not found in ItemInSourceTree.</value>
   </data>
+  <data name="C206" xml:space="preserve">
+    <value>Client has website.</value>
+  </data>
+  <data name="C207" xml:space="preserve">
+    <value>Can not set website's primary domain to inactive status.</value>
+  </data>
+  <data name="C208" xml:space="preserve">
+    <value>Can not delete website's primary domain.</value>
+  </data>
   <data name="C50" xml:space="preserve">
     <value>AutofacFactory has not been intialized, have you called Initialize()?</value>
   </data>

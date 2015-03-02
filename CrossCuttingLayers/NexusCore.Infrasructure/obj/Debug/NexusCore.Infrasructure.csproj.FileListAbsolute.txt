@@ -1,5 +1,4 @@
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Infrasructure\bin\Debug\NexusCore.Infrasructure.dll
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Infrasructure\bin\Debug\NexusCore.Infrasructure.pdb
-F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Infrasructure\obj\Debug\NexusCore.Infrasructure.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Infrasructure\obj\Debug\NexusCore.Infrasructure.dll
 F:\MyWorkSpace\NexusCore3\CrossCuttingLayers\NexusCore.Infrasructure\obj\Debug\NexusCore.Infrasructure.pdb
